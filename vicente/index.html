@@ -1,1 +1,568 @@
-<!-- Perfil digital Vicente Gomez S. -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Vicente Gómez | Perfil Digital</title>
+  <meta name="description" content="Perfil digital de Vicente Gómez. VG Desings y LinkTap.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --black: #0b0b0d;
+      --dark: #171719;
+      --gray: #77777d;
+      --light-gray: #f3f3f5;
+      --border: #e9e9ec;
+      --white: #ffffff;
+      --red: #ff1e1e;
+      --blue: #1457ff;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at 15% 0%, rgba(255, 30, 30, 0.045), transparent 28%),
+        radial-gradient(circle at 90% 50%, rgba(20, 87, 255, 0.045), transparent 30%),
+        #f7f7f8;
+      color: var(--black);
+      min-height: 100vh;
+      padding: 40px 18px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* CABECERA */
+
+    .profile {
+      text-align: center;
+      margin-bottom: 34px;
+    }
+
+    .profile-badge {
+      width: 76px;
+      height: 76px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      background: #0b0b0d;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 25px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.12);
+    }
+
+    .profile h1 {
+      font-size: 32px;
+      line-height: 1.1;
+      letter-spacing: -1.2px;
+      margin-bottom: 9px;
+    }
+
+    .profile p {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #707074;
+      max-width: 390px;
+      margin: auto;
+    }
+
+    /* TARJETAS DE MARCA */
+
+    .brand {
+      background: rgba(255,255,255,.92);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 26px;
+      margin-bottom: 18px;
+      box-shadow: 0 12px 40px rgba(0,0,0,.055);
+    }
+
+    .brand-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .logo-box {
+      width: 92px;
+      height: 92px;
+      border-radius: 22px;
+      border: 1px solid #eeeeef;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .logo-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .brand-info {
+      min-width: 0;
+    }
+
+    .brand-name {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -.7px;
+      margin-bottom: 5px;
+    }
+
+    .brand-description {
+      color: #77777b;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    /* DETALLES DE COLOR */
+
+    .vg {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .vg::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 30px;
+      right: 30px;
+      height: 3px;
+      background: var(--red);
+      border-radius: 0 0 10px 10px;
+    }
+
+    .linktap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .linktap::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 30px;
+      right: 30px;
+      height: 3px;
+      background: var(--blue);
+      border-radius: 0 0 10px 10px;
+    }
+
+    /* BOTONES */
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link {
+      text-decoration: none;
+      color: #111;
+      min-height: 62px;
+      border-radius: 17px;
+      background: #f6f6f7;
+      padding: 0 17px;
+      display: flex;
+      align-items: center;
+      transition: transform .18s ease, background .18s ease;
+    }
+
+    .link:hover {
+      transform: translateY(-2px);
+      background: #eeeeef;
+    }
+
+    .link-icon {
+      width: 37px;
+      height: 37px;
+      background: white;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 13px;
+      font-size: 17px;
+      font-weight: 700;
+      box-shadow: 0 2px 10px rgba(0,0,0,.04);
+    }
+
+    .link-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .link-subtitle {
+      color: #88888d;
+      font-size: 12px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .arrow {
+      color: #a0a0a5;
+      font-size: 22px;
+      margin-left: 10px;
+    }
+
+    /* WHATSAPP */
+
+    .contact {
+      margin-top: 26px;
+    }
+
+    .contact-label {
+      text-align: center;
+      color: #8a8a8e;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .whatsapp {
+      text-decoration: none;
+      background: var(--black);
+      color: white;
+      border-radius: 20px;
+      min-height: 72px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      transition: transform .18s ease;
+      box-shadow: 0 12px 30px rgba(0,0,0,.11);
+    }
+
+    .whatsapp:hover {
+      transform: translateY(-2px);
+    }
+
+    .whatsapp-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: white;
+      color: black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 14px;
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .whatsapp-text {
+      flex: 1;
+    }
+
+    .whatsapp-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .whatsapp-number {
+      color: #bcbcc0;
+      font-size: 12px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      text-align: center;
+      padding: 38px 0 10px;
+    }
+
+    .powered {
+      color: #99999e;
+      font-size: 11px;
+      margin-bottom: 7px;
+    }
+
+    .linktap-footer {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      color: #111;
+    }
+
+    .blue-dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: var(--blue);
+      border-radius: 50%;
+      margin-left: 1px;
+      margin-right: 1px;
+      transform: translateY(-9px);
+    }
+
+    .slogan {
+      color: #a0a0a5;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 5px;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 28px 14px;
+      }
+
+      .profile h1 {
+        font-size: 29px;
+      }
+
+      .brand {
+        padding: 21px;
+        border-radius: 24px;
+      }
+
+      .logo-box {
+        width: 78px;
+        height: 78px;
+        border-radius: 18px;
+      }
+
+      .brand-name {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="container">
+
+    <!-- PERFIL -->
+
+    <header class="profile">
+
+      <div class="profile-badge">
+        VG
+      </div>
+
+      <h1>Vicente Gómez</h1>
+
+      <p>
+        Diseño digital, desarrollo web y soluciones NFC para conectar negocios con sus clientes.
+      </p>
+
+    </header>
+
+
+    <!-- VG DESINGS -->
+
+    <section class="brand vg">
+
+      <div class="brand-header">
+
+        <div class="logo-box">
+          <img
+            src="8.png"
+            alt="VG Desings"
+          >
+        </div>
+
+        <div class="brand-info">
+
+          <div class="brand-name">
+            VG Desings
+          </div>
+
+          <div class="brand-description">
+            Diseño web, identidad visual y soluciones digitales.
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="links">
+
+        <a
+          class="link"
+          href="https://vgdesings.cl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="link-icon">↗</div>
+
+          <div class="link-content">
+            <div class="link-title">Sitio web</div>
+            <div class="link-subtitle">vgdesings.cl</div>
+          </div>
+
+          <div class="arrow">›</div>
+
+        </a>
+
+
+        <a
+          class="link"
+          href="https://www.instagram.com/vg_desings"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="link-icon">◎</div>
+
+          <div class="link-content">
+            <div class="link-title">Instagram</div>
+            <div class="link-subtitle">@vg_desings</div>
+          </div>
+
+          <div class="arrow">›</div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- LINKTAP -->
+
+    <section class="brand linktap">
+
+      <div class="brand-header">
+
+        <div class="logo-box">
+          <img
+            src="Diseño sin título (6).png"
+            alt="LinkTap"
+          >
+        </div>
+
+        <div class="brand-info">
+
+          <div class="brand-name">
+            LinkTap
+          </div>
+
+          <div class="brand-description">
+            Tarjetas NFC para conectar tu negocio con el mundo digital.
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="links">
+
+        <a
+          class="link"
+          href="https://www.instagram.com/linktap.cl"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <div class="link-icon">◎</div>
+
+          <div class="link-content">
+            <div class="link-title">Instagram</div>
+            <div class="link-subtitle">@linktap.cl</div>
+          </div>
+
+          <div class="arrow">›</div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+
+    <section class="contact">
+
+      <div class="contact-label">
+        Contacto directo
+      </div>
+
+      <a
+        class="whatsapp"
+        href="https://wa.me/56963074376"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <div class="whatsapp-icon">
+          W
+        </div>
+
+        <div class="whatsapp-text">
+
+          <div class="whatsapp-title">
+            Hablar por WhatsApp
+          </div>
+
+          <div class="whatsapp-number">
+            +56 9 6307 4376
+          </div>
+
+        </div>
+
+        <div class="arrow">›</div>
+
+      </a>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+      <div class="powered">
+        Perfil digital creado con
+      </div>
+
+      <div class="linktap-footer">
+        Link<span class="blue-dot"></span>Tap
+      </div>
+
+      <div class="slogan">
+        Acerca y conecta
+      </div>
+
+    </footer>
+
+  </main>
+
+</body>
+</html>
