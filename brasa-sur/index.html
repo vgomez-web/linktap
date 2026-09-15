@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brasa Sur | Puerto Montt</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f5f1e9;
+  color:#171717;
+}
+
+.hero{
+  min-height:330px;
+  padding:55px 24px 30px;
+  background:
+    linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.72)),
+    url('https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1200&q=85')
+    center/cover;
+  color:white;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+.badge{
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+  opacity:.8;
+}
+
+h1{
+  font-size:46px;
+  line-height:.95;
+  margin-bottom:12px;
+}
+
+.hero p{
+  font-size:15px;
+  line-height:1.5;
+  opacity:.9;
+  max-width:300px;
+}
+
+.actions{
+  padding:20px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.btn{
+  border:none;
+  border-radius:16px;
+  padding:20px 10px;
+  text-decoration:none;
+  text-align:center;
+  font-weight:700;
+  font-size:15px;
+  display:block;
+}
+
+.menu-btn{
+  background:#171717;
+  color:white;
+}
+
+.review-btn{
+  background:#fff;
+  color:#171717;
+  border:1px solid #ddd5c7;
+}
+
+.review-btn span{
+  display:block;
+  color:#e8a317;
+  font-size:18px;
+  margin-bottom:4px;
+}
+
+section{
+  padding:25px 20px;
+}
+
+.section-title{
+  font-size:27px;
+  margin-bottom:5px;
+}
+
+.subtitle{
+  color:#777;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+.item{
+  background:white;
+  border-radius:18px;
+  margin-bottom:13px;
+  padding:16px;
+  display:flex;
+  justify-content:space-between;
+  gap:15px;
+  box-shadow:0 3px 15px rgba(0,0,0,.04);
+}
+
+.item h3{
+  font-size:16px;
+  margin-bottom:5px;
+}
+
+.item p{
+  font-size:13px;
+  color:#777;
+  line-height:1.4;
+}
+
+.price{
+  font-weight:bold;
+  white-space:nowrap;
+}
+
+.info{
+  background:#171717;
+  color:white;
+  padding:30px 20px;
+}
+
+.info h2{
+  margin-bottom:15px;
+}
+
+.info p{
+  color:#bbb;
+  font-size:14px;
+  line-height:1.8;
+}
+
+footer{
+  background:#111;
+  color:#777;
+  text-align:center;
+  padding:20px;
+  font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="hero">
+  <div class="badge">Puerto Montt · Chile</div>
+  <h1>BRASA<br>SUR</h1>
+  <p>Cocina del sur, fuego y productos locales. Hecho para compartir.</p>
+</div>
+
+<div class="actions">
+  <a class="btn menu-btn" href="#menu">
+    Ver menú
+  </a>
+
+  <a class="btn review-btn" href="#resenas">
+    <span>★★★★★</span>
+    Dejar reseña
+  </a>
+</div>
+
+<section id="menu">
+  <h2 class="section-title">Nuestra carta</h2>
+  <p class="subtitle">Sabores del sur preparados al momento.</p>
+
+  <div class="item">
+    <div>
+      <h3>Salmón a la brasa</h3>
+      <p>Salmón austral, papas rústicas y vegetales asados.</p>
+    </div>
+    <div class="price">$15.900</div>
+  </div>
+
+  <div class="item">
+    <div>
+      <h3>Plateada al fuego</h3>
+      <p>Cocción lenta, puré rústico y reducción de vino tinto.</p>
+    </div>
+    <div class="price">$14.900</div>
+  </div>
+
+  <div class="item">
+    <div>
+      <h3>Risotto de hongos</h3>
+      <p>Hongos, parmesano y hierbas frescas.</p>
+    </div>
+    <div class="price">$12.500</div>
+  </div>
+
+  <div class="item">
+    <div>
+      <h3>Tabla Brasa Sur</h3>
+      <p>Carnes, papas, vegetales y salsas de la casa para compartir.</p>
+    </div>
+    <div class="price">$21.900</div>
+  </div>
+</section>
+
+<section id="resenas">
+  <h2 class="section-title">¿Cómo estuvo todo?</h2>
+  <p class="subtitle">Tu opinión nos ayuda a seguir mejorando.</p>
+
+  <a class="btn menu-btn" href="#">
+    ★★★★★ &nbsp; Dejar una reseña
+  </a>
+</section>
+
+<div class="info">
+  <h2>Brasa Sur</h2>
+  <p>
+    Puerto Montt, Chile<br>
+    Lunes a domingo · 12:00 – 23:00<br>
+    Reservas · +56 9 5555 5555
+  </p>
+</div>
+
+<footer>
+  BRASA SUR · RESTAURANTE
+</footer>
+
+</body>
+</html>
