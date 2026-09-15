@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reseña | Brasa Sur</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f8f9fa;
+  color:#202124;
+  min-height:100vh;
+}
+
+.top{
+  background:white;
+  padding:18px 20px;
+  border-bottom:1px solid #e5e5e5;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.google{
+  font-size:20px;
+  font-weight:600;
+}
+
+.container{
+  max-width:480px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+.card{
+  background:white;
+  border-radius:18px;
+  padding:28px 22px;
+  box-shadow:0 2px 12px rgba(0,0,0,.08);
+}
+
+.restaurant{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:28px;
+}
+
+.logo{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#171717;
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  font-size:18px;
+}
+
+.restaurant h1{
+  font-size:21px;
+  margin-bottom:4px;
+}
+
+.restaurant p{
+  color:#70757a;
+  font-size:14px;
+}
+
+.question{
+  font-size:19px;
+  font-weight:600;
+  margin-bottom:18px;
+}
+
+.stars{
+  display:flex;
+  justify-content:space-between;
+  max-width:310px;
+  margin-bottom:25px;
+}
+
+.star{
+  font-size:44px;
+  color:#dadce0;
+  cursor:pointer;
+  transition:.15s;
+}
+
+.star.active{
+  color:#fbbc04;
+}
+
+textarea{
+  width:100%;
+  min-height:110px;
+  resize:none;
+  border:1px solid #dadce0;
+  border-radius:10px;
+  padding:14px;
+  font-family:inherit;
+  font-size:15px;
+  outline:none;
+  margin-bottom:18px;
+}
+
+textarea:focus{
+  border:2px solid #1a73e8;
+}
+
+button{
+  width:100%;
+  border:0;
+  border-radius:24px;
+  padding:14px;
+  background:#1a73e8;
+  color:white;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.demo{
+  text-align:center;
+  color:#9aa0a6;
+  font-size:11px;
+  margin-top:18px;
+}
+
+.thanks{
+  display:none;
+  text-align:center;
+  padding:25px 5px;
+}
+
+.thanks .check{
+  width:65px;
+  height:65px;
+  background:#e6f4ea;
+  color:#188038;
+  border-radius:50%;
+  margin:0 auto 18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+}
+
+.thanks h2{
+  margin-bottom:8px;
+}
+
+.thanks p{
+  color:#70757a;
+  line-height:1.5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="top">
+  <div class="google">Reseñas</div>
+</div>
+
+<div class="container">
+
+  <div class="card" id="reviewCard">
+
+    <div class="restaurant">
+      <div class="logo">BS</div>
+
+      <div>
+        <h1>Brasa Sur</h1>
+        <p>Restaurante · Puerto Montt</p>
+      </div>
+    </div>
+
+    <div class="question">
+      ¿Cómo fue tu experiencia?
+    </div>
+
+    <div class="stars">
+      <span class="star" onclick="rate(1)">★</span>
+      <span class="star" onclick="rate(2)">★</span>
+      <span class="star" onclick="rate(3)">★</span>
+      <span class="star" onclick="rate(4)">★</span>
+      <span class="star" onclick="rate(5)">★</span>
+    </div>
+
+    <textarea placeholder="Cuéntanos sobre tu experiencia (opcional)"></textarea>
+
+    <button onclick="sendReview()">
+      Publicar reseña
+    </button>
+
+  </div>
+
+  <div class="card thanks" id="thanks">
+
+    <div class="check">✓</div>
+
+    <h2>¡Gracias por tu reseña!</h2>
+
+    <p>
+      Tu opinión ayuda a Brasa Sur
+      a seguir mejorando.
+    </p>
+
+  </div>
+
+  <div class="demo">
+    Demostración de experiencia de reseñas · Brasa Sur es un negocio ficticio
+  </div>
+
+</div>
+
+<script>
+let rating = 0;
+
+function rate(value){
+  rating = value;
+
+  const stars = document.querySelectorAll('.star');
+
+  stars.forEach((star,index)=>{
+    if(index < value){
+      star.classList.add('active');
+    }else{
+      star.classList.remove('active');
+    }
+  });
+}
+
+function sendReview(){
+
+  if(rating === 0){
+    alert("Selecciona una cantidad de estrellas");
+    return;
+  }
+
+  document.getElementById("reviewCard").style.display="none";
+  document.getElementById("thanks").style.display="block";
+}
+</script>
+
+</body>
+</html>
