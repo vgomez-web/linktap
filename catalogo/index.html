@@ -7,13 +7,14 @@
 <title>LinkTap | Acerca y conecta</title>
 
 <style>
+
 :root{
-  --black:#111111;
+  --black:#0b0d10;
   --white:#ffffff;
-  --blue:#168cff;
-  --grey:#707070;
-  --light:#f6f7f8;
-  --border:#e8e8e8;
+  --blue:#1457ff;
+  --grey:#70747c;
+  --light:#f5f6f8;
+  --border:#e9eaed;
 }
 
 *{
@@ -27,475 +28,790 @@ html{
 }
 
 body{
-  font-family:Arial, Helvetica, sans-serif;
-  background:var(--white);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  background:#fff;
   color:var(--black);
+  overflow-x:hidden;
+}
+
+img{
+  display:block;
+  max-width:100%;
 }
 
 .container{
-  width:min(1100px, 90%);
+  width:min(1120px,90%);
   margin:auto;
 }
 
-/* NAV */
+
+/* =========================
+   NAVEGACIÓN
+========================= */
 
 nav{
-  height:70px;
+  height:72px;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   border-bottom:1px solid var(--border);
 }
 
-.logo{
-  font-size:25px;
+.brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:23px;
   font-weight:800;
   letter-spacing:-1px;
 }
 
-.logo .i{
-  position:relative;
-}
-
-.logo .i::before{
-  content:"";
-  width:6px;
-  height:6px;
-  background:var(--blue);
+.brand-dot{
+  width:7px;
+  height:7px;
   border-radius:50%;
-  position:absolute;
-  top:-2px;
-  left:50%;
-  transform:translateX(-50%);
+  background:var(--blue);
 }
 
-.nav-text{
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:1.5px;
+.nav-slogan{
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1.7px;
 }
 
-/* HERO */
+
+/* =========================
+   BOTONES
+========================= */
+
+.button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  padding:0 27px;
+  border-radius:100px;
+  background:var(--black);
+  color:white;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:.2px;
+  transition:.2s;
+}
+
+.button:hover{
+  transform:translateY(-2px);
+}
+
+.button.blue{
+  background:var(--blue);
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
-  min-height:640px;
+  min-height:650px;
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:.9fr 1.1fr;
   align-items:center;
-  gap:50px;
-  padding:70px 0;
+  gap:55px;
+  padding:65px 0 80px;
 }
 
 .eyebrow{
   color:var(--blue);
-  font-size:12px;
+  font-size:11px;
   font-weight:800;
-  letter-spacing:2px;
-  margin-bottom:15px;
+  letter-spacing:2.2px;
+  margin-bottom:17px;
 }
 
 .hero h1{
-  font-size:64px;
-  line-height:.95;
-  letter-spacing:-4px;
-  max-width:550px;
+  font-size:68px;
+  line-height:.94;
+  letter-spacing:-4.5px;
+  max-width:530px;
 }
 
-.hero p{
+.hero-text{
   font-size:18px;
+  line-height:1.55;
   color:var(--grey);
-  line-height:1.6;
-  max-width:480px;
-  margin:25px 0 30px;
+  max-width:470px;
+  margin:25px 0 31px;
 }
 
-.hero-card{
-  background:var(--light);
-  min-height:420px;
-  border-radius:35px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:40px;
+
+/* FOTO REAL TARJETA */
+
+.product-stage{
   position:relative;
-  overflow:hidden;
-}
+  min-height:470px;
+  border-radius:38px;
+  background:
+    radial-gradient(
+      circle at 75% 25%,
+      rgba(20,87,255,.09),
+      transparent 30%
+    ),
+    #f5f6f8;
 
-.card-placeholder{
-  width:330px;
-  aspect-ratio:1.586;
-  background:white;
-  border-radius:16px;
-  box-shadow:0 30px 60px rgba(0,0,0,.13);
-  transform:rotate(-6deg);
-  padding:30px;
   display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-}
-
-.card-logo{
-  font-size:29px;
-  font-weight:800;
-}
-
-.card-logo span{
-  color:var(--blue);
-}
-
-.card-wave{
-  color:#c8c8c8;
-  font-size:38px;
-  text-align:right;
-}
-
-.card-slogan{
-  font-size:8px;
-  letter-spacing:2px;
-  font-weight:700;
-}
-
-.btn{
-  display:inline-flex;
   align-items:center;
   justify-content:center;
-  text-decoration:none;
-  background:var(--black);
-  color:white;
-  padding:17px 25px;
-  border-radius:100px;
-  font-size:14px;
-  font-weight:700;
-  transition:.2s;
+  overflow:hidden;
+  padding:35px;
 }
 
-.btn:hover{
-  transform:translateY(-2px);
+.product-stage::before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  border:1px solid rgba(20,87,255,.10);
+  border-radius:50%;
+  right:-180px;
+  top:-190px;
 }
 
-.btn-blue{
-  background:var(--blue);
+.product-image{
+  width:100%;
+  max-width:510px;
+  max-height:390px;
+  object-fit:contain;
+  position:relative;
+  z-index:2;
+  filter:drop-shadow(0 28px 28px rgba(0,0,0,.10));
 }
 
-/* HOW */
-
-.section{
-  padding:100px 0;
+.tap-label{
+  position:absolute;
+  bottom:24px;
+  left:25px;
+  z-index:3;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:1.8px;
+  color:#777;
 }
 
-.center{
-  text-align:center;
-}
+
+/* =========================
+   TÍTULOS
+========================= */
 
 .section-label{
   color:var(--blue);
-  font-size:11px;
+  font-size:10px;
   font-weight:800;
-  letter-spacing:2px;
-  margin-bottom:12px;
+  letter-spacing:2.3px;
+  margin-bottom:13px;
 }
 
-.section h2{
-  font-size:45px;
-  letter-spacing:-2px;
-  margin-bottom:18px;
+.section-title{
+  font-size:47px;
+  letter-spacing:-2.7px;
+  line-height:1;
 }
 
-.section-intro{
+.section-description{
   color:var(--grey);
   max-width:570px;
-  margin:0 auto 50px;
+  margin:18px auto 0;
+  font-size:16px;
   line-height:1.6;
+}
+
+
+/* =========================
+   CÓMO FUNCIONA
+========================= */
+
+.intro{
+  padding:100px 0;
+  text-align:center;
 }
 
 .steps{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:20px;
+  gap:14px;
+  margin-top:50px;
 }
 
 .step{
   background:var(--light);
-  padding:35px;
   border-radius:25px;
+  padding:30px;
   text-align:left;
 }
 
-.number{
+.step-number{
   color:var(--blue);
-  font-weight:800;
-  margin-bottom:45px;
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:40px;
 }
 
 .step h3{
-  font-size:21px;
-  margin-bottom:10px;
+  font-size:20px;
+  margin-bottom:7px;
 }
 
 .step p{
   color:var(--grey);
-  line-height:1.5;
-  font-size:14px;
-}
-
-/* OPTIONS */
-
-.dark{
-  background:#101010;
-  color:white;
-}
-
-.dark .section-intro{
-  color:#aaa;
-}
-
-.options{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
-  max-width:800px;
-  margin:auto;
-}
-
-.option{
-  padding:25px;
-  border:1px solid #2b2b2b;
-  border-radius:20px;
-  display:flex;
-  align-items:center;
-  gap:18px;
-  background:#161616;
-}
-
-.icon{
-  min-width:45px;
-  height:45px;
-  border-radius:50%;
-  background:#222;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:19px;
-}
-
-.option h3{
-  font-size:16px;
-  margin-bottom:4px;
-}
-
-.option p{
-  color:#888;
   font-size:13px;
+  line-height:1.5;
 }
 
-/* DEMO */
 
-.demo-grid{
+/* =========================
+   ISOTIPO
+========================= */
+
+.logo-break{
+  padding:20px 0 100px;
+  display:flex;
+  justify-content:center;
+}
+
+.logo-break img{
+  width:155px;
+  height:155px;
+  object-fit:contain;
+}
+
+
+/* =========================
+   FUNCIONES
+========================= */
+
+.use-cases{
+  background:#0b0d10;
+  color:white;
+  padding:105px 0 115px;
+}
+
+.use-cases .section-description{
+  color:#999da4;
+}
+
+.use-header{
+  text-align:center;
+  margin-bottom:65px;
+}
+
+.use{
+  min-height:420px;
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-top:45px;
+  align-items:center;
+  gap:70px;
+  border-top:1px solid #23262b;
+  overflow:hidden;
 }
 
-.demo{
-  border:1px solid var(--border);
-  border-radius:25px;
-  padding:35px;
+.use:last-child{
+  border-bottom:1px solid #23262b;
 }
 
-.demo-tag{
-  display:inline-block;
-  background:#eef7ff;
+.use.reverse .use-copy{
+  order:2;
+}
+
+.use.reverse .visual{
+  order:1;
+}
+
+.use-number{
   color:var(--blue);
-  padding:7px 11px;
-  border-radius:20px;
-  font-size:10px;
-  font-weight:800;
-  margin-bottom:25px;
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:2px;
+  margin-bottom:15px;
 }
 
-.demo h3{
-  font-size:25px;
-  margin-bottom:10px;
+.use h3{
+  font-size:42px;
+  letter-spacing:-2px;
+  line-height:1;
+  margin-bottom:14px;
 }
 
-.demo p{
-  color:var(--grey);
-  font-size:14px;
-  line-height:1.5;
-  margin-bottom:25px;
+.use p{
+  color:#9da1a8;
+  font-size:15px;
+  line-height:1.6;
+  max-width:390px;
 }
 
-.demo a{
-  color:var(--black);
-  font-size:13px;
-  font-weight:800;
-  text-decoration:none;
+
+/* =========================
+   CELULARES
+========================= */
+
+.visual{
+  height:380px;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  overflow:hidden;
+  position:relative;
 }
 
-/* PRICE */
+.visual::before{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:rgba(20,87,255,.09);
+  filter:blur(30px);
+  bottom:-120px;
+}
 
-.price-box{
-  max-width:650px;
-  margin:auto;
-  padding:55px 35px;
-  background:var(--light);
-  border-radius:35px;
+.phone{
+  width:245px;
+  height:430px;
+  border:8px solid #24272c;
+  background:#111;
+  border-radius:42px 42px 0 0;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 35px 80px rgba(0,0,0,.45);
+  transform:translateY(55px);
+  z-index:2;
+}
+
+.phone::before{
+  content:"";
+  position:absolute;
+  width:78px;
+  height:22px;
+  background:#08090b;
+  border-radius:30px;
+  top:9px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:5;
+}
+
+.phone img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+}
+
+
+/* RECORTES */
+
+.instagram-screen img{
+  object-position:center top;
+}
+
+.review-screen img{
+  object-position:center 5%;
+}
+
+.profile-screen img{
+  object-position:center top;
+}
+
+.menu-screen img{
+  object-position:center top;
+}
+
+
+/* =========================
+   MÁS OPCIONES
+========================= */
+
+.more{
+  padding:100px 0;
   text-align:center;
 }
 
-.price-box h2{
-  font-size:38px;
-  margin-bottom:10px;
+.more h2{
+  font-size:50px;
+  letter-spacing:-3px;
+  margin-bottom:20px;
+}
+
+.more p{
+  max-width:650px;
+  margin:auto;
+  color:var(--grey);
+  line-height:1.7;
+}
+
+.more-tags{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-top:35px;
+}
+
+.more-tags span{
+  background:var(--light);
+  border:1px solid var(--border);
+  padding:11px 17px;
+  border-radius:100px;
+  font-size:12px;
+  font-weight:700;
+}
+
+
+/* =========================
+   PRECIO
+========================= */
+
+.buy{
+  padding:30px 0 110px;
+}
+
+.buy-card{
+  background:var(--light);
+  border-radius:38px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+  min-height:520px;
+}
+
+.buy-product{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:45px;
+  position:relative;
+  background:white;
+}
+
+.buy-product img{
+  width:100%;
+  max-width:440px;
+  max-height:360px;
+  object-fit:contain;
+  filter:drop-shadow(0 25px 25px rgba(0,0,0,.10));
+}
+
+.buy-content{
+  padding:60px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.buy-content h2{
+  font-size:39px;
+  letter-spacing:-2px;
+  line-height:1;
 }
 
 .price{
-  font-size:58px;
-  font-weight:800;
+  font-size:61px;
+  font-weight:850;
   letter-spacing:-3px;
-  margin:25px 0 5px;
+  margin:27px 0 3px;
 }
 
-.price-small{
+.price-detail{
   color:var(--grey);
-  font-size:13px;
+  font-size:12px;
+  margin-bottom:25px;
+}
+
+.benefits{
   margin-bottom:30px;
 }
 
-.features{
-  margin:30px auto;
-  max-width:350px;
-  text-align:left;
-}
-
-.features div{
-  padding:12px 0;
-  border-bottom:1px solid #ddd;
-  font-size:14px;
+.benefit{
+  border-bottom:1px solid #dddfe3;
+  padding:11px 0;
+  font-size:13px;
 }
 
 .check{
   color:var(--blue);
-  font-weight:bold;
-  margin-right:8px;
+  font-weight:900;
+  margin-right:7px;
 }
 
-/* CTA */
+
+/* =========================
+   FINAL
+========================= */
 
 .final{
-  padding:110px 20px;
+  background:var(--black);
+  color:white;
   text-align:center;
+  padding:110px 20px;
+}
+
+.final-logo{
+  width:105px;
+  height:105px;
+  object-fit:contain;
+  margin:0 auto 28px;
+  background:white;
+  border-radius:24px;
 }
 
 .final h2{
   font-size:52px;
   letter-spacing:-3px;
-  max-width:650px;
-  margin:0 auto 18px;
+  line-height:1;
 }
 
 .final p{
-  color:var(--grey);
-  margin-bottom:30px;
+  color:#92969d;
+  margin:18px 0 28px;
 }
 
-/* FOOTER */
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
-  border-top:1px solid var(--border);
-  padding:35px 0;
+  padding:30px 0;
+  border-top:1px solid #1f2226;
+  background:var(--black);
+  color:#777c83;
 }
 
-.footer{
+.footer-inner{
   display:flex;
   justify-content:space-between;
-  font-size:12px;
-  color:#777;
+  align-items:center;
+  font-size:11px;
 }
 
-.footer strong{
-  color:#111;
+.footer-inner strong{
+  color:white;
 }
 
-/* MOBILE */
 
-@media(max-width:750px){
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:760px){
 
   .container{
-    width:88%;
+    width:89%;
+  }
+
+  nav{
+    height:65px;
+  }
+
+  .brand{
+    font-size:21px;
+  }
+
+  .nav-slogan{
+    font-size:8px;
   }
 
   .hero{
-    grid-template-columns:1fr;
-    padding:45px 0 60px;
     min-height:auto;
-    gap:35px;
+    grid-template-columns:1fr;
+    padding:50px 0 65px;
+    gap:38px;
   }
 
   .hero h1{
-    font-size:48px;
-    letter-spacing:-3px;
+    font-size:50px;
+    letter-spacing:-3.3px;
   }
 
-  .hero p{
+  .hero-text{
     font-size:16px;
+    margin:20px 0 27px;
   }
 
-  .hero-card{
+  .product-stage{
     min-height:330px;
-    border-radius:25px;
+    border-radius:27px;
+    padding:25px;
   }
 
-  .card-placeholder{
-    width:270px;
+  .product-image{
+    max-height:280px;
   }
 
-  .section{
-    padding:75px 0;
+  .intro{
+    padding:80px 0 60px;
   }
 
-  .section h2{
-    font-size:36px;
+  .section-title{
+    font-size:38px;
   }
 
-  .steps,
-  .options,
-  .demo-grid{
+  .section-description{
+    font-size:14px;
+  }
+
+  .steps{
     grid-template-columns:1fr;
+    margin-top:38px;
   }
 
   .step{
-    padding:28px;
+    padding:26px;
   }
 
-  .number{
-    margin-bottom:30px;
+  .step-number{
+    margin-bottom:22px;
   }
 
-  .final h2{
+  .logo-break{
+    padding:10px 0 70px;
+  }
+
+  .logo-break img{
+    width:120px;
+    height:120px;
+  }
+
+  .use-cases{
+    padding:80px 0;
+  }
+
+  .use-header{
+    margin-bottom:45px;
+  }
+
+  .use{
+    grid-template-columns:1fr;
+    gap:10px;
+    padding-top:48px;
+    min-height:auto;
+  }
+
+  .use.reverse .use-copy,
+  .use.reverse .visual{
+    order:initial;
+  }
+
+  .use-copy{
+    text-align:left;
+  }
+
+  .use h3{
+    font-size:36px;
+  }
+
+  .use p{
+    font-size:14px;
+  }
+
+  .visual{
+    height:315px;
+    margin-top:10px;
+  }
+
+  .phone{
+    width:220px;
+    height:390px;
+    transform:translateY(75px);
+  }
+
+  .more{
+    padding:80px 0;
+  }
+
+  .more h2{
     font-size:40px;
   }
 
-  .price{
-    font-size:50px;
+  .buy{
+    padding:0 0 80px;
   }
 
-  .footer{
-    flex-direction:column;
-    gap:8px;
+  .buy-card{
+    grid-template-columns:1fr;
+    border-radius:28px;
   }
+
+  .buy-product{
+    min-height:300px;
+    padding:30px;
+  }
+
+  .buy-product img{
+    max-height:260px;
+  }
+
+  .buy-content{
+    padding:40px 28px;
+  }
+
+  .buy-content h2{
+    font-size:34px;
+  }
+
+  .price{
+    font-size:53px;
+  }
+
+  .buy-content .button{
+    width:100%;
+  }
+
+  .final{
+    padding:85px 20px;
+  }
+
+  .final h2{
+    font-size:42px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    gap:7px;
+  }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================
+     NAV
+========================= -->
 
 <div class="container">
 
 <nav>
-  <div class="logo">LinkTap</div>
-  <div class="nav-text">ACERCA Y CONECTA</div>
+
+  <div class="brand">
+    LinkTap
+    <span class="brand-dot"></span>
+  </div>
+
+  <div class="nav-slogan">
+    ACERCA Y CONECTA
+  </div>
+
 </nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <section class="hero">
 
@@ -510,35 +826,30 @@ footer{
       en un tap.
     </h1>
 
-    <p>
-      Conecta a tus clientes con tu mundo digital
-      simplemente acercando su celular.
+    <p class="hero-text">
+      Convierte un punto físico en una conexión digital.
+      Tus clientes solo acercan su celular.
     </p>
 
-    <a href="#precio" class="btn">
-      CONOCE LINKTAP
+    <a href="#funciones" class="button">
+      DESCUBRE LINKTAP
     </a>
 
   </div>
 
-  <div class="hero-card">
 
-    <!-- Después reemplazaremos esto por tu foto real -->
+  <div class="product-stage">
 
-    <div class="card-placeholder">
+    <!-- FOTO ORIGINAL DE LA TARJETA -->
 
-      <div class="card-logo">
-        Link<span>•</span>Tap
-      </div>
+    <img
+      class="product-image"
+      src="1%20(1).png"
+      alt="Tarjeta NFC LinkTap"
+    >
 
-      <div class="card-wave">
-        ))) 
-      </div>
-
-      <div class="card-slogan">
-        ACERCA Y CONECTA
-      </div>
-
+    <div class="tap-label">
+      ACERCA Y CONECTA
     </div>
 
   </div>
@@ -548,48 +859,82 @@ footer{
 </div>
 
 
-<!-- CÓMO FUNCIONA -->
 
-<section class="section">
+<!-- =========================
+     CÓMO FUNCIONA
+========================= -->
 
-<div class="container center">
+<section class="intro">
+
+<div class="container">
 
   <div class="section-label">
     ASÍ DE SIMPLE
   </div>
 
-  <h2>Acerca. Toca. Conecta.</h2>
+  <h2 class="section-title">
+    Acerca. Toca. Conecta.
+  </h2>
 
-  <p class="section-intro">
+  <p class="section-description">
     LinkTap utiliza tecnología NFC para llevar a tus clientes
     directamente al contenido que quieres compartir.
   </p>
 
+
   <div class="steps">
 
-    <div class="step">
-      <div class="number">01</div>
-      <h3>Acerca el celular</h3>
-      <p>
-        El cliente acerca su teléfono a la tarjeta LinkTap.
-      </p>
-    </div>
 
     <div class="step">
-      <div class="number">02</div>
-      <h3>Aparece el enlace</h3>
+
+      <div class="step-number">
+        01
+      </div>
+
+      <h3>
+        Acerca
+      </h3>
+
       <p>
-        El celular reconoce la información almacenada en la tarjeta.
+        Tu cliente acerca su celular a la tarjeta LinkTap.
       </p>
+
     </div>
 
+
     <div class="step">
-      <div class="number">03</div>
-      <h3>Listo</h3>
+
+      <div class="step-number">
+        02
+      </div>
+
+      <h3>
+        Aparece
+      </h3>
+
       <p>
-        Accede directamente al contenido configurado para tu negocio.
+        El teléfono reconoce la información de la tarjeta.
       </p>
+
     </div>
+
+
+    <div class="step">
+
+      <div class="step-number">
+        03
+      </div>
+
+      <h3>
+        Conecta
+      </h3>
+
+      <p>
+        Accede directamente al contenido de tu negocio.
+      </p>
+
+    </div>
+
 
   </div>
 
@@ -598,204 +943,260 @@ footer{
 </section>
 
 
-<!-- POSIBILIDADES -->
 
-<section class="section dark">
+<!-- =========================
+     LOGO / ISOTIPO ORIGINAL
+========================= -->
 
-<div class="container center">
+<div class="logo-break">
 
-  <div class="section-label">
-    UNA TARJETA
-  </div>
-
-  <h2>Muchas posibilidades.</h2>
-
-  <p class="section-intro">
-    LinkTap puede dirigir a tus clientes al contenido
-    que más sentido tenga para tu negocio.
-  </p>
-
-  <div class="options">
-
-    <div class="option">
-      <div class="icon">★</div>
-      <div>
-        <h3>Reseñas de Google</h3>
-        <p>Facilita el acceso para dejar una reseña.</p>
-      </div>
-    </div>
-
-    <div class="option">
-      <div class="icon">@</div>
-      <div>
-        <h3>Instagram</h3>
-        <p>Lleva directamente a tu perfil.</p>
-      </div>
-    </div>
-
-    <div class="option">
-      <div class="icon">↗</div>
-      <div>
-        <h3>WhatsApp</h3>
-        <p>Inicia una conversación con tu negocio.</p>
-      </div>
-    </div>
-
-    <div class="option">
-      <div class="icon">☰</div>
-      <div>
-        <h3>Menú digital</h3>
-        <p>Tu carta disponible desde el celular.</p>
-      </div>
-    </div>
-
-    <div class="option">
-      <div class="icon">◉</div>
-      <div>
-        <h3>Perfil digital</h3>
-        <p>Toda la información de tu negocio en un lugar.</p>
-      </div>
-    </div>
-
-    <div class="option">
-      <div class="icon">⌂</div>
-      <div>
-        <h3>Sitio web</h3>
-        <p>Conecta directamente con tu página.</p>
-      </div>
-    </div>
-
-  </div>
+  <img
+    src="ACERCA%20Y%20CONECTA%20(1080%20x%201080%20px)%20(2).png"
+    alt="Isotipo LinkTap"
+  >
 
 </div>
 
-</section>
 
 
-<!-- DEMOS -->
+<!-- =========================
+     FUNCIONES
+========================= -->
 
-<section class="section">
+<section class="use-cases" id="funciones">
 
 <div class="container">
 
-  <div class="center">
+
+  <div class="use-header">
 
     <div class="section-label">
-      MÍRALO EN ACCIÓN
+      UNA TARJETA
     </div>
 
-    <h2>No solo te lo contamos.</h2>
+    <h2 class="section-title">
+      Muchas formas de conectar.
+    </h2>
 
-    <p class="section-intro">
-      Prueba algunos ejemplos de lo que puedes hacer con LinkTap.
+    <p class="section-description">
+      Elige dónde quieres llevar a tus clientes.
+      LinkTap hace el resto.
     </p>
 
   </div>
 
-  <div class="demo-grid">
 
-    <div class="demo">
 
-      <div class="demo-tag">
-        RESTAURANTE
+  <!-- =====================
+       INSTAGRAM
+  ====================== -->
+
+  <article class="use">
+
+    <div class="use-copy">
+
+      <div class="use-number">
+        01 · INSTAGRAM
       </div>
 
-      <h3>Menú + reseñas</h3>
+      <h3>
+        De un tap<br>
+        a tu perfil.
+      </h3>
 
       <p>
-        Mira cómo un restaurante puede entregar su menú digital
-        y facilitar el acceso a sus reseñas desde un solo lugar.
+        Tus clientes pueden llegar directamente a tu Instagram
+        sin tener que buscar el nombre de tu negocio.
       </p>
-
-      <a href="../brasa-sur/" target="_blank">
-        VER DEMO →
-      </a>
 
     </div>
 
-    <div class="demo">
 
-      <div class="demo-tag">
-        PERFIL DIGITAL
+    <div class="visual">
+
+      <div class="phone instagram-screen">
+
+        <img
+          src="WhatsApp%20Image%202026-09-15%20at%2011.53.40%20PM.jpeg"
+          alt="Instagram LinkTap"
+        >
+
       </div>
-
-      <h3>Todo en un lugar</h3>
-
-      <p>
-        Redes sociales, contacto, información y enlaces importantes
-        reunidos en un perfil digital.
-      </p>
-
-      <a href="../vicente/" target="_blank">
-        VER DEMO →
-      </a>
 
     </div>
 
-  </div>
+  </article>
+
+
+
+  <!-- =====================
+       RESEÑAS
+  ====================== -->
+
+  <article class="use reverse">
+
+    <div class="use-copy">
+
+      <div class="use-number">
+        02 · RESEÑAS
+      </div>
+
+      <h3>
+        Hazlo fácil<br>
+        para tu cliente.
+      </h3>
+
+      <p>
+        Acerca el celular y lleva al cliente directamente
+        al lugar donde puede dejar su reseña.
+      </p>
+
+    </div>
+
+
+    <div class="visual">
+
+      <div class="phone review-screen">
+
+        <img
+          src="WhatsApp%20Image%202026-09-15%20at%2011.53.39%20PM%20(1).jpeg"
+          alt="Ejemplo de reseñas con LinkTap"
+        >
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+
+  <!-- =====================
+       PERFIL DIGITAL
+  ====================== -->
+
+  <article class="use">
+
+    <div class="use-copy">
+
+      <div class="use-number">
+        03 · PERFIL DIGITAL
+      </div>
+
+      <h3>
+        Todo tu negocio.<br>
+        En un lugar.
+      </h3>
+
+      <p>
+        Reúne reservas, Instagram, sitio web, contacto
+        y otros enlaces importantes en un solo perfil digital.
+      </p>
+
+    </div>
+
+
+    <div class="visual">
+
+      <div class="phone profile-screen">
+
+        <img
+          src="WhatsApp%20Image%202026-09-15%20at%2011.53.40%20PM%20(1).jpeg"
+          alt="Perfil digital creado con LinkTap"
+        >
+
+      </div>
+
+    </div>
+
+  </article>
+
+
+
+  <!-- =====================
+       MENÚ DIGITAL
+  ====================== -->
+
+  <article class="use reverse">
+
+    <div class="use-copy">
+
+      <div class="use-number">
+        04 · MENÚ DIGITAL
+      </div>
+
+      <h3>
+        Tu menú.<br>
+        A un tap.
+      </h3>
+
+      <p>
+        Ideal para restaurantes, cafeterías y locales.
+        El cliente acerca su celular y puede acceder
+        directamente a tu carta.
+      </p>
+
+    </div>
+
+
+    <div class="visual">
+
+      <div class="phone menu-screen">
+
+        <img
+          src="WhatsApp%20Image%202026-09-15%20at%2011.53.39%20PM.jpeg"
+          alt="Menú digital Brasa Sur"
+        >
+
+      </div>
+
+    </div>
+
+  </article>
+
 
 </div>
 
 </section>
 
 
-<!-- PRECIO -->
 
-<section class="section" id="precio">
+<!-- =========================
+     MÁS POSIBILIDADES
+========================= -->
+
+<section class="more">
 
 <div class="container">
 
-  <div class="price-box">
+  <div class="section-label">
+    Y MUCHO MÁS
+  </div>
 
-    <div class="section-label">
-      TU LINKTAP
-    </div>
+  <h2>
+    Tú eliges dónde conecta.
+  </h2>
 
-    <h2>Una vez. Y listo.</h2>
+  <p>
+    LinkTap puede adaptarse al objetivo de tu negocio.
+    Una tarjeta puede llevar a tus clientes al contenido
+    digital que realmente necesitas compartir.
+  </p>
 
-    <div class="price">
-      $19.990
-    </div>
 
-    <div class="price-small">
-      CLP · por tarjeta
-    </div>
+  <div class="more-tags">
 
-    <div class="features">
+    <span>WhatsApp</span>
 
-      <div>
-        <span class="check">✓</span>
-        Pago único
-      </div>
+    <span>Sitio web</span>
 
-      <div>
-        <span class="check">✓</span>
-        Sin mensualidades
-      </div>
+    <span>Reservas</span>
 
-      <div>
-        <span class="check">✓</span>
-        Sin costos de mantenimiento
-      </div>
+    <span>Contacto</span>
 
-      <div>
-        <span class="check">✓</span>
-        Configuración incluida
-      </div>
+    <span>Ubicación</span>
 
-      <div>
-        <span class="check">✓</span>
-        Descuentos por cantidad
-      </div>
-
-    </div>
-
-    <a
-      class="btn btn-blue"
-      href="https://wa.me/56963074376?text=Hola%2C%20vi%20el%20cat%C3%A1logo.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20las%20tarjetas%20LinkTap."
-      target="_blank">
-      QUIERO MI LINKTAP
-    </a>
+    <span>Redes sociales</span>
 
   </div>
 
@@ -804,38 +1205,191 @@ footer{
 </section>
 
 
-<!-- FINAL -->
+
+<!-- =========================
+     PRECIO
+========================= -->
+
+<section class="buy" id="precio">
+
+<div class="container">
+
+  <div class="buy-card">
+
+
+    <!-- FOTO REAL DE LA TARJETA -->
+
+    <div class="buy-product">
+
+      <img
+        src="1%20(1).png"
+        alt="Tarjeta NFC LinkTap"
+      >
+
+    </div>
+
+
+    <div class="buy-content">
+
+      <div class="section-label">
+        TU LINKTAP
+      </div>
+
+      <h2>
+        Una vez.<br>
+        Y listo.
+      </h2>
+
+
+      <div class="price">
+        $19.990
+      </div>
+
+      <div class="price-detail">
+        CLP · POR TARJETA
+      </div>
+
+
+      <div class="benefits">
+
+
+        <div class="benefit">
+
+          <span class="check">
+            ✓
+          </span>
+
+          Pago único
+
+        </div>
+
+
+        <div class="benefit">
+
+          <span class="check">
+            ✓
+          </span>
+
+          Sin mensualidades
+
+        </div>
+
+
+        <div class="benefit">
+
+          <span class="check">
+            ✓
+          </span>
+
+          Sin costos de mantenimiento
+
+        </div>
+
+
+        <div class="benefit">
+
+          <span class="check">
+            ✓
+          </span>
+
+          Configuración incluida
+
+        </div>
+
+
+        <div class="benefit">
+
+          <span class="check">
+            ✓
+          </span>
+
+          Descuentos por cantidad
+
+        </div>
+
+
+      </div>
+
+
+      <!-- WHATSAPP -->
+
+      <a
+        class="button blue"
+        href="https://wa.me/56963074376?text=Hola%2C%20vi%20el%20cat%C3%A1logo.%20Me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20las%20tarjetas%20LinkTap."
+        target="_blank"
+        rel="noopener"
+      >
+        QUIERO MI LINKTAP
+      </a>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     FINAL
+========================= -->
 
 <section class="final">
+
+
+  <!-- LOGO ORIGINAL -->
+
+  <img
+    class="final-logo"
+    src="ACERCA%20Y%20CONECTA%20(1080%20x%201080%20px)%20(2).png"
+    alt="Logo LinkTap"
+  >
+
 
   <div class="section-label">
     LINKTAP
   </div>
 
+
   <h2>
-    Tu negocio,<br>
-    a un toque.
+    Acerca<br>
+    y conecta.
   </h2>
 
+
   <p>
-    Una forma más simple de conectar.
+    Tu negocio en un tap.
   </p>
 
+
   <a
-    class="btn"
+    class="button blue"
     href="https://www.instagram.com/linktap.cl/"
-    target="_blank">
+    target="_blank"
+    rel="noopener"
+  >
     @LINKTAP.CL
   </a>
+
 
 </section>
 
 
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
-<div class="container footer">
+<div class="container footer-inner">
 
-  <strong>LinkTap</strong>
+  <strong>
+    LinkTap
+  </strong>
 
   <span>
     ACERCA Y CONECTA
@@ -848,6 +1402,7 @@ footer{
 </div>
 
 </footer>
+
 
 </body>
 </html>
