@@ -96,7 +96,6 @@ nav{
   text-decoration:none;
   font-size:13px;
   font-weight:800;
-  letter-spacing:.2px;
   transition:.2s;
 }
 
@@ -145,21 +144,13 @@ nav{
   margin:25px 0 31px;
 }
 
-
-/* FOTO REAL TARJETA */
-
 .product-stage{
   position:relative;
   min-height:470px;
   border-radius:38px;
   background:
-    radial-gradient(
-      circle at 75% 25%,
-      rgba(20,87,255,.09),
-      transparent 30%
-    ),
+    radial-gradient(circle at 75% 25%,rgba(20,87,255,.09),transparent 30%),
     #f5f6f8;
-
   display:flex;
   align-items:center;
   justify-content:center;
@@ -245,44 +236,51 @@ nav{
 
 .step{
   background:var(--light);
-  border-radius:25px;
-  padding:30px;
+  border-radius:28px;
   text-align:left;
+  overflow:hidden;
+}
+
+.step-content{
+  padding:30px 30px 18px;
 }
 
 .step-number{
   color:var(--blue);
   font-size:12px;
   font-weight:900;
-  margin-bottom:40px;
+  margin-bottom:22px;
 }
 
 .step h3{
-  font-size:20px;
-  margin-bottom:7px;
+  font-size:22px;
+  margin-bottom:8px;
 }
 
 .step p{
   color:var(--grey);
   font-size:13px;
   line-height:1.5;
+  min-height:40px;
 }
 
 
-/* =========================
-   ISOTIPO
-========================= */
+/* IMÁGENES DE LOS 3 PASOS */
 
-.logo-break{
-  padding:20px 0 100px;
+.step-image{
+  height:285px;
+  overflow:hidden;
   display:flex;
   justify-content:center;
+  align-items:flex-start;
+  padding:5px 20px 0;
 }
 
-.logo-break img{
-  width:155px;
-  height:155px;
+.step-image img{
+  width:100%;
+  height:100%;
   object-fit:contain;
+  object-position:center bottom;
 }
 
 
@@ -351,7 +349,7 @@ nav{
 
 
 /* =========================
-   CELULARES
+   PANTALLAS / CELULARES
 ========================= */
 
 .visual{
@@ -387,19 +385,6 @@ nav{
   z-index:2;
 }
 
-.phone::before{
-  content:"";
-  position:absolute;
-  width:78px;
-  height:22px;
-  background:#08090b;
-  border-radius:30px;
-  top:9px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:5;
-}
-
 .phone img{
   width:100%;
   height:100%;
@@ -408,27 +393,26 @@ nav{
 }
 
 
-/* RECORTES */
-
-.instagram-screen img{
-  object-position:center top;
+/* Instagram nuevo ya incluye el teléfono */
+.instagram-visual{
+  height:380px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  overflow:hidden;
+  position:relative;
 }
 
-.review-screen img{
-  object-position:center 5%;
-}
-
-.profile-screen img{
-  object-position:center top;
-}
-
-.menu-screen img{
-  object-position:center top;
+.instagram-visual img{
+  width:245px;
+  height:380px;
+  object-fit:cover;
+  object-position:top center;
 }
 
 
 /* =========================
-   MÁS OPCIONES
+   MÁS POSIBILIDADES
 ========================= */
 
 .more{
@@ -489,7 +473,6 @@ nav{
   justify-content:center;
   align-items:center;
   padding:45px;
-  position:relative;
   background:white;
 }
 
@@ -552,7 +535,7 @@ nav{
   background:var(--black);
   color:white;
   text-align:center;
-  padding:110px 20px;
+  padding:100px 20px;
 }
 
 .final-logo{
@@ -600,7 +583,7 @@ footer{
 
 
 /* =========================
-   CELULAR
+   MÓVIL
 ========================= */
 
 @media(max-width:760px){
@@ -649,7 +632,7 @@ footer{
   }
 
   .intro{
-    padding:80px 0 60px;
+    padding:80px 0;
   }
 
   .section-title{
@@ -663,23 +646,24 @@ footer{
   .steps{
     grid-template-columns:1fr;
     margin-top:38px;
+    gap:18px;
   }
 
   .step{
-    padding:26px;
+    border-radius:27px;
   }
 
-  .step-number{
-    margin-bottom:22px;
+  .step-content{
+    padding:28px 28px 15px;
   }
 
-  .logo-break{
-    padding:10px 0 70px;
+  .step p{
+    min-height:auto;
   }
 
-  .logo-break img{
-    width:120px;
-    height:120px;
+  .step-image{
+    height:300px;
+    padding:0 30px;
   }
 
   .use-cases{
@@ -723,6 +707,18 @@ footer{
     width:220px;
     height:390px;
     transform:translateY(75px);
+  }
+
+  .instagram-visual{
+    height:315px;
+    margin-top:10px;
+  }
+
+  .instagram-visual img{
+    width:220px;
+    height:355px;
+    object-fit:cover;
+    object-position:top center;
   }
 
   .more{
@@ -785,13 +781,10 @@ footer{
 </style>
 </head>
 
-
 <body>
 
 
-<!-- =========================
-     NAV
-========================= -->
+<!-- NAV -->
 
 <div class="container">
 
@@ -809,9 +802,7 @@ footer{
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- HERO -->
 
 <section class="hero">
 
@@ -840,8 +831,6 @@ footer{
 
   <div class="product-stage">
 
-    <!-- FOTO ORIGINAL DE LA TARJETA -->
-
     <img
       class="product-image"
       src="1%20(1).png"
@@ -860,9 +849,7 @@ footer{
 
 
 
-<!-- =========================
-     CÓMO FUNCIONA
-========================= -->
+<!-- CÓMO FUNCIONA -->
 
 <section class="intro">
 
@@ -885,53 +872,100 @@ footer{
   <div class="steps">
 
 
+    <!-- 01 ACERCA -->
+
     <div class="step">
 
-      <div class="step-number">
-        01
+      <div class="step-content">
+
+        <div class="step-number">
+          01
+        </div>
+
+        <h3>
+          Acerca
+        </h3>
+
+        <p>
+          Acerca tu celular a la tarjeta LinkTap.
+        </p>
+
       </div>
 
-      <h3>
-        Acerca
-      </h3>
+      <div class="step-image">
 
-      <p>
-        Tu cliente acerca su celular a la tarjeta LinkTap.
-      </p>
+        <img
+          src="Sombra%20de%20Piso%20para%20Dise%C3%B1o.png"
+          alt="Celular acercándose a una tarjeta LinkTap"
+        >
+
+      </div>
 
     </div>
 
 
+
+    <!-- 02 APARECE -->
+
     <div class="step">
 
-      <div class="step-number">
-        02
+      <div class="step-content">
+
+        <div class="step-number">
+          02
+        </div>
+
+        <h3>
+          Aparece
+        </h3>
+
+        <p>
+          El teléfono reconoce la información de la tarjeta.
+        </p>
+
       </div>
 
-      <h3>
-        Aparece
-      </h3>
+      <div class="step-image">
 
-      <p>
-        El teléfono reconoce la información de la tarjeta.
-      </p>
+        <img
+          src="Sombra%20de%20Piso%20para%20Dise%C3%B1o%20(1).png"
+          alt="Conexión LinkTap en celular"
+        >
+
+      </div>
 
     </div>
 
 
+
+    <!-- 03 CONECTA -->
+
     <div class="step">
 
-      <div class="step-number">
-        03
+      <div class="step-content">
+
+        <div class="step-number">
+          03
+        </div>
+
+        <h3>
+          Conecta
+        </h3>
+
+        <p>
+          Accede directamente al contenido de tu negocio.
+        </p>
+
       </div>
 
-      <h3>
-        Conecta
-      </h3>
+      <div class="step-image">
 
-      <p>
-        Accede directamente al contenido de tu negocio.
-      </p>
+        <img
+          src="Sombra%20de%20Piso%20para%20Dise%C3%B1o%20(2).png"
+          alt="Instagram, reseñas, WhatsApp y sitio web con LinkTap"
+        >
+
+      </div>
 
     </div>
 
@@ -944,24 +978,7 @@ footer{
 
 
 
-<!-- =========================
-     LOGO / ISOTIPO ORIGINAL
-========================= -->
-
-<div class="logo-break">
-
-  <img
-    src="ACERCA%20Y%20CONECTA%20(1080%20x%201080%20px)%20(2).png"
-    alt="Isotipo LinkTap"
-  >
-
-</div>
-
-
-
-<!-- =========================
-     FUNCIONES
-========================= -->
+<!-- FUNCIONES -->
 
 <section class="use-cases" id="funciones">
 
@@ -987,9 +1004,7 @@ footer{
 
 
 
-  <!-- =====================
-       INSTAGRAM
-  ====================== -->
+  <!-- INSTAGRAM -->
 
   <article class="use">
 
@@ -1012,16 +1027,12 @@ footer{
     </div>
 
 
-    <div class="visual">
+    <div class="instagram-visual">
 
-      <div class="phone instagram-screen">
-
-        <img
-          src="WhatsApp%20Image%202026-09-15%20at%2011.53.40%20PM.jpeg"
-          alt="Instagram LinkTap"
-        >
-
-      </div>
+      <img
+        src="instagram-linktap.png"
+        alt="Instagram oficial de LinkTap"
+      >
 
     </div>
 
@@ -1029,9 +1040,7 @@ footer{
 
 
 
-  <!-- =====================
-       RESEÑAS
-  ====================== -->
+  <!-- RESEÑAS -->
 
   <article class="use reverse">
 
@@ -1056,7 +1065,7 @@ footer{
 
     <div class="visual">
 
-      <div class="phone review-screen">
+      <div class="phone">
 
         <img
           src="WhatsApp%20Image%202026-09-15%20at%2011.53.39%20PM%20(1).jpeg"
@@ -1071,9 +1080,7 @@ footer{
 
 
 
-  <!-- =====================
-       PERFIL DIGITAL
-  ====================== -->
+  <!-- PERFIL DIGITAL -->
 
   <article class="use">
 
@@ -1098,7 +1105,7 @@ footer{
 
     <div class="visual">
 
-      <div class="phone profile-screen">
+      <div class="phone">
 
         <img
           src="WhatsApp%20Image%202026-09-15%20at%2011.53.40%20PM%20(1).jpeg"
@@ -1113,9 +1120,7 @@ footer{
 
 
 
-  <!-- =====================
-       MENÚ DIGITAL
-  ====================== -->
+  <!-- MENÚ DIGITAL -->
 
   <article class="use reverse">
 
@@ -1132,8 +1137,8 @@ footer{
 
       <p>
         Ideal para restaurantes, cafeterías y locales.
-        El cliente acerca su celular y puede acceder
-        directamente a tu carta.
+        El cliente acerca su celular y accede directamente
+        a tu carta.
       </p>
 
     </div>
@@ -1141,7 +1146,7 @@ footer{
 
     <div class="visual">
 
-      <div class="phone menu-screen">
+      <div class="phone">
 
         <img
           src="WhatsApp%20Image%202026-09-15%20at%2011.53.39%20PM.jpeg"
@@ -1161,9 +1166,7 @@ footer{
 
 
 
-<!-- =========================
-     MÁS POSIBILIDADES
-========================= -->
+<!-- MÁS POSIBILIDADES -->
 
 <section class="more">
 
@@ -1187,15 +1190,10 @@ footer{
   <div class="more-tags">
 
     <span>WhatsApp</span>
-
     <span>Sitio web</span>
-
     <span>Reservas</span>
-
     <span>Contacto</span>
-
     <span>Ubicación</span>
-
     <span>Redes sociales</span>
 
   </div>
@@ -1206,9 +1204,7 @@ footer{
 
 
 
-<!-- =========================
-     PRECIO
-========================= -->
+<!-- PRECIO -->
 
 <section class="buy" id="precio">
 
@@ -1216,8 +1212,6 @@ footer{
 
   <div class="buy-card">
 
-
-    <!-- FOTO REAL DE LA TARJETA -->
 
     <div class="buy-product">
 
@@ -1252,66 +1246,33 @@ footer{
 
       <div class="benefits">
 
-
         <div class="benefit">
-
-          <span class="check">
-            ✓
-          </span>
-
+          <span class="check">✓</span>
           Pago único
-
         </div>
 
-
         <div class="benefit">
-
-          <span class="check">
-            ✓
-          </span>
-
+          <span class="check">✓</span>
           Sin mensualidades
-
         </div>
 
-
         <div class="benefit">
-
-          <span class="check">
-            ✓
-          </span>
-
+          <span class="check">✓</span>
           Sin costos de mantenimiento
-
         </div>
 
-
         <div class="benefit">
-
-          <span class="check">
-            ✓
-          </span>
-
+          <span class="check">✓</span>
           Configuración incluida
-
         </div>
-
 
         <div class="benefit">
-
-          <span class="check">
-            ✓
-          </span>
-
+          <span class="check">✓</span>
           Descuentos por cantidad
-
         </div>
-
 
       </div>
 
-
-      <!-- WHATSAPP -->
 
       <a
         class="button blue"
@@ -1321,7 +1282,6 @@ footer{
       >
         QUIERO MI LINKTAP
       </a>
-
 
     </div>
 
@@ -1333,14 +1293,9 @@ footer{
 
 
 
-<!-- =========================
-     FINAL
-========================= -->
+<!-- FINAL -->
 
 <section class="final">
-
-
-  <!-- LOGO ORIGINAL -->
 
   <img
     class="final-logo"
@@ -1374,14 +1329,11 @@ footer{
     @LINKTAP.CL
   </a>
 
-
 </section>
 
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
