@@ -1,0 +1,1712 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#063b24">
+
+  <title>Clínica Monteverde | Puerto Montt</title>
+
+  <meta
+    name="description"
+    content="Clínica Monteverde en Puerto Montt. Odontología integral, especialistas y atención profesional."
+  >
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- Iconos -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+  <style>
+    /* =========================================================
+       BASE
+    ========================================================= */
+
+    :root {
+      --green-dark: #05351f;
+      --green: #08762f;
+      --green-soft: #38a65a;
+      --green-light: #dff3e5;
+
+      --cream: #f6f5f0;
+      --white: #ffffff;
+      --black: #0c1711;
+      --gray: #647069;
+
+      --radius-xl: 34px;
+      --radius-lg: 26px;
+      --radius-md: 20px;
+
+      --shadow:
+        0 20px 60px rgba(3, 38, 21, 0.12);
+
+      --shadow-heavy:
+        0 30px 80px rgba(0, 0, 0, 0.22);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: var(--cream);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .section {
+      padding: 105px 0;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      margin-bottom: 18px;
+
+      color: var(--green);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .section-title {
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+      font-weight: 600;
+    }
+
+    .section-description {
+      color: var(--gray);
+      line-height: 1.75;
+      font-size: 1rem;
+      margin-top: 20px;
+      max-width: 620px;
+    }
+
+    /* =========================================================
+       SCROLL PROGRESS
+    ========================================================= */
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+
+      height: 3px;
+      width: 0;
+
+      z-index: 9999;
+
+      background: linear-gradient(
+        90deg,
+        #55c56d,
+        #ffffff
+      );
+    }
+
+    /* =========================================================
+       HERO
+    ========================================================= */
+
+    .hero {
+      position: relative;
+
+      min-height: 100svh;
+
+      display: flex;
+      align-items: flex-end;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(2, 28, 16, 0.14) 0%,
+          rgba(2, 28, 16, 0.22) 35%,
+          rgba(2, 28, 16, 0.92) 100%
+        ),
+        url("hero.jpg") center / cover no-repeat;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 80% 20%,
+          rgba(87, 196, 112, 0.18),
+          transparent 35%
+        );
+
+      pointer-events: none;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: -5%;
+
+      background:
+        url("hero.jpg") center / cover no-repeat;
+
+      z-index: -1;
+
+      transform: scale(1.06);
+
+      animation: heroMove 16s ease-in-out infinite alternate;
+    }
+
+    @keyframes heroMove {
+      from {
+        transform: scale(1.06) translate3d(0, 0, 0);
+      }
+
+      to {
+        transform: scale(1.13) translate3d(-1%, -1%, 0);
+      }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+
+      padding: 42px 0 58px;
+
+      color: white;
+    }
+
+    .brand {
+      position: absolute;
+
+      top: 30px;
+      left: 50%;
+
+      width: min(1120px, calc(100% - 40px));
+
+      transform: translateX(-50%);
+
+      z-index: 5;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-shell {
+      width: 54px;
+      height: 54px;
+
+      border-radius: 50%;
+
+      background: white;
+
+      display: grid;
+      place-items: center;
+
+      overflow: hidden;
+
+      box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .logo-shell img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .brand-name {
+      color: white;
+      font-family: "Manrope", sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .brand-name span {
+      display: block;
+      opacity: 0.66;
+      font-size: 0.72rem;
+      font-weight: 400;
+      margin-top: 3px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+
+      padding: 10px 15px;
+
+      border: 1px solid rgba(255,255,255,.24);
+      border-radius: 100px;
+
+      background: rgba(255,255,255,.09);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      font-size: 0.78rem;
+      font-weight: 500;
+
+      margin-bottom: 23px;
+    }
+
+    .hero-badge span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #68d17f;
+
+      box-shadow:
+        0 0 0 5px rgba(104,209,127,.13);
+    }
+
+    .hero h1 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(3rem, 8vw, 6.6rem);
+
+      line-height: 0.94;
+      letter-spacing: -0.065em;
+      font-weight: 500;
+
+      max-width: 850px;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: #87df96;
+    }
+
+    .hero-sub {
+      max-width: 570px;
+
+      margin-top: 24px;
+
+      font-size: clamp(1rem, 2vw, 1.16rem);
+      line-height: 1.65;
+
+      color: rgba(255,255,255,.78);
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      min-height: 56px;
+
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      padding: 0 24px;
+
+      border-radius: 100px;
+
+      font-size: 0.94rem;
+      font-weight: 600;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        background .3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--green-dark);
+
+      box-shadow:
+        0 15px 40px rgba(0,0,0,.18);
+    }
+
+    .btn-glass {
+      color: white;
+
+      border: 1px solid rgba(255,255,255,.24);
+
+      background: rgba(255,255,255,.08);
+
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .scroll-hint {
+      position: absolute;
+
+      right: 0;
+      bottom: 63px;
+
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      color: rgba(255,255,255,.55);
+
+      font-size: 0.72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .scroll-line {
+      width: 42px;
+      height: 1px;
+      background: rgba(255,255,255,.45);
+    }
+
+    /* =========================================================
+       QUICK ACTIONS
+    ========================================================= */
+
+    .quick-wrapper {
+      position: relative;
+      z-index: 20;
+
+      margin-top: -27px;
+    }
+
+    .quick-actions {
+      background: rgba(255,255,255,.93);
+
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+
+      border: 1px solid rgba(255,255,255,.75);
+
+      border-radius: 28px;
+
+      padding: 10px;
+
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+
+      box-shadow: var(--shadow);
+    }
+
+    .quick-item {
+      min-height: 91px;
+
+      border-radius: 21px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+
+      transition:
+        background .3s ease,
+        transform .3s ease;
+    }
+
+    .quick-item:hover {
+      background: #edf7ef;
+      transform: translateY(-3px);
+    }
+
+    .quick-icon {
+      width: 36px;
+      height: 36px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    .quick-item span {
+      font-size: .76rem;
+      font-weight: 600;
+    }
+
+    /* =========================================================
+       INTRO
+    ========================================================= */
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .intro-number {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(5rem, 12vw, 9rem);
+
+      line-height: .8;
+      letter-spacing: -.08em;
+
+      color: var(--green);
+
+      font-weight: 500;
+    }
+
+    .intro-number small {
+      display: block;
+
+      font-size: .9rem;
+      letter-spacing: 0;
+      line-height: 1.5;
+
+      color: var(--gray);
+
+      margin-top: 28px;
+
+      max-width: 210px;
+    }
+
+    /* =========================================================
+       IMAGE EXPERIENCE
+    ========================================================= */
+
+    .experience {
+      padding: 0 20px;
+    }
+
+    .experience-card {
+      position: relative;
+
+      max-width: 1380px;
+      height: min(78vh, 780px);
+
+      margin: auto;
+
+      border-radius: 38px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(2,24,14,.08),
+          rgba(2,24,14,.72)
+        ),
+        url("clinica.jpg") center / cover no-repeat;
+
+      box-shadow: var(--shadow-heavy);
+    }
+
+    .experience-image {
+      position: absolute;
+      inset: -8%;
+
+      background:
+        url("clinica.jpg") center / cover no-repeat;
+
+      transform: scale(1.08);
+
+      z-index: -1;
+    }
+
+    .experience-overlay {
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(0,0,0,0.02),
+          rgba(2,32,17,.82)
+        );
+    }
+
+    .experience-copy {
+      position: absolute;
+
+      left: clamp(25px, 6vw, 85px);
+      bottom: clamp(30px, 7vw, 80px);
+
+      z-index: 2;
+
+      max-width: 660px;
+
+      color: white;
+    }
+
+    .experience-copy h2 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(2.4rem, 6vw, 5rem);
+
+      line-height: 1;
+      letter-spacing: -.055em;
+      font-weight: 500;
+    }
+
+    .experience-copy p {
+      margin-top: 20px;
+
+      max-width: 520px;
+
+      line-height: 1.7;
+
+      color: rgba(255,255,255,.72);
+    }
+
+    /* =========================================================
+       SPECIALTIES
+    ========================================================= */
+
+    .specialties-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      gap: 30px;
+
+      margin-bottom: 48px;
+    }
+
+    .specialties-head .section-description {
+      max-width: 420px;
+      margin-top: 0;
+    }
+
+    .specialties-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      gap: 14px;
+    }
+
+    .specialty {
+      position: relative;
+
+      min-height: 230px;
+
+      padding: 30px;
+
+      border-radius: var(--radius-lg);
+
+      background: white;
+
+      overflow: hidden;
+
+      transition:
+        transform .4s cubic-bezier(.2,.8,.2,1),
+        box-shadow .4s ease;
+    }
+
+    .specialty:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow);
+    }
+
+    .specialty-number {
+      font-family: "Manrope", sans-serif;
+
+      color: #a3aea7;
+
+      font-size: .73rem;
+      letter-spacing: .1em;
+    }
+
+    .specialty h3 {
+      position: absolute;
+
+      left: 30px;
+      bottom: 30px;
+
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(1.4rem, 3vw, 2.1rem);
+
+      letter-spacing: -.035em;
+      font-weight: 500;
+    }
+
+    .specialty-icon {
+      position: absolute;
+
+      right: 27px;
+      top: 27px;
+
+      width: 49px;
+      height: 49px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: #eff7f1;
+      color: var(--green);
+
+      transition: transform .4s ease;
+    }
+
+    .specialty:hover .specialty-icon {
+      transform: rotate(12deg) scale(1.08);
+    }
+
+    .specialty.featured {
+      background: var(--green-dark);
+      color: white;
+    }
+
+    .specialty.featured .specialty-number {
+      color: rgba(255,255,255,.48);
+    }
+
+    .specialty.featured .specialty-icon {
+      background: rgba(255,255,255,.1);
+      color: white;
+    }
+
+    /* =========================================================
+       CTA
+    ========================================================= */
+
+    .appointment {
+      padding: 20px 20px 100px;
+    }
+
+    .appointment-box {
+      position: relative;
+
+      max-width: 1120px;
+      margin: auto;
+
+      padding: clamp(45px, 8vw, 95px);
+
+      border-radius: 38px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #073d25,
+          #075d2d
+        );
+
+      color: white;
+
+      overflow: hidden;
+    }
+
+    .appointment-box::after {
+      content: "";
+
+      position: absolute;
+
+      width: 450px;
+      height: 450px;
+
+      border-radius: 50%;
+
+      right: -180px;
+      top: -210px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(118,223,139,.26),
+          transparent 67%
+        );
+    }
+
+    .appointment-content {
+      position: relative;
+      z-index: 2;
+
+      max-width: 680px;
+    }
+
+    .appointment h2 {
+      font-family: "Manrope", sans-serif;
+
+      font-size: clamp(2.4rem, 7vw, 5.3rem);
+
+      line-height: .98;
+      letter-spacing: -.06em;
+      font-weight: 500;
+    }
+
+    .appointment p {
+      color: rgba(255,255,255,.68);
+
+      margin-top: 22px;
+
+      line-height: 1.7;
+
+      max-width: 520px;
+    }
+
+    .appointment .btn {
+      margin-top: 31px;
+    }
+
+    /* =========================================================
+       SOCIAL / FOOTER
+    ========================================================= */
+
+    footer {
+      background: #07150e;
+      color: white;
+
+      padding: 75px 0 35px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 50px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+    }
+
+    .footer-logo img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+    }
+
+    .footer-logo strong {
+      font-family: "Manrope", sans-serif;
+      font-weight: 600;
+    }
+
+    .footer-copy {
+      margin-top: 23px;
+
+      color: rgba(255,255,255,.55);
+
+      max-width: 390px;
+
+      line-height: 1.7;
+
+      font-size: .91rem;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
+
+      gap: 10px;
+    }
+
+    .social {
+      width: 51px;
+      height: 51px;
+
+      border-radius: 50%;
+
+      display: grid;
+      place-items: center;
+
+      background: rgba(255,255,255,.07);
+
+      border: 1px solid rgba(255,255,255,.08);
+
+      transition:
+        transform .3s ease,
+        background .3s ease;
+    }
+
+    .social:hover {
+      transform: translateY(-4px);
+      background: var(--green);
+    }
+
+    .footer-bottom {
+      margin-top: 65px;
+      padding-top: 25px;
+
+      border-top: 1px solid rgba(255,255,255,.08);
+
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+
+      color: rgba(255,255,255,.38);
+
+      font-size: .72rem;
+    }
+
+    /* =========================================================
+       REVEAL ANIMATIONS
+    ========================================================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(35px);
+
+      transition:
+        opacity .9s cubic-bezier(.2,.7,.2,1),
+        transform .9s cubic-bezier(.2,.7,.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 {
+      transition-delay: .08s;
+    }
+
+    .delay-2 {
+      transition-delay: .16s;
+    }
+
+    .delay-3 {
+      transition-delay: .24s;
+    }
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 760px) {
+
+      .container {
+        width: min(100% - 30px, 1120px);
+      }
+
+      .section {
+        padding: 82px 0;
+      }
+
+      .brand {
+        top: 22px;
+        width: calc(100% - 30px);
+      }
+
+      .logo-shell {
+        width: 47px;
+        height: 47px;
+      }
+
+      .brand-name {
+        font-size: .85rem;
+      }
+
+      .hero {
+        min-height: 94svh;
+      }
+
+      .hero-content {
+        width: calc(100% - 30px);
+        padding-bottom: 68px;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.15rem, 15vw, 5rem);
+      }
+
+      .hero-sub {
+        font-size: .96rem;
+        max-width: 95%;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .scroll-hint {
+        display: none;
+      }
+
+      .quick-wrapper {
+        margin-top: -32px;
+      }
+
+      .quick-actions {
+        grid-template-columns: repeat(4, 1fr);
+
+        padding: 7px;
+
+        border-radius: 24px;
+      }
+
+      .quick-item {
+        min-height: 82px;
+        gap: 7px;
+      }
+
+      .quick-icon {
+        width: 33px;
+        height: 33px;
+      }
+
+      .quick-item span {
+        font-size: .65rem;
+      }
+
+      .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .intro-number {
+        font-size: 7rem;
+      }
+
+      .experience {
+        padding: 0 12px;
+      }
+
+      .experience-card {
+        height: 72svh;
+        border-radius: 29px;
+      }
+
+      .experience-copy {
+        left: 25px;
+        right: 25px;
+        bottom: 35px;
+      }
+
+      .experience-copy h2 {
+        font-size: 2.75rem;
+      }
+
+      .specialties-head {
+        display: block;
+      }
+
+      .specialties-head .section-description {
+        margin-top: 20px;
+      }
+
+      .specialties-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .specialty {
+        min-height: 175px;
+      }
+
+      .appointment {
+        padding:
+          12px 12px 70px;
+      }
+
+      .appointment-box {
+        border-radius: 29px;
+
+        padding:
+          58px 27px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+      }
+
+      .socials {
+        justify-content: flex-start;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="progress" id="progress"></div>
+
+
+  <!-- =======================================================
+       HERO
+  ======================================================== -->
+
+  <header class="hero" id="inicio">
+
+    <div class="hero-image" id="heroImage"></div>
+
+    <div class="brand">
+
+      <div class="brand-left">
+
+        <div class="logo-shell">
+          <img
+            src="logo.png"
+            alt="Clínica Monteverde"
+          >
+        </div>
+
+        <div class="brand-name">
+          Clínica Monteverde
+          <span>Puerto Montt</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="hero-content">
+
+      <div class="hero-badge">
+        <span></span>
+        Centro odontológico · Puerto Montt
+      </div>
+
+      <h1>
+        Tu sonrisa,<br>
+        nuestra <em>prioridad.</em>
+      </h1>
+
+      <p class="hero-sub">
+        Atención odontológica integral en un espacio pensado
+        para cuidar tu salud, tu confianza y tu sonrisa.
+      </p>
+
+      <div class="hero-actions">
+
+        <a
+          class="btn btn-primary"
+          href="https://widget.dentidesk.cl/agendamiento/bnR3Q2JMVzRZZmd5eUpwdG9oSXdsK0FlYVdGUzFNK1E2UWNGMWtWUHlnT2Y3NGFRSjVRblVscGdXVi9RMnUySw,,"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-regular fa-calendar"></i>
+          Agendar evaluación
+        </a>
+
+        <a
+          class="btn btn-glass"
+          href="#especialidades"
+        >
+          Conoce la clínica
+          <i class="fa-solid fa-arrow-down"></i>
+        </a>
+
+      </div>
+
+      <div class="scroll-hint">
+        Desliza
+        <div class="scroll-line"></div>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =======================================================
+       QUICK ACTIONS
+  ======================================================== -->
+
+  <div class="quick-wrapper">
+
+    <div class="container">
+
+      <div class="quick-actions reveal">
+
+        <a
+          class="quick-item"
+          href="tel:+56652252948"
+        >
+          <div class="quick-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+
+          <span>Llamar</span>
+        </a>
+
+
+        <a
+          class="quick-item"
+          href="https://wa.me/56652252948"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="quick-icon">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+
+          <span>WhatsApp</span>
+        </a>
+
+
+        <a
+          class="quick-item"
+          href="https://www.google.com/maps/search/?api=1&query=Baquedano+281+Puerto+Montt+Chile"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="quick-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+
+          <span>Ubicación</span>
+        </a>
+
+
+        <a
+          class="quick-item"
+          href="https://clinicamonteverde.cl/"
+          target="_blank"
+          rel="noopener"
+        >
+          <div class="quick-icon">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+
+          <span>Sitio web</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =======================================================
+       INTRO
+  ======================================================== -->
+
+  <section class="section">
+
+    <div class="container intro-grid">
+
+      <div class="reveal">
+
+        <div class="intro-number">
+          12+
+
+          <small>
+            años cuidando la salud dental de nuestros pacientes.
+          </small>
+        </div>
+
+      </div>
+
+
+      <div class="reveal delay-1">
+
+        <span class="eyebrow">
+          Clínica Monteverde
+        </span>
+
+        <h2 class="section-title">
+          Sonrisas que se cuidan con confianza.
+        </h2>
+
+        <p class="section-description">
+          Un equipo profesional y distintas especialidades
+          odontológicas reunidas en un mismo lugar para
+          acompañarte en cada etapa de tu tratamiento.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       VISUAL EXPERIENCE
+  ======================================================== -->
+
+  <section class="experience">
+
+    <div class="experience-card reveal">
+
+      <div
+        class="experience-image"
+        id="parallaxImage"
+      ></div>
+
+      <div class="experience-overlay"></div>
+
+      <div class="experience-copy">
+
+        <span
+          class="eyebrow"
+          style="color:#9be3aa;"
+        >
+          Monteverde
+        </span>
+
+        <h2>
+          Un espacio para sentirte bien.
+        </h2>
+
+        <p>
+          Atención cercana, profesionales especializados y
+          tecnología para entregarte una experiencia
+          odontológica completa en Puerto Montt.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       SPECIALTIES
+  ======================================================== -->
+
+  <section
+    class="section"
+    id="especialidades"
+  >
+
+    <div class="container">
+
+      <div class="specialties-head">
+
+        <div class="reveal">
+
+          <span class="eyebrow">
+            Especialidades
+          </span>
+
+          <h2 class="section-title">
+            Todo lo que tu<br>
+            sonrisa necesita.
+          </h2>
+
+        </div>
+
+
+        <p class="section-description reveal delay-1">
+          Diferentes áreas de la odontología trabajando
+          juntas para ofrecerte una atención integral.
+        </p>
+
+      </div>
+
+
+      <div class="specialties-grid">
+
+        <article class="specialty featured reveal">
+
+          <span class="specialty-number">
+            01
+          </span>
+
+          <div class="specialty-icon">
+            <i class="fa-solid fa-tooth"></i>
+          </div>
+
+          <h3>
+            Odontología<br>
+            general
+          </h3>
+
+        </article>
+
+
+        <article class="specialty reveal delay-1">
+
+          <span class="specialty-number">
+            02
+          </span>
+
+          <div class="specialty-icon">
+            <i class="fa-solid fa-teeth"></i>
+          </div>
+
+          <h3>
+            Ortodoncia
+          </h3>
+
+        </article>
+
+
+        <article class="specialty reveal">
+
+          <span class="specialty-number">
+            03
+          </span>
+
+          <div class="specialty-icon">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+
+          <h3>
+            Implantología
+          </h3>
+
+        </article>
+
+
+        <article class="specialty reveal delay-1">
+
+          <span class="specialty-number">
+            04
+          </span>
+
+          <div class="specialty-icon">
+            <i class="fa-solid fa-face-smile"></i>
+          </div>
+
+          <h3>
+            Estética<br>
+            dental
+          </h3>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       APPOINTMENT
+  ======================================================== -->
+
+  <section class="appointment">
+
+    <div class="appointment-box reveal">
+
+      <div class="appointment-content">
+
+        <span
+          class="eyebrow"
+          style="color:#9be3aa;"
+        >
+          Agenda online
+        </span>
+
+        <h2>
+          Tu próxima sonrisa empieza aquí.
+        </h2>
+
+        <p>
+          Agenda tu evaluación directamente desde tu celular
+          y encuentra el horario que mejor se adapte a ti.
+        </p>
+
+        <a
+          class="btn btn-primary"
+          href="https://widget.dentidesk.cl/agendamiento/bnR3Q2JMVzRZZmd5eUpwdG9oSXdsK0FlYVdGUzFNK1E2UWNGMWtWUHlnT2Y3NGFRSjVRblVscGdXVi9RMnUySw,,"
+          target="_blank"
+          rel="noopener"
+        >
+          <i class="fa-regular fa-calendar-check"></i>
+          Agendar evaluación
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-top">
+
+        <div>
+
+          <div class="footer-logo">
+
+            <img
+              src="logo.png"
+              alt="Clínica Monteverde"
+            >
+
+            <strong>
+              Clínica Monteverde
+            </strong>
+
+          </div>
+
+          <p class="footer-copy">
+            Centro odontológico y medicina integral.
+            Baquedano 281, Puerto Montt.
+          </p>
+
+        </div>
+
+
+        <div class="socials">
+
+          <a
+            class="social"
+            href="https://www.instagram.com/clinicamonteverde"
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+
+
+          <a
+            class="social"
+            href="https://www.facebook.com/share/19Sd27F3gk/"
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+          >
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+
+
+          <a
+            class="social"
+            href="https://wa.me/56652252948"
+            target="_blank"
+            rel="noopener"
+            aria-label="WhatsApp"
+          >
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 Clínica Monteverde
+        </span>
+
+        <span>
+          Puerto Montt · Chile
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    /* =======================================================
+       REVEAL AL HACER SCROLL
+    ======================================================== */
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+
+    document
+      .querySelectorAll(".reveal")
+      .forEach((element) => {
+        observer.observe(element);
+      });
+
+
+
+    /* =======================================================
+       PROGRESO SUPERIOR
+    ======================================================== */
+
+    const progress =
+      document.getElementById("progress");
+
+
+    window.addEventListener(
+      "scroll",
+      () => {
+
+        const scrollTop =
+          window.scrollY;
+
+        const height =
+          document.documentElement.scrollHeight -
+          window.innerHeight;
+
+        const percentage =
+          height > 0
+            ? (scrollTop / height) * 100
+            : 0;
+
+        progress.style.width =
+          percentage + "%";
+
+      },
+      { passive: true }
+    );
+
+
+
+    /* =======================================================
+       PARALLAX MUY SUAVE
+    ======================================================== */
+
+    const parallaxImage =
+      document.getElementById("parallaxImage");
+
+
+    function updateParallax() {
+
+      if (!parallaxImage) return;
+
+      const parent =
+        parallaxImage.parentElement;
+
+      const rect =
+        parent.getBoundingClientRect();
+
+      const viewportHeight =
+        window.innerHeight;
+
+      if (
+        rect.bottom > 0 &&
+        rect.top < viewportHeight
+      ) {
+
+        const center =
+          rect.top + rect.height / 2;
+
+        const offset =
+          (center - viewportHeight / 2) * -0.055;
+
+        parallaxImage.style.transform =
+          `scale(1.1) translate3d(0, ${offset}px, 0)`;
+
+      }
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      updateParallax,
+      { passive: true }
+    );
+
+    updateParallax();
+
+  </script>
+
+</body>
+</html>
