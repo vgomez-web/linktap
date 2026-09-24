@@ -2787,6 +2787,92 @@
       }
     }
 
+
+
+    /* =========================================================
+       LINKTAP HERO — REMOTION FINAL
+       ========================================================= */
+
+    .hero-visual {
+      position: relative;
+      min-width: 0;
+      height: 292px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .hero-video {
+      position: relative;
+      z-index: 2;
+      display: block;
+      width: 390px;
+      max-width: 145%;
+      height: auto;
+      object-fit: contain;
+      background: transparent;
+      transform: translateX(-6px);
+      filter: drop-shadow(0 22px 30px rgba(0, 0, 0, 0.07));
+      pointer-events: none;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      z-index: 0;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(22, 119, 255, 0.08) 0%,
+        rgba(22, 119, 255, 0.02) 45%,
+        transparent 72%
+      );
+      filter: blur(12px);
+      pointer-events: none;
+    }
+
+    @media (min-width: 760px) {
+      .hero-visual {
+        height: 570px;
+        justify-content: center;
+      }
+
+      .hero-video {
+        width: min(620px, 52vw);
+        max-width: none;
+        transform: translateX(10px);
+        filter: drop-shadow(0 32px 45px rgba(0, 0, 0, 0.06));
+      }
+
+      .hero-visual::before {
+        width: 520px;
+        height: 520px;
+      }
+    }
+
+    @media (min-width: 1180px) {
+      .hero-video {
+        width: 650px;
+        transform: translateX(15px);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-visual {
+        height: 270px;
+      }
+
+      .hero-video {
+        width: 350px;
+        max-width: 150%;
+        transform: translateX(-5px);
+      }
+    }
   </style>
 
   <style>
@@ -3133,88 +3219,19 @@
         </div>
 
 
-        <!--
-          Este visual será reemplazado después
-          por la animación final de Remotion.
-        -->
+        <!-- HERO VISUAL — REMOTION -->
 
-        <div class="hero-visual">
-
-          <div class="hero-glow"></div>
-
-
-          <div class="hero-card">
-
-            <div class="nfc-mark">
-              )))
-            </div>
-
-            <div class="hero-card-brand">
-              LinkTap<span class="blue">.</span>
-            </div>
-
-            <div class="hero-card-tagline">
-              ACERCA Y CONECTA
-            </div>
-
-          </div>
-
-
-          <div class="hero-phone">
-
-            <div class="hero-phone-screen">
-
-              <div class="hero-island"></div>
-
-              <div class="mini-profile">
-
-                <div class="mini-avatar">
-                  L<span class="blue">.</span>
-                </div>
-
-                <strong>
-                  Tu negocio
-                </strong>
-
-                <p>
-                  Todo lo que tus clientes necesitan.
-                </p>
-
-                <div class="mini-links">
-
-                  <div class="mini-link">
-                    Instagram
-                  </div>
-
-                  <div class="mini-link">
-                    WhatsApp
-                  </div>
-
-                  <div class="mini-link">
-                    Cómo llegar
-                  </div>
-
-                  <div class="mini-link">
-                    Dejar reseña
-                  </div>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="hero-pill reviews">
-            ★ Reviews
-          </div>
-
-          <div class="hero-pill profile">
-            ↗ Perfil digital
-          </div>
-
+        <div class="hero-visual" aria-hidden="true">
+          <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          >
+            <source src="assets/linktap-hero.webm" type="video/webm">
+          </video>
         </div>
 
 
