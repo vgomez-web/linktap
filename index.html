@@ -2790,29 +2790,42 @@
 
 
     /* =========================================================
-       LINKTAP HERO — REMOTION FINAL
+       LINKTAP HERO — REMOTION / MOBILE XL
        ========================================================= */
+
+    /* En móvil el producto queda grande y parcialmente superpuesto.
+       El texto está por encima gracias al z-index de .hero-copy. */
+    .hero-grid {
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 0;
+    }
+
+    .hero-copy {
+      z-index: 5;
+    }
 
     .hero-visual {
       position: relative;
       min-width: 0;
-      height: 292px;
+      height: 330px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: visible;
+      z-index: 1;
     }
 
     .hero-video {
-      position: relative;
+      position: absolute;
       z-index: 2;
       display: block;
-      width: 390px;
-      max-width: 145%;
+      width: 500px;
+      max-width: none;
       height: auto;
       object-fit: contain;
       background: transparent;
-      transform: translateX(-6px);
+      transform: translateX(34px);
+      transform-origin: center;
       filter: drop-shadow(0 22px 30px rgba(0, 0, 0, 0.07));
       pointer-events: none;
       user-select: none;
@@ -2823,8 +2836,8 @@
       content: "";
       position: absolute;
       z-index: 0;
-      width: 280px;
-      height: 280px;
+      width: 330px;
+      height: 330px;
       border-radius: 50%;
       background: radial-gradient(
         circle,
@@ -2836,16 +2849,57 @@
       pointer-events: none;
     }
 
+    @media (max-width: 430px) {
+      .hero {
+        padding-top: 42px;
+        padding-bottom: 44px;
+      }
+
+      .hero h1 {
+        max-width: 235px;
+      }
+
+      .hero-visual {
+        height: 330px;
+      }
+
+      .hero-video {
+        width: 510px;
+        transform: translateX(42px);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+      }
+
+      .hero-visual {
+        height: 310px;
+      }
+
+      .hero-video {
+        width: 475px;
+        transform: translateX(38px);
+      }
+    }
+
     @media (min-width: 760px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+        gap: 2px;
+      }
+
       .hero-visual {
         height: 570px;
         justify-content: center;
       }
 
       .hero-video {
-        width: min(620px, 52vw);
+        position: relative;
+        width: min(650px, 54vw);
         max-width: none;
-        transform: translateX(10px);
+        transform: translateX(8px);
         filter: drop-shadow(0 32px 45px rgba(0, 0, 0, 0.06));
       }
 
@@ -2857,20 +2911,8 @@
 
     @media (min-width: 1180px) {
       .hero-video {
-        width: 650px;
-        transform: translateX(15px);
-      }
-    }
-
-    @media (max-width: 390px) {
-      .hero-visual {
-        height: 270px;
-      }
-
-      .hero-video {
-        width: 350px;
-        max-width: 150%;
-        transform: translateX(-5px);
+        width: 680px;
+        transform: translateX(12px);
       }
     }
   </style>
