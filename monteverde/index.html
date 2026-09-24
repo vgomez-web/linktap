@@ -2,8 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#063b24">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#063b24"
+  >
 
   <title>Clínica Monteverde | Puerto Montt</title>
 
@@ -12,27 +20,34 @@
     content="Clínica Monteverde en Puerto Montt. Odontología integral, especialistas y atención profesional."
   >
 
-  <!-- Tipografías -->
+  <!-- TIPOGRAFÍAS -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
-  <!-- Iconos -->
+  <!-- ICONOS -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
   >
 
   <style>
+
     /* =========================================================
-       BASE
+       VARIABLES
     ========================================================= */
 
     :root {
+
       --green-dark: #05351f;
       --green: #08762f;
       --green-soft: #38a65a;
@@ -43,16 +58,18 @@
       --black: #0c1711;
       --gray: #647069;
 
-      --radius-xl: 34px;
-      --radius-lg: 26px;
-      --radius-md: 20px;
-
       --shadow:
         0 20px 60px rgba(3, 38, 21, 0.12);
 
       --shadow-heavy:
         0 30px 80px rgba(0, 0, 0, 0.22);
+
     }
+
+
+    /* =========================================================
+       BASE
+    ========================================================= */
 
     * {
       margin: 0;
@@ -60,410 +77,667 @@
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
+
       font-family: "DM Sans", sans-serif;
+
       background: var(--cream);
+
       color: var(--black);
+
       overflow-x: hidden;
+
       -webkit-font-smoothing: antialiased;
+
     }
+
 
     img {
       display: block;
       width: 100%;
     }
 
+
     a {
       color: inherit;
       text-decoration: none;
     }
+
 
     button,
     a {
       -webkit-tap-highlight-color: transparent;
     }
 
-    .container {
-      width: min(1120px, calc(100% - 40px));
-      margin: auto;
+
+    button {
+      font: inherit;
     }
+
+
+    .container {
+
+      width: min(
+        1120px,
+        calc(100% - 40px)
+      );
+
+      margin: auto;
+
+    }
+
 
     .section {
       padding: 105px 0;
     }
 
+
     .eyebrow {
+
       display: inline-flex;
+
       align-items: center;
+
       gap: 8px;
 
       margin-bottom: 18px;
 
       color: var(--green);
+
       font-size: 0.76rem;
+
       font-weight: 700;
+
       letter-spacing: 0.14em;
+
       text-transform: uppercase;
+
     }
+
 
     .eyebrow::before {
+
       content: "";
+
       width: 24px;
+
       height: 1px;
+
       background: currentColor;
+
     }
+
 
     .section-title {
+
       font-family: "Manrope", sans-serif;
-      font-size: clamp(2rem, 5vw, 3.8rem);
+
+      font-size:
+        clamp(2rem, 5vw, 3.8rem);
+
       line-height: 1.05;
+
       letter-spacing: -0.045em;
+
       font-weight: 600;
+
     }
+
 
     .section-description {
+
       color: var(--gray);
+
       line-height: 1.75;
+
       font-size: 1rem;
+
       margin-top: 20px;
+
       max-width: 620px;
+
     }
 
+
     /* =========================================================
-       SCROLL PROGRESS
+       BARRA DE PROGRESO
     ========================================================= */
 
     .progress {
+
       position: fixed;
+
       top: 0;
       left: 0;
 
       height: 3px;
+
       width: 0;
 
       z-index: 9999;
 
-      background: linear-gradient(
-        90deg,
-        #55c56d,
-        #ffffff
-      );
+      background:
+        linear-gradient(
+          90deg,
+          #55c56d,
+          #ffffff
+        );
+
     }
+
 
     /* =========================================================
        HERO
     ========================================================= */
 
     .hero {
+
       position: relative;
 
       min-height: 100svh;
 
       display: flex;
+
       align-items: flex-end;
 
       overflow: hidden;
 
-      background:
-        linear-gradient(
-          180deg,
-          rgba(2, 28, 16, 0.14) 0%,
-          rgba(2, 28, 16, 0.22) 35%,
-          rgba(2, 28, 16, 0.92) 100%
-        ),
-        url("hero.jpg") center / cover no-repeat;
+      background: var(--green-dark);
+
     }
 
-    .hero::after {
-      content: "";
-
-      position: absolute;
-      inset: 0;
-
-      background:
-        radial-gradient(
-          circle at 80% 20%,
-          rgba(87, 196, 112, 0.18),
-          transparent 35%
-        );
-
-      pointer-events: none;
-    }
 
     .hero-image {
+
       position: absolute;
-      inset: -5%;
+
+      inset: -4%;
 
       background:
-        url("hero.jpg") center / cover no-repeat;
-
-      z-index: -1;
+        url("hero.jpg")
+        center 45% / cover
+        no-repeat;
 
       transform: scale(1.06);
 
-      animation: heroMove 16s ease-in-out infinite alternate;
+      animation:
+        heroMove
+        16s
+        ease-in-out
+        infinite
+        alternate;
+
     }
 
+
+    .hero-overlay {
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 1;
+
+      background:
+
+        radial-gradient(
+          circle at 80% 15%,
+          rgba(79, 188, 104, 0.12),
+          transparent 34%
+        ),
+
+        linear-gradient(
+          180deg,
+          rgba(2, 28, 16, 0.10) 0%,
+          rgba(2, 28, 16, 0.18) 34%,
+          rgba(2, 28, 16, 0.94) 100%
+        );
+
+    }
+
+
     @keyframes heroMove {
+
       from {
-        transform: scale(1.06) translate3d(0, 0, 0);
+
+        transform:
+          scale(1.06)
+          translate3d(0, 0, 0);
+
       }
 
       to {
-        transform: scale(1.13) translate3d(-1%, -1%, 0);
+
+        transform:
+          scale(1.12)
+          translate3d(-1%, -1%, 0);
+
       }
+
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 3;
 
-      width: min(1120px, calc(100% - 40px));
-      margin: 0 auto;
-
-      padding: 42px 0 58px;
-
-      color: white;
-    }
+    /* LOGO SUPERIOR */
 
     .brand {
+
       position: absolute;
 
-      top: 30px;
+      top: 28px;
+
       left: 50%;
 
-      width: min(1120px, calc(100% - 40px));
-
       transform: translateX(-50%);
+
+      width:
+        min(
+          1120px,
+          calc(100% - 40px)
+        );
 
       z-index: 5;
 
       display: flex;
+
       align-items: center;
+
       justify-content: space-between;
+
     }
+
 
     .brand-left {
+
       display: flex;
+
       align-items: center;
-      gap: 12px;
+
+      gap: 13px;
+
     }
+
 
     .logo-shell {
-      width: 54px;
-      height: 54px;
 
-      border-radius: 50%;
+      width: 58px;
 
-      background: white;
+      height: 58px;
 
       display: grid;
+
       place-items: center;
 
-      overflow: hidden;
-
-      box-shadow:
-        0 8px 30px rgba(0, 0, 0, 0.18);
     }
+
 
     .logo-shell img {
+
       width: 100%;
+
       height: 100%;
-      object-fit: cover;
+
+      object-fit: contain;
+
     }
+
 
     .brand-name {
+
       color: white;
+
       font-family: "Manrope", sans-serif;
+
       font-size: 0.95rem;
+
       font-weight: 600;
+
       line-height: 1.2;
+
     }
+
 
     .brand-name span {
+
       display: block;
+
       opacity: 0.66;
+
       font-size: 0.72rem;
+
       font-weight: 400;
+
       margin-top: 3px;
+
     }
 
+
+    /* HERO CONTENT */
+
+    .hero-content {
+
+      position: relative;
+
+      z-index: 3;
+
+      width:
+        min(
+          1120px,
+          calc(100% - 40px)
+        );
+
+      margin: 0 auto;
+
+      padding:
+        42px 0 60px;
+
+      color: white;
+
+    }
+
+
     .hero-badge {
+
       display: inline-flex;
+
       align-items: center;
+
       gap: 9px;
 
-      padding: 10px 15px;
+      padding:
+        10px 15px;
 
-      border: 1px solid rgba(255,255,255,.24);
+      border:
+        1px solid
+        rgba(255,255,255,.24);
+
       border-radius: 100px;
 
-      background: rgba(255,255,255,.09);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background:
+        rgba(255,255,255,.09);
 
-      font-size: 0.78rem;
+      backdrop-filter:
+        blur(14px);
+
+      -webkit-backdrop-filter:
+        blur(14px);
+
+      font-size: .78rem;
+
       font-weight: 500;
 
       margin-bottom: 23px;
+
     }
 
+
     .hero-badge span {
+
       width: 7px;
+
       height: 7px;
+
       border-radius: 50%;
+
       background: #68d17f;
 
       box-shadow:
-        0 0 0 5px rgba(104,209,127,.13);
+        0 0 0 5px
+        rgba(104,209,127,.13);
+
     }
 
+
     .hero h1 {
-      font-family: "Manrope", sans-serif;
 
-      font-size: clamp(3rem, 8vw, 6.6rem);
+      font-family:
+        "Manrope",
+        sans-serif;
 
-      line-height: 0.94;
-      letter-spacing: -0.065em;
+      font-size:
+        clamp(
+          3rem,
+          8vw,
+          6.6rem
+        );
+
+      line-height: .94;
+
+      letter-spacing: -.065em;
+
       font-weight: 500;
 
       max-width: 850px;
+
     }
+
 
     .hero h1 em {
+
       font-style: normal;
+
       color: #87df96;
+
     }
 
+
     .hero-sub {
+
       max-width: 570px;
 
       margin-top: 24px;
 
-      font-size: clamp(1rem, 2vw, 1.16rem);
+      font-size:
+        clamp(
+          1rem,
+          2vw,
+          1.16rem
+        );
+
       line-height: 1.65;
 
-      color: rgba(255,255,255,.78);
+      color:
+        rgba(
+          255,
+          255,
+          255,
+          .78
+        );
+
     }
 
+
     .hero-actions {
+
       margin-top: 32px;
 
       display: flex;
+
       align-items: center;
+
       gap: 12px;
 
       flex-wrap: wrap;
+
     }
 
+
+    /* =========================================================
+       BOTONES
+    ========================================================= */
+
     .btn {
+
       min-height: 56px;
 
-      display: inline-flex;
+      display:
+        inline-flex;
+
       align-items: center;
+
       justify-content: center;
+
       gap: 10px;
 
-      padding: 0 24px;
+      padding:
+        0 24px;
 
       border-radius: 100px;
 
-      font-size: 0.94rem;
+      font-size: .94rem;
+
       font-weight: 600;
 
       transition:
         transform .3s ease,
         box-shadow .3s ease,
         background .3s ease;
+
     }
+
 
     .btn:hover {
-      transform: translateY(-3px);
+
+      transform:
+        translateY(-3px);
+
     }
+
 
     .btn-primary {
+
       background: white;
-      color: var(--green-dark);
+
+      color:
+        var(--green-dark);
 
       box-shadow:
-        0 15px 40px rgba(0,0,0,.18);
+        0 15px 40px
+        rgba(0,0,0,.18);
+
     }
+
 
     .btn-glass {
+
       color: white;
 
-      border: 1px solid rgba(255,255,255,.24);
+      border:
+        1px solid
+        rgba(255,255,255,.24);
 
-      background: rgba(255,255,255,.08);
+      background:
+        rgba(255,255,255,.08);
 
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter:
+        blur(14px);
+
+      -webkit-backdrop-filter:
+        blur(14px);
+
     }
 
+
     .scroll-hint {
+
       position: absolute;
 
       right: 0;
+
       bottom: 63px;
 
       display: flex;
+
       align-items: center;
+
       gap: 10px;
 
-      color: rgba(255,255,255,.55);
+      color:
+        rgba(255,255,255,.55);
 
-      font-size: 0.72rem;
+      font-size: .72rem;
+
       letter-spacing: .08em;
+
       text-transform: uppercase;
+
     }
+
 
     .scroll-line {
+
       width: 42px;
+
       height: 1px;
-      background: rgba(255,255,255,.45);
+
+      background:
+        rgba(255,255,255,.45);
+
     }
 
+
     /* =========================================================
-       QUICK ACTIONS
+       ACCESOS RÁPIDOS
     ========================================================= */
 
     .quick-wrapper {
+
       position: relative;
+
       z-index: 20;
 
       margin-top: -27px;
+
     }
 
+
     .quick-actions {
-      background: rgba(255,255,255,.93);
 
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      background:
+        rgba(255,255,255,.94);
 
-      border: 1px solid rgba(255,255,255,.75);
+      backdrop-filter:
+        blur(20px);
+
+      -webkit-backdrop-filter:
+        blur(20px);
+
+      border:
+        1px solid
+        rgba(255,255,255,.75);
 
       border-radius: 28px;
 
       padding: 10px;
 
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
 
-      box-shadow: var(--shadow);
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      box-shadow:
+        var(--shadow);
+
     }
 
+
     .quick-item {
+
       min-height: 91px;
 
       border-radius: 21px;
 
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
+
       justify-content: center;
 
       gap: 9px;
@@ -471,82 +745,135 @@
       transition:
         background .3s ease,
         transform .3s ease;
+
     }
+
 
     .quick-item:hover {
+
       background: #edf7ef;
-      transform: translateY(-3px);
+
+      transform:
+        translateY(-3px);
+
     }
 
+
     .quick-icon {
-      width: 36px;
-      height: 36px;
+
+      width: 38px;
+
+      height: 38px;
 
       display: grid;
+
       place-items: center;
 
       border-radius: 50%;
 
-      background: var(--green-light);
-      color: var(--green);
+      background:
+        var(--green-light);
+
+      color:
+        var(--green);
+
+      font-size: .95rem;
+
     }
 
+
     .quick-item span {
+
       font-size: .76rem;
+
       font-weight: 600;
+
     }
+
 
     /* =========================================================
        INTRO
     ========================================================= */
 
     .intro-grid {
+
       display: grid;
-      grid-template-columns: .9fr 1.1fr;
+
+      grid-template-columns:
+        .9fr 1.1fr;
+
       gap: 80px;
+
       align-items: center;
+
     }
+
 
     .intro-number {
-      font-family: "Manrope", sans-serif;
 
-      font-size: clamp(5rem, 12vw, 9rem);
+      font-family:
+        "Manrope",
+        sans-serif;
+
+      font-size:
+        clamp(
+          5rem,
+          12vw,
+          9rem
+        );
 
       line-height: .8;
+
       letter-spacing: -.08em;
 
-      color: var(--green);
+      color:
+        var(--green);
 
       font-weight: 500;
+
     }
 
+
     .intro-number small {
+
       display: block;
 
       font-size: .9rem;
+
       letter-spacing: 0;
+
       line-height: 1.5;
 
-      color: var(--gray);
+      color:
+        var(--gray);
 
       margin-top: 28px;
 
-      max-width: 210px;
+      max-width: 230px;
+
     }
 
+
     /* =========================================================
-       IMAGE EXPERIENCE
+       EXPERIENCIA / FOTO INTERIOR
     ========================================================= */
 
     .experience {
-      padding: 0 20px;
+
+      padding:
+        0 20px;
+
     }
 
+
     .experience-card {
+
       position: relative;
 
       max-width: 1380px;
-      height: min(78vh, 780px);
+
+      height:
+        min(78vh, 780px);
 
       margin: auto;
 
@@ -555,202 +882,659 @@
       overflow: hidden;
 
       background:
-        linear-gradient(
-          180deg,
-          rgba(2,24,14,.08),
-          rgba(2,24,14,.72)
-        ),
-        url("clinica.jpg") center / cover no-repeat;
+        var(--green-dark);
 
-      box-shadow: var(--shadow-heavy);
+      box-shadow:
+        var(--shadow-heavy);
+
     }
 
+
     .experience-image {
+
       position: absolute;
+
       inset: -8%;
 
       background:
-        url("clinica.jpg") center / cover no-repeat;
+        url("clinica.jpg")
+        center / cover
+        no-repeat;
 
-      transform: scale(1.08);
+      transform:
+        scale(1.08);
 
-      z-index: -1;
+      z-index: 0;
+
     }
+
 
     .experience-overlay {
+
       position: absolute;
+
       inset: 0;
 
+      z-index: 1;
+
       background:
+
         linear-gradient(
           180deg,
-          rgba(0,0,0,0.02),
-          rgba(2,32,17,.82)
+          rgba(2,24,14,.03) 0%,
+          rgba(2,24,14,.12) 38%,
+          rgba(2,32,17,.88) 100%
         );
+
     }
 
+
     .experience-copy {
+
       position: absolute;
 
-      left: clamp(25px, 6vw, 85px);
-      bottom: clamp(30px, 7vw, 80px);
+      left:
+        clamp(
+          25px,
+          6vw,
+          85px
+        );
+
+      bottom:
+        clamp(
+          30px,
+          7vw,
+          80px
+        );
 
       z-index: 2;
 
       max-width: 660px;
 
       color: white;
+
     }
+
 
     .experience-copy h2 {
-      font-family: "Manrope", sans-serif;
 
-      font-size: clamp(2.4rem, 6vw, 5rem);
+      font-family:
+        "Manrope",
+        sans-serif;
+
+      font-size:
+        clamp(
+          2.4rem,
+          6vw,
+          5rem
+        );
 
       line-height: 1;
+
       letter-spacing: -.055em;
+
       font-weight: 500;
+
     }
 
+
     .experience-copy p {
+
       margin-top: 20px;
 
       max-width: 520px;
 
       line-height: 1.7;
 
-      color: rgba(255,255,255,.72);
+      color:
+        rgba(255,255,255,.72);
+
     }
+
 
     /* =========================================================
-       SPECIALTIES
+       ESPECIALIDADES
     ========================================================= */
 
-    .specialties-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+    .specialties-section {
 
-      gap: 30px;
+      background:
+        var(--cream);
 
-      margin-bottom: 48px;
     }
 
-    .specialties-head .section-description {
-      max-width: 420px;
-      margin-top: 0;
+
+    .specialties-header {
+
+      max-width: 760px;
+
+      margin-bottom: 60px;
+
     }
 
-    .specialties-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
 
-      gap: 14px;
+    .specialties-header
+    .section-description {
+
+      max-width: 540px;
+
     }
 
-    .specialty {
+
+    /* PRINCIPALES */
+
+    .services-list {
+
+      border-top:
+        1px solid
+        rgba(5,53,31,.14);
+
+    }
+
+
+    .service-row {
+
       position: relative;
 
-      min-height: 230px;
+      display: grid;
 
-      padding: 30px;
+      grid-template-columns:
+        82px
+        55px
+        1fr;
 
-      border-radius: var(--radius-lg);
+      align-items: center;
+
+      min-height: 165px;
+
+      padding:
+        25px 8px;
+
+      border-bottom:
+        1px solid
+        rgba(5,53,31,.14);
+
+    }
+
+
+    /* ICONOS */
+
+    .service-icon {
+
+      width: 64px;
+
+      height: 64px;
+
+      display: grid;
+
+      place-items: center;
+
+      color:
+        var(--green);
+
+      font-size: 1.85rem;
+
+      transition:
+        transform .45s
+        cubic-bezier(.2,.8,.2,1);
+
+    }
+
+
+    .service-row:hover
+    .service-icon {
+
+      transform:
+        translateY(-3px)
+        scale(1.05);
+
+    }
+
+
+    /* NÚMEROS */
+
+    .service-number {
+
+      align-self: start;
+
+      padding-top: 13px;
+
+      color: #9ba69f;
+
+      font-family:
+        "Manrope",
+        sans-serif;
+
+      font-size: .68rem;
+
+      font-weight: 600;
+
+      letter-spacing: .12em;
+
+    }
+
+
+    /* CONTENIDO */
+
+    .service-content {
+
+      padding-left: 10px;
+
+    }
+
+
+    .service-content h3 {
+
+      font-family:
+        "Manrope",
+        sans-serif;
+
+      font-size:
+        clamp(
+          1.55rem,
+          3vw,
+          2.25rem
+        );
+
+      font-weight: 500;
+
+      letter-spacing: -.04em;
+
+      color:
+        var(--green-dark);
+
+    }
+
+
+    .service-content p {
+
+      margin-top: 8px;
+
+      max-width: 520px;
+
+      color:
+        var(--gray);
+
+      font-size: .9rem;
+
+      line-height: 1.6;
+
+    }
+
+
+    /* =========================================================
+       VER TODAS LAS ESPECIALIDADES
+    ========================================================= */
+
+    .services-toggle {
+
+      width: 100%;
+
+      border: 0;
+
+      border-bottom:
+        1px solid
+        rgba(5,53,31,.14);
+
+      background:
+        transparent;
+
+      padding:
+        27px 8px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content:
+        space-between;
+
+      cursor: pointer;
+
+      color:
+        var(--green-dark);
+
+      font-family:
+        "DM Sans",
+        sans-serif;
+
+      font-size: .92rem;
+
+      font-weight: 600;
+
+      text-align: left;
+
+    }
+
+
+    .toggle-plus {
+
+      position: relative;
+
+      width: 38px;
+
+      height: 38px;
+
+      border-radius: 50%;
+
+      background: #e5f1e8;
+
+      flex-shrink: 0;
+
+      transition:
+        transform .4s ease,
+        background .3s ease;
+
+    }
+
+
+    .toggle-plus span {
+
+      position: absolute;
+
+      left: 50%;
+
+      top: 50%;
+
+      width: 13px;
+
+      height: 1.5px;
+
+      background:
+        var(--green);
+
+      transform:
+        translate(-50%, -50%);
+
+      transition:
+        transform .35s ease;
+
+    }
+
+
+    .toggle-plus
+    span:nth-child(2) {
+
+      transform:
+        translate(-50%, -50%)
+        rotate(90deg);
+
+    }
+
+
+    .services-toggle.active
+    .toggle-plus {
+
+      transform:
+        rotate(180deg);
+
+      background:
+        var(--green);
+
+    }
+
+
+    .services-toggle.active
+    .toggle-plus span {
 
       background: white;
 
-      overflow: hidden;
-
-      transition:
-        transform .4s cubic-bezier(.2,.8,.2,1),
-        box-shadow .4s ease;
     }
 
-    .specialty:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
+
+    .services-toggle.active
+    .toggle-plus
+    span:nth-child(2) {
+
+      transform:
+        translate(-50%, -50%)
+        rotate(0deg);
+
     }
 
-    .specialty-number {
-      font-family: "Manrope", sans-serif;
 
-      color: #a3aea7;
+    /* =========================================================
+       ESPECIALIDADES DESPLEGABLES
+    ========================================================= */
 
-      font-size: .73rem;
-      letter-spacing: .1em;
-    }
-
-    .specialty h3 {
-      position: absolute;
-
-      left: 30px;
-      bottom: 30px;
-
-      font-family: "Manrope", sans-serif;
-
-      font-size: clamp(1.4rem, 3vw, 2.1rem);
-
-      letter-spacing: -.035em;
-      font-weight: 500;
-    }
-
-    .specialty-icon {
-      position: absolute;
-
-      right: 27px;
-      top: 27px;
-
-      width: 49px;
-      height: 49px;
+    .extra-services {
 
       display: grid;
+
+      grid-template-rows: 0fr;
+
+      opacity: 0;
+
+      transition:
+        grid-template-rows
+        .7s
+        cubic-bezier(.2,.8,.2,1),
+
+        opacity
+        .45s
+        ease;
+
+    }
+
+
+    .extra-services.open {
+
+      grid-template-rows: 1fr;
+
+      opacity: 1;
+
+    }
+
+
+    .extra-inner {
+
+      overflow: hidden;
+
+    }
+
+
+    .extra-grid {
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, 1fr);
+
+      gap: 1px;
+
+      margin-top: 30px;
+
+      background:
+        rgba(5,53,31,.10);
+
+      border:
+        1px solid
+        rgba(5,53,31,.10);
+
+      border-radius: 26px;
+
+      overflow: hidden;
+
+    }
+
+
+    .extra-service {
+
+      min-height: 145px;
+
+      padding: 27px;
+
+      display: flex;
+
+      align-items: flex-start;
+
+      gap: 18px;
+
+      background:
+        rgba(255,255,255,.68);
+
+    }
+
+
+    .extra-icon {
+
+      width: 48px;
+
+      height: 48px;
+
+      flex-shrink: 0;
+
+      display: grid;
+
+      place-items: center;
+
+      color:
+        var(--green);
+
+      font-size: 1.35rem;
+
+    }
+
+
+    .extra-service h4 {
+
+      font-family:
+        "Manrope",
+        sans-serif;
+
+      font-size: 1.08rem;
+
+      font-weight: 600;
+
+      letter-spacing: -.02em;
+
+      color:
+        var(--green-dark);
+
+    }
+
+
+    .extra-service p {
+
+      margin-top: 7px;
+
+      color:
+        var(--gray);
+
+      font-size: .82rem;
+
+      line-height: 1.5;
+
+    }
+
+
+    /* NOTA */
+
+    .services-note {
+
+      margin-top: 20px;
+
+      padding: 27px;
+
+      border-radius: 23px;
+
+      background:
+        var(--green-dark);
+
+      color: white;
+
+      display: flex;
+
+      gap: 18px;
+
+      align-items:
+        flex-start;
+
+    }
+
+
+    .note-icon {
+
+      width: 44px;
+
+      height: 44px;
+
+      flex-shrink: 0;
+
+      display: grid;
+
       place-items: center;
 
       border-radius: 50%;
 
-      background: #eff7f1;
-      color: var(--green);
+      background:
+        rgba(255,255,255,.1);
 
-      transition: transform .4s ease;
+      color: #9be3aa;
+
+      font-size: 1.05rem;
+
     }
 
-    .specialty:hover .specialty-icon {
-      transform: rotate(12deg) scale(1.08);
+
+    .services-note strong {
+
+      font-family:
+        "Manrope",
+        sans-serif;
+
+      font-size: 1rem;
+
+      font-weight: 600;
+
     }
 
-    .specialty.featured {
-      background: var(--green-dark);
-      color: white;
+
+    .services-note p {
+
+      margin-top: 6px;
+
+      color:
+        rgba(255,255,255,.62);
+
+      font-size: .84rem;
+
+      line-height: 1.55;
+
     }
 
-    .specialty.featured .specialty-number {
-      color: rgba(255,255,255,.48);
-    }
-
-    .specialty.featured .specialty-icon {
-      background: rgba(255,255,255,.1);
-      color: white;
-    }
 
     /* =========================================================
-       CTA
+       CTA AGENDAMIENTO
     ========================================================= */
 
     .appointment {
-      padding: 20px 20px 100px;
+
+      padding:
+        20px 20px 100px;
+
     }
 
+
     .appointment-box {
+
       position: relative;
 
       max-width: 1120px;
+
       margin: auto;
 
-      padding: clamp(45px, 8vw, 95px);
+      padding:
+        clamp(
+          45px,
+          8vw,
+          95px
+        );
 
       border-radius: 38px;
 
       background:
+
         linear-gradient(
           135deg,
           #073d25,
@@ -760,340 +1544,669 @@
       color: white;
 
       overflow: hidden;
+
     }
 
+
     .appointment-box::after {
+
       content: "";
 
       position: absolute;
 
       width: 450px;
+
       height: 450px;
 
       border-radius: 50%;
 
       right: -180px;
+
       top: -210px;
 
       background:
+
         radial-gradient(
           circle,
           rgba(118,223,139,.26),
           transparent 67%
         );
+
     }
 
+
     .appointment-content {
+
       position: relative;
+
       z-index: 2;
 
       max-width: 680px;
+
     }
+
 
     .appointment h2 {
-      font-family: "Manrope", sans-serif;
 
-      font-size: clamp(2.4rem, 7vw, 5.3rem);
+      font-family:
+        "Manrope",
+        sans-serif;
+
+      font-size:
+        clamp(
+          2.4rem,
+          7vw,
+          5.3rem
+        );
 
       line-height: .98;
+
       letter-spacing: -.06em;
+
       font-weight: 500;
+
     }
 
+
     .appointment p {
-      color: rgba(255,255,255,.68);
+
+      color:
+        rgba(255,255,255,.68);
 
       margin-top: 22px;
 
       line-height: 1.7;
 
       max-width: 520px;
+
     }
+
 
     .appointment .btn {
+
       margin-top: 31px;
+
     }
 
+
     /* =========================================================
-       SOCIAL / FOOTER
+       FOOTER
     ========================================================= */
 
     footer {
+
       background: #07150e;
+
       color: white;
 
-      padding: 75px 0 35px;
+      padding:
+        75px 0 35px;
+
     }
+
 
     .footer-top {
+
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
+
+      grid-template-columns:
+        1.2fr .8fr;
+
       gap: 50px;
+
     }
+
 
     .footer-logo {
+
       display: flex;
+
       align-items: center;
+
       gap: 13px;
+
     }
+
 
     .footer-logo img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      background: white;
+
+      width: 52px;
+
+      height: 52px;
+
+      object-fit: contain;
+
     }
+
 
     .footer-logo strong {
-      font-family: "Manrope", sans-serif;
+
+      font-family:
+        "Manrope",
+        sans-serif;
+
       font-weight: 600;
+
     }
 
+
     .footer-copy {
+
       margin-top: 23px;
 
-      color: rgba(255,255,255,.55);
+      color:
+        rgba(255,255,255,.55);
 
       max-width: 390px;
 
       line-height: 1.7;
 
       font-size: .91rem;
+
     }
 
+
     .socials {
+
       display: flex;
+
       justify-content: flex-end;
+
       align-items: flex-start;
 
       gap: 10px;
+
     }
 
+
     .social {
+
       width: 51px;
+
       height: 51px;
 
       border-radius: 50%;
 
       display: grid;
+
       place-items: center;
 
-      background: rgba(255,255,255,.07);
+      background:
+        rgba(255,255,255,.07);
 
-      border: 1px solid rgba(255,255,255,.08);
+      border:
+        1px solid
+        rgba(255,255,255,.08);
 
       transition:
         transform .3s ease,
         background .3s ease;
+
     }
+
 
     .social:hover {
-      transform: translateY(-4px);
-      background: var(--green);
+
+      transform:
+        translateY(-4px);
+
+      background:
+        var(--green);
+
     }
+
 
     .footer-bottom {
+
       margin-top: 65px;
+
       padding-top: 25px;
 
-      border-top: 1px solid rgba(255,255,255,.08);
+      border-top:
+        1px solid
+        rgba(255,255,255,.08);
 
       display: flex;
-      justify-content: space-between;
+
+      justify-content:
+        space-between;
+
       gap: 20px;
 
-      color: rgba(255,255,255,.38);
+      color:
+        rgba(255,255,255,.38);
 
       font-size: .72rem;
+
     }
 
+
     /* =========================================================
-       REVEAL ANIMATIONS
+       ANIMACIONES SCROLL
     ========================================================= */
 
     .reveal {
+
       opacity: 0;
 
-      transform: translateY(35px);
+      transform:
+        translateY(35px);
 
       transition:
-        opacity .9s cubic-bezier(.2,.7,.2,1),
-        transform .9s cubic-bezier(.2,.7,.2,1);
+
+        opacity
+        .9s
+        cubic-bezier(.2,.7,.2,1),
+
+        transform
+        .9s
+        cubic-bezier(.2,.7,.2,1);
+
     }
+
 
     .reveal.visible {
+
       opacity: 1;
-      transform: translateY(0);
+
+      transform:
+        translateY(0);
+
     }
+
 
     .delay-1 {
+
       transition-delay: .08s;
+
     }
+
 
     .delay-2 {
+
       transition-delay: .16s;
+
     }
 
-    .delay-3 {
-      transition-delay: .24s;
-    }
 
     /* =========================================================
-       MOBILE
+       MÓVIL
     ========================================================= */
 
     @media (max-width: 760px) {
 
+
       .container {
-        width: min(100% - 30px, 1120px);
+
+        width:
+          min(
+            calc(100% - 30px),
+            1120px
+          );
+
       }
+
 
       .section {
-        padding: 82px 0;
+
+        padding:
+          82px 0;
+
       }
+
+
+      /* HERO */
 
       .brand {
-        top: 22px;
-        width: calc(100% - 30px);
+
+        top: 21px;
+
+        width:
+          calc(100% - 30px);
+
       }
+
 
       .logo-shell {
-        width: 47px;
-        height: 47px;
+
+        width: 52px;
+
+        height: 52px;
+
       }
+
 
       .brand-name {
+
         font-size: .85rem;
+
       }
+
 
       .hero {
+
         min-height: 94svh;
+
       }
+
+
+      .hero-image {
+
+        background-position:
+          center center;
+
+      }
+
 
       .hero-content {
-        width: calc(100% - 30px);
+
+        width:
+          calc(100% - 30px);
+
         padding-bottom: 68px;
+
       }
+
 
       .hero h1 {
-        font-size: clamp(3.15rem, 15vw, 5rem);
+
+        font-size:
+          clamp(
+            3.15rem,
+            15vw,
+            5rem
+          );
+
       }
+
 
       .hero-sub {
+
         font-size: .96rem;
+
         max-width: 95%;
+
       }
+
 
       .hero-actions {
+
         display: grid;
+
         grid-template-columns: 1fr;
+
       }
+
 
       .btn {
+
         width: 100%;
+
       }
+
 
       .scroll-hint {
+
         display: none;
+
       }
+
+
+      /* QUICK ACTIONS */
 
       .quick-wrapper {
+
         margin-top: -32px;
+
       }
 
+
       .quick-actions {
-        grid-template-columns: repeat(4, 1fr);
+
+        grid-template-columns:
+          repeat(4, 1fr);
 
         padding: 7px;
 
         border-radius: 24px;
+
       }
+
 
       .quick-item {
+
         min-height: 82px;
+
         gap: 7px;
+
       }
+
 
       .quick-icon {
-        width: 33px;
-        height: 33px;
+
+        width: 34px;
+
+        height: 34px;
+
       }
+
 
       .quick-item span {
+
         font-size: .65rem;
+
       }
+
+
+      /* INTRO */
 
       .intro-grid {
+
         grid-template-columns: 1fr;
+
         gap: 50px;
+
       }
+
 
       .intro-number {
+
         font-size: 7rem;
+
       }
+
+
+      /* EXPERIENCIA */
 
       .experience {
-        padding: 0 12px;
+
+        padding:
+          0 12px;
+
       }
+
 
       .experience-card {
+
         height: 72svh;
+
         border-radius: 29px;
+
       }
+
 
       .experience-copy {
+
         left: 25px;
+
         right: 25px;
+
         bottom: 35px;
+
       }
+
 
       .experience-copy h2 {
+
         font-size: 2.75rem;
+
       }
 
-      .specialties-head {
-        display: block;
+
+      /* ESPECIALIDADES */
+
+      .specialties-header {
+
+        margin-bottom: 42px;
+
       }
 
-      .specialties-head .section-description {
-        margin-top: 20px;
+
+      .service-row {
+
+        grid-template-columns:
+          62px 1fr;
+
+        min-height: 145px;
+
+        padding:
+          25px 2px;
+
       }
 
-      .specialties-grid {
+
+      .service-icon {
+
+        width: 50px;
+
+        height: 50px;
+
+        font-size: 1.55rem;
+
+        align-self: start;
+
+        padding-top: 3px;
+
+      }
+
+
+      .service-number {
+
+        display: none;
+
+      }
+
+
+      .service-content {
+
+        padding-left: 4px;
+
+      }
+
+
+      .service-content h3 {
+
+        font-size: 1.45rem;
+
+      }
+
+
+      .service-content p {
+
+        font-size: .84rem;
+
+        max-width: 275px;
+
+      }
+
+
+      .services-toggle {
+
+        padding:
+          24px 2px;
+
+      }
+
+
+      .extra-grid {
+
         grid-template-columns: 1fr;
+
+        border-radius: 22px;
+
       }
 
-      .specialty {
-        min-height: 175px;
+
+      .extra-service {
+
+        min-height: 118px;
+
+        padding:
+          23px 20px;
+
       }
+
+
+      .services-note {
+
+        padding:
+          23px 20px;
+
+      }
+
+
+      /* CTA */
 
       .appointment {
+
         padding:
           12px 12px 70px;
+
       }
 
+
       .appointment-box {
+
         border-radius: 29px;
 
         padding:
           58px 27px;
+
       }
+
+
+      /* FOOTER */
 
       .footer-top {
+
         grid-template-columns: 1fr;
+
       }
+
 
       .socials {
-        justify-content: flex-start;
+
+        justify-content:
+          flex-start;
+
       }
+
 
       .footer-bottom {
+
         flex-direction: column;
+
       }
+
     }
 
-    @media (prefers-reduced-motion: reduce) {
+
+    /* =========================================================
+       ACCESIBILIDAD
+    ========================================================= */
+
+    @media
+    (prefers-reduced-motion: reduce) {
 
       html {
         scroll-behavior: auto;
@@ -1102,41 +2215,79 @@
       *,
       *::before,
       *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
+
+        animation-duration:
+          .01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          .01ms !important;
+
       }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-  <div class="progress" id="progress"></div>
+
+  <!-- PROGRESO -->
+
+  <div
+    class="progress"
+    id="progress"
+  ></div>
 
 
   <!-- =======================================================
        HERO
   ======================================================== -->
 
-  <header class="hero" id="inicio">
+  <header
+    class="hero"
+    id="inicio"
+  >
 
-    <div class="hero-image" id="heroImage"></div>
+
+    <div
+      class="hero-image"
+    ></div>
+
+
+    <div
+      class="hero-overlay"
+    ></div>
+
+
+    <!-- MARCA -->
 
     <div class="brand">
 
       <div class="brand-left">
 
         <div class="logo-shell">
+
           <img
             src="logo.png"
             alt="Clínica Monteverde"
           >
+
         </div>
 
+
         <div class="brand-name">
+
           Clínica Monteverde
-          <span>Puerto Montt</span>
+
+          <span>
+            Puerto Montt
+          </span>
+
         </div>
 
       </div>
@@ -1144,24 +2295,44 @@
     </div>
 
 
+    <!-- HERO CONTENT -->
+
     <div class="hero-content">
 
+
       <div class="hero-badge">
+
         <span></span>
+
         Centro odontológico · Puerto Montt
+
       </div>
 
+
       <h1>
+
         Tu sonrisa,<br>
-        nuestra <em>prioridad.</em>
+
+        nuestra
+
+        <em>
+          prioridad.
+        </em>
+
       </h1>
 
+
       <p class="hero-sub">
-        Atención odontológica integral en un espacio pensado
-        para cuidar tu salud, tu confianza y tu sonrisa.
+
+        Atención odontológica integral
+        en un espacio pensado para cuidar
+        tu salud, tu confianza y tu sonrisa.
+
       </p>
 
+
       <div class="hero-actions">
+
 
         <a
           class="btn btn-primary"
@@ -1169,24 +2340,41 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa-regular fa-calendar"></i>
+
+          <i
+            class="fa-regular fa-calendar"
+          ></i>
+
           Agendar evaluación
+
         </a>
+
 
         <a
           class="btn btn-glass"
           href="#especialidades"
         >
+
           Conoce la clínica
-          <i class="fa-solid fa-arrow-down"></i>
+
+          <i
+            class="fa-solid fa-arrow-down"
+          ></i>
+
         </a>
 
+
       </div>
 
+
       <div class="scroll-hint">
+
         Desliza
+
         <div class="scroll-line"></div>
+
       </div>
+
 
     </div>
 
@@ -1194,40 +2382,65 @@
 
 
   <!-- =======================================================
-       QUICK ACTIONS
+       ACCESOS RÁPIDOS
   ======================================================== -->
 
   <div class="quick-wrapper">
 
     <div class="container">
 
-      <div class="quick-actions reveal">
+      <div
+        class="quick-actions reveal"
+      >
+
+
+        <!-- LLAMADA -->
 
         <a
           class="quick-item"
           href="tel:+56652252948"
         >
+
           <div class="quick-icon">
-            <i class="fa-solid fa-phone"></i>
+
+            <i
+              class="fa-solid fa-phone"
+            ></i>
+
           </div>
 
-          <span>Llamar</span>
+          <span>
+            Llamar
+          </span>
+
         </a>
 
+
+        <!-- WHATSAPP -->
 
         <a
           class="quick-item"
-          href="https://wa.me/56652252948"
+          href="https://wa.me/56966638288"
           target="_blank"
           rel="noopener"
         >
+
           <div class="quick-icon">
-            <i class="fa-brands fa-whatsapp"></i>
+
+            <i
+              class="fa-brands fa-whatsapp"
+            ></i>
+
           </div>
 
-          <span>WhatsApp</span>
+          <span>
+            WhatsApp
+          </span>
+
         </a>
 
+
+        <!-- UBICACIÓN -->
 
         <a
           class="quick-item"
@@ -1235,13 +2448,23 @@
           target="_blank"
           rel="noopener"
         >
+
           <div class="quick-icon">
-            <i class="fa-solid fa-location-dot"></i>
+
+            <i
+              class="fa-solid fa-location-dot"
+            ></i>
+
           </div>
 
-          <span>Ubicación</span>
+          <span>
+            Ubicación
+          </span>
+
         </a>
 
+
+        <!-- WEB -->
 
         <a
           class="quick-item"
@@ -1249,12 +2472,21 @@
           target="_blank"
           rel="noopener"
         >
+
           <div class="quick-icon">
-            <i class="fa-solid fa-globe"></i>
+
+            <i
+              class="fa-solid fa-globe"
+            ></i>
+
           </div>
 
-          <span>Sitio web</span>
+          <span>
+            Sitio web
+          </span>
+
         </a>
+
 
       </div>
 
@@ -1269,38 +2501,59 @@
 
   <section class="section">
 
-    <div class="container intro-grid">
+    <div
+      class="container intro-grid"
+    >
+
 
       <div class="reveal">
 
         <div class="intro-number">
+
           12+
 
           <small>
-            años cuidando la salud dental de nuestros pacientes.
+
+            años cuidando la salud dental
+            de nuestros pacientes.
+
           </small>
+
         </div>
 
       </div>
 
 
-      <div class="reveal delay-1">
+      <div
+        class="reveal delay-1"
+      >
 
         <span class="eyebrow">
+
           Clínica Monteverde
+
         </span>
 
+
         <h2 class="section-title">
-          Sonrisas que se cuidan con confianza.
+
+          Sonrisas que se cuidan
+          con confianza.
+
         </h2>
 
+
         <p class="section-description">
-          Un equipo profesional y distintas especialidades
-          odontológicas reunidas en un mismo lugar para
-          acompañarte en cada etapa de tu tratamiento.
+
+          Un equipo profesional y distintas
+          especialidades odontológicas reunidas
+          en un mismo lugar para acompañarte
+          en cada etapa de tu tratamiento.
+
         </p>
 
       </div>
+
 
     </div>
 
@@ -1308,38 +2561,61 @@
 
 
   <!-- =======================================================
-       VISUAL EXPERIENCE
+       EXPERIENCIA
   ======================================================== -->
 
   <section class="experience">
 
-    <div class="experience-card reveal">
+
+    <div
+      class="experience-card reveal"
+    >
+
 
       <div
         class="experience-image"
         id="parallaxImage"
       ></div>
 
-      <div class="experience-overlay"></div>
 
-      <div class="experience-copy">
+      <div
+        class="experience-overlay"
+      ></div>
+
+
+      <div
+        class="experience-copy"
+      >
+
 
         <span
           class="eyebrow"
           style="color:#9be3aa;"
         >
+
           Monteverde
+
         </span>
 
+
         <h2>
-          Un espacio para sentirte bien.
+
+          Un espacio para
+          sentirte bien.
+
         </h2>
 
+
         <p>
-          Atención cercana, profesionales especializados y
-          tecnología para entregarte una experiencia
-          odontológica completa en Puerto Montt.
+
+          Atención cercana,
+          profesionales especializados
+          y tecnología para entregarte
+          una experiencia odontológica
+          completa en Puerto Montt.
+
         </p>
+
 
       </div>
 
@@ -1349,112 +2625,553 @@
 
 
   <!-- =======================================================
-       SPECIALTIES
+       ESPECIALIDADES
   ======================================================== -->
 
   <section
-    class="section"
+    class="section specialties-section"
     id="especialidades"
   >
 
+
     <div class="container">
 
-      <div class="specialties-head">
 
-        <div class="reveal">
+      <!-- HEADER -->
 
-          <span class="eyebrow">
-            Especialidades
-          </span>
+      <div
+        class="specialties-header reveal"
+      >
 
-          <h2 class="section-title">
-            Todo lo que tu<br>
-            sonrisa necesita.
-          </h2>
+
+        <span class="eyebrow">
+
+          Especialidades
+
+        </span>
+
+
+        <h2 class="section-title">
+
+          Todo lo que tu<br>
+
+          sonrisa necesita.
+
+        </h2>
+
+
+        <p class="section-description">
+
+          Un equipo multidisciplinario
+          para cuidar tu salud,
+          funcionalidad y estética
+          en un mismo lugar.
+
+        </p>
+
+
+      </div>
+
+
+      <!-- PRINCIPALES -->
+
+      <div class="services-list">
+
+
+        <!-- 01 -->
+
+        <div
+          class="service-row reveal"
+        >
+
+
+          <div class="service-icon">
+
+            <i
+              class="fa-solid fa-tooth"
+            ></i>
+
+          </div>
+
+
+          <div class="service-number">
+
+            01
+
+          </div>
+
+
+          <div class="service-content">
+
+            <h3>
+
+              Odontología general
+
+            </h3>
+
+            <p>
+
+              Prevención, diagnóstico
+              y cuidado integral
+              de tu salud bucal.
+
+            </p>
+
+          </div>
+
 
         </div>
 
 
-        <p class="section-description reveal delay-1">
-          Diferentes áreas de la odontología trabajando
-          juntas para ofrecerte una atención integral.
-        </p>
+        <!-- 02 -->
 
-      </div>
+        <div
+          class="service-row reveal delay-1"
+        >
 
 
-      <div class="specialties-grid">
+          <div class="service-icon">
 
-        <article class="specialty featured reveal">
+            <i
+              class="fa-solid fa-teeth"
+            ></i>
 
-          <span class="specialty-number">
-            01
-          </span>
-
-          <div class="specialty-icon">
-            <i class="fa-solid fa-tooth"></i>
           </div>
 
-          <h3>
-            Odontología<br>
-            general
-          </h3>
 
-        </article>
+          <div class="service-number">
 
-
-        <article class="specialty reveal delay-1">
-
-          <span class="specialty-number">
             02
-          </span>
 
-          <div class="specialty-icon">
-            <i class="fa-solid fa-teeth"></i>
           </div>
 
-          <h3>
-            Ortodoncia
-          </h3>
 
-        </article>
+          <div class="service-content">
+
+            <h3>
+
+              Ortodoncia
+
+            </h3>
+
+            <p>
+
+              Tratamientos especializados
+              para lograr una sonrisa
+              alineada y funcional.
+
+            </p>
+
+          </div>
 
 
-        <article class="specialty reveal">
+        </div>
 
-          <span class="specialty-number">
+
+        <!-- 03 -->
+
+        <div
+          class="service-row reveal"
+        >
+
+
+          <div class="service-icon">
+
+            <i
+              class="fa-solid fa-screwdriver-wrench"
+            ></i>
+
+          </div>
+
+
+          <div class="service-number">
+
             03
-          </span>
 
-          <div class="specialty-icon">
-            <i class="fa-solid fa-user-doctor"></i>
           </div>
 
-          <h3>
-            Implantología
-          </h3>
 
-        </article>
+          <div class="service-content">
+
+            <h3>
+
+              Implantología
+
+            </h3>
+
+            <p>
+
+              Soluciones para recuperar
+              piezas dentales,
+              funcionalidad y confianza.
+
+            </p>
+
+          </div>
 
 
-        <article class="specialty reveal delay-1">
+        </div>
 
-          <span class="specialty-number">
+
+        <!-- 04 -->
+
+        <div
+          class="service-row reveal delay-1"
+        >
+
+
+          <div class="service-icon">
+
+            <i
+              class="fa-regular fa-face-smile-beam"
+            ></i>
+
+          </div>
+
+
+          <div class="service-number">
+
             04
-          </span>
 
-          <div class="specialty-icon">
-            <i class="fa-solid fa-face-smile"></i>
           </div>
 
-          <h3>
-            Estética<br>
-            dental
-          </h3>
 
-        </article>
+          <div class="service-content">
+
+            <h3>
+
+              Estética orofacial
+
+            </h3>
+
+            <p>
+
+              Tratamientos orientados
+              a realzar tu sonrisa
+              y armonía facial.
+
+            </p>
+
+          </div>
+
+
+        </div>
+
 
       </div>
+
+
+      <!-- BOTÓN VER MÁS -->
+
+      <button
+        class="services-toggle"
+        id="servicesToggle"
+        type="button"
+        aria-expanded="false"
+      >
+
+
+        <span id="toggleText">
+
+          Ver todas las especialidades
+
+        </span>
+
+
+        <div class="toggle-plus">
+
+          <span></span>
+
+          <span></span>
+
+        </div>
+
+
+      </button>
+
+
+      <!-- DESPLEGABLE -->
+
+      <div
+        class="extra-services"
+        id="extraServices"
+      >
+
+
+        <div class="extra-inner">
+
+
+          <div class="extra-grid">
+
+
+            <!-- ENDODONCIA -->
+
+            <div class="extra-service">
+
+              <div class="extra-icon">
+
+                <i
+                  class="fa-solid fa-wave-square"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h4>
+                  Endodoncia
+                </h4>
+
+                <p>
+                  Tratamientos de conducto
+                  y cuidado del interior dental.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- PERIODONCIA -->
+
+            <div class="extra-service">
+
+              <div class="extra-icon">
+
+                <i
+                  class="fa-solid fa-teeth-open"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h4>
+                  Periodoncia
+                </h4>
+
+                <p>
+                  Prevención y tratamiento
+                  especializado de encías.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- ODONTOPEDIATRÍA -->
+
+            <div class="extra-service">
+
+              <div class="extra-icon">
+
+                <i
+                  class="fa-solid fa-child-reaching"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h4>
+                  Odontopediatría
+                </h4>
+
+                <p>
+                  Atención odontológica
+                  para niños y adolescentes.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- REHABILITACIÓN -->
+
+            <div class="extra-service">
+
+              <div class="extra-icon">
+
+                <i
+                  class="fa-solid fa-teeth"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h4>
+                  Rehabilitación oral
+                </h4>
+
+                <p>
+                  Recuperación de función,
+                  estética y salud oral.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- RADIOLOGÍA -->
+
+            <div class="extra-service">
+
+              <div class="extra-icon">
+
+                <i
+                  class="fa-solid fa-x-ray"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h4>
+                  Radiología dental
+                </h4>
+
+                <p>
+                  Apoyo diagnóstico mediante
+                  imágenes odontológicas.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- CIRUGÍA -->
+
+            <div class="extra-service">
+
+              <div class="extra-icon">
+
+                <i
+                  class="fa-solid fa-user-doctor"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h4>
+                  Cirugía dental
+                </h4>
+
+                <p>
+                  Procedimientos quirúrgicos
+                  realizados por profesionales.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- BLANQUEAMIENTO -->
+
+            <div class="extra-service">
+
+              <div class="extra-icon">
+
+                <i
+                  class="fa-solid fa-wand-magic-sparkles"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h4>
+                  Blanqueamiento dental
+                </h4>
+
+                <p>
+                  Tratamientos para iluminar
+                  y mejorar tu sonrisa.
+                </p>
+
+              </div>
+
+            </div>
+
+
+            <!-- LIMPIEZA -->
+
+            <div class="extra-service">
+
+              <div class="extra-icon">
+
+                <i
+                  class="fa-solid fa-star"
+                ></i>
+
+              </div>
+
+              <div>
+
+                <h4>
+                  Limpieza dental
+                </h4>
+
+                <p>
+                  Prevención, higiene
+                  y cuidado profesional.
+                </p>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+
+          <!-- NOTA -->
+
+          <div class="services-note">
+
+
+            <div class="note-icon">
+
+              <i
+                class="fa-regular fa-circle-question"
+              ></i>
+
+            </div>
+
+
+            <div>
+
+              <strong>
+
+                ¿No sabes qué especialidad necesitas?
+
+              </strong>
+
+              <p>
+
+                Agenda una evaluación
+                y el equipo de Monteverde
+                podrá orientarte con el
+                profesional indicado.
+
+              </p>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+
+      </div>
+
 
     </div>
 
@@ -1462,30 +3179,47 @@
 
 
   <!-- =======================================================
-       APPOINTMENT
+       AGENDAMIENTO
   ======================================================== -->
 
   <section class="appointment">
 
-    <div class="appointment-box reveal">
+
+    <div
+      class="appointment-box reveal"
+    >
+
 
       <div class="appointment-content">
+
 
         <span
           class="eyebrow"
           style="color:#9be3aa;"
         >
+
           Agenda online
+
         </span>
 
+
         <h2>
-          Tu próxima sonrisa empieza aquí.
+
+          Tu próxima sonrisa
+          empieza aquí.
+
         </h2>
 
+
         <p>
-          Agenda tu evaluación directamente desde tu celular
-          y encuentra el horario que mejor se adapte a ti.
+
+          Agenda tu evaluación
+          directamente desde tu celular
+          y encuentra el horario que
+          mejor se adapte a ti.
+
         </p>
+
 
         <a
           class="btn btn-primary"
@@ -1493,9 +3227,15 @@
           target="_blank"
           rel="noopener"
         >
-          <i class="fa-regular fa-calendar-check"></i>
+
+          <i
+            class="fa-regular fa-calendar-check"
+          ></i>
+
           Agendar evaluación
+
         </a>
+
 
       </div>
 
@@ -1510,34 +3250,57 @@
 
   <footer>
 
+
     <div class="container">
+
 
       <div class="footer-top">
 
+
         <div>
 
+
           <div class="footer-logo">
+
 
             <img
               src="logo.png"
               alt="Clínica Monteverde"
             >
 
+
             <strong>
+
               Clínica Monteverde
+
             </strong>
+
 
           </div>
 
+
           <p class="footer-copy">
-            Centro odontológico y medicina integral.
-            Baquedano 281, Puerto Montt.
+
+            Centro odontológico y
+            medicina integral.
+
+            <br>
+
+            Baquedano 281,
+            Puerto Montt.
+
           </p>
+
 
         </div>
 
 
+        <!-- REDES -->
+
         <div class="socials">
+
+
+          <!-- INSTAGRAM -->
 
           <a
             class="social"
@@ -1546,9 +3309,15 @@
             rel="noopener"
             aria-label="Instagram"
           >
-            <i class="fa-brands fa-instagram"></i>
+
+            <i
+              class="fa-brands fa-instagram"
+            ></i>
+
           </a>
 
+
+          <!-- FACEBOOK -->
 
           <a
             class="social"
@@ -1557,156 +3326,327 @@
             rel="noopener"
             aria-label="Facebook"
           >
-            <i class="fa-brands fa-facebook-f"></i>
+
+            <i
+              class="fa-brands fa-facebook-f"
+            ></i>
+
           </a>
 
 
+          <!-- WHATSAPP -->
+
           <a
             class="social"
-            href="https://wa.me/56652252948"
+            href="https://wa.me/56966638288"
             target="_blank"
             rel="noopener"
             aria-label="WhatsApp"
           >
-            <i class="fa-brands fa-whatsapp"></i>
+
+            <i
+              class="fa-brands fa-whatsapp"
+            ></i>
+
           </a>
 
+
         </div>
+
 
       </div>
 
 
       <div class="footer-bottom">
 
-        <span>
-          © 2026 Clínica Monteverde
-        </span>
 
         <span>
-          Puerto Montt · Chile
+
+          © 2026 Clínica Monteverde
+
         </span>
+
+
+        <span>
+
+          Puerto Montt · Chile
+
+        </span>
+
 
       </div>
+
 
     </div>
 
   </footer>
 
 
+  <!-- =======================================================
+       JAVASCRIPT
+  ======================================================== -->
+
   <script>
 
+
     /* =======================================================
-       REVEAL AL HACER SCROLL
+       ANIMACIONES AL HACER SCROLL
     ======================================================== */
 
-    const observer = new IntersectionObserver(
-      (entries) => {
+    const observer =
+      new IntersectionObserver(
 
-        entries.forEach((entry) => {
+        (entries) => {
 
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
+          entries.forEach(
+            (entry) => {
 
-        });
+              if (
+                entry.isIntersecting
+              ) {
 
-      },
-      {
-        threshold: 0.12
-      }
-    );
+                entry.target
+                  .classList
+                  .add("visible");
+
+              }
+
+            }
+          );
+
+        },
+
+        {
+          threshold: 0.12
+        }
+
+      );
 
 
     document
       .querySelectorAll(".reveal")
-      .forEach((element) => {
-        observer.observe(element);
-      });
+      .forEach(
+        (element) => {
 
+          observer.observe(
+            element
+          );
+
+        }
+      );
 
 
     /* =======================================================
-       PROGRESO SUPERIOR
+       BARRA DE PROGRESO
     ======================================================== */
 
     const progress =
-      document.getElementById("progress");
+      document.getElementById(
+        "progress"
+      );
 
 
-    window.addEventListener(
-      "scroll",
-      () => {
+    function updateProgress() {
 
-        const scrollTop =
-          window.scrollY;
+      const scrollTop =
+        window.scrollY;
 
-        const height =
-          document.documentElement.scrollHeight -
-          window.innerHeight;
+      const height =
+        document
+          .documentElement
+          .scrollHeight
+        -
+        window.innerHeight;
 
-        const percentage =
-          height > 0
-            ? (scrollTop / height) * 100
-            : 0;
+      const percentage =
+        height > 0
+          ? (scrollTop / height) * 100
+          : 0;
 
-        progress.style.width =
-          percentage + "%";
+      progress.style.width =
+        percentage + "%";
 
-      },
-      { passive: true }
-    );
-
+    }
 
 
     /* =======================================================
-       PARALLAX MUY SUAVE
+       PARALLAX FOTO CLÍNICA
     ======================================================== */
 
     const parallaxImage =
-      document.getElementById("parallaxImage");
+      document.getElementById(
+        "parallaxImage"
+      );
 
 
     function updateParallax() {
 
-      if (!parallaxImage) return;
+      if (!parallaxImage) {
+        return;
+      }
+
 
       const parent =
-        parallaxImage.parentElement;
+        parallaxImage
+          .parentElement;
+
 
       const rect =
-        parent.getBoundingClientRect();
+        parent
+          .getBoundingClientRect();
+
 
       const viewportHeight =
         window.innerHeight;
 
+
       if (
-        rect.bottom > 0 &&
+        rect.bottom > 0
+        &&
         rect.top < viewportHeight
       ) {
 
+
         const center =
-          rect.top + rect.height / 2;
+          rect.top
+          +
+          rect.height / 2;
+
 
         const offset =
-          (center - viewportHeight / 2) * -0.055;
+          (
+            center
+            -
+            viewportHeight / 2
+          )
+          *
+          -0.045;
 
-        parallaxImage.style.transform =
-          `scale(1.1) translate3d(0, ${offset}px, 0)`;
+
+        parallaxImage
+          .style
+          .transform =
+
+          `scale(1.1)
+           translate3d(
+             0,
+             ${offset}px,
+             0
+           )`;
 
       }
 
     }
 
 
+    /* =======================================================
+       EVENTO GENERAL DE SCROLL
+    ======================================================== */
+
     window.addEventListener(
+
       "scroll",
-      updateParallax,
-      { passive: true }
+
+      () => {
+
+        updateProgress();
+
+        updateParallax();
+
+      },
+
+      {
+        passive: true
+      }
+
     );
+
+
+    updateProgress();
 
     updateParallax();
 
+
+    /* =======================================================
+       DESPLEGAR ESPECIALIDADES
+    ======================================================== */
+
+    const servicesToggle =
+      document.getElementById(
+        "servicesToggle"
+      );
+
+
+    const extraServices =
+      document.getElementById(
+        "extraServices"
+      );
+
+
+    const toggleText =
+      document.getElementById(
+        "toggleText"
+      );
+
+
+    if (
+      servicesToggle
+      &&
+      extraServices
+    ) {
+
+
+      servicesToggle
+        .addEventListener(
+
+          "click",
+
+          () => {
+
+
+            const isOpen =
+              extraServices
+                .classList
+                .toggle("open");
+
+
+            servicesToggle
+              .classList
+              .toggle(
+                "active",
+                isOpen
+              );
+
+
+            servicesToggle
+              .setAttribute(
+                "aria-expanded",
+                String(isOpen)
+              );
+
+
+            if (toggleText) {
+
+              toggleText
+                .textContent =
+
+                isOpen
+
+                  ? "Ocultar especialidades"
+
+                  : "Ver todas las especialidades";
+
+            }
+
+          }
+
+        );
+
+    }
+
+
   </script>
+
 
 </body>
 </html>
