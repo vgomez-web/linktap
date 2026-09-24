@@ -2790,42 +2790,29 @@
 
 
     /* =========================================================
-       LINKTAP HERO — REMOTION / MOBILE XL
+       LINKTAP HERO — REMOTION FINAL
        ========================================================= */
-
-    /* En móvil el producto queda grande y parcialmente superpuesto.
-       El texto está por encima gracias al z-index de .hero-copy. */
-    .hero-grid {
-      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-      gap: 0;
-    }
-
-    .hero-copy {
-      z-index: 5;
-    }
 
     .hero-visual {
       position: relative;
       min-width: 0;
-      height: 330px;
+      height: 292px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: visible;
-      z-index: 1;
     }
 
     .hero-video {
-      position: absolute;
+      position: relative;
       z-index: 2;
       display: block;
-      width: 500px;
-      max-width: none;
+      width: 390px;
+      max-width: 145%;
       height: auto;
       object-fit: contain;
       background: transparent;
-      transform: translateX(34px);
-      transform-origin: center;
+      transform: translateX(-6px);
       filter: drop-shadow(0 22px 30px rgba(0, 0, 0, 0.07));
       pointer-events: none;
       user-select: none;
@@ -2836,8 +2823,8 @@
       content: "";
       position: absolute;
       z-index: 0;
-      width: 330px;
-      height: 330px;
+      width: 280px;
+      height: 280px;
       border-radius: 50%;
       background: radial-gradient(
         circle,
@@ -2849,57 +2836,16 @@
       pointer-events: none;
     }
 
-    @media (max-width: 430px) {
-      .hero {
-        padding-top: 42px;
-        padding-bottom: 44px;
-      }
-
-      .hero h1 {
-        max-width: 235px;
-      }
-
-      .hero-visual {
-        height: 330px;
-      }
-
-      .hero-video {
-        width: 510px;
-        transform: translateX(42px);
-      }
-    }
-
-    @media (max-width: 390px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
-      }
-
-      .hero-visual {
-        height: 310px;
-      }
-
-      .hero-video {
-        width: 475px;
-        transform: translateX(38px);
-      }
-    }
-
     @media (min-width: 760px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-        gap: 2px;
-      }
-
       .hero-visual {
         height: 570px;
         justify-content: center;
       }
 
       .hero-video {
-        position: relative;
-        width: min(650px, 54vw);
+        width: min(620px, 52vw);
         max-width: none;
-        transform: translateX(8px);
+        transform: translateX(10px);
         filter: drop-shadow(0 32px 45px rgba(0, 0, 0, 0.06));
       }
 
@@ -2911,8 +2857,20 @@
 
     @media (min-width: 1180px) {
       .hero-video {
-        width: 680px;
-        transform: translateX(12px);
+        width: 650px;
+        transform: translateX(15px);
+      }
+    }
+
+    @media (max-width: 390px) {
+      .hero-visual {
+        height: 270px;
+      }
+
+      .hero-video {
+        width: 350px;
+        max-width: 150%;
+        transform: translateX(-5px);
       }
     }
   </style>
@@ -3084,6 +3042,103 @@
       }
     }
   </style>
+
+
+<style>
+/* =========================================================
+   HERO FINAL — SIN VIDEO / TARJETA ORIGINAL LINKTAP
+   ========================================================= */
+.hero-final {
+  position: relative !important;
+  isolation: isolate;
+  overflow: visible !important;
+}
+.hero-final .hero-glow { z-index: 0; }
+.hero-final .hero-phone { z-index: 2; }
+.hero-real-card {
+  position: absolute;
+  z-index: 6;
+  display: block;
+  width: 174px;
+  max-width: none;
+  height: auto;
+  left: -8px;
+  top: 51%;
+  transform: translateY(-50%) rotate(-7deg);
+  transform-origin: center;
+  filter: drop-shadow(0 22px 28px rgba(0,0,0,.18));
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  animation: realCardFloat 5s ease-in-out infinite;
+}
+.mini-logo {
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+}
+.mini-logo img {
+  display: block;
+  width: 37px;
+  max-width: 82%;
+  height: auto;
+  max-height: 82%;
+  object-fit: contain;
+}
+@keyframes realCardFloat {
+  0%,100% { transform: translateY(-50%) rotate(-7deg); }
+  50% { transform: translateY(calc(-50% - 8px)) rotate(-4deg); }
+}
+@media (max-width: 759px) {
+  .hero-final { height: 292px !important; }
+  .hero-final .hero-phone {
+    right: 0 !important;
+    width: 124px !important;
+    height: 250px !important;
+  }
+  .hero-real-card {
+    width: 170px;
+    left: -12px;
+    top: 53%;
+  }
+}
+@media (max-width: 390px) {
+  .hero-final { height: 270px !important; }
+  .hero-final .hero-phone {
+    right: -2px !important;
+    width: 116px !important;
+    height: 234px !important;
+  }
+  .hero-real-card {
+    width: 154px;
+    left: -8px;
+  }
+}
+@media (min-width: 760px) {
+  .hero-final { height: 570px !important; }
+  .hero-final .hero-phone {
+    right: 4% !important;
+    width: 245px !important;
+    height: 495px !important;
+  }
+  .hero-real-card {
+    width: 350px;
+    left: 0;
+    top: 52%;
+  }
+  .mini-logo { width: 80px; height: 80px; }
+  .mini-logo img { width: 66px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-real-card { animation: none !important; }
+}
+</style>
 
 </head>
 
@@ -3261,19 +3316,34 @@
         </div>
 
 
-        <!-- HERO VISUAL — REMOTION -->
+        <!-- HERO VISUAL — TARJETA ORIGINAL + PERFIL DIGITAL -->
+        <div class="hero-visual hero-final" aria-hidden="true">
+          <div class="hero-glow"></div>
 
-        <div class="hero-visual" aria-hidden="true">
-          <video
-            class="hero-video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="auto"
+          <div class="hero-phone">
+            <div class="hero-phone-screen">
+              <div class="hero-island"></div>
+              <div class="mini-profile">
+                <div class="mini-logo">
+                  <img src="assets/linktap-logo.png" alt="">
+                </div>
+                <strong>LinkTap</strong>
+                <p>Todo lo que tus clientes necesitan.</p>
+                <div class="mini-links">
+                  <div class="mini-link">Instagram</div>
+                  <div class="mini-link">WhatsApp</div>
+                  <div class="mini-link">Cómo llegar</div>
+                  <div class="mini-link">Dejar reseña</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <img
+            src="assets/linktap-front.png"
+            class="hero-real-card"
+            alt="Tarjeta LinkTap"
           >
-            <source src="assets/linktap-hero.webm" type="video/webm">
-          </video>
         </div>
 
 
