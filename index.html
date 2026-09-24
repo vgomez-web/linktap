@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
   <title>LinkTap | Tu negocio, a un tap</title>
+
   <meta
     name="description"
-    content="Tarjetas NFC, perfiles digitales, menús y catálogos para conectar tu negocio con tus clientes."
-  />
+    content="Tarjetas NFC, perfiles digitales, menús y catálogos digitales. Acerca tu celular y conecta."
+  >
+
+  <meta name="theme-color" content="#ffffff">
 
   <style>
     /* =========================================================
-       LINKTAP — HOME
-       Primera versión
+       LINKTAP.CL — V2
+       Mobile first / premium product experience
        ========================================================= */
 
     :root {
-      --black: #090909;
-      --text: #161617;
+      --black: #0a0a0b;
+      --text: #171719;
       --muted: #6e6e73;
+
       --blue: #1677ff;
-      --blue-dark: #0066e6;
+      --blue-dark: #0067e8;
+
       --white: #ffffff;
-      --surface: #f5f5f7;
-      --surface-2: #fafafa;
-      --border: rgba(0, 0, 0, 0.07);
+      --soft: #f5f5f7;
+      --soft-2: #fafafa;
+      --soft-blue: #eef5ff;
+
+      --line: rgba(0, 0, 0, 0.07);
 
       --radius-sm: 18px;
-      --radius-md: 26px;
-      --radius-lg: 36px;
+      --radius-md: 24px;
+      --radius-lg: 32px;
+      --radius-xl: 40px;
 
-      --shadow:
-        0 22px 60px rgba(0, 0, 0, 0.08),
-        0 3px 12px rgba(0, 0, 0, 0.04);
+      --shadow-sm:
+        0 2px 8px rgba(0, 0, 0, 0.03),
+        0 10px 30px rgba(0, 0, 0, 0.04);
+
+      --shadow-md:
+        0 25px 70px rgba(0, 0, 0, 0.10);
 
       --max: 1240px;
     }
@@ -49,6 +60,11 @@
     }
 
     body {
+      min-width: 320px;
+
+      background: var(--white);
+      color: var(--text);
+
       font-family:
         Inter,
         -apple-system,
@@ -59,10 +75,19 @@
         Arial,
         sans-serif;
 
-      background: var(--white);
-      color: var(--text);
       -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+
       overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     button,
@@ -71,176 +96,104 @@
     }
 
     button,
-    a {
+    a,
+    label {
       -webkit-tap-highlight-color: transparent;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
+    button {
+      border: 0;
     }
 
-    img {
-      max-width: 100%;
+    img,
+    video {
       display: block;
+      max-width: 100%;
     }
 
     .container {
-      width: min(calc(100% - 40px), var(--max));
+      width: min(calc(100% - 32px), var(--max));
       margin-inline: auto;
     }
+
+    section {
+      scroll-margin-top: 80px;
+    }
+
+    /* =========================================================
+       GLOBAL TYPOGRAPHY
+       ========================================================= */
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
 
-      font-size: 13px;
-      line-height: 1;
-      font-weight: 750;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-
       color: var(--blue);
+
+      font-size: 11px;
+      line-height: 1;
+      font-weight: 800;
+
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
     }
 
     .section-title {
-      margin-top: 16px;
-      max-width: 820px;
+      max-width: 850px;
+      margin-top: 13px;
 
-      font-size: clamp(42px, 6vw, 76px);
+      font-size: clamp(39px, 11vw, 74px);
       line-height: 0.98;
-      letter-spacing: -0.055em;
-      font-weight: 800;
+
+      letter-spacing: -0.06em;
+      font-weight: 820;
     }
 
     .section-description {
       max-width: 650px;
-      margin-top: 24px;
-
-      font-size: clamp(17px, 2vw, 21px);
-      line-height: 1.5;
-      letter-spacing: -0.015em;
+      margin-top: 18px;
 
       color: var(--muted);
+
+      font-size: 16px;
+      line-height: 1.5;
+
+      letter-spacing: -0.015em;
     }
 
-    .blue-dot {
+    .blue {
       color: var(--blue);
     }
 
-    /* =========================
-       PROMO
-       ========================= */
-
-    .promo {
-      min-height: 36px;
-      padding: 9px 20px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      background: var(--black);
-      color: white;
-
-      text-align: center;
-      font-size: 13px;
-      font-weight: 650;
-    }
-
-    /* =========================
-       HEADER
-       ========================= */
-
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      height: 70px;
-
-      display: flex;
-      align-items: center;
-
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(22px) saturate(180%);
-      -webkit-backdrop-filter: blur(22px) saturate(180%);
-
-      border-bottom: 1px solid rgba(0, 0, 0, 0.055);
-    }
-
-    .nav {
-      width: min(calc(100% - 40px), var(--max));
-      margin-inline: auto;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 28px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-
-      font-size: 23px;
-      font-weight: 800;
-      letter-spacing: -0.045em;
-    }
-
-    .brand-dot {
-      color: var(--blue);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .nav-links a {
-      color: #3d3d40;
-      transition: color 160ms ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--blue);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
 
     .btn {
-      min-height: 46px;
+      min-height: 48px;
       padding: 0 21px;
 
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 9px;
+      gap: 8px;
 
-      border: 0;
       border-radius: 999px;
 
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 720;
+
       cursor: pointer;
 
       transition:
-        transform 180ms ease,
-        box-shadow 180ms ease,
-        background 180ms ease;
+        transform 160ms ease,
+        background 160ms ease,
+        box-shadow 160ms ease;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
+    .btn:active {
+      transform: scale(0.97);
     }
 
     .btn-dark {
@@ -248,117 +201,305 @@
       color: white;
     }
 
-    .btn-dark:hover {
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.16);
-    }
-
     .btn-blue {
       background: var(--blue);
       color: white;
     }
 
-    .btn-blue:hover {
-      background: var(--blue-dark);
-      box-shadow: 0 12px 30px rgba(22, 119, 255, 0.25);
-    }
-
     .btn-soft {
-      background: var(--surface);
+      background: var(--soft);
       color: var(--text);
     }
 
-    .mobile-menu {
-      display: none;
-      width: 44px;
-      height: 44px;
-
-      border: 0;
-      border-radius: 50%;
-
-      background: var(--surface);
-      cursor: pointer;
+    .btn-white {
+      background: white;
+      color: var(--black);
     }
 
-    /* =========================
-       HERO
-       ========================= */
+    /* =========================================================
+       PROMO
+       ========================================================= */
 
-    .hero {
-      min-height: 760px;
-      padding: 90px 0 80px;
+    .promo {
+      min-height: 34px;
+      padding:
+        8px
+        max(14px, env(safe-area-inset-right))
+        8px
+        max(14px, env(safe-area-inset-left));
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: var(--black);
+      color: white;
+
+      text-align: center;
+
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: -0.01em;
+    }
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      height: 62px;
 
       display: flex;
       align-items: center;
+
+      background: rgba(255, 255, 255, 0.84);
+
+      backdrop-filter: blur(22px) saturate(180%);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .nav {
+      width: min(calc(100% - 28px), var(--max));
+      margin-inline: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 18px;
+    }
+
+    .brand {
+      font-size: 22px;
+      line-height: 1;
+
+      font-weight: 820;
+      letter-spacing: -0.055em;
+    }
+
+    .brand span {
+      color: var(--blue);
+    }
+
+    .desktop-nav {
+      display: none;
+    }
+
+    .desktop-contact {
+      display: none;
+    }
+
+    .menu-button {
+      width: 40px;
+      height: 40px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--soft);
+
+      cursor: pointer;
+    }
+
+    .menu-icon {
+      position: relative;
+
+      width: 17px;
+      height: 12px;
+    }
+
+    .menu-icon::before,
+    .menu-icon::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+
+      width: 17px;
+      height: 1.5px;
+
+      border-radius: 999px;
+      background: var(--text);
+
+      transition:
+        transform 200ms ease,
+        top 200ms ease;
+    }
+
+    .menu-icon::before {
+      top: 2px;
+    }
+
+    .menu-icon::after {
+      top: 9px;
+    }
+
+    .menu-button.active .menu-icon::before {
+      top: 6px;
+      transform: rotate(45deg);
+    }
+
+    .menu-button.active .menu-icon::after {
+      top: 6px;
+      transform: rotate(-45deg);
+    }
+
+    /* =========================================================
+       MOBILE MENU
+       ========================================================= */
+
+    .mobile-menu-panel {
+      position: fixed;
+
+      top: 104px;
+      left: 12px;
+      right: 12px;
+
+      z-index: 999;
+
+      padding: 12px;
+
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 28px;
+
+      background: rgba(255, 255, 255, 0.96);
+
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.18);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform: translateY(-12px) scale(0.98);
+
+      transition:
+        opacity 200ms ease,
+        visibility 200ms ease,
+        transform 200ms ease;
+    }
+
+    .mobile-menu-panel.open {
+      opacity: 1;
+      visibility: visible;
+
+      transform: translateY(0) scale(1);
+    }
+
+    .mobile-menu-panel a {
+      min-height: 52px;
+      padding: 0 15px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      border-radius: 17px;
+
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .mobile-menu-panel a:active {
+      background: var(--soft);
+    }
+
+    .mobile-menu-panel .menu-whatsapp {
+      margin-top: 8px;
+
+      justify-content: center;
+
+      background: var(--black);
+      color: white;
+    }
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
+    .hero {
+      padding: 46px 0 54px;
 
       overflow: hidden;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: minmax(0, 0.9fr) minmax(480px, 1.1fr);
+
+      grid-template-columns:
+        minmax(0, 0.98fr)
+        minmax(150px, 1.02fr);
+
       align-items: center;
-      gap: 40px;
+
+      gap: 2px;
     }
 
     .hero-copy {
       position: relative;
-      z-index: 2;
+      z-index: 4;
+    }
+
+    .hero .eyebrow {
+      font-size: 9px;
     }
 
     .hero h1 {
-      max-width: 680px;
-      margin-top: 18px;
+      max-width: 260px;
 
-      font-size: clamp(64px, 7.8vw, 112px);
-      line-height: 0.88;
-      letter-spacing: -0.075em;
-      font-weight: 850;
+      margin-top: 11px;
+
+      font-size: clamp(43px, 13vw, 64px);
+      line-height: 0.89;
+
+      font-weight: 840;
+
+      letter-spacing: -0.072em;
     }
 
-    .hero-sub {
-      max-width: 610px;
-      margin-top: 32px;
+    .hero-mobile-copy {
+      margin-top: 18px;
 
-      font-size: clamp(19px, 2.1vw, 24px);
-      line-height: 1.42;
-      letter-spacing: -0.025em;
+      max-width: 185px;
 
       color: var(--muted);
+
+      font-size: 13px;
+      line-height: 1.4;
+
+      letter-spacing: -0.015em;
+    }
+
+    .hero-desktop-copy {
+      display: none;
     }
 
     .hero-actions {
-      margin-top: 34px;
-
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+      margin-top: 21px;
     }
 
-    .hero-trust {
-      margin-top: 28px;
+    .hero-actions .btn {
+      min-height: 44px;
+      padding-inline: 17px;
 
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 9px;
-
-      font-size: 13px;
-      font-weight: 600;
-      color: #77777b;
+      font-size: 12px;
     }
 
-    .hero-trust span:not(:last-child)::after {
-      content: "·";
-      margin-left: 9px;
-      color: #b0b0b4;
-    }
-
-    /* HERO VISUAL */
+    /* HERO PRODUCT VISUAL */
 
     .hero-visual {
       position: relative;
-      min-height: 580px;
+
+      height: 330px;
 
       display: flex;
       align-items: center;
@@ -367,475 +508,446 @@
 
     .hero-glow {
       position: absolute;
-      width: 520px;
-      height: 520px;
+
+      width: 320px;
+      height: 320px;
+
       border-radius: 50%;
 
       background:
         radial-gradient(
           circle,
-          rgba(22, 119, 255, 0.10) 0%,
-          rgba(22, 119, 255, 0.035) 42%,
+          rgba(22, 119, 255, 0.13) 0%,
+          rgba(22, 119, 255, 0.04) 42%,
           transparent 70%
         );
 
-      filter: blur(8px);
+      filter: blur(5px);
     }
 
-    .phone {
+    .hero-phone {
       position: absolute;
-      right: 4%;
-      width: 255px;
-      height: 515px;
 
-      border-radius: 47px;
-      padding: 10px;
+      right: -25px;
 
-      background: #111;
+      width: 142px;
+      height: 286px;
+
+      padding: 6px;
+
+      border-radius: 29px;
+
+      background: #101011;
+
       box-shadow:
-        0 45px 90px rgba(0, 0, 0, 0.22),
+        0 28px 55px rgba(0, 0, 0, 0.22),
         inset 0 0 0 1px rgba(255, 255, 255, 0.14);
 
       transform: rotate(5deg);
-      animation: phoneFloat 5.5s ease-in-out infinite;
+
+      animation:
+        phoneFloat 5.5s ease-in-out infinite;
     }
 
-    .phone-screen {
+    .hero-phone-screen {
+      position: relative;
+
       width: 100%;
       height: 100%;
 
       overflow: hidden;
-      position: relative;
-
-      border-radius: 38px;
-
-      background:
-        linear-gradient(145deg, #0b0c0f, #24272e);
-      color: white;
-    }
-
-    .island {
-      position: absolute;
-      top: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-
-      width: 82px;
-      height: 23px;
-
-      border-radius: 999px;
-      background: black;
-    }
-
-    .phone-content {
-      height: 100%;
-      padding: 75px 20px 22px;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .phone-avatar {
-      width: 82px;
-      height: 82px;
-      border-radius: 50%;
-
-      display: grid;
-      place-items: center;
-
-      background: white;
-      color: black;
-
-      font-size: 31px;
-      font-weight: 850;
-    }
-
-    .phone-content h3 {
-      margin-top: 17px;
-      font-size: 20px;
-    }
-
-    .phone-content p {
-      margin-top: 6px;
-
-      font-size: 12px;
-      text-align: center;
-      line-height: 1.4;
-
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .phone-links {
-      width: 100%;
-      margin-top: 26px;
-
-      display: grid;
-      gap: 10px;
-    }
-
-    .phone-link {
-      padding: 13px 14px;
-      border-radius: 15px;
-
-      background: rgba(255, 255, 255, 0.1);
-
-      font-size: 12px;
-      font-weight: 650;
-    }
-
-    .tap-card {
-      position: absolute;
-      left: 1%;
-      z-index: 3;
-
-      width: 365px;
-      aspect-ratio: 1.586;
-
-      padding: 28px;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
 
       border-radius: 24px;
 
       background:
         linear-gradient(
-          135deg,
-          #ffffff 0%,
-          #fafafa 62%,
-          #f0f0f0 100%
+          145deg,
+          #0b0c0f,
+          #24272e
         );
 
-      box-shadow:
-        0 40px 75px rgba(0, 0, 0, 0.18),
-        inset 0 0 0 1px rgba(0, 0, 0, 0.045);
-
-      transform: rotate(-8deg);
-      animation: cardFloat 5s ease-in-out infinite;
+      color: white;
     }
 
-    .tap-card::after {
-      content: "";
+    .hero-island {
       position: absolute;
-      right: 0;
-      top: 0;
 
-      width: 100px;
+      top: 9px;
+      left: 50%;
+
+      width: 48px;
+      height: 13px;
+
+      border-radius: 999px;
+
+      transform: translateX(-50%);
+
+      background: black;
+    }
+
+    .mini-profile {
       height: 100%;
 
-      border-radius: 0 24px 24px 0;
-
-      background:
-        linear-gradient(
-          145deg,
-          transparent 20%,
-          rgba(0, 0, 0, 0.045)
-        );
-
-      clip-path: polygon(75% 0, 100% 0, 100% 100%, 18% 100%);
-    }
-
-    .card-nfc {
-      position: relative;
-      z-index: 2;
-
-      width: 52px;
-      height: 52px;
+      padding: 43px 11px 10px;
 
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-
-      font-size: 28px;
-      color: #555;
     }
 
-    .card-brand {
-      position: relative;
-      z-index: 2;
+    .mini-avatar {
+      width: 45px;
+      height: 45px;
 
-      font-size: 43px;
-      line-height: 1;
-      letter-spacing: -0.07em;
-      font-weight: 800;
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: white;
+      color: var(--black);
+
+      font-size: 17px;
+      font-weight: 850;
     }
 
-    .card-tagline {
-      position: relative;
-      z-index: 2;
+    .mini-profile strong {
+      margin-top: 8px;
 
-      font-size: 9px;
-      letter-spacing: 0.25em;
+      font-size: 10px;
+    }
+
+    .mini-profile p {
+      margin-top: 3px;
+
+      color: rgba(255, 255, 255, 0.55);
+
+      text-align: center;
+
+      font-size: 6.5px;
+      line-height: 1.4;
+    }
+
+    .mini-links {
+      width: 100%;
+
+      margin-top: 12px;
+
+      display: grid;
+      gap: 5px;
+    }
+
+    .mini-link {
+      padding: 7px 8px;
+
+      border-radius: 8px;
+
+      background: rgba(255, 255, 255, 0.10);
+
+      font-size: 6.5px;
       font-weight: 650;
     }
 
-    .floating-pill {
+    .hero-card {
       position: absolute;
-      z-index: 4;
 
-      padding: 12px 16px;
+      left: -16px;
+      z-index: 3;
+
+      width: 188px;
+
+      aspect-ratio: 1.586;
+
+      padding: 16px;
 
       display: flex;
-      align-items: center;
-      gap: 9px;
+      flex-direction: column;
+      justify-content: space-between;
 
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      border-radius: 999px;
+      overflow: hidden;
 
-      background: rgba(255, 255, 255, 0.88);
-      backdrop-filter: blur(18px);
+      border-radius: 16px;
 
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+      background:
+        linear-gradient(
+          135deg,
+          #fff,
+          #fafafa 65%,
+          #efeff0
+        );
 
-      font-size: 12px;
+      box-shadow:
+        0 28px 50px rgba(0, 0, 0, 0.18),
+        inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+
+      transform: rotate(-8deg);
+
+      animation:
+        cardFloat 5s ease-in-out infinite;
+    }
+
+    .hero-card::after {
+      content: "";
+
+      position: absolute;
+
+      top: -20px;
+      right: -25px;
+
+      width: 90px;
+      height: 170px;
+
+      background: rgba(0, 0, 0, 0.055);
+
+      transform: rotate(22deg);
+
+      border-radius: 40px;
+    }
+
+    .nfc-mark {
+      position: relative;
+      z-index: 2;
+
+      color: #555;
+
+      font-size: 18px;
       font-weight: 700;
     }
 
-    .pill-one {
-      right: 0;
-      top: 18%;
-      animation: pillFloat 4.5s ease-in-out infinite;
+    .hero-card-brand {
+      position: relative;
+      z-index: 2;
+
+      font-size: 24px;
+      line-height: 1;
+
+      font-weight: 800;
+      letter-spacing: -0.065em;
     }
 
-    .pill-two {
-      left: 13%;
-      bottom: 12%;
-      animation: pillFloat 5.2s ease-in-out infinite reverse;
+    .hero-card-tagline {
+      position: relative;
+      z-index: 2;
+
+      font-size: 5.5px;
+      font-weight: 700;
+
+      letter-spacing: 0.24em;
+    }
+
+    .hero-pill {
+      position: absolute;
+      z-index: 5;
+
+      padding: 8px 10px;
+
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      border: 1px solid rgba(0, 0, 0, 0.04);
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.91);
+
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.10);
+
+      font-size: 7px;
+      font-weight: 700;
+    }
+
+    .hero-pill.reviews {
+      top: 49px;
+      right: -14px;
+    }
+
+    .hero-pill.profile {
+      left: 10px;
+      bottom: 37px;
+    }
+
+    .hero-trust {
+      grid-column: 1 / -1;
+
+      margin-top: 22px;
+
+      padding-top: 18px;
+
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+
+      border-top: 1px solid var(--line);
+
+      color: #7a7a7f;
+
+      font-size: 10px;
+      font-weight: 650;
     }
 
     @keyframes cardFloat {
       0%, 100% {
-        transform: translateY(0) rotate(-8deg);
+        transform:
+          translateY(0)
+          rotate(-8deg);
       }
 
       50% {
-        transform: translateY(-14px) rotate(-5deg);
+        transform:
+          translateY(-9px)
+          rotate(-5deg);
       }
     }
 
     @keyframes phoneFloat {
       0%, 100% {
-        transform: translateY(0) rotate(5deg);
+        transform:
+          translateY(0)
+          rotate(5deg);
       }
 
       50% {
-        transform: translateY(10px) rotate(3deg);
+        transform:
+          translateY(8px)
+          rotate(3deg);
       }
     }
 
-    @keyframes pillFloat {
-      0%, 100% {
-        transform: translateY(0);
-      }
+    /* =========================================================
+       HORIZONTAL SYSTEM
+       ========================================================= */
 
-      50% {
-        transform: translateY(-9px);
-      }
+    .horizontal-track {
+      width: calc(100vw - 16px);
+
+      margin-top: 34px;
+
+      display: flex;
+
+      gap: 12px;
+
+      overflow-x: auto;
+      overflow-y: hidden;
+
+      padding:
+        2px
+        18px
+        20px
+        0;
+
+      scroll-snap-type: x mandatory;
+      scroll-padding-left: 0;
+
+      -webkit-overflow-scrolling: touch;
+
+      scrollbar-width: none;
     }
 
-    /* =========================
+    .horizontal-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* =========================================================
        POSSIBILITIES
-       ========================= */
+       ========================================================= */
 
     .possibilities {
-      padding: 130px 0;
-      background: var(--surface-2);
-    }
+      padding: 78px 0 72px;
 
-    .possibility-grid {
-      margin-top: 58px;
+      overflow: hidden;
 
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      background: var(--soft-2);
     }
 
     .possibility-card {
-      min-height: 245px;
-      padding: 28px;
+      flex: 0 0 72vw;
+
+      max-width: 285px;
+      min-height: 166px;
+
+      padding: 19px;
 
       display: flex;
       flex-direction: column;
 
-      border-radius: var(--radius-md);
-      background: white;
+      scroll-snap-align: start;
 
       border: 1px solid rgba(0, 0, 0, 0.035);
+      border-radius: 24px;
 
-      transition:
-        transform 220ms ease,
-        box-shadow 220ms ease;
+      background: white;
+
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.015);
     }
 
-    .possibility-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .icon-box {
-      width: 52px;
-      height: 52px;
+    .possibility-icon {
+      width: 42px;
+      height: 42px;
 
       display: grid;
       place-items: center;
 
-      border-radius: 16px;
+      border-radius: 13px;
 
-      background: var(--surface);
+      background: var(--soft);
       color: var(--blue);
 
-      font-size: 23px;
+      font-size: 18px;
       font-weight: 800;
     }
 
     .possibility-card h3 {
       margin-top: auto;
 
-      font-size: 21px;
+      font-size: 17px;
+      line-height: 1.1;
+
       letter-spacing: -0.035em;
     }
 
     .possibility-card p {
-      margin-top: 9px;
+      margin-top: 6px;
 
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
+
+      font-size: 12px;
+      line-height: 1.35;
     }
 
-    /* =========================
+    .swipe-hint {
+      margin-top: -7px;
+
+      color: #9b9ba0;
+
+      font-size: 10px;
+      font-weight: 650;
+    }
+
+    /* =========================================================
        CUSTOMIZER
-       ========================= */
+       ========================================================= */
 
     .customizer-section {
-      padding: 140px 0;
+      padding: 88px 0;
     }
 
-    .customizer-shell {
-      margin-top: 60px;
-      padding: 30px;
+    .customizer {
+      margin-top: 35px;
 
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 24px;
+      border-radius: 30px;
 
-      border-radius: var(--radius-lg);
-      background: var(--surface);
+      background: var(--soft);
 
       overflow: hidden;
     }
 
-    .controls {
-      padding: 25px;
-
-      border-radius: 28px;
-      background: white;
-    }
-
-    .control-group + .control-group {
-      margin-top: 32px;
-    }
-
-    .control-label {
-      display: block;
-      margin-bottom: 12px;
-
-      font-size: 14px;
-      font-weight: 750;
-    }
-
-    .upload {
-      width: 100%;
-      min-height: 105px;
-      padding: 18px;
-
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-
-      border: 1.5px dashed #cfcfd4;
-      border-radius: 20px;
-
-      background: #fbfbfc;
-
-      cursor: pointer;
-      text-align: center;
-
-      transition:
-        border 160ms ease,
-        background 160ms ease;
-    }
-
-    .upload:hover {
-      border-color: var(--blue);
-      background: #f7faff;
-    }
-
-    .upload strong {
-      font-size: 14px;
-    }
-
-    .upload span {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .upload input {
-      display: none;
-    }
-
-    .colors {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .color-wrap {
+    .preview-area {
       position: relative;
 
-      width: 48px;
-      height: 48px;
-
-      border-radius: 50%;
-      overflow: hidden;
-
-      box-shadow:
-        0 0 0 4px white,
-        0 0 0 5px #dedee3;
-
-      cursor: pointer;
-    }
-
-    .color-wrap input {
-      position: absolute;
-      inset: -10px;
-
-      width: 70px;
-      height: 70px;
-
-      border: 0;
-      cursor: pointer;
-    }
-
-    .custom-note {
-      margin-top: 30px;
-      padding: 18px;
-
-      border-radius: 17px;
-      background: var(--surface);
-
-      font-size: 13px;
-      line-height: 1.5;
-      color: var(--muted);
-    }
-
-    .preview {
-      position: relative;
-      min-height: 560px;
+      min-height: 365px;
 
       display: flex;
       align-items: center;
@@ -843,132 +955,148 @@
 
       overflow: hidden;
 
-      border-radius: 28px;
       background:
         radial-gradient(
           circle at 50% 40%,
           #ffffff 0%,
-          #f9f9fa 40%,
+          #f8f8fa 43%,
           #ececef 100%
         );
     }
 
-    .preview::after {
+    .preview-area::after {
       content: "";
+
       position: absolute;
+
       bottom: 70px;
 
       width: 55%;
-      height: 30px;
+      height: 24px;
 
       border-radius: 50%;
 
       background: rgba(0, 0, 0, 0.12);
-      filter: blur(22px);
+
+      filter: blur(20px);
     }
 
     .custom-card {
+      --custom-one: #1677ff;
+      --custom-two: #7d4dff;
+
       position: relative;
       z-index: 2;
 
-      width: min(78%, 500px);
+      width: min(82%, 390px);
+
       aspect-ratio: 1.586;
 
       overflow: hidden;
 
-      border-radius: 28px;
+      border-radius: 22px;
 
       background: white;
 
       box-shadow:
-        0 45px 80px rgba(0, 0, 0, 0.16),
+        0 35px 65px rgba(0, 0, 0, 0.17),
         inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 
-      transform: perspective(1000px) rotateX(5deg) rotateY(-9deg);
-      transition: transform 300ms ease;
+      transform:
+        perspective(1000px)
+        rotateX(4deg)
+        rotateY(-7deg);
+
+      transition:
+        transform 250ms ease;
     }
 
-    .custom-card:hover {
+    .custom-card:active {
       transform:
         perspective(1000px)
         rotateX(2deg)
-        rotateY(-4deg)
-        translateY(-5px);
+        rotateY(-3deg)
+        scale(0.985);
     }
 
-    .shape-one,
-    .shape-two {
+    .custom-shape-one {
       position: absolute;
-      pointer-events: none;
-    }
 
-    .shape-one {
-      top: -45%;
-      left: -15%;
+      top: -48%;
+      left: -16%;
 
       width: 62%;
-      height: 95%;
+      height: 100%;
 
       border-radius: 50%;
-      background: var(--custom-one, #1677ff);
+
+      background: var(--custom-one);
 
       transform: rotate(-25deg);
     }
 
-    .shape-two {
+    .custom-shape-two {
+      position: absolute;
+
       right: -18%;
       bottom: -52%;
 
-      width: 67%;
-      height: 105%;
+      width: 68%;
+      height: 110%;
 
       border-radius: 48%;
-      background: var(--custom-two, #7d4dff);
 
-      transform: rotate(25deg);
+      background: var(--custom-two);
+
+      transform: rotate(24deg);
     }
 
     .custom-logo-area {
       position: absolute;
       inset: 0;
 
+      padding: 50px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+    }
 
-      padding: 70px;
+    .custom-placeholder {
+      position: relative;
+      z-index: 3;
+
+      color: #111;
+
+      font-size: clamp(28px, 9vw, 44px);
+      font-weight: 820;
+
+      letter-spacing: -0.06em;
     }
 
     #logoPreview {
+      position: relative;
+      z-index: 3;
+
       display: none;
 
       max-width: 58%;
-      max-height: 42%;
+      max-height: 45%;
 
       object-fit: contain;
-      position: relative;
-      z-index: 3;
-    }
-
-    .logo-placeholder {
-      position: relative;
-      z-index: 3;
-
-      font-size: clamp(28px, 4vw, 50px);
-      font-weight: 800;
-      letter-spacing: -0.06em;
-
-      color: #111;
     }
 
     .custom-signature {
       position: absolute;
-      left: 28px;
-      bottom: 22px;
+
+      left: 20px;
+      bottom: 17px;
+
       z-index: 4;
 
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 11px;
+      font-weight: 820;
+
       letter-spacing: -0.04em;
     }
 
@@ -976,26 +1104,144 @@
       color: var(--blue);
     }
 
-    .preview-actions {
+    .preview-label {
       position: absolute;
-      left: 50%;
-      bottom: 25px;
-      z-index: 5;
 
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
+      bottom: 17px;
 
-      width: calc(100% - 50px);
+      z-index: 4;
 
-      display: flex;
-      justify-content: center;
+      text-align: center;
+
+      color: #8c8c91;
+
+      font-size: 9px;
+      font-weight: 600;
     }
 
-    /* =========================
+    .custom-controls {
+      padding: 22px;
+
+      background: white;
+    }
+
+    .custom-row {
+      min-height: 62px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 16px;
+
+      border-bottom: 1px solid var(--line);
+    }
+
+    .custom-row:last-of-type {
+      border-bottom: 0;
+    }
+
+    .custom-row-copy strong {
+      display: block;
+
+      font-size: 14px;
+    }
+
+    .custom-row-copy span {
+      display: block;
+
+      margin-top: 3px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+    }
+
+    .upload-button {
+      min-height: 38px;
+
+      padding: 0 14px;
+
+      display: inline-flex;
+      align-items: center;
+
+      border-radius: 999px;
+
+      background: var(--soft);
+
+      font-size: 11px;
+      font-weight: 750;
+
+      cursor: pointer;
+    }
+
+    .upload-button input {
+      display: none;
+    }
+
+    .color-options {
+      display: flex;
+      gap: 9px;
+    }
+
+    .color-picker {
+      position: relative;
+
+      width: 37px;
+      height: 37px;
+
+      overflow: hidden;
+
+      border-radius: 50%;
+
+      box-shadow:
+        0 0 0 3px white,
+        0 0 0 4px #dadade;
+    }
+
+    .color-picker input {
+      position: absolute;
+
+      inset: -8px;
+
+      width: 55px;
+      height: 55px;
+
+      cursor: pointer;
+    }
+
+    .custom-info {
+      margin-top: 16px;
+
+      padding: 14px;
+
+      border-radius: 16px;
+
+      background: var(--soft);
+
+      color: var(--muted);
+
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .custom-cta {
+      width: 100%;
+
+      margin-top: 15px;
+    }
+
+    /* =========================================================
        PACKS
-       ========================= */
+       ========================================================= */
 
     .packs {
-      padding: 140px 0;
+      padding: 88px 0;
+
+      overflow: hidden;
+
       background: var(--black);
       color: white;
     }
@@ -1004,320 +1250,539 @@
       color: rgba(255, 255, 255, 0.55);
     }
 
-    .pack-grid {
-      margin-top: 58px;
-
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+    .pack-track {
+      margin-top: 38px;
     }
 
     .pack-card {
       position: relative;
-      min-height: 405px;
-      padding: 30px;
+
+      flex: 0 0 77vw;
+
+      max-width: 310px;
+      min-height: 360px;
+
+      padding: 24px;
 
       display: flex;
       flex-direction: column;
 
-      border-radius: 30px;
+      scroll-snap-align: center;
+
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
 
       background: #18181a;
-      border: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .pack-card.featured {
       background: white;
       color: var(--text);
-      transform: translateY(-14px);
     }
 
     .popular {
       position: absolute;
-      top: 20px;
-      right: 20px;
 
-      padding: 8px 11px;
+      top: 18px;
+      right: 18px;
+
+      padding: 7px 9px;
 
       border-radius: 999px;
 
       background: var(--blue);
       color: white;
 
-      font-size: 10px;
+      font-size: 8px;
       font-weight: 800;
-      letter-spacing: 0.05em;
+
+      letter-spacing: 0.06em;
       text-transform: uppercase;
     }
 
     .pack-name {
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 750;
     }
 
     .pack-price {
-      margin-top: 25px;
+      margin-top: 22px;
 
-      font-size: 43px;
-      font-weight: 800;
+      font-size: 40px;
+      line-height: 1;
+
+      font-weight: 820;
+
       letter-spacing: -0.055em;
     }
 
     .pack-unit {
-      margin-top: 5px;
+      margin-top: 7px;
 
-      font-size: 13px;
       color: #8d8d93;
+
+      font-size: 11px;
     }
 
     .pack-list {
-      margin-top: 30px;
+      margin-top: 28px;
 
       display: grid;
-      gap: 13px;
+      gap: 11px;
 
       list-style: none;
 
-      font-size: 14px;
+      font-size: 12px;
       line-height: 1.4;
     }
 
     .pack-list li::before {
       content: "✓";
-      margin-right: 9px;
+
+      margin-right: 8px;
+
       color: var(--blue);
-      font-weight: 800;
+
+      font-weight: 850;
     }
 
     .pack-card .btn {
       width: 100%;
+
       margin-top: auto;
     }
 
-    /* =========================
+    .pack-note {
+      margin-top: 5px;
+
+      color: rgba(255, 255, 255, 0.4);
+
+      font-size: 10px;
+    }
+
+    /* =========================================================
        DIGITAL SERVICES
-       ========================= */
+       ========================================================= */
 
     .services {
-      padding: 140px 0;
-    }
-
-    .service-grid {
-      margin-top: 60px;
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .service-card {
-      min-height: 440px;
-      padding: 40px;
-
-      display: flex;
-      flex-direction: column;
-
-      border-radius: var(--radius-lg);
-      background: var(--surface);
+      padding: 88px 0;
 
       overflow: hidden;
     }
 
+    .service-card {
+      flex: 0 0 79vw;
+
+      max-width: 330px;
+      min-height: 385px;
+
+      padding: 25px;
+
+      display: flex;
+      flex-direction: column;
+
+      scroll-snap-align: center;
+
+      border-radius: 30px;
+
+      background: var(--soft);
+    }
+
     .service-card.profile {
-      grid-column: span 2;
-
-      min-height: 490px;
-
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 30px;
-
-      background: #0c0c0d;
+      background: var(--black);
       color: white;
     }
 
-    .service-label {
-      font-size: 12px;
+    .service-icon {
+      width: 54px;
+      height: 54px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 17px;
+
+      background: white;
+      color: var(--blue);
+
+      font-size: 22px;
       font-weight: 800;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
+
+      box-shadow: var(--shadow-sm);
+    }
+
+    .profile .service-icon {
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    .service-label {
+      margin-top: 25px;
 
       color: var(--blue);
+
+      font-size: 9px;
+      font-weight: 850;
+
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
     }
 
     .service-card h3 {
-      margin-top: 18px;
+      margin-top: 10px;
 
-      font-size: clamp(34px, 4vw, 55px);
-      line-height: 1;
+      font-size: 31px;
+      line-height: 0.98;
+
       letter-spacing: -0.055em;
     }
 
     .service-card p {
-      max-width: 480px;
-      margin-top: 18px;
+      margin-top: 13px;
 
       color: var(--muted);
-      font-size: 16px;
-      line-height: 1.5;
+
+      font-size: 13px;
+      line-height: 1.45;
     }
 
     .profile p {
-      color: rgba(255, 255, 255, 0.56);
+      color: rgba(255, 255, 255, 0.55);
     }
 
     .service-price {
       margin-top: auto;
 
-      font-size: 30px;
-      font-weight: 800;
+      font-size: 25px;
+      font-weight: 820;
+
       letter-spacing: -0.045em;
     }
 
+    .service-link {
+      margin-top: 12px;
+
+      color: var(--blue);
+
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    /* =========================================================
+       PROFILE PLANS
+       ========================================================= */
+
     .profile-plans {
-      display: grid;
-      gap: 12px;
+      padding: 82px 0;
 
-      align-content: center;
+      overflow: hidden;
+
+      background: var(--soft-2);
     }
 
-    .profile-plan {
-      padding: 22px;
+    .profile-plan-card {
+      flex: 0 0 76vw;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
+      max-width: 300px;
+      min-height: 315px;
 
-      border-radius: 20px;
-
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .profile-plan.featured {
-      background: white;
-      color: var(--text);
-    }
-
-    .profile-plan strong {
-      font-size: 16px;
-    }
-
-    .profile-plan span {
-      font-size: 17px;
-      font-weight: 800;
-    }
-
-    /* =========================
-       HOW IT WORKS
-       ========================= */
-
-    .how {
-      padding: 140px 0;
-      background: var(--surface-2);
-    }
-
-    .steps {
-      margin-top: 65px;
-
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .step {
-      min-height: 300px;
-      padding: 28px;
+      padding: 24px;
 
       display: flex;
       flex-direction: column;
 
+      scroll-snap-align: center;
+
+      border: 1px solid var(--line);
       border-radius: 28px;
+
+      background: white;
+    }
+
+    .profile-plan-card.featured {
+      background: var(--black);
+      color: white;
+    }
+
+    .plan-label {
+      color: var(--blue);
+
+      font-size: 10px;
+      font-weight: 800;
+
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .profile-plan-card h3 {
+      margin-top: 13px;
+
+      font-size: 27px;
+
+      letter-spacing: -0.05em;
+    }
+
+    .plan-price {
+      margin-top: 9px;
+
+      font-size: 32px;
+      font-weight: 820;
+
+      letter-spacing: -0.055em;
+    }
+
+    .profile-plan-card p {
+      margin-top: 15px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .profile-plan-card.featured p {
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .profile-plan-card .btn {
+      width: 100%;
+
+      margin-top: auto;
+    }
+
+    .update-note {
+      margin-top: 20px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    /* =========================================================
+       REAL DEMOS
+       ========================================================= */
+
+    .action-section {
+      padding: 88px 0;
+
+      overflow: hidden;
+    }
+
+    .demo-card {
+      position: relative;
+
+      flex: 0 0 69vw;
+
+      max-width: 275px;
+
+      aspect-ratio: 0.70;
+
+      overflow: hidden;
+
+      scroll-snap-align: center;
+
+      border-radius: 30px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #171719,
+          #333338
+        );
+
+      color: white;
+    }
+
+    .demo-content {
+      position: absolute;
+      inset: 0;
+
+      padding: 23px;
+
+      display: flex;
+      flex-direction: column;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.72),
+          transparent 55%
+        );
+    }
+
+    .demo-badge {
+      width: fit-content;
+
+      padding: 7px 9px;
+
+      border-radius: 999px;
+
+      background: rgba(255, 255, 255, 0.13);
+
+      backdrop-filter: blur(10px);
+
+      font-size: 8px;
+      font-weight: 750;
+    }
+
+    .demo-content h3 {
+      margin-top: auto;
+
+      font-size: 26px;
+      line-height: 1;
+
+      letter-spacing: -0.045em;
+    }
+
+    .demo-content p {
+      margin-top: 9px;
+
+      color: rgba(255, 255, 255, 0.65);
+
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .demo-play {
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      width: 55px;
+      height: 55px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      transform: translate(-50%, -50%);
+
+      background: rgba(255, 255, 255, 0.92);
+      color: black;
+
+      font-size: 15px;
+    }
+
+    /* =========================================================
+       HOW IT WORKS
+       ========================================================= */
+
+    .how {
+      padding: 88px 0;
+
+      overflow: hidden;
+
+      background: var(--soft-2);
+    }
+
+    .step-card {
+      flex: 0 0 67vw;
+
+      max-width: 270px;
+      min-height: 215px;
+
+      padding: 22px;
+
+      display: flex;
+      flex-direction: column;
+
+      scroll-snap-align: start;
+
+      border-radius: 25px;
+
       background: white;
     }
 
     .step-number {
       color: var(--blue);
 
-      font-size: 14px;
-      font-weight: 800;
+      font-size: 11px;
+      font-weight: 850;
     }
 
-    .step h3 {
+    .step-card h3 {
       margin-top: auto;
 
-      font-size: 25px;
+      font-size: 22px;
+
       letter-spacing: -0.045em;
     }
 
-    .step p {
-      margin-top: 12px;
+    .step-card p {
+      margin-top: 8px;
 
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.5;
+
+      font-size: 12px;
+      line-height: 1.45;
     }
 
-    /* =========================
-       SHIPPING
-       ========================= */
+    /* =========================================================
+       GUARANTEE + SHIPPING
+       ========================================================= */
 
-    .shipping {
-      padding: 140px 0;
+    .trust-section {
+      padding: 88px 0;
     }
 
-    .shipping-card {
-      padding: 65px;
+    .trust-grid {
+      margin-top: 35px;
 
-      display: grid;
-      grid-template-columns: 1fr 0.8fr;
-      gap: 40px;
-
-      border-radius: var(--radius-lg);
-      background: var(--surface);
-    }
-
-    .shipping-card h2 {
-      max-width: 650px;
-
-      font-size: clamp(42px, 5vw, 68px);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-    }
-
-    .shipping-options {
       display: grid;
       gap: 12px;
     }
 
-    .shipping-option {
-      padding: 23px;
+    .trust-card {
+      padding: 25px;
 
-      border-radius: 20px;
+      border-radius: 27px;
+
+      background: var(--soft);
+    }
+
+    .trust-icon {
+      width: 45px;
+      height: 45px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+
       background: white;
+      color: var(--blue);
+
+      font-weight: 850;
+
+      box-shadow: var(--shadow-sm);
     }
 
-    .shipping-option strong {
-      display: block;
-      font-size: 16px;
+    .trust-card h3 {
+      margin-top: 35px;
+
+      font-size: 21px;
+
+      letter-spacing: -0.04em;
     }
 
-    .shipping-option span {
-      display: block;
-      margin-top: 7px;
+    .trust-card p {
+      margin-top: 8px;
 
       color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
+
+      font-size: 12px;
+      line-height: 1.5;
     }
 
-    /* =========================
+    /* =========================================================
        FAQ
-       ========================= */
+       ========================================================= */
 
     .faq {
-      padding: 140px 0;
+      padding: 88px 0;
+
       background: var(--black);
       color: white;
     }
@@ -1327,416 +1792,936 @@
     }
 
     .faq-list {
-      max-width: 900px;
-      margin-top: 60px;
+      margin-top: 40px;
     }
 
     .faq-item {
-      border-top: 1px solid rgba(255, 255, 255, 0.13);
+      border-top:
+        1px solid
+        rgba(255, 255, 255, 0.12);
     }
 
     .faq-question {
       width: 100%;
-      padding: 25px 0;
+
+      padding: 20px 0;
 
       display: flex;
       align-items: center;
       justify-content: space-between;
+
       gap: 20px;
 
-      border: 0;
       background: transparent;
       color: white;
 
       text-align: left;
-      font-size: 18px;
+
+      font-size: 15px;
       font-weight: 700;
 
       cursor: pointer;
     }
 
     .faq-plus {
-      font-size: 25px;
+      flex: 0 0 auto;
+
+      font-size: 22px;
       font-weight: 300;
 
-      transition: transform 180ms ease;
+      transition:
+        transform 180ms ease;
     }
 
     .faq-answer {
       max-height: 0;
+
       overflow: hidden;
 
       color: rgba(255, 255, 255, 0.58);
 
-      font-size: 15px;
-      line-height: 1.6;
+      font-size: 13px;
+      line-height: 1.55;
 
       transition:
-        max-height 260ms ease,
-        padding 260ms ease;
+        max-height 250ms ease,
+        padding 250ms ease;
     }
 
     .faq-item.open .faq-answer {
       max-height: 250px;
-      padding-bottom: 25px;
+
+      padding-bottom: 20px;
     }
 
     .faq-item.open .faq-plus {
       transform: rotate(45deg);
     }
 
-    /* =========================
+    /* =========================================================
        FINAL CTA
-       ========================= */
+       ========================================================= */
 
     .final-cta {
-      padding: 130px 0;
+      padding: 95px 0 110px;
 
       text-align: center;
     }
 
     .final-cta h2 {
-      max-width: 950px;
+      max-width: 900px;
+
       margin-inline: auto;
 
-      font-size: clamp(54px, 8vw, 105px);
-      line-height: 0.9;
-      letter-spacing: -0.07em;
+      font-size: clamp(53px, 16vw, 100px);
+      line-height: 0.88;
+
+      letter-spacing: -0.075em;
     }
 
     .final-cta p {
-      max-width: 570px;
-      margin: 28px auto 0;
+      max-width: 520px;
+
+      margin: 22px auto 0;
 
       color: var(--muted);
 
-      font-size: 18px;
+      font-size: 15px;
       line-height: 1.5;
     }
 
     .final-cta .btn {
-      margin-top: 30px;
+      margin-top: 25px;
     }
 
-    /* =========================
+    /* =========================================================
        FOOTER
-       ========================= */
+       ========================================================= */
 
     footer {
-      padding: 35px 0 45px;
+      padding:
+        32px
+        0
+        calc(95px + env(safe-area-inset-bottom));
 
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--line);
     }
 
     .footer-inner {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 25px;
+      flex-direction: column;
+
+      gap: 18px;
 
       color: var(--muted);
-      font-size: 13px;
+
+      font-size: 11px;
     }
 
-    /* =========================
-       RESPONSIVE
-       ========================= */
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
 
-    @media (max-width: 1000px) {
-      .nav-links {
-        display: none;
-      }
-
-      .mobile-menu {
-        display: block;
-      }
-
-      .hero {
-        padding-top: 70px;
-      }
-
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy {
-        text-align: center;
-      }
-
-      .hero h1,
-      .hero-sub {
-        margin-inline: auto;
-      }
-
-      .hero-actions,
-      .hero-trust {
-        justify-content: center;
-      }
-
-      .hero-visual {
-        min-height: 560px;
-        margin-top: 20px;
-      }
-
-      .possibility-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .customizer-shell {
-        grid-template-columns: 1fr;
-      }
-
-      .controls {
-        order: 2;
-      }
-
-      .preview {
-        order: 1;
-      }
-
-      .pack-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .pack-card.featured {
-        transform: none;
-      }
-
-      .steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .shipping-card {
-        grid-template-columns: 1fr;
-      }
+      gap: 15px;
     }
 
-    @media (max-width: 700px) {
-      .container,
-      .nav {
-        width: min(calc(100% - 28px), var(--max));
+    /* =========================================================
+       MOBILE STICKY CTA
+       ========================================================= */
+
+    .sticky-buy {
+      position: fixed;
+
+      left: 10px;
+      right: 10px;
+
+      bottom:
+        max(
+          10px,
+          env(safe-area-inset-bottom)
+        );
+
+      z-index: 900;
+
+      min-height: 62px;
+
+      padding: 8px 8px 8px 16px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 12px;
+
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 22px;
+
+      background: rgba(255, 255, 255, 0.88);
+
+      backdrop-filter: blur(25px) saturate(180%);
+      -webkit-backdrop-filter: blur(25px) saturate(180%);
+
+      box-shadow:
+        0 14px 45px rgba(0, 0, 0, 0.16);
+
+      opacity: 0;
+      visibility: hidden;
+
+      transform: translateY(20px);
+
+      transition:
+        opacity 200ms ease,
+        visibility 200ms ease,
+        transform 200ms ease;
+    }
+
+    .sticky-buy.show {
+      opacity: 1;
+      visibility: visible;
+
+      transform: translateY(0);
+    }
+
+    .sticky-price span {
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 9px;
+    }
+
+    .sticky-price strong {
+      display: block;
+
+      margin-top: 1px;
+
+      font-size: 16px;
+
+      letter-spacing: -0.035em;
+    }
+
+    .sticky-buy .btn {
+      min-height: 44px;
+
+      padding-inline: 17px;
+
+      font-size: 11px;
+    }
+
+    /* =========================================================
+       REVEAL ANIMATIONS
+       ========================================================= */
+
+    .reveal {
+      opacity: 0;
+
+      transform: translateY(18px);
+
+      transition:
+        opacity 650ms cubic-bezier(.2,.7,.2,1),
+        transform 650ms cubic-bezier(.2,.7,.2,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       TABLET / DESKTOP
+       ========================================================= */
+
+    @media (min-width: 760px) {
+
+      .container {
+        width: min(calc(100% - 48px), var(--max));
       }
 
       .promo {
-        font-size: 11px;
+        font-size: 12px;
       }
 
       .header {
-        height: 64px;
+        height: 68px;
       }
 
-      .nav-actions .btn {
+      .menu-button {
         display: none;
       }
 
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+
+        gap: 25px;
+
+        font-size: 13px;
+        font-weight: 650;
+      }
+
+      .desktop-nav a {
+        color: #48484c;
+      }
+
+      .desktop-contact {
+        display: inline-flex;
+      }
+
+      .mobile-menu-panel {
+        display: none;
+      }
+
+      /* HERO */
+
       .hero {
-        min-height: auto;
-        padding: 65px 0 40px;
+        min-height: 730px;
+
+        padding: 80px 0;
+      }
+
+      .hero-grid {
+        grid-template-columns:
+          minmax(0, 0.88fr)
+          minmax(470px, 1.12fr);
+
+        gap: 45px;
+      }
+
+      .hero .eyebrow {
+        font-size: 11px;
       }
 
       .hero h1 {
-        font-size: clamp(58px, 19vw, 82px);
+        max-width: 650px;
+
+        margin-top: 16px;
+
+        font-size:
+          clamp(
+            70px,
+            7.5vw,
+            110px
+          );
       }
 
-      .hero-sub {
-        margin-top: 25px;
-        font-size: 18px;
+      .hero-mobile-copy {
+        display: none;
+      }
+
+      .hero-desktop-copy {
+        display: block;
+
+        max-width: 570px;
+
+        margin-top: 28px;
+
+        color: var(--muted);
+
+        font-size: 20px;
+        line-height: 1.45;
+
+        letter-spacing: -0.025em;
       }
 
       .hero-actions {
-        display: grid;
-        grid-template-columns: 1fr;
+        margin-top: 30px;
       }
 
       .hero-actions .btn {
-        width: 100%;
+        min-height: 48px;
+
+        padding-inline: 21px;
+
+        font-size: 14px;
       }
 
       .hero-visual {
-        min-height: 440px;
+        height: 570px;
       }
 
-      .tap-card {
+      .hero-glow {
+        width: 540px;
+        height: 540px;
+      }
+
+      .hero-phone {
+        right: 4%;
+
+        width: 245px;
+        height: 495px;
+
+        padding: 10px;
+
+        border-radius: 46px;
+      }
+
+      .hero-phone-screen {
+        border-radius: 37px;
+      }
+
+      .hero-island {
+        top: 14px;
+
+        width: 80px;
+        height: 22px;
+      }
+
+      .mini-profile {
+        padding:
+          74px
+          20px
+          20px;
+      }
+
+      .mini-avatar {
+        width: 80px;
+        height: 80px;
+
+        font-size: 30px;
+      }
+
+      .mini-profile strong {
+        margin-top: 15px;
+
+        font-size: 18px;
+      }
+
+      .mini-profile p {
+        font-size: 11px;
+      }
+
+      .mini-links {
+        margin-top: 25px;
+
+        gap: 9px;
+      }
+
+      .mini-link {
+        padding: 12px 13px;
+
+        border-radius: 14px;
+
+        font-size: 11px;
+      }
+
+      .hero-card {
         left: 2%;
-        width: 270px;
-        border-radius: 20px;
-        padding: 22px;
+
+        width: 350px;
+
+        padding: 27px;
+
+        border-radius: 24px;
       }
 
-      .card-brand {
-        font-size: 34px;
+      .nfc-mark {
+        font-size: 28px;
       }
 
-      .phone {
-        right: -3%;
-        width: 190px;
-        height: 390px;
-        border-radius: 38px;
+      .hero-card-brand {
+        font-size: 42px;
       }
 
-      .phone-screen {
-        border-radius: 29px;
+      .hero-card-tagline {
+        font-size: 9px;
       }
 
-      .floating-pill {
-        display: none;
+      .hero-pill {
+        padding: 11px 15px;
+
+        font-size: 11px;
+      }
+
+      .hero-pill.reviews {
+        top: 100px;
+        right: 0;
+      }
+
+      .hero-pill.profile {
+        left: 14%;
+        bottom: 65px;
+      }
+
+      .hero-trust {
+        margin-top: 10px;
+
+        font-size: 12px;
+      }
+
+      /* GENERAL */
+
+      .section-title {
+        font-size:
+          clamp(
+            54px,
+            6vw,
+            76px
+          );
+      }
+
+      .section-description {
+        margin-top: 22px;
+
+        font-size: 19px;
       }
 
       .possibilities,
       .customizer-section,
       .packs,
       .services,
+      .profile-plans,
+      .action-section,
       .how,
-      .shipping,
-      .faq,
-      .final-cta {
-        padding: 95px 0;
+      .trust-section,
+      .faq {
+        padding: 125px 0;
       }
 
-      .section-title {
-        font-size: 47px;
+      /* DESKTOP GRIDS */
+
+      .horizontal-track {
+        width: 100%;
+
+        overflow: visible;
+
+        padding: 0;
+
+        display: grid;
       }
 
-      .possibility-grid,
-      .pack-grid,
-      .steps {
-        grid-template-columns: 1fr;
+      .possibility-track {
+        grid-template-columns:
+          repeat(4, 1fr);
+
+        gap: 15px;
+
+        margin-top: 55px;
       }
 
       .possibility-card {
-        min-height: 205px;
+        max-width: none;
+        min-height: 235px;
+
+        padding: 27px;
       }
 
-      .customizer-shell {
-        padding: 12px;
-        border-radius: 28px;
+      .possibility-card h3 {
+        font-size: 20px;
       }
 
-      .controls {
-        padding: 20px;
+      .possibility-card p {
+        font-size: 13px;
       }
 
-      .preview {
-        min-height: 400px;
+      .swipe-hint {
+        display: none;
+      }
+
+      /* CUSTOMIZER */
+
+      .customizer {
+        margin-top: 55px;
+
+        display: grid;
+
+        grid-template-columns:
+          1.2fr
+          0.8fr;
+
+        border-radius: 38px;
+      }
+
+      .preview-area {
+        min-height: 590px;
       }
 
       .custom-card {
-        width: 88%;
-        border-radius: 20px;
+        width: min(75%, 500px);
+
+        border-radius: 29px;
       }
 
-      .custom-logo-area {
+      .custom-controls {
         padding: 40px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
-      .preview-actions {
-        bottom: 16px;
+      .custom-row {
+        min-height: 85px;
       }
 
-      .service-grid {
-        grid-template-columns: 1fr;
+      .custom-row-copy strong {
+        font-size: 16px;
       }
 
-      .service-card,
-      .service-card.profile {
-        grid-column: auto;
-        min-height: 390px;
+      .custom-row-copy span {
+        font-size: 13px;
+      }
+
+      /* PACKS */
+
+      .pack-track {
+        grid-template-columns:
+          repeat(4, 1fr);
+
+        gap: 15px;
+
+        margin-top: 55px;
+      }
+
+      .pack-card {
+        max-width: none;
+        min-height: 400px;
+
         padding: 28px;
       }
 
-      .service-card.profile {
-        display: grid;
-        grid-template-columns: 1fr;
+      .pack-card.featured {
+        transform: translateY(-12px);
       }
 
-      .shipping-card {
+      /* SERVICES */
+
+      .service-track {
+        grid-template-columns:
+          repeat(3, 1fr);
+
+        gap: 16px;
+
+        margin-top: 55px;
+      }
+
+      .service-card {
+        max-width: none;
+        min-height: 440px;
+
+        padding: 34px;
+      }
+
+      /* PROFILE PLANS */
+
+      .profile-plan-track {
+        grid-template-columns:
+          repeat(3, 1fr);
+
+        gap: 16px;
+
+        margin-top: 55px;
+      }
+
+      .profile-plan-card {
+        max-width: none;
+        min-height: 380px;
+
         padding: 30px;
       }
 
-      .footer-inner {
+      /* ACTION */
+
+      .demo-track {
+        grid-template-columns:
+          repeat(3, 1fr);
+
+        gap: 17px;
+
+        margin-top: 55px;
+      }
+
+      .demo-card {
+        max-width: none;
+
+        aspect-ratio: 0.84;
+      }
+
+      /* HOW */
+
+      .steps-track {
+        grid-template-columns:
+          repeat(4, 1fr);
+
+        gap: 15px;
+
+        margin-top: 55px;
+      }
+
+      .step-card {
+        max-width: none;
+        min-height: 290px;
+
+        padding: 28px;
+      }
+
+      /* TRUST */
+
+      .trust-grid {
+        grid-template-columns:
+          repeat(3, 1fr);
+
+        gap: 15px;
+
+        margin-top: 55px;
+      }
+
+      .trust-card {
+        min-height: 290px;
+
+        display: flex;
         flex-direction: column;
-        text-align: center;
+      }
+
+      .trust-card h3 {
+        margin-top: auto;
+      }
+
+      /* FAQ */
+
+      .faq-list {
+        max-width: 900px;
+
+        margin-top: 55px;
+      }
+
+      .faq-question {
+        padding: 25px 0;
+
+        font-size: 18px;
+      }
+
+      .faq-answer {
+        font-size: 15px;
+      }
+
+      /* FOOTER */
+
+      footer {
+        padding: 40px 0;
+      }
+
+      .footer-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .sticky-buy {
+        display: none;
       }
     }
 
+    /* =========================================================
+       VERY SMALL PHONES
+       ========================================================= */
+
+    @media (max-width: 360px) {
+
+      .hero h1 {
+        font-size: 40px;
+      }
+
+      .hero-grid {
+        grid-template-columns:
+          0.92fr
+          1.08fr;
+      }
+
+      .hero-card {
+        width: 170px;
+      }
+
+      .hero-phone {
+        width: 132px;
+        height: 267px;
+      }
+
+      .hero-mobile-copy {
+        font-size: 12px;
+      }
+    }
+
+    /* =========================================================
+       REDUCED MOTION
+       ========================================================= */
+
     @media (prefers-reduced-motion: reduce) {
+
       *,
       *::before,
       *::after {
         scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
+
+        animation-duration:
+          0.01ms !important;
+
+        animation-iteration-count:
+          1 !important;
+
+        transition-duration:
+          0.01ms !important;
       }
     }
+
   </style>
 </head>
 
 <body>
 
-  <!-- PROMO -->
+  <!-- =======================================================
+       PROMO
+       ======================================================= -->
+
   <div class="promo">
     10% OFF en tu primera compra · Código PRIMERTAP
   </div>
 
-  <!-- HEADER -->
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
   <header class="header">
+
     <nav class="nav">
 
       <a href="#inicio" class="brand">
-        LinkTap<span class="brand-dot">.</span>
+        LinkTap<span>.</span>
       </a>
 
-      <div class="nav-links">
-        <a href="#posibilidades">Qué puedes hacer</a>
-        <a href="#personaliza">Personaliza</a>
-        <a href="#packs">Tarjetas</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a href="#preguntas">Preguntas</a>
-      </div>
 
-      <div class="nav-actions">
-        <a
-          class="btn btn-dark whatsapp-link"
-          href="#"
-          target="_blank"
-          rel="noopener"
-        >
-          WhatsApp
+      <div class="desktop-nav">
+
+        <a href="#posibilidades">
+          Qué puedes hacer
         </a>
 
-        <button
-          class="mobile-menu"
-          id="mobileMenu"
-          aria-label="Abrir menú"
-        >
-          ☰
-        </button>
+        <a href="#personaliza">
+          Personaliza
+        </a>
+
+        <a href="#packs">
+          Tarjetas
+        </a>
+
+        <a href="#servicios">
+          Servicios
+        </a>
+
+        <a href="#como-funciona">
+          Cómo funciona
+        </a>
+
+        <a href="#preguntas">
+          Preguntas
+        </a>
+
       </div>
 
+
+      <a
+        href="#"
+        class="btn btn-dark desktop-contact whatsapp-general"
+        target="_blank"
+        rel="noopener"
+      >
+        WhatsApp
+      </a>
+
+
+      <button
+        class="menu-button"
+        id="menuButton"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+      >
+        <span class="menu-icon"></span>
+      </button>
+
     </nav>
+
   </header>
 
 
-  <!-- HERO -->
+  <!-- MOBILE MENU -->
+
+  <div
+    class="mobile-menu-panel"
+    id="mobileMenu"
+  >
+
+    <a href="#posibilidades">
+      Qué puedes hacer
+      <span>›</span>
+    </a>
+
+    <a href="#personaliza">
+      Personaliza
+      <span>›</span>
+    </a>
+
+    <a href="#packs">
+      Tarjetas
+      <span>›</span>
+    </a>
+
+    <a href="#servicios">
+      Servicios digitales
+      <span>›</span>
+    </a>
+
+    <a href="#como-funciona">
+      Cómo funciona
+      <span>›</span>
+    </a>
+
+    <a href="#preguntas">
+      Preguntas
+      <span>›</span>
+    </a>
+
+    <a
+      href="#"
+      class="menu-whatsapp whatsapp-general"
+      target="_blank"
+      rel="noopener"
+    >
+      Hablar por WhatsApp
+    </a>
+
+  </div>
+
+
   <main>
 
-    <section class="hero" id="inicio">
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section
+      class="hero"
+      id="inicio"
+    >
+
       <div class="container hero-grid">
 
         <div class="hero-copy">
 
           <span class="eyebrow">
-            LinkTap · Acerca y conecta
+            Tarjeta NFC
           </span>
 
           <h1>
             Tu negocio,<br>
-            a un tap<span class="blue-dot">.</span>
+            a un tap<span class="blue">.</span>
           </h1>
 
-          <p class="hero-sub">
+          <p class="hero-mobile-copy">
+            Acerca, conecta y comparte tu negocio al instante.
+          </p>
+
+          <p class="hero-desktop-copy">
             Una tarjeta que conecta a tus clientes con lo que quieras:
             reseñas, redes sociales, WhatsApp, menús, catálogos,
             perfiles digitales y mucho más.
@@ -1744,75 +2729,83 @@
 
           <div class="hero-actions">
 
-            <a href="#personaliza" class="btn btn-blue">
-              Crear mi LinkTap
+            <a
+              href="#personaliza"
+              class="btn btn-dark"
+            >
+              Descubre LinkTap
             </a>
 
-            <a href="#posibilidades" class="btn btn-soft">
-              Ver cómo funciona ↓
-            </a>
-
-          </div>
-
-          <div class="hero-trust">
-            <span>Sin apps</span>
-            <span>Lista para usar</span>
-            <span>Envíos a todo Chile</span>
           </div>
 
         </div>
 
 
         <!--
-          VISUAL TEMPORAL.
-          Más adelante reemplazaremos esta composición
+          Este visual será reemplazado después
           por la animación final de Remotion.
         -->
+
         <div class="hero-visual">
 
           <div class="hero-glow"></div>
 
-          <div class="tap-card">
 
-            <div class="card-nfc">
-              ))) 
+          <div class="hero-card">
+
+            <div class="nfc-mark">
+              )))
             </div>
 
-            <div class="card-brand">
-              LinkTap<span class="blue-dot">.</span>
+            <div class="hero-card-brand">
+              LinkTap<span class="blue">.</span>
             </div>
 
-            <div class="card-tagline">
+            <div class="hero-card-tagline">
               ACERCA Y CONECTA
             </div>
 
           </div>
 
 
-          <div class="phone">
+          <div class="hero-phone">
 
-            <div class="phone-screen">
+            <div class="hero-phone-screen">
 
-              <div class="island"></div>
+              <div class="hero-island"></div>
 
-              <div class="phone-content">
+              <div class="mini-profile">
 
-                <div class="phone-avatar">
-                  L<span class="blue-dot">.</span>
+                <div class="mini-avatar">
+                  L<span class="blue">.</span>
                 </div>
 
-                <h3>Tu negocio</h3>
+                <strong>
+                  Tu negocio
+                </strong>
 
                 <p>
-                  Todo lo que tus clientes necesitan,
-                  en un solo lugar.
+                  Todo lo que tus clientes necesitan.
                 </p>
 
-                <div class="phone-links">
-                  <div class="phone-link">Instagram</div>
-                  <div class="phone-link">WhatsApp</div>
-                  <div class="phone-link">Cómo llegar</div>
-                  <div class="phone-link">Dejar una reseña</div>
+                <div class="mini-links">
+
+                  <div class="mini-link">
+                    Instagram
+                  </div>
+
+                  <div class="mini-link">
+                    WhatsApp
+                  </div>
+
+                  <div class="mini-link">
+                    Cómo llegar
+                  </div>
+
+                  <div class="mini-link">
+                    Dejar reseña
+                  </div>
+
                 </div>
 
               </div>
@@ -1822,151 +2815,317 @@
           </div>
 
 
-          <div class="floating-pill pill-one">
-            ⭐ Google Reviews
+          <div class="hero-pill reviews">
+            ★ Reviews
           </div>
 
-          <div class="floating-pill pill-two">
+          <div class="hero-pill profile">
             ↗ Perfil digital
           </div>
 
         </div>
 
-      </div>
-    </section>
 
+        <div class="hero-trust">
 
-    <!-- POSSIBILITIES -->
-    <section class="possibilities" id="posibilidades">
+          <span>Sin apps</span>
 
-      <div class="container">
+          <span>Lista para usar</span>
 
-        <span class="eyebrow">
-          Una tarjeta. Muchas posibilidades.
-        </span>
-
-        <h2 class="section-title">
-          Tú decides qué pasa después del tap<span class="blue-dot">.</span>
-        </h2>
-
-        <p class="section-description">
-          LinkTap puede llevar a tus clientes directamente a la acción
-          que más importa para tu negocio.
-        </p>
-
-
-        <div class="possibility-grid">
-
-          <article class="possibility-card">
-            <div class="icon-box">★</div>
-            <h3>Google Reviews</h3>
-            <p>
-              Facilita que tus clientes lleguen directamente
-              a dejar una reseña.
-            </p>
-          </article>
-
-          <article class="possibility-card">
-            <div class="icon-box">@</div>
-            <h3>Redes sociales</h3>
-            <p>
-              Instagram, TikTok y tus principales canales digitales.
-            </p>
-          </article>
-
-          <article class="possibility-card">
-            <div class="icon-box">↗</div>
-            <h3>WhatsApp</h3>
-            <p>
-              Inicia una conversación con tu negocio de forma directa.
-            </p>
-          </article>
-
-          <article class="possibility-card">
-            <div class="icon-box">◉</div>
-            <h3>Perfil digital</h3>
-            <p>
-              Contacto, servicios, redes y más en un solo perfil.
-            </p>
-          </article>
-
-          <article class="possibility-card">
-            <div class="icon-box">≡</div>
-            <h3>Menú digital</h3>
-            <p>
-              Tu carta disponible desde el celular de tus clientes.
-            </p>
-          </article>
-
-          <article class="possibility-card">
-            <div class="icon-box">▦</div>
-            <h3>Catálogo</h3>
-            <p>
-              Presenta productos o servicios de manera clara y digital.
-            </p>
-          </article>
-
-          <article class="possibility-card">
-            <div class="icon-box">◷</div>
-            <h3>Reservas</h3>
-            <p>
-              Conecta directamente con tu plataforma de agendamiento.
-            </p>
-          </article>
-
-          <article class="possibility-card">
-            <div class="icon-box">+</div>
-            <h3>Otro enlace</h3>
-            <p>
-              Si tiene un enlace, tu LinkTap puede llevar a tus clientes ahí.
-            </p>
-          </article>
+          <span>Todo Chile</span>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- CUSTOMIZER -->
-    <section class="customizer-section" id="personaliza">
+    <!-- =====================================================
+         POSSIBILITIES
+         ===================================================== -->
+
+    <section
+      class="possibilities"
+      id="posibilidades"
+    >
 
       <div class="container">
 
-        <span class="eyebrow">
-          Personalización
-        </span>
+        <div class="reveal">
 
-        <h2 class="section-title">
-          Hazla de tu marca<span class="blue-dot">.</span>
-        </h2>
+          <span class="eyebrow">
+            Una tarjeta. Muchas posibilidades.
+          </span>
 
-        <p class="section-description">
-          Desde 3 unidades puedes personalizar tus LinkTap con
-          el logo y colores de tu negocio.
-        </p>
+          <h2 class="section-title">
+            Tú decides qué pasa después del tap<span class="blue">.</span>
+          </h2>
+
+          <p class="section-description">
+            LinkTap conecta a tus clientes directamente
+            con la acción que más importa para tu negocio.
+          </p>
+
+        </div>
 
 
-        <div class="customizer-shell">
+        <div
+          class="horizontal-track possibility-track"
+        >
+
+          <article class="possibility-card">
+
+            <div class="possibility-icon">
+              ★
+            </div>
+
+            <h3>
+              Google Reviews
+            </h3>
+
+            <p>
+              Lleva a tus clientes directamente
+              a dejar una reseña.
+            </p>
+
+          </article>
+
+
+          <article class="possibility-card">
+
+            <div class="possibility-icon">
+              @
+            </div>
+
+            <h3>
+              Redes sociales
+            </h3>
+
+            <p>
+              Instagram, TikTok y tus principales
+              canales digitales.
+            </p>
+
+          </article>
+
+
+          <article class="possibility-card">
+
+            <div class="possibility-icon">
+              ↗
+            </div>
+
+            <h3>
+              WhatsApp
+            </h3>
+
+            <p>
+              Inicia una conversación con tu negocio
+              de forma directa.
+            </p>
+
+          </article>
+
+
+          <article class="possibility-card">
+
+            <div class="possibility-icon">
+              ◉
+            </div>
+
+            <h3>
+              Perfil digital
+            </h3>
+
+            <p>
+              Contacto, servicios, redes y más
+              en un solo lugar.
+            </p>
+
+          </article>
+
+
+          <article class="possibility-card">
+
+            <div class="possibility-icon">
+              ≡
+            </div>
+
+            <h3>
+              Menú digital
+            </h3>
+
+            <p>
+              Tu carta disponible desde
+              el celular de tus clientes.
+            </p>
+
+          </article>
+
+
+          <article class="possibility-card">
+
+            <div class="possibility-icon">
+              ▦
+            </div>
+
+            <h3>
+              Catálogo digital
+            </h3>
+
+            <p>
+              Productos y servicios presentados
+              de forma clara.
+            </p>
+
+          </article>
+
+
+          <article class="possibility-card">
+
+            <div class="possibility-icon">
+              ◷
+            </div>
+
+            <h3>
+              Reservas
+            </h3>
+
+            <p>
+              Conecta con tu sistema
+              de reservas o agenda.
+            </p>
+
+          </article>
+
+
+          <article class="possibility-card">
+
+            <div class="possibility-icon">
+              +
+            </div>
+
+            <h3>
+              Cualquier enlace
+            </h3>
+
+            <p>
+              Si tiene un enlace,
+              tu LinkTap puede llevar ahí.
+            </p>
+
+          </article>
+
+        </div>
+
+        <div class="swipe-hint">
+          Desliza para descubrir más →
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CUSTOMIZER
+         ===================================================== -->
+
+    <section
+      class="customizer-section"
+      id="personaliza"
+    >
+
+      <div class="container">
+
+        <div class="reveal">
+
+          <span class="eyebrow">
+            Personalización
+          </span>
+
+          <h2 class="section-title">
+            Hazla de tu marca<span class="blue">.</span>
+          </h2>
+
+          <p class="section-description">
+            Desde 3 unidades personaliza tus LinkTap
+            con el logo y colores de tu negocio.
+          </p>
+
+        </div>
+
+
+        <div class="customizer reveal">
+
+          <!-- PREVIEW -->
+
+          <div class="preview-area">
+
+            <div
+              class="custom-card"
+              id="customCard"
+            >
+
+              <div class="custom-shape-one"></div>
+
+              <div class="custom-shape-two"></div>
+
+
+              <div class="custom-logo-area">
+
+                <div
+                  class="custom-placeholder"
+                  id="logoPlaceholder"
+                >
+                  TU LOGO
+                </div>
+
+                <img
+                  id="logoPreview"
+                  alt="Vista previa de tu logo"
+                >
+
+              </div>
+
+
+              <div class="custom-signature">
+                LinkTap<span>.</span>
+              </div>
+
+            </div>
+
+
+            <div class="preview-label">
+              Vista previa referencial
+            </div>
+
+          </div>
+
 
           <!-- CONTROLS -->
-          <div class="controls">
 
-            <div class="control-group">
+          <div class="custom-controls">
 
-              <span class="control-label">
-                1. Sube tu logo
-              </span>
+            <div class="custom-row">
 
-              <label class="upload">
+              <div class="custom-row-copy">
 
                 <strong>
-                  Elegir imagen
+                  Tu logo
                 </strong>
 
                 <span>
                   PNG, JPG o WEBP
                 </span>
+
+              </div>
+
+
+              <label class="upload-button">
+
+                Subir logo
 
                 <input
                   type="file"
@@ -1979,30 +3138,44 @@
             </div>
 
 
-            <div class="control-group">
+            <div class="custom-row">
 
-              <span class="control-label">
-                2. Elige tus colores
-              </span>
+              <div class="custom-row-copy">
 
-              <div class="colors">
+                <strong>
+                  Colores
+                </strong>
 
-                <label class="color-wrap">
+                <span>
+                  Elige dos tonos
+                </span>
+
+              </div>
+
+
+              <div class="color-options">
+
+                <label class="color-picker">
+
                   <input
                     type="color"
                     id="colorOne"
                     value="#1677ff"
                     aria-label="Primer color"
                   >
+
                 </label>
 
-                <label class="color-wrap">
+
+                <label class="color-picker">
+
                   <input
                     type="color"
                     id="colorTwo"
                     value="#7d4dff"
                     aria-label="Segundo color"
                   >
+
                 </label>
 
               </div>
@@ -2010,91 +3183,66 @@
             </div>
 
 
-            <div class="custom-note">
+            <div class="custom-info">
               La base física de la tarjeta es blanca.
-              Los colores seleccionados corresponden al diseño impreso.
-              Desde 3 unidades se incluye un diseño personalizado por pack.
+              Los colores corresponden al diseño impreso.
+              Desde 3 unidades se incluye un diseño
+              personalizado por pack.
             </div>
 
-          </div>
 
-
-          <!-- PREVIEW -->
-          <div class="preview">
-
-            <div
-              class="custom-card"
-              id="customCard"
+            <button
+              class="btn btn-blue custom-cta"
+              id="wantDesign"
             >
-
-              <div class="shape-one"></div>
-              <div class="shape-two"></div>
-
-              <div class="custom-logo-area">
-
-                <div
-                  class="logo-placeholder"
-                  id="logoPlaceholder"
-                >
-                  TU LOGO
-                </div>
-
-                <img
-                  id="logoPreview"
-                  alt="Vista previa del logo"
-                >
-
-              </div>
-
-              <div class="custom-signature">
-                LinkTap<span>.</span>
-              </div>
-
-            </div>
-
-
-            <div class="preview-actions">
-
-              <button
-                class="btn btn-blue"
-                id="wantDesign"
-              >
-                Quiero esta LinkTap
-              </button>
-
-            </div>
+              Quiero este diseño
+            </button>
 
           </div>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- PACKS -->
-    <section class="packs" id="packs">
+    <!-- =====================================================
+         PACKS
+         ===================================================== -->
+
+    <section
+      class="packs"
+      id="packs"
+    >
 
       <div class="container">
 
-        <span class="eyebrow">
-          Tarjetas LinkTap
-        </span>
+        <div class="reveal">
 
-        <h2 class="section-title">
-          Una para ti.<br>
-          Varias para tu negocio<span class="blue-dot">.</span>
-        </h2>
+          <span class="eyebrow">
+            Tarjetas LinkTap
+          </span>
 
-        <p class="section-description">
-          Cada tarjeta puede configurarse con un destino diferente.
-          Desde 3 unidades se incluye personalización.
-        </p>
+          <h2 class="section-title">
+            Una para ti.<br>
+            Varias para tu negocio<span class="blue">.</span>
+          </h2>
+
+          <p class="section-description">
+            Cada tarjeta puede llevar a un destino diferente.
+            Desde 3 unidades puedes personalizar el diseño.
+          </p>
+
+        </div>
 
 
-        <div class="pack-grid">
+        <div
+          class="horizontal-track pack-track"
+        >
 
           <!-- 1 -->
+
           <article class="pack-card">
 
             <div class="pack-name">
@@ -2110,15 +3258,32 @@
             </div>
 
             <ul class="pack-list">
-              <li>Diseño LinkTap estándar</li>
-              <li>Configuración incluida</li>
-              <li>Lista para usar</li>
+
+              <li>
+                Diseño LinkTap estándar
+              </li>
+
+              <li>
+                Configuración incluida
+              </li>
+
+              <li>
+                Revisada antes de entregar
+              </li>
+
+              <li>
+                Lista para usar
+              </li>
+
             </ul>
+
 
             <a
               href="#"
-              class="btn btn-soft whatsapp-product"
-              data-product="1 tarjeta LinkTap - $19.990"
+              class="btn btn-white whatsapp-product"
+              data-product="1 tarjeta LinkTap por $19.990"
+              target="_blank"
+              rel="noopener"
             >
               La quiero
             </a>
@@ -2127,6 +3292,7 @@
 
 
           <!-- 3 -->
+
           <article class="pack-card featured">
 
             <span class="popular">
@@ -2146,16 +3312,33 @@
             </div>
 
             <ul class="pack-list">
-              <li>Logo y colores incluidos</li>
-              <li>1 diseño personalizado</li>
-              <li>Destinos NFC diferentes</li>
-              <li>Vista previa antes de producir</li>
+
+              <li>
+                Logo y colores incluidos
+              </li>
+
+              <li>
+                1 diseño personalizado
+              </li>
+
+              <li>
+                Cada tarjeta puede tener
+                un destino diferente
+              </li>
+
+              <li>
+                Vista previa antes de producir
+              </li>
+
             </ul>
+
 
             <a
               href="#"
               class="btn btn-blue whatsapp-product"
-              data-product="Pack 3 LinkTap - $54.990"
+              data-product="Pack 3 LinkTap por $54.990"
+              target="_blank"
+              rel="noopener"
             >
               Quiero mi Pack 3
             </a>
@@ -2164,6 +3347,7 @@
 
 
           <!-- 5 -->
+
           <article class="pack-card">
 
             <div class="pack-name">
@@ -2179,16 +3363,32 @@
             </div>
 
             <ul class="pack-list">
-              <li>Logo y colores incluidos</li>
-              <li>1 diseño personalizado</li>
-              <li>Destinos NFC diferentes</li>
-              <li>Vista previa antes de producir</li>
+
+              <li>
+                Logo y colores incluidos
+              </li>
+
+              <li>
+                1 diseño personalizado
+              </li>
+
+              <li>
+                Destinos diferentes
+              </li>
+
+              <li>
+                Vista previa antes de producir
+              </li>
+
             </ul>
+
 
             <a
               href="#"
-              class="btn btn-soft whatsapp-product"
-              data-product="Pack 5 LinkTap - $84.990"
+              class="btn btn-white whatsapp-product"
+              data-product="Pack 5 LinkTap por $84.990"
+              target="_blank"
+              rel="noopener"
             >
               Cotizar Pack 5
             </a>
@@ -2197,6 +3397,7 @@
 
 
           <!-- 10 -->
+
           <article class="pack-card">
 
             <div class="pack-name">
@@ -2212,16 +3413,32 @@
             </div>
 
             <ul class="pack-list">
-              <li>Logo y colores incluidos</li>
-              <li>1 diseño personalizado</li>
-              <li>Destinos NFC diferentes</li>
-              <li>Pensado para equipos y locales</li>
+
+              <li>
+                Logo y colores incluidos
+              </li>
+
+              <li>
+                1 diseño personalizado
+              </li>
+
+              <li>
+                Destinos diferentes
+              </li>
+
+              <li>
+                Ideal para locales y equipos
+              </li>
+
             </ul>
+
 
             <a
               href="#"
-              class="btn btn-soft whatsapp-product"
-              data-product="Pack 10 LinkTap - $149.990"
+              class="btn btn-white whatsapp-product"
+              data-product="Pack 10 LinkTap por $149.990"
+              target="_blank"
+              rel="noopener"
             >
               Cotizar Pack 10
             </a>
@@ -2230,32 +3447,55 @@
 
         </div>
 
+        <div class="pack-note">
+          Desliza para ver todos los packs →
+        </div>
+
       </div>
+
     </section>
 
 
-    <!-- DIGITAL SERVICES -->
-    <section class="services" id="servicios">
+    <!-- =====================================================
+         DIGITAL SERVICES
+         ===================================================== -->
+
+    <section
+      class="services"
+      id="servicios"
+    >
 
       <div class="container">
 
-        <span class="eyebrow">
-          Servicios digitales
-        </span>
+        <div class="reveal">
 
-        <h2 class="section-title">
-          Mucho más que una tarjeta<span class="blue-dot">.</span>
-        </h2>
+          <span class="eyebrow">
+            Servicios digitales
+          </span>
 
-        <p class="section-description">
-          También creamos experiencias digitales que puedes compartir
-          con tu LinkTap o utilizar de forma independiente.
-        </p>
+          <h2 class="section-title">
+            Mucho más que una tarjeta<span class="blue">.</span>
+          </h2>
+
+          <p class="section-description">
+            Puedes contratar nuestros servicios digitales
+            con o sin una tarjeta LinkTap.
+          </p>
+
+        </div>
 
 
-        <div class="service-grid">
+        <div
+          class="horizontal-track service-track"
+        >
+
+          <!-- MENU -->
 
           <article class="service-card">
+
+            <div class="service-icon">
+              ≡
+            </div>
 
             <span class="service-label">
               Menú digital
@@ -2266,84 +3506,355 @@
             </h3>
 
             <p>
-              Una forma clara y rápida de mostrar tus productos,
-              categorías y precios desde cualquier celular.
+              Muestra categorías, productos,
+              precios y toda tu carta desde el celular.
             </p>
 
             <div class="service-price">
               $19.990
             </div>
 
+            <a
+              href="#"
+              class="service-link whatsapp-product"
+              data-product="Menú Digital por $19.990"
+              target="_blank"
+              rel="noopener"
+            >
+              Me interesa →
+            </a>
+
           </article>
 
 
+          <!-- CATALOGO -->
+
           <article class="service-card">
+
+            <div class="service-icon">
+              ▦
+            </div>
 
             <span class="service-label">
               Catálogo digital
             </span>
 
             <h3>
-              Tus productos en un solo lugar.
+              Todo lo que vendes. En un lugar.
             </h3>
 
             <p>
-              Presenta productos o servicios y facilita que tus clientes
-              conozcan lo que ofreces.
+              Presenta productos o servicios
+              de manera clara y fácil de compartir.
             </p>
 
             <div class="service-price">
               $24.990
             </div>
 
+            <a
+              href="#"
+              class="service-link whatsapp-product"
+              data-product="Catálogo Digital por $24.990"
+              target="_blank"
+              rel="noopener"
+            >
+              Me interesa →
+            </a>
+
           </article>
 
+
+          <!-- PROFILE -->
 
           <article class="service-card profile">
 
-            <div>
+            <div class="service-icon">
+              ◉
+            </div>
 
-              <span class="service-label">
-                Perfil digital
+            <span class="service-label">
+              Perfil digital
+            </span>
+
+            <h3>
+              Tu negocio. Todo conectado.
+            </h3>
+
+            <p>
+              Contacto, redes, WhatsApp,
+              ubicación, servicios, imágenes y enlaces.
+            </p>
+
+            <div class="service-price">
+              Desde $29.990
+            </div>
+
+            <a
+              href="#perfiles"
+              class="service-link"
+            >
+              Ver opciones →
+            </a>
+
+          </article>
+
+        </div>
+
+        <div class="swipe-hint">
+          Desliza para ver los servicios →
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         PROFILE PLANS
+         ===================================================== -->
+
+    <section
+      class="profile-plans"
+      id="perfiles"
+    >
+
+      <div class="container">
+
+        <div class="reveal">
+
+          <span class="eyebrow">
+            Perfil digital
+          </span>
+
+          <h2 class="section-title">
+            Elige cuánto quieres mostrar<span class="blue">.</span>
+          </h2>
+
+          <p class="section-description">
+            Tres niveles para adaptarse a distintas
+            necesidades y tipos de negocio.
+          </p>
+
+        </div>
+
+
+        <div
+          class="horizontal-track profile-plan-track"
+        >
+
+          <!-- ESSENTIAL -->
+
+          <article class="profile-plan-card">
+
+            <span class="plan-label">
+              Esencial
+            </span>
+
+            <h3>
+              Lo necesario.
+            </h3>
+
+            <div class="plan-price">
+              $29.990
+            </div>
+
+            <p>
+              Una presencia digital clara
+              para compartir tu información
+              y canales principales.
+            </p>
+
+            <a
+              href="#"
+              class="btn btn-soft whatsapp-product"
+              data-product="Perfil Digital Esencial por $29.990"
+              target="_blank"
+              rel="noopener"
+            >
+              Consultar
+            </a>
+
+          </article>
+
+
+          <!-- PRO -->
+
+          <article class="profile-plan-card featured">
+
+            <span class="plan-label">
+              Más elegido
+            </span>
+
+            <h3>
+              Perfil Pro.
+            </h3>
+
+            <div class="plan-price">
+              $44.990
+            </div>
+
+            <p>
+              Más contenido, servicios y una
+              experiencia más completa para tu negocio.
+            </p>
+
+            <a
+              href="#"
+              class="btn btn-blue whatsapp-product"
+              data-product="Perfil Digital Pro por $44.990"
+              target="_blank"
+              rel="noopener"
+            >
+              Elegir Pro
+            </a>
+
+          </article>
+
+
+          <!-- BUSINESS -->
+
+          <article class="profile-plan-card">
+
+            <span class="plan-label">
+              Empresa
+            </span>
+
+            <h3>
+              Más completo.
+            </h3>
+
+            <div class="plan-price">
+              $59.990
+            </div>
+
+            <p>
+              Para negocios que necesitan
+              presentar más información,
+              contenido y accesos.
+            </p>
+
+            <a
+              href="#"
+              class="btn btn-soft whatsapp-product"
+              data-product="Perfil Digital Empresa por $59.990"
+              target="_blank"
+              rel="noopener"
+            >
+              Consultar
+            </a>
+
+          </article>
+
+        </div>
+
+
+        <p class="update-note">
+          Sin mensualidad obligatoria.
+          Actualizaciones de contenido desde $4.990,
+          según el cambio solicitado.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LINKTAP IN ACTION
+         ===================================================== -->
+
+    <section class="action-section">
+
+      <div class="container">
+
+        <div class="reveal">
+
+          <span class="eyebrow">
+            LinkTap en acción
+          </span>
+
+          <h2 class="section-title">
+            No te lo contamos.<br>
+            Míralo funcionar<span class="blue">.</span>
+          </h2>
+
+        </div>
+
+
+        <div
+          class="horizontal-track demo-track"
+        >
+
+          <article class="demo-card">
+
+            <div class="demo-play">
+              ▶
+            </div>
+
+            <div class="demo-content">
+
+              <span class="demo-badge">
+                LinkTap
               </span>
 
               <h3>
-                Tu negocio.<br>
-                Todo conectado.
+                Deja una reseña.
               </h3>
 
               <p>
-                Contacto, WhatsApp, redes, ubicación, servicios,
-                imágenes y enlaces en una experiencia diseñada para tu marca.
+                Del tap a Google Reviews.
               </p>
 
-              <div class="service-price">
-                Desde $29.990
-              </div>
+            </div>
+
+          </article>
+
+
+          <article class="demo-card">
+
+            <div class="demo-play">
+              ▶
+            </div>
+
+            <div class="demo-content">
+
+              <span class="demo-badge">
+                LinkTap
+              </span>
+
+              <h3>
+                Abre tu menú.
+              </h3>
 
               <p>
-                Sin mensualidades · Actualizaciones desde $4.990
+                La carta directamente en el celular.
               </p>
 
             </div>
 
+          </article>
 
-            <div class="profile-plans">
 
-              <div class="profile-plan">
-                <strong>Esencial</strong>
-                <span>$29.990</span>
-              </div>
+          <article class="demo-card">
 
-              <div class="profile-plan featured">
-                <strong>Pro · Más elegido</strong>
-                <span>$44.990</span>
-              </div>
+            <div class="demo-play">
+              ▶
+            </div>
 
-              <div class="profile-plan">
-                <strong>Empresa</strong>
-                <span>$59.990</span>
-              </div>
+            <div class="demo-content">
+
+              <span class="demo-badge">
+                LinkTap
+              </span>
+
+              <h3>
+                Comparte tu negocio.
+              </h3>
+
+              <p>
+                Redes, contacto y mucho más.
+              </p>
 
             </div>
 
@@ -2351,232 +3862,365 @@
 
         </div>
 
-      </div>
-    </section>
-
-
-    <!-- HOW -->
-    <section class="how" id="como-funciona">
-
-      <div class="container">
-
-        <span class="eyebrow">
-          Así de simple
-        </span>
-
-        <h2 class="section-title">
-          De tu idea a tus manos<span class="blue-dot">.</span>
-        </h2>
-
-
-        <div class="steps">
-
-          <article class="step">
-            <span class="step-number">01</span>
-
-            <h3>Elige</h3>
-
-            <p>
-              Escoge tu LinkTap, cantidad y qué quieres compartir.
-            </p>
-          </article>
-
-
-          <article class="step">
-            <span class="step-number">02</span>
-
-            <h3>Configuramos</h3>
-
-            <p>
-              Revisamos tus enlaces y configuramos cada tarjeta antes de producirla.
-            </p>
-          </article>
-
-
-          <article class="step">
-            <span class="step-number">03</span>
-
-            <h3>Apruebas</h3>
-
-            <p>
-              Si es personalizada, recibirás una vista previa antes de producir.
-            </p>
-          </article>
-
-
-          <article class="step">
-            <span class="step-number">04</span>
-
-            <h3>Recíbela</h3>
-
-            <p>
-              Tu LinkTap llega configurada, probada y lista para usar.
-            </p>
-          </article>
-
+        <div class="swipe-hint">
+          Próximamente agregaremos tus videos reales →
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- SHIPPING -->
-    <section class="shipping">
+    <!-- =====================================================
+         HOW IT WORKS
+         ===================================================== -->
+
+    <section
+      class="how"
+      id="como-funciona"
+    >
 
       <div class="container">
 
-        <div class="shipping-card">
+        <div class="reveal">
 
-          <div>
+          <span class="eyebrow">
+            Así de simple
+          </span>
 
-            <span class="eyebrow">
-              Despachos
+          <h2 class="section-title">
+            De tu idea a tus manos<span class="blue">.</span>
+          </h2>
+
+        </div>
+
+
+        <div
+          class="horizontal-track steps-track"
+        >
+
+          <article class="step-card">
+
+            <span class="step-number">
+              01
             </span>
 
-            <h2>
-              De Puerto Montt a todo Chile<span class="blue-dot">.</span>
-            </h2>
+            <h3>
+              Elige
+            </h3>
 
-          </div>
+            <p>
+              Escoge tu LinkTap, cantidad
+              y qué quieres compartir.
+            </p>
+
+          </article>
 
 
-          <div class="shipping-options">
+          <article class="step-card">
 
-            <div class="shipping-option">
-              <strong>Puerto Montt</strong>
-              <span>
-                Retiro disponible. Tarjetas estándar:
-                preparación estimada de 1 a 2 días hábiles.
-              </span>
-            </div>
+            <span class="step-number">
+              02
+            </span>
 
-            <div class="shipping-option">
-              <strong>Resto de Chile</strong>
-              <span>
-                Despacho por Blue Express · $4.000.
-                El tiempo de transporte se suma al tiempo de preparación.
-              </span>
-            </div>
+            <h3>
+              Configuramos
+            </h3>
 
-            <div class="shipping-option">
-              <strong>Personalizadas</strong>
-              <span>
-                La producción comienza una vez aprobado el diseño final.
-              </span>
-            </div>
+            <p>
+              Revisamos tus enlaces y
+              configuramos cada tarjeta.
+            </p>
 
-          </div>
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              03
+            </span>
+
+            <h3>
+              Apruebas
+            </h3>
+
+            <p>
+              Si es personalizada,
+              revisas el diseño antes de producir.
+            </p>
+
+          </article>
+
+
+          <article class="step-card">
+
+            <span class="step-number">
+              04
+            </span>
+
+            <h3>
+              Recíbela
+            </h3>
+
+            <p>
+              Llega configurada, probada
+              y lista para usar.
+            </p>
+
+          </article>
 
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- FAQ -->
-    <section class="faq" id="preguntas">
+    <!-- =====================================================
+         TRUST / SHIPPING / GUARANTEE
+         ===================================================== -->
+
+    <section class="trust-section">
 
       <div class="container">
 
-        <span class="eyebrow">
-          Preguntas frecuentes
-        </span>
+        <div class="reveal">
 
-        <h2 class="section-title">
-          Lo importante,<br>
-          sin complicaciones<span class="blue-dot">.</span>
-        </h2>
+          <span class="eyebrow">
+            Compra con tranquilidad
+          </span>
+
+          <h2 class="section-title">
+            Nosotros revisamos antes de entregar<span class="blue">.</span>
+          </h2>
+
+        </div>
+
+
+        <div class="trust-grid">
+
+          <article class="trust-card reveal">
+
+            <div class="trust-icon">
+              ✓
+            </div>
+
+            <h3>
+              Enlaces revisados
+            </h3>
+
+            <p>
+              Antes de programar tu tarjeta verificamos
+              que los enlaces que nos envías funcionen correctamente.
+            </p>
+
+          </article>
+
+
+          <article class="trust-card reveal">
+
+            <div class="trust-icon">
+              ◇
+            </div>
+
+            <h3>
+              Garantía LinkTap
+            </h3>
+
+            <p>
+              Probamos cada tarjeta antes de entregarla.
+              Si existe una falla atribuible al producto,
+              revisaremos el caso para solucionarlo.
+            </p>
+
+          </article>
+
+
+          <article class="trust-card reveal">
+
+            <div class="trust-icon">
+              ↗
+            </div>
+
+            <h3>
+              Envíos a Chile
+            </h3>
+
+            <p>
+              Puerto Montt: preparación estimada de
+              1 a 2 días hábiles para tarjetas estándar.
+              Resto de Chile: Blue Express por $4.000.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FAQ
+         ===================================================== -->
+
+    <section
+      class="faq"
+      id="preguntas"
+    >
+
+      <div class="container">
+
+        <div class="reveal">
+
+          <span class="eyebrow">
+            Preguntas frecuentes
+          </span>
+
+          <h2 class="section-title">
+            Lo importante.<br>
+            Sin complicaciones<span class="blue">.</span>
+          </h2>
+
+        </div>
 
 
         <div class="faq-list">
 
+          <!-- FAQ 1 -->
+
           <div class="faq-item">
 
             <button class="faq-question">
+
               ¿Necesito instalar una aplicación?
-              <span class="faq-plus">+</span>
+
+              <span class="faq-plus">
+                +
+              </span>
+
             </button>
 
             <div class="faq-answer">
-              No. El cliente simplemente acerca un teléfono compatible
-              con NFC a la tarjeta y accede al contenido configurado.
+              No. Solo se acerca un teléfono compatible
+              con NFC a la tarjeta y se abre el contenido configurado.
             </div>
 
           </div>
 
 
+          <!-- FAQ 2 -->
+
           <div class="faq-item">
 
             <button class="faq-question">
-              ¿Las tarjetas de un pack pueden hacer cosas diferentes?
-              <span class="faq-plus">+</span>
+
+              ¿Las tarjetas de un pack pueden tener destinos diferentes?
+
+              <span class="faq-plus">
+                +
+              </span>
+
             </button>
 
             <div class="faq-answer">
-              Sí. Por ejemplo, una puede abrir tu menú, otra tus reseñas
-              de Google y otra tu Instagram, manteniendo el mismo diseño del pack.
+              Sí. Por ejemplo, una tarjeta puede abrir tu menú,
+              otra tus reseñas de Google y otra tu Instagram.
+              Las tarjetas del mismo pack personalizado mantienen
+              el mismo diseño gráfico.
             </div>
 
           </div>
 
 
+          <!-- FAQ 3 -->
+
           <div class="faq-item">
 
             <button class="faq-question">
-              ¿Puedo cambiar un enlace directo después?
-              <span class="faq-plus">+</span>
+
+              ¿Puedo cambiar después un enlace directo?
+
+              <span class="faq-plus">
+                +
+              </span>
+
             </button>
 
             <div class="faq-answer">
               Los enlaces externos grabados directamente en la tarjeta,
-              como Instagram o Google Reviews, no pueden modificarse a distancia.
-              Si necesitas otro destino, necesitarás una nueva tarjeta configurada.
+              como Instagram o Google Reviews, no pueden modificarse
+              a distancia una vez programados.
             </div>
 
           </div>
 
 
+          <!-- FAQ 4 -->
+
           <div class="faq-item">
 
             <button class="faq-question">
-              ¿Qué sí puede actualizarse a distancia?
-              <span class="faq-plus">+</span>
+
+              ¿Qué contenido sí se puede actualizar?
+
+              <span class="faq-plus">
+                +
+              </span>
+
             </button>
 
             <div class="faq-answer">
-              Los Perfiles Digitales, Menús Digitales y Catálogos Digitales
-              creados por LinkTap pueden actualizar su contenido remotamente.
-              Las actualizaciones simples parten desde $4.990.
+              Los Perfiles Digitales, Menús Digitales y Catálogos
+              creados por LinkTap pueden actualizarse remotamente.
+              Las actualizaciones parten desde $4.990,
+              dependiendo del cambio solicitado.
             </div>
 
           </div>
 
 
+          <!-- FAQ 5 -->
+
           <div class="faq-item">
 
             <button class="faq-question">
-              ¿Revisan mi enlace antes de programar la tarjeta?
-              <span class="faq-plus">+</span>
+
+              ¿Revisan el enlace antes de programarlo?
+
+              <span class="faq-plus">
+                +
+              </span>
+
             </button>
 
             <div class="faq-answer">
-              Sí. Revisamos que el enlace recibido funcione correctamente
-              y probamos la tarjeta antes de entregarla o despacharla.
+              Sí. Verificamos que el enlace recibido funcione
+              correctamente y probamos la tarjeta antes de entregarla.
             </div>
 
           </div>
 
 
+          <!-- FAQ 6 -->
+
           <div class="faq-item">
 
             <button class="faq-question">
+
               ¿Hacen envíos fuera de Puerto Montt?
-              <span class="faq-plus">+</span>
+
+              <span class="faq-plus">
+                +
+              </span>
+
             </button>
 
             <div class="faq-answer">
-              Sí. Realizamos despachos a otras ciudades de Chile mediante
-              Blue Express por $4.000.
+              Sí. Realizamos despachos a otras ciudades de Chile
+              mediante Blue Express por $4.000.
             </div>
 
           </div>
@@ -2584,31 +4228,36 @@
         </div>
 
       </div>
+
     </section>
 
 
-    <!-- FINAL CTA -->
+    <!-- =====================================================
+         FINAL CTA
+         ===================================================== -->
+
     <section class="final-cta">
 
-      <div class="container">
+      <div class="container reveal">
 
         <span class="eyebrow">
           ¿Empezamos?
         </span>
 
         <h2>
-          Acerca<span class="blue-dot">.</span>
-          Conecta<span class="blue-dot">.</span>
+          Acerca<span class="blue">.</span><br>
+          Conecta<span class="blue">.</span>
         </h2>
 
         <p>
-          Cuéntanos sobre tu negocio y te ayudamos a encontrar
-          la LinkTap que mejor se adapta a lo que necesitas.
+          Cuéntanos sobre tu negocio y te ayudamos
+          a encontrar la LinkTap que mejor se adapta
+          a lo que necesitas.
         </p>
 
         <a
           href="#"
-          class="btn btn-blue whatsapp-link"
+          class="btn btn-blue whatsapp-general"
           target="_blank"
           rel="noopener"
         >
@@ -2622,14 +4271,46 @@
   </main>
 
 
-  <!-- FOOTER -->
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+
   <footer>
 
     <div class="container footer-inner">
 
-      <a href="#inicio" class="brand">
-        LinkTap<span class="brand-dot">.</span>
+      <a
+        href="#inicio"
+        class="brand"
+      >
+        LinkTap<span>.</span>
       </a>
+
+
+      <div class="footer-links">
+
+        <a href="#packs">
+          Tarjetas
+        </a>
+
+        <a href="#servicios">
+          Servicios
+        </a>
+
+        <a href="#preguntas">
+          Preguntas
+        </a>
+
+        <a
+          href="https://www.instagram.com/linktap.cl/"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram
+        </a>
+
+      </div>
+
 
       <span>
         © 2026 LinkTap · Acerca y conecta
@@ -2640,33 +4321,72 @@
   </footer>
 
 
+  <!-- =======================================================
+       MOBILE STICKY CTA
+       ======================================================= -->
+
+  <div
+    class="sticky-buy"
+    id="stickyBuy"
+  >
+
+    <div class="sticky-price">
+
+      <span>
+        LinkTap desde
+      </span>
+
+      <strong>
+        $19.990
+      </strong>
+
+    </div>
+
+
+    <a
+      href="#"
+      class="btn btn-blue whatsapp-product"
+      data-product="una tarjeta LinkTap desde $19.990"
+      target="_blank"
+      rel="noopener"
+    >
+      Quiero una
+    </a>
+
+  </div>
+
+
+  <!-- =======================================================
+       JAVASCRIPT
+       ======================================================= -->
+
   <script>
-    /* =========================================================
-       CONFIGURACIÓN
-       IMPORTANTE:
-       Cambia este número por el WhatsApp oficial de LinkTap.
-       Formato Chile:
-       569XXXXXXXX
-       ========================================================= */
+
+    /* =======================================================
+       CONFIG
+       ======================================================= */
 
     const WHATSAPP_NUMBER = "56963074376";
 
 
-    /* =========================
-       WHATSAPP GENERAL
-       ========================= */
+    /* =======================================================
+       WHATSAPP
+       ======================================================= */
 
     function whatsappURL(message) {
+
       return (
         "https://wa.me/" +
         WHATSAPP_NUMBER +
         "?text=" +
         encodeURIComponent(message)
       );
+
     }
 
+
     document
-      .querySelectorAll(".whatsapp-link")
+      .querySelectorAll(".whatsapp-general")
       .forEach((link) => {
 
         link.href = whatsappURL(
@@ -2676,31 +4396,97 @@
       });
 
 
-    /* =========================
-       PRODUCTOS → WHATSAPP
-       ========================= */
-
     document
       .querySelectorAll(".whatsapp-product")
       .forEach((link) => {
 
-        const product = link.dataset.product;
+        const product =
+          link.dataset.product || "LinkTap";
 
         link.href = whatsappURL(
-          "Hola LinkTap, me interesa " +
+          "Hola LinkTap, vi la página y me interesa " +
           product +
           ". Me gustaría recibir más información."
         );
 
-        link.target = "_blank";
-        link.rel = "noopener";
+      });
+
+
+    /* =======================================================
+       MOBILE MENU
+       ======================================================= */
+
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+
+    function closeMenu() {
+
+      menuButton.classList.remove("active");
+
+      mobileMenu.classList.remove("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      document.body.classList.remove(
+        "menu-open"
+      );
+
+    }
+
+
+    menuButton.addEventListener(
+      "click",
+      () => {
+
+        const opening =
+          !mobileMenu.classList.contains("open");
+
+        menuButton.classList.toggle(
+          "active",
+          opening
+        );
+
+        mobileMenu.classList.toggle(
+          "open",
+          opening
+        );
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          opening
+        );
+
+        document.body.classList.toggle(
+          "menu-open",
+          opening
+        );
+
+      }
+    );
+
+
+    mobileMenu
+      .querySelectorAll("a")
+      .forEach((link) => {
+
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
 
       });
 
 
-    /* =========================
-       PERSONALIZADOR
-       ========================= */
+    /* =======================================================
+       PERSONALIZER
+       ======================================================= */
 
     const logoInput =
       document.getElementById("logoInput");
@@ -2711,35 +4497,55 @@
     const logoPlaceholder =
       document.getElementById("logoPlaceholder");
 
+    const customCard =
+      document.getElementById("customCard");
+
     const colorOne =
       document.getElementById("colorOne");
 
     const colorTwo =
       document.getElementById("colorTwo");
 
-    const customCard =
-      document.getElementById("customCard");
-
     const wantDesign =
       document.getElementById("wantDesign");
 
 
-    /* LOGO */
-
     logoInput.addEventListener(
       "change",
-      function (event) {
+      (event) => {
 
         const file =
           event.target.files[0];
 
         if (!file) return;
 
+
+        const allowedTypes = [
+          "image/png",
+          "image/jpeg",
+          "image/webp"
+        ];
+
+
+        if (!allowedTypes.includes(file.type)) {
+
+          alert(
+            "Por favor sube una imagen PNG, JPG o WEBP."
+          );
+
+          logoInput.value = "";
+
+          return;
+
+        }
+
+
         const reader =
           new FileReader();
 
+
         reader.onload =
-          function (e) {
+          (e) => {
 
             logoPreview.src =
               e.target.result;
@@ -2752,15 +4558,14 @@
 
           };
 
+
         reader.readAsDataURL(file);
 
       }
     );
 
 
-    /* COLORES */
-
-    function updateColors() {
+    function updateCardColors() {
 
       customCard.style.setProperty(
         "--custom-one",
@@ -2774,24 +4579,30 @@
 
     }
 
+
     colorOne.addEventListener(
       "input",
-      updateColors
+      updateCardColors
     );
 
     colorTwo.addEventListener(
       "input",
-      updateColors
+      updateCardColors
     );
 
-    updateColors();
 
+    updateCardColors();
 
-    /* QUIERO ESTA LINKTAP */
 
     wantDesign.addEventListener(
       "click",
-      function () {
+      () => {
+
+        const logoStatus =
+          logoPreview.style.display === "block"
+            ? "También subí mi logo en la vista previa."
+            : "Todavía no he subido mi logo.";
+
 
         const message =
           "Hola LinkTap, estuve personalizando mi tarjeta en linktap.cl y me interesa este diseño. " +
@@ -2799,7 +4610,9 @@
           colorOne.value +
           " y " +
           colorTwo.value +
-          ".";
+          ". " +
+          logoStatus;
+
 
         window.open(
           whatsappURL(message),
@@ -2810,9 +4623,9 @@
     );
 
 
-    /* =========================
+    /* =======================================================
        FAQ
-       ========================= */
+       ======================================================= */
 
     document
       .querySelectorAll(".faq-question")
@@ -2822,20 +4635,28 @@
           "click",
           function () {
 
-            const item =
+            const currentItem =
               this.closest(".faq-item");
+
 
             document
               .querySelectorAll(".faq-item")
-              .forEach((other) => {
+              .forEach((item) => {
 
-                if (other !== item) {
-                  other.classList.remove("open");
+                if (item !== currentItem) {
+
+                  item.classList.remove(
+                    "open"
+                  );
+
                 }
 
               });
 
-            item.classList.toggle("open");
+
+            currentItem.classList.toggle(
+              "open"
+            );
 
           }
         );
@@ -2843,111 +4664,115 @@
       });
 
 
-    /* =========================
-       MENÚ MÓVIL SIMPLE
-       ========================= */
+    /* =======================================================
+       REVEAL ON SCROLL
+       ======================================================= */
 
-    const mobileMenu =
-      document.getElementById("mobileMenu");
+    const revealItems =
+      document.querySelectorAll(".reveal");
 
-    mobileMenu.addEventListener(
-      "click",
-      function () {
 
-        const links = [
-          ["Qué puedes hacer", "#posibilidades"],
-          ["Personaliza", "#personaliza"],
-          ["Tarjetas", "#packs"],
-          ["Servicios", "#servicios"],
-          ["Cómo funciona", "#como-funciona"],
-          ["Preguntas", "#preguntas"]
-        ];
+    const revealObserver =
+      new IntersectionObserver(
 
-        const existing =
-          document.getElementById("mobilePanel");
+        (entries) => {
 
-        if (existing) {
-          existing.remove();
-          return;
+          entries.forEach(
+            (entry) => {
+
+              if (entry.isIntersecting) {
+
+                entry.target.classList.add(
+                  "visible"
+                );
+
+                revealObserver.unobserve(
+                  entry.target
+                );
+
+              }
+
+            }
+          );
+
+        },
+
+        {
+          threshold: 0.12
         }
 
-        const panel =
-          document.createElement("div");
+      );
 
-        panel.id =
-          "mobilePanel";
 
-        panel.style.position =
-          "fixed";
+    revealItems.forEach(
+      (item) => {
 
-        panel.style.top =
-          "100px";
-
-        panel.style.left =
-          "14px";
-
-        panel.style.right =
-          "14px";
-
-        panel.style.zIndex =
-          "9999";
-
-        panel.style.padding =
-          "15px";
-
-        panel.style.borderRadius =
-          "24px";
-
-        panel.style.background =
-          "rgba(255,255,255,.96)";
-
-        panel.style.backdropFilter =
-          "blur(20px)";
-
-        panel.style.boxShadow =
-          "0 25px 70px rgba(0,0,0,.16)";
-
-        panel.style.border =
-          "1px solid rgba(0,0,0,.06)";
-
-        links.forEach(
-          ([label, href]) => {
-
-            const link =
-              document.createElement("a");
-
-            link.href =
-              href;
-
-            link.textContent =
-              label;
-
-            link.style.display =
-              "block";
-
-            link.style.padding =
-              "16px";
-
-            link.style.fontWeight =
-              "700";
-
-            link.style.borderRadius =
-              "14px";
-
-            link.addEventListener(
-              "click",
-              () => panel.remove()
-            );
-
-            panel.appendChild(link);
-
-          }
-        );
-
-        document.body.appendChild(panel);
+        revealObserver.observe(item);
 
       }
     );
+
+
+    /* =======================================================
+       MOBILE STICKY CTA
+       ======================================================= */
+
+    const stickyBuy =
+      document.getElementById("stickyBuy");
+
+    const finalCTA =
+      document.querySelector(".final-cta");
+
+
+    function updateStickyCTA() {
+
+      if (window.innerWidth >= 760) {
+
+        stickyBuy.classList.remove("show");
+
+        return;
+
+      }
+
+
+      const scrollY =
+        window.scrollY;
+
+
+      const finalTop =
+        finalCTA.getBoundingClientRect().top;
+
+
+      const shouldShow =
+        scrollY > 420 &&
+        finalTop > window.innerHeight * 0.65;
+
+
+      stickyBuy.classList.toggle(
+        "show",
+        shouldShow
+      );
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      updateStickyCTA,
+      {
+        passive: true
+      }
+    );
+
+
+    window.addEventListener(
+      "resize",
+      updateStickyCTA
+    );
+
+
+    updateStickyCTA();
+
   </script>
 
 </body>
