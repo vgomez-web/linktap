@@ -2,9 +2,14 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
   <title>Cosmederm | Cosmetología Clínica</title>
+
   <meta
     name="description"
     content="Cosmederm · Cosmetología Clínica. Agenda tu hora, conoce nuestros servicios y conecta con nosotros."
@@ -13,36 +18,35 @@
   <meta name="theme-color" content="#405d54">
 
   <style>
+
     /* =========================================================
-       COSMEDERM — PERFIL DIGITAL PREMIUM
-       Mobile First
+       COSMEDERM — PERFIL DIGITAL
        ========================================================= */
 
     :root {
       --green: #405d54;
-      --green-dark: #263d36;
-      --green-deep: #182b26;
+      --green-dark: #2b463e;
+      --green-deep: #1c302a;
 
       --coral: #ff9879;
       --coral-soft: #ffc2af;
       --coral-pale: #fff0e9;
 
       --cream: #faf7f2;
-      --cream-2: #f4efe8;
-      --white: #ffffff;
+      --cream-dark: #f1ebe4;
 
-      --text: #24322e;
+      --white: #ffffff;
+      --text: #263b35;
       --muted: #78837f;
 
       --line: rgba(38, 61, 54, .10);
 
       --shadow:
-        0 24px 70px rgba(29, 53, 46, .10);
+        0 25px 70px rgba(29, 53, 46, .11);
 
       --shadow-soft:
         0 12px 35px rgba(29, 53, 46, .07);
 
-      --radius: 30px;
       --max: 1120px;
     }
 
@@ -58,6 +62,7 @@
 
     body {
       min-width: 320px;
+
       background: var(--cream);
       color: var(--text);
 
@@ -71,7 +76,7 @@
         sans-serif;
 
       -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
+
       overflow-x: hidden;
     }
 
@@ -79,18 +84,14 @@
       overflow: hidden;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button {
-      font: inherit;
-    }
-
     img {
       display: block;
       max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
     .container {
@@ -112,7 +113,7 @@
       align-items: center;
       justify-content: center;
 
-      background: var(--coral);
+      background: var(--green);
 
       transition:
         opacity .8s cubic-bezier(.2,.8,.2,1),
@@ -125,17 +126,21 @@
       pointer-events: none;
     }
 
-    .intro-logo {
-      width: min(67vw, 310px);
+    .intro img {
+      width: min(52vw, 240px);
 
       opacity: 0;
       transform: translateY(18px) scale(.94);
 
-      animation: introLogo 1.15s .2s
-        cubic-bezier(.2,.8,.2,1) forwards;
+      animation:
+        introAnimation
+        1.1s
+        .15s
+        cubic-bezier(.2,.8,.2,1)
+        forwards;
     }
 
-    @keyframes introLogo {
+    @keyframes introAnimation {
       to {
         opacity: 1;
         transform: none;
@@ -144,7 +149,7 @@
 
 
     /* =========================================================
-       HERO
+       HERO VERDE
        ========================================================= */
 
     .hero {
@@ -153,62 +158,134 @@
       min-height: 100svh;
 
       display: flex;
-      align-items: flex-end;
+      flex-direction: column;
+      justify-content: center;
 
       overflow: hidden;
 
-      background: var(--coral);
+      background:
+        linear-gradient(
+          145deg,
+          #4a675e 0%,
+          #3d5951 48%,
+          #314a43 100%
+        );
+
+      color: white;
     }
 
-    .hero-image {
+    .hero::before {
+      content: "";
+
       position: absolute;
-      inset: 0;
 
-      width: 100%;
-      height: 100%;
+      width: 420px;
+      height: 420px;
 
-      object-fit: cover;
-      object-position: center;
+      border-radius: 50%;
 
-      transform: scale(1.035);
+      top: -210px;
+      right: -230px;
 
-      animation:
-        heroZoom 9s ease-out forwards;
-    }
+      background:
+        rgba(255, 152, 121, .09);
 
-    @keyframes heroZoom {
-      to {
-        transform: scale(1);
-      }
+      filter: blur(3px);
     }
 
     .hero::after {
       content: "";
 
       position: absolute;
-      inset: 0;
+
+      width: 320px;
+      height: 320px;
+
+      left: -210px;
+      bottom: -130px;
+
+      border-radius: 50%;
 
       background:
-        linear-gradient(
-          to bottom,
-          rgba(20,40,34,0) 30%,
-          rgba(20,40,34,.05) 52%,
-          rgba(20,40,34,.74) 100%
-        );
+        rgba(255,255,255,.035);
     }
 
-    .hero-content {
+    .hero-inner {
       position: relative;
-      z-index: 3;
+      z-index: 2;
 
       width: 100%;
 
       padding:
-        50px
+        max(45px, env(safe-area-inset-top))
         0
-        max(42px, env(safe-area-inset-bottom));
+        max(38px, env(safe-area-inset-bottom));
 
-      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      text-align: center;
+    }
+
+
+    /* LOGO PRINCIPAL */
+
+    .hero-logo {
+      width: min(64vw, 280px);
+
+      filter:
+        drop-shadow(
+          0 24px 45px
+          rgba(0,0,0,.10)
+        );
+
+      animation:
+        heroLogoIn
+        1s
+        .25s
+        cubic-bezier(.2,.8,.2,1)
+        both;
+    }
+
+    @keyframes heroLogoIn {
+      from {
+        opacity: 0;
+        transform:
+          translateY(24px)
+          scale(.96);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+
+    .hero-copy {
+      max-width: 510px;
+
+      margin-top: 42px;
+
+      animation:
+        heroCopyIn
+        .9s
+        .45s
+        cubic-bezier(.2,.8,.2,1)
+        both;
+    }
+
+    @keyframes heroCopyIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: none;
+      }
     }
 
     .hero-eyebrow {
@@ -216,107 +293,124 @@
       align-items: center;
       gap: 8px;
 
-      margin-bottom: 13px;
+      color: var(--coral-soft);
 
       font-size: 10px;
-      font-weight: 800;
+      font-weight: 850;
 
       letter-spacing: .16em;
       text-transform: uppercase;
-
-      opacity: .82;
     }
 
-    .hero-eyebrow::before {
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
       content: "";
 
-      width: 25px;
+      width: 18px;
       height: 1px;
 
       background: currentColor;
     }
 
     .hero h1 {
-      max-width: 600px;
+      margin-top: 14px;
 
       font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-      font-size: clamp(42px, 12vw, 78px);
-      line-height: .95;
+      font-size:
+        clamp(
+          43px,
+          12vw,
+          72px
+        );
+
+      line-height: .96;
 
       font-weight: 400;
 
       letter-spacing: -.055em;
     }
 
-    .hero p {
+    .hero-copy > p {
       max-width: 430px;
 
-      margin-top: 17px;
+      margin:
+        18px
+        auto
+        0;
 
-      color: rgba(255,255,255,.82);
+      color:
+        rgba(255,255,255,.70);
 
       font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .hero-actions {
-      margin-top: 25px;
-
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
+      line-height: 1.55;
     }
 
 
     /* =========================================================
-       BUTTONS
+       BOTONES
        ========================================================= */
 
+    .hero-actions {
+      margin-top: 27px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+
     .btn {
-      min-height: 51px;
+      min-height: 52px;
+
       padding: 0 21px;
 
       display: inline-flex;
       align-items: center;
       justify-content: center;
+
       gap: 9px;
 
       border-radius: 999px;
 
       font-size: 13px;
-      font-weight: 760;
+      font-weight: 780;
 
       transition:
         transform .2s ease,
-        box-shadow .2s ease,
-        background .2s ease;
+        box-shadow .2s ease;
     }
 
     .btn:active {
       transform: scale(.97);
     }
 
-    .btn-white {
-      background: white;
-      color: var(--green-dark);
+    .btn-coral {
+      background: var(--coral);
+      color: var(--green-deep);
 
       box-shadow:
-        0 12px 35px rgba(0,0,0,.12);
+        0 14px 35px
+        rgba(0,0,0,.12);
     }
 
     .btn-glass {
-      border: 1px solid rgba(255,255,255,.25);
+      border:
+        1px solid
+        rgba(255,255,255,.18);
 
-      background: rgba(255,255,255,.11);
+      background:
+        rgba(255,255,255,.08);
+
       color: white;
 
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
     }
 
     .btn-green {
@@ -324,83 +418,109 @@
       color: white;
     }
 
-    .btn-coral {
-      background: var(--coral);
-      color: var(--green-deep);
-    }
-
-    .arrow {
-      font-size: 17px;
-      line-height: 1;
-    }
-
 
     /* =========================================================
-       SCROLL INDICATOR
+       SCROLL
        ========================================================= */
 
-    .scroll-indicator {
-      position: absolute;
+    .scroll-down {
+      margin-top: 45px;
 
-      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
-      right: 18px;
-      bottom: 38px;
+      gap: 8px;
 
-      width: 39px;
-      height: 62px;
+      color:
+        rgba(255,255,255,.40);
 
-      display: none;
-      align-items: flex-start;
-      justify-content: center;
+      font-size: 8px;
 
-      padding-top: 10px;
-
-      border:
-        1px solid
-        rgba(255,255,255,.35);
-
-      border-radius: 999px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
     }
 
-    .scroll-dot {
-      width: 4px;
-      height: 9px;
+    .scroll-line {
+      width: 1px;
+      height: 36px;
 
-      border-radius: 999px;
+      overflow: hidden;
 
-      background: white;
-
-      animation: scrollDot 1.8s infinite;
+      background:
+        rgba(255,255,255,.15);
     }
 
-    @keyframes scrollDot {
-      0% {
-        opacity: 0;
-        transform: translateY(0);
+    .scroll-line::after {
+      content: "";
+
+      display: block;
+
+      width: 100%;
+      height: 15px;
+
+      background: var(--coral);
+
+      animation:
+        scrollLine
+        1.8s
+        infinite;
+    }
+
+    @keyframes scrollLine {
+      from {
+        transform: translateY(-20px);
       }
 
-      30% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateY(27px);
+      to {
+        transform: translateY(42px);
       }
     }
 
 
     /* =========================================================
-       WELCOME
+       PORTADA NARANJA COMPLETA
+       ========================================================= */
+
+    .brand-presentation {
+      position: relative;
+
+      background: var(--coral);
+
+      overflow: hidden;
+    }
+
+    .brand-presentation-image {
+      width: 100%;
+      height: auto;
+
+      object-fit: contain;
+
+      transform: scale(1.001);
+    }
+
+    /*
+       IMPORTANTE:
+       NO usamos cover aquí.
+       La imagen se muestra COMPLETA.
+    */
+
+
+    /* =========================================================
+       PRESENTACIÓN
        ========================================================= */
 
     .welcome {
       position: relative;
 
-      padding: 92px 0 75px;
+      padding:
+        92px
+        0
+        85px;
 
       overflow: hidden;
+
+      background: var(--cream);
     }
 
     .welcome::before {
@@ -411,33 +531,22 @@
       width: 320px;
       height: 320px;
 
-      right: -190px;
-      top: 20px;
+      right: -220px;
+      top: 40px;
 
       border-radius: 50%;
 
-      background: var(--coral-pale);
+      background:
+        var(--coral-pale);
     }
 
-    .brand-logo {
+    .welcome-content {
       position: relative;
       z-index: 2;
 
-      width: min(68vw, 285px);
+      max-width: 670px;
 
-      margin: 0 auto;
-    }
-
-    .welcome-copy {
-      position: relative;
-      z-index: 2;
-
-      max-width: 650px;
-
-      margin:
-        52px
-        auto
-        0;
+      margin-inline: auto;
 
       text-align: center;
     }
@@ -461,82 +570,49 @@
         "Times New Roman",
         serif;
 
-      font-size: clamp(39px, 10vw, 68px);
+      color: var(--green-dark);
+
+      font-size:
+        clamp(
+          39px,
+          10vw,
+          66px
+        );
+
       line-height: .98;
 
       font-weight: 400;
 
       letter-spacing: -.055em;
-
-      color: var(--green-dark);
     }
 
-    .welcome-copy > p {
-      max-width: 550px;
+    .welcome p,
+    .section-heading p {
+      max-width: 540px;
 
-      margin: 20px auto 0;
+      margin:
+        19px
+        auto
+        0;
 
       color: var(--muted);
 
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.65;
-    }
-
-    .welcome-stats {
-      margin-top: 35px;
-
-      display: grid;
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 10px;
-    }
-
-    .welcome-stat {
-      padding: 22px 12px;
-
-      border:
-        1px solid
-        var(--line);
-
-      border-radius: 22px;
-
-      background:
-        rgba(255,255,255,.55);
-    }
-
-    .welcome-stat strong {
-      display: block;
-
-      color: var(--green);
-
-      font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
-
-      font-size: 25px;
-      font-weight: 400;
-    }
-
-    .welcome-stat span {
-      display: block;
-
-      margin-top: 5px;
-
-      color: var(--muted);
-
-      font-size: 10px;
-      line-height: 1.3;
     }
 
 
     /* =========================================================
-       QUICK ACTIONS
+       ACCESOS
        ========================================================= */
 
     .quick-section {
-      padding: 0 0 85px;
+      padding:
+        0
+        0
+        90px;
+
+      background: var(--cream);
     }
 
     .quick-grid {
@@ -548,12 +624,16 @@
     }
 
     .quick-card {
-      min-height: 145px;
+      min-height: 148px;
 
       padding: 18px;
 
       display: flex;
       flex-direction: column;
+
+      border:
+        1px solid
+        var(--line);
 
       border-radius: 25px;
 
@@ -580,7 +660,9 @@
 
       border-radius: 14px;
 
-      background: var(--coral-pale);
+      background:
+        var(--coral-pale);
+
       color: var(--green);
 
       font-size: 18px;
@@ -604,15 +686,17 @@
 
 
     /* =========================================================
-       SERVICES
+       SERVICIOS
        ========================================================= */
 
     .services {
-      padding: 88px 0;
+      padding:
+        90px
+        0;
 
-      overflow: hidden;
+      background:
+        var(--green-deep);
 
-      background: var(--green-deep);
       color: white;
     }
 
@@ -624,32 +708,25 @@
       color: white;
     }
 
-    .section-heading p {
-      max-width: 540px;
-
-      margin-top: 17px;
-
-      color: var(--muted);
-
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
     .services .section-heading p {
-      color: rgba(255,255,255,.56);
+      margin-left: 0;
+
+      color:
+        rgba(255,255,255,.55);
     }
 
-    .service-list {
+    .service-grid {
       margin-top: 43px;
 
       display: grid;
+
       gap: 10px;
     }
 
-    .service {
+    .service-card {
       position: relative;
 
-      min-height: 160px;
+      min-height: 170px;
 
       padding: 23px;
 
@@ -663,14 +740,6 @@
 
       background:
         rgba(255,255,255,.055);
-
-      transition:
-        transform .25s ease,
-        background .25s ease;
-    }
-
-    .service:active {
-      transform: scale(.985);
     }
 
     .service-number {
@@ -682,51 +751,55 @@
       letter-spacing: .1em;
     }
 
-    .service h3 {
-      margin-top: 37px;
+    .service-card h3 {
+      margin-top: 39px;
 
       font-family:
         Georgia,
         "Times New Roman",
         serif;
 
-      font-size: 26px;
+      font-size: 27px;
       font-weight: 400;
 
       letter-spacing: -.035em;
     }
 
-    .service p {
-      max-width: 470px;
-
+    .service-card p {
       margin-top: 8px;
 
-      color: rgba(255,255,255,.55);
+      max-width: 450px;
+
+      color:
+        rgba(255,255,255,.53);
 
       font-size: 12px;
       line-height: 1.5;
     }
 
-    .service::after {
-      content: "↗";
+    .service-card::after {
+      content: "✦";
 
       position: absolute;
 
-      top: 22px;
       right: 22px;
+      top: 20px;
 
-      color: rgba(255,255,255,.28);
+      color:
+        rgba(255,152,121,.35);
 
-      font-size: 21px;
+      font-size: 18px;
     }
 
 
     /* =========================================================
-       CAPITAL BENEFIT
+       TARJETA CAPITAL
        ========================================================= */
 
     .capital {
-      padding: 90px 0;
+      padding:
+        90px
+        0;
 
       background: var(--coral);
     }
@@ -734,35 +807,20 @@
     .capital-card {
       position: relative;
 
-      padding: 35px 25px;
+      padding: 36px 25px;
 
       overflow: hidden;
 
       border-radius: 32px;
 
-      background: var(--green-dark);
+      background:
+        var(--green-dark);
+
       color: white;
 
       box-shadow:
         0 28px 70px
         rgba(38,61,54,.20);
-    }
-
-    .capital-card::after {
-      content: "15%";
-
-      position: absolute;
-
-      right: -14px;
-      bottom: -30px;
-
-      color:
-        rgba(255,255,255,.045);
-
-      font-size: 120px;
-      font-weight: 900;
-
-      letter-spacing: -.08em;
     }
 
     .capital-label {
@@ -779,7 +837,7 @@
       position: relative;
       z-index: 2;
 
-      max-width: 480px;
+      max-width: 500px;
 
       margin-top: 15px;
 
@@ -788,7 +846,13 @@
         "Times New Roman",
         serif;
 
-      font-size: 38px;
+      font-size:
+        clamp(
+          37px,
+          10vw,
+          62px
+        );
+
       line-height: 1;
 
       font-weight: 400;
@@ -808,25 +872,47 @@
 
       margin-top: 17px;
 
-      color: rgba(255,255,255,.65);
+      color:
+        rgba(255,255,255,.64);
 
       font-size: 13px;
       line-height: 1.55;
     }
 
+    .capital-card::after {
+      content: "15%";
+
+      position: absolute;
+
+      right: -18px;
+      bottom: -38px;
+
+      color:
+        rgba(255,255,255,.04);
+
+      font-size: 125px;
+      font-weight: 900;
+
+      letter-spacing: -.08em;
+    }
+
 
     /* =========================================================
-       BOOKING
+       RESERVA
        ========================================================= */
 
     .booking {
-      padding: 95px 0;
+      padding:
+        95px
+        0;
 
       background: white;
     }
 
     .booking-card {
-      padding: 38px 25px;
+      padding:
+        42px
+        25px;
 
       border-radius: 32px;
 
@@ -856,11 +942,13 @@
       box-shadow:
         var(--shadow-soft);
 
-      font-size: 25px;
+      color: var(--green);
+
+      font-size: 24px;
     }
 
     .booking h2 {
-      max-width: 530px;
+      max-width: 550px;
 
       margin:
         25px
@@ -874,7 +962,13 @@
 
       color: var(--green-dark);
 
-      font-size: clamp(37px, 10vw, 62px);
+      font-size:
+        clamp(
+          37px,
+          10vw,
+          62px
+        );
+
       line-height: .98;
 
       font-weight: 400;
@@ -902,24 +996,32 @@
 
 
     /* =========================================================
-       CONTACT
+       CONTACTO
        ========================================================= */
 
     .contact {
-      padding: 88px 0 120px;
+      padding:
+        90px
+        0
+        120px;
 
       background: var(--cream);
     }
 
+    .contact .section-heading p {
+      margin-left: 0;
+    }
+
     .contact-list {
-      margin-top: 37px;
+      margin-top: 38px;
 
       display: grid;
+
       gap: 9px;
     }
 
     .contact-link {
-      min-height: 72px;
+      min-height: 73px;
 
       padding: 12px 15px;
 
@@ -955,7 +1057,9 @@
 
       border-radius: 14px;
 
-      background: var(--coral-pale);
+      background:
+        var(--coral-pale);
+
       color: var(--green);
 
       font-size: 17px;
@@ -994,7 +1098,7 @@
 
       color: #adb4b1;
 
-      font-size: 17px;
+      font-size: 18px;
     }
 
 
@@ -1004,55 +1108,52 @@
 
     footer {
       padding:
-        55px
+        70px
         0
         calc(
           100px +
           env(safe-area-inset-bottom)
         );
 
-      background: var(--green-deep);
+      background:
+        var(--green-deep);
+
       color: white;
 
       text-align: center;
     }
 
     .footer-logo {
-      width: min(56vw, 220px);
+      width: min(45vw, 180px);
 
       margin: 0 auto;
-
-      filter: none;
     }
 
     footer p {
-      max-width: 370px;
+      margin-top: 24px;
 
-      margin:
-        24px
-        auto
-        0;
-
-      color: rgba(255,255,255,.46);
+      color:
+        rgba(255,255,255,.45);
 
       font-size: 11px;
       line-height: 1.6;
     }
 
-    .linktap-credit {
-      margin-top: 35px;
+    .credit {
+      margin-top: 34px;
 
-      color: rgba(255,255,255,.28);
+      color:
+        rgba(255,255,255,.24);
 
       font-size: 9px;
 
-      letter-spacing: .08em;
+      letter-spacing: .09em;
       text-transform: uppercase;
     }
 
 
     /* =========================================================
-       FLOATING BOOK BUTTON
+       BOTÓN FLOTANTE
        ========================================================= */
 
     .floating-book {
@@ -1071,7 +1172,11 @@
 
       min-height: 61px;
 
-      padding: 8px 8px 8px 18px;
+      padding:
+        8px
+        8px
+        8px
+        18px;
 
       display: flex;
       align-items: center;
@@ -1081,12 +1186,12 @@
 
       border:
         1px solid
-        rgba(255,255,255,.15);
+        rgba(255,255,255,.12);
 
       border-radius: 22px;
 
       background:
-        rgba(31,54,47,.91);
+        rgba(31,54,47,.92);
 
       color: white;
 
@@ -1124,7 +1229,8 @@
     .floating-copy span {
       display: block;
 
-      color: rgba(255,255,255,.53);
+      color:
+        rgba(255,255,255,.50);
 
       font-size: 9px;
     }
@@ -1138,8 +1244,6 @@
     }
 
     .floating-button {
-      flex: 0 0 auto;
-
       min-height: 45px;
 
       padding: 0 17px;
@@ -1159,14 +1263,14 @@
 
 
     /* =========================================================
-       REVEALS
+       SCROLL ANIMATIONS
        ========================================================= */
 
     .reveal {
       opacity: 0;
 
       transform:
-        translateY(25px);
+        translateY(28px);
 
       transition:
         opacity .75s
@@ -1181,16 +1285,49 @@
       transform: none;
     }
 
-    .reveal-delay-1 {
+    .delay-1 {
       transition-delay: .08s;
     }
 
-    .reveal-delay-2 {
+    .delay-2 {
       transition-delay: .16s;
     }
 
-    .reveal-delay-3 {
+    .delay-3 {
       transition-delay: .24s;
+    }
+
+
+    /* =========================================================
+       CELULARES PEQUEÑOS
+       ========================================================= */
+
+    @media (max-width: 390px) {
+
+      .hero-logo {
+        width: 61vw;
+      }
+
+      .hero h1 {
+        font-size: 41px;
+      }
+
+      .hero-copy {
+        margin-top: 34px;
+      }
+
+      .btn {
+        min-height: 49px;
+        padding: 0 18px;
+      }
+
+      .welcome {
+        padding:
+          78px
+          0
+          72px;
+      }
+
     }
 
 
@@ -1208,85 +1345,110 @@
           );
       }
 
-      .hero-content {
-        padding-bottom: 75px;
+
+      /* HERO */
+
+      .hero-inner {
+        min-height: 100vh;
+
+        justify-content: center;
+
+        padding:
+          80px
+          0
+          60px;
+      }
+
+      .hero-logo {
+        width: 300px;
+      }
+
+      .hero-copy {
+        margin-top: 38px;
       }
 
       .hero h1 {
         font-size:
           clamp(
-            70px,
-            7vw,
-            100px
+            62px,
+            6vw,
+            82px
           );
       }
 
-      .hero p {
-        font-size: 17px;
+      .hero-copy > p {
+        font-size: 16px;
       }
 
-      .scroll-indicator {
-        display: flex;
 
-        right: 35px;
-        bottom: 50px;
+      /* PORTADA NARANJA */
+
+      .brand-presentation {
+        padding: 0;
       }
+
+      .brand-presentation-image {
+        width: 100%;
+        max-height: none;
+      }
+
+
+      /* WELCOME */
 
       .welcome {
         padding:
-          130px
+          125px
           0
           110px;
       }
 
-      .brand-logo {
-        width: 330px;
-      }
 
-      .welcome-stats {
-        max-width: 600px;
-
-        margin:
-          45px
-          auto
-          0;
-
-        grid-template-columns:
-          repeat(2,1fr);
-      }
+      /* QUICK */
 
       .quick-grid {
         grid-template-columns:
-          repeat(4,1fr);
+          repeat(4, 1fr);
       }
 
       .quick-card {
         min-height: 180px;
+
         padding: 22px;
       }
 
+
+      /* SERVICES */
+
       .services {
-        padding: 125px 0;
+        padding:
+          125px
+          0;
       }
 
-      .service-list {
+      .service-grid {
         grid-template-columns:
-          repeat(2,1fr);
+          repeat(2, 1fr);
       }
 
-      .service {
+      .service-card {
         min-height: 215px;
+
         padding: 30px;
       }
 
-      .service h3 {
-        margin-top: 65px;
+      .service-card h3 {
+        margin-top: 62px;
 
         font-size: 33px;
       }
 
+
+      /* CAPITAL */
+
       .capital {
-        padding: 120px 0;
+        padding:
+          120px
+          0;
       }
 
       .capital-card {
@@ -1295,32 +1457,43 @@
         border-radius: 40px;
       }
 
-      .capital h2 {
-        font-size: 62px;
-      }
-
       .capital-card::after {
         font-size: 210px;
       }
 
+
+      /* BOOKING */
+
       .booking {
-        padding: 130px 0;
+        padding:
+          130px
+          0;
       }
 
       .booking-card {
-        padding: 70px 40px;
+        padding:
+          70px
+          40px;
 
         border-radius: 42px;
       }
 
+
+      /* CONTACT */
+
       .contact {
-        padding: 120px 0;
+        padding:
+          120px
+          0;
       }
 
       .contact-list {
         grid-template-columns:
-          repeat(2,1fr);
+          repeat(2, 1fr);
       }
+
+
+      /* FLOAT */
 
       .floating-book {
         left: auto;
@@ -1331,12 +1504,6 @@
         bottom: 25px;
       }
 
-      footer {
-        padding:
-          80px
-          0
-          100px;
-      }
     }
 
 
@@ -1366,6 +1533,7 @@
         opacity: 1;
         transform: none;
       }
+
     }
 
   </style>
@@ -1374,99 +1542,133 @@
 
 <body class="loading">
 
+
   <!-- =======================================================
        INTRO
        ======================================================= -->
 
-  <div class="intro" id="intro">
+  <div
+    class="intro"
+    id="intro"
+  >
+
     <img
       src="logocosmederm.png"
       alt="Cosmederm"
-      class="intro-logo"
     >
+
   </div>
 
 
   <!-- =======================================================
-       HERO
+       HERO — LOGO VERDE
        ======================================================= -->
 
-  <section class="hero" id="inicio">
+  <section
+    class="hero"
+    id="inicio"
+  >
 
-    <img
-      src="portada.png"
-      alt="Cosmederm Cosmetología Clínica"
-      class="hero-image"
-    >
+    <div class="container hero-inner">
 
-    <div class="container hero-content">
 
-      <div class="hero-eyebrow">
-        Cosmetología Clínica
+      <img
+        src="logocosmederm.png"
+        alt="Cosmederm Cosmetología Clínica"
+        class="hero-logo"
+      >
+
+
+      <div class="hero-copy">
+
+        <div class="hero-eyebrow">
+          Cosmetología Clínica
+        </div>
+
+        <h1>
+          Tu piel.<br>
+          Tu momento.
+        </h1>
+
+        <p>
+          Cuidado, bienestar y estética en un espacio
+          pensado para ti.
+        </p>
+
+
+        <div class="hero-actions">
+
+          <a
+            href="https://rcosmederm.site.agendapro.com/cl/sucursal/189268"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-coral"
+          >
+            Agendar hora ↗
+          </a>
+
+
+          <a
+            href="#presentacion"
+            class="btn btn-glass"
+          >
+            Conócenos
+          </a>
+
+        </div>
+
       </div>
 
-      <h1>
-        Tu piel.<br>
-        Tu momento.
-      </h1>
 
-      <p>
-        Cuidado, bienestar y estética en un espacio
-        pensado para ti.
-      </p>
+      <div class="scroll-down">
 
-      <div class="hero-actions">
+        <span>
+          Descubre
+        </span>
 
-        <a
-          href="https://rcosmederm.site.agendapro.com/cl/sucursal/189268"
-          target="_blank"
-          rel="noopener"
-          class="btn btn-white"
-        >
-          Agendar hora
-          <span class="arrow">↗</span>
-        </a>
-
-        <a
-          href="#conocenos"
-          class="btn btn-glass"
-        >
-          Conócenos
-        </a>
+        <div class="scroll-line"></div>
 
       </div>
 
-    </div>
-
-    <div class="scroll-indicator">
-      <div class="scroll-dot"></div>
     </div>
 
   </section>
 
 
   <!-- =======================================================
-       WELCOME
+       IMAGEN NARANJA COMPLETA
        ======================================================= -->
 
-  <section class="welcome" id="conocenos">
+  <section
+    class="brand-presentation"
+    id="presentacion"
+  >
+
+    <img
+      src="portada.png"
+      alt="Cosmederm · Cosmetología Clínica"
+      class="brand-presentation-image"
+    >
+
+  </section>
+
+
+  <!-- =======================================================
+       BIENVENIDA
+       ======================================================= -->
+
+  <section class="welcome">
 
     <div class="container">
 
-      <img
-        src="logocosmederm.png"
-        alt="Cosmederm"
-        class="brand-logo reveal"
-      >
-
-      <div class="welcome-copy reveal">
+      <div class="welcome-content reveal">
 
         <span class="eyebrow">
           Cosmederm
         </span>
 
         <h2>
-          Cuidamos de ti,
+          Cuidamos de ti,<br>
           cuidamos de tu piel.
         </h2>
 
@@ -1476,24 +1678,6 @@
           y encuentra el cuidado ideal para ti.
         </p>
 
-        <div class="welcome-stats">
-
-          <div class="welcome-stat">
-            <strong>Personalizado</strong>
-            <span>
-              Atención pensada para tus necesidades
-            </span>
-          </div>
-
-          <div class="welcome-stat">
-            <strong>Profesional</strong>
-            <span>
-              Cosmetología y cuidado estético
-            </span>
-          </div>
-
-        </div>
-
       </div>
 
     </div>
@@ -1502,7 +1686,7 @@
 
 
   <!-- =======================================================
-       QUICK ACCESS
+       ACCESOS RÁPIDOS
        ======================================================= -->
 
   <section class="quick-section">
@@ -1511,19 +1695,26 @@
 
       <div class="quick-grid">
 
+
         <a
           href="https://rcosmederm.site.agendapro.com/cl/sucursal/189268"
           target="_blank"
           rel="noopener"
           class="quick-card reveal"
         >
-          <div class="quick-icon">◷</div>
 
-          <strong>Agendar hora</strong>
+          <div class="quick-icon">
+            ◷
+          </div>
+
+          <strong>
+            Agendar hora
+          </strong>
 
           <span>
             Reserva online
           </span>
+
         </a>
 
 
@@ -1531,15 +1722,21 @@
           href="https://wa.me/56981588894"
           target="_blank"
           rel="noopener"
-          class="quick-card reveal reveal-delay-1"
+          class="quick-card reveal delay-1"
         >
-          <div class="quick-icon">✆</div>
 
-          <strong>WhatsApp</strong>
+          <div class="quick-icon">
+            ✆
+          </div>
+
+          <strong>
+            WhatsApp
+          </strong>
 
           <span>
             Escríbenos
           </span>
+
         </a>
 
 
@@ -1547,15 +1744,21 @@
           href="https://www.instagram.com/rcosmederm/"
           target="_blank"
           rel="noopener"
-          class="quick-card reveal reveal-delay-2"
+          class="quick-card reveal delay-2"
         >
-          <div class="quick-icon">◎</div>
 
-          <strong>Instagram</strong>
+          <div class="quick-icon">
+            ◎
+          </div>
+
+          <strong>
+            Instagram
+          </strong>
 
           <span>
             @rcosmederm
           </span>
+
         </a>
 
 
@@ -1563,16 +1766,23 @@
           href="https://cosmederm.cl/"
           target="_blank"
           rel="noopener"
-          class="quick-card reveal reveal-delay-3"
+          class="quick-card reveal delay-3"
         >
-          <div class="quick-icon">↗</div>
 
-          <strong>Sitio web</strong>
+          <div class="quick-icon">
+            ↗
+          </div>
+
+          <strong>
+            Sitio web
+          </strong>
 
           <span>
             cosmederm.cl
           </span>
+
         </a>
+
 
       </div>
 
@@ -1582,12 +1792,16 @@
 
 
   <!-- =======================================================
-       SERVICES
+       SERVICIOS
        ======================================================= -->
 
-  <section class="services" id="servicios">
+  <section
+    class="services"
+    id="servicios"
+  >
 
     <div class="container">
+
 
       <div class="section-heading reveal">
 
@@ -1600,18 +1814,19 @@
         </h2>
 
         <p>
-          Conoce nuestras alternativas de cuidado facial,
-          corporal y cosmetología clínica. Para conocer
-          disponibilidad y el tratamiento indicado para ti,
-          puedes contactarnos o reservar tu hora.
+          Conoce nuestras alternativas de cuidado y
+          cosmetología clínica. Para conocer disponibilidad
+          y encontrar el tratamiento adecuado para ti,
+          puedes comunicarte directamente con Cosmederm.
         </p>
 
       </div>
 
 
-      <div class="service-list">
+      <div class="service-grid">
 
-        <div class="service reveal">
+
+        <div class="service-card reveal">
 
           <span class="service-number">
             01
@@ -1629,7 +1844,7 @@
         </div>
 
 
-        <div class="service reveal reveal-delay-1">
+        <div class="service-card reveal delay-1">
 
           <span class="service-number">
             02
@@ -1647,7 +1862,7 @@
         </div>
 
 
-        <div class="service reveal">
+        <div class="service-card reveal">
 
           <span class="service-number">
             03
@@ -1659,13 +1874,13 @@
 
           <p>
             Atención profesional orientada al bienestar
-            y cuidado estético.
+            y al cuidado estético.
           </p>
 
         </div>
 
 
-        <div class="service reveal reveal-delay-1">
+        <div class="service-card reveal delay-1">
 
           <span class="service-number">
             04
@@ -1676,11 +1891,12 @@
           </h3>
 
           <p>
-            Consulta por nuestros servicios disponibles
-            y encuentra una alternativa para ti.
+            Consulta por los servicios disponibles y
+            encuentra una alternativa para ti.
           </p>
 
         </div>
+
 
       </div>
 
@@ -1705,14 +1921,16 @@
 
         <h2>
           Somos parte de
-          <span>Tarjeta Capital.</span>
+          <span>
+            Tarjeta Capital.
+          </span>
         </h2>
 
         <p>
           Cosmederm forma parte de los comercios asociados
           al programa Tarjeta Capital de Puerto Montt.
-          Consulta las condiciones y servicios incluidos
-          al momento de reservar.
+          Consulta directamente las condiciones y servicios
+          incluidos al momento de reservar.
         </p>
 
       </div>
@@ -1723,7 +1941,7 @@
 
 
   <!-- =======================================================
-       BOOKING
+       RESERVA
        ======================================================= -->
 
   <section class="booking">
@@ -1732,18 +1950,22 @@
 
       <div class="booking-card reveal">
 
+
         <div class="booking-icon">
           ◷
         </div>
+
 
         <h2>
           Tu próximo momento de cuidado comienza aquí.
         </h2>
 
+
         <p>
           Revisa los horarios disponibles y reserva
-          directamente en nuestra agenda online.
+          directamente en la agenda online de Cosmederm.
         </p>
+
 
         <a
           href="https://rcosmederm.site.agendapro.com/cl/sucursal/189268"
@@ -1751,9 +1973,9 @@
           rel="noopener"
           class="btn btn-green"
         >
-          Ver horas disponibles
-          <span class="arrow">↗</span>
+          Ver horas disponibles ↗
         </a>
+
 
       </div>
 
@@ -1763,12 +1985,16 @@
 
 
   <!-- =======================================================
-       CONTACT
+       CONTACTO
        ======================================================= -->
 
-  <section class="contact" id="contacto">
+  <section
+    class="contact"
+    id="contacto"
+  >
 
     <div class="container">
+
 
       <div class="section-heading reveal">
 
@@ -1777,19 +2003,19 @@
         </span>
 
         <h2>
-          Todo Cosmederm,
+          Todo Cosmederm,<br>
           en un solo lugar.
         </h2>
 
         <p>
-          Agenda, escríbenos o visita nuestras redes
-          sociales.
+          Agenda, escríbenos o visita nuestras redes.
         </p>
 
       </div>
 
 
       <div class="contact-list">
+
 
         <a
           href="https://wa.me/56981588894"
@@ -1803,8 +2029,15 @@
           </div>
 
           <div class="contact-copy">
-            <strong>WhatsApp</strong>
-            <span>+56 9 8158 8894</span>
+
+            <strong>
+              WhatsApp
+            </strong>
+
+            <span>
+              +56 9 8158 8894
+            </span>
+
           </div>
 
           <span class="contact-arrow">
@@ -1826,8 +2059,15 @@
           </div>
 
           <div class="contact-copy">
-            <strong>Instagram</strong>
-            <span>@rcosmederm</span>
+
+            <strong>
+              Instagram
+            </strong>
+
+            <span>
+              @rcosmederm
+            </span>
+
           </div>
 
           <span class="contact-arrow">
@@ -1849,8 +2089,15 @@
           </div>
 
           <div class="contact-copy">
-            <strong>Facebook</strong>
-            <span>Cosmederm</span>
+
+            <strong>
+              Facebook
+            </strong>
+
+            <span>
+              Cosmederm
+            </span>
+
           </div>
 
           <span class="contact-arrow">
@@ -1872,8 +2119,15 @@
           </div>
 
           <div class="contact-copy">
-            <strong>Sitio web</strong>
-            <span>cosmederm.cl</span>
+
+            <strong>
+              Sitio web
+            </strong>
+
+            <span>
+              cosmederm.cl
+            </span>
+
           </div>
 
           <span class="contact-arrow">
@@ -1895,8 +2149,15 @@
           </div>
 
           <div class="contact-copy">
-            <strong>Agenda online</strong>
-            <span>Reserva tu próxima hora</span>
+
+            <strong>
+              Agenda online
+            </strong>
+
+            <span>
+              Reserva tu próxima hora
+            </span>
+
           </div>
 
           <span class="contact-arrow">
@@ -1904,6 +2165,7 @@
           </span>
 
         </a>
+
 
       </div>
 
@@ -1927,11 +2189,12 @@
       >
 
       <p>
-        Cosmederm · Cosmetología Clínica<br>
+        Cosmederm · Cosmetología Clínica
+        <br>
         Cuidado, bienestar y estética.
       </p>
 
-      <div class="linktap-credit">
+      <div class="credit">
         Perfil digital · LinkTap
       </div>
 
@@ -1941,7 +2204,7 @@
 
 
   <!-- =======================================================
-       FLOATING CTA
+       CTA FLOTANTE
        ======================================================= -->
 
   <div
@@ -1950,9 +2213,17 @@
   >
 
     <div class="floating-copy">
-      <span>Cosmederm</span>
-      <strong>¿Lista para tu próxima hora?</strong>
+
+      <span>
+        Cosmederm
+      </span>
+
+      <strong>
+        ¿Lista para tu próxima hora?
+      </strong>
+
     </div>
+
 
     <a
       href="https://rcosmederm.site.agendapro.com/cl/sucursal/189268"
@@ -1967,7 +2238,7 @@
 
 
   <!-- =======================================================
-       JAVASCRIPT
+       JS
        ======================================================= -->
 
   <script>
@@ -1981,31 +2252,37 @@
       "load",
       () => {
 
-        setTimeout(() => {
+        setTimeout(
+          () => {
 
-          intro.classList.add("hide");
+            intro.classList.add("hide");
 
-          document.body.classList
-            .remove("loading");
+            document.body
+              .classList
+              .remove("loading");
 
-        }, 1450);
+          },
+          1200
+        );
 
       }
     );
 
 
-    /* SCROLL REVEALS */
+    /* REVEALS */
 
     const revealElements =
-      document.querySelectorAll(".reveal");
+      document.querySelectorAll(
+        ".reveal"
+      );
 
     const observer =
       new IntersectionObserver(
 
-        (entries) => {
+        entries => {
 
           entries.forEach(
-            (entry) => {
+            entry => {
 
               if (
                 entry.isIntersecting
@@ -2028,11 +2305,13 @@
 
         {
           threshold: .12,
+
           rootMargin:
             "0px 0px -35px 0px"
         }
 
       );
+
 
     revealElements.forEach(
       element =>
@@ -2040,43 +2319,50 @@
     );
 
 
-    /* FLOATING BOOKING CTA */
+    /* FLOATING CTA */
 
     const floatingBook =
       document.getElementById(
         "floatingBook"
       );
 
-    const updateFloatingButton = () => {
 
-      if (
-        window.scrollY >
-        window.innerHeight * .72
-      ) {
+    const updateFloatingButton =
+      () => {
 
-        floatingBook
-          .classList
-          .add("show");
+        if (
+          window.scrollY >
+          window.innerHeight * .9
+        ) {
 
-      } else {
+          floatingBook
+            .classList
+            .add("show");
 
-        floatingBook
-          .classList
-          .remove("show");
+        } else {
 
-      }
+          floatingBook
+            .classList
+            .remove("show");
 
-    };
+        }
+
+      };
+
 
     window.addEventListener(
       "scroll",
       updateFloatingButton,
-      { passive: true }
+      {
+        passive: true
+      }
     );
+
 
     updateFloatingButton();
 
   </script>
+
 
 </body>
 </html>
