@@ -3422,8 +3422,315 @@ html{scroll-behavior:smooth}
 @media(prefers-reduced-motion:reduce){
   .design-layer,.design-layer i{transition:none !important;animation:none !important}
 }
+
+
+    /* =========================================================
+       LINKTAP CARD SYSTEM — FINAL REDRAW
+       Fixed identity + three clearly different graphic languages
+       ========================================================= */
+    .custom-card{--logo-scale:1;transform:none!important;background:#fff!important;isolation:isolate;overflow:hidden!important}
+    .design-layer{position:absolute!important;inset:0!important;z-index:1!important;overflow:hidden!important;pointer-events:none!important;opacity:0;transition:opacity .52s cubic-bezier(.2,.8,.2,1)!important}
+    .design-layer.active{opacity:1}
+    .design-svg{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:hidden}
+    .design-svg>*{vector-effect:non-scaling-stroke;transition:opacity .7s ease,transform .82s cubic-bezier(.2,.8,.2,1)}
+
+    /* MINIMAL — large circular contours entering from the edges */
+    .minimal-line{fill:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:3.2}
+    .ml1,.ml4{stroke:var(--custom-one);opacity:.95}
+    .ml2,.ml5{stroke:var(--custom-two);opacity:.78}
+    .ml3,.ml6{stroke:var(--custom-one);opacity:.28}
+
+    /* FLOW — layered organic ribbons */
+    .fs1,.fs4{fill:var(--custom-one);opacity:.96}
+    .fs2,.fs5{fill:var(--custom-two);opacity:.88}
+    .fs3,.fs6{fill:var(--custom-one);opacity:.24}
+
+    /* VECTOR — structured diagonal bands */
+    .vs1,.vs4{fill:var(--custom-one)}
+    .vs2,.vs5{fill:var(--custom-two);opacity:.90}
+    .vs3,.vs6{fill:var(--custom-one);opacity:.30}
+
+    /* Identity zones: these never move and always remain on clean white */
+    .custom-nfc-mark{position:absolute!important;z-index:8!important;left:5.2%!important;top:8.2%!important;width:10.2%!important;height:auto!important;aspect-ratio:1/1!important;opacity:1!important;background:#fff;border-radius:12px;padding:1.1%!important;display:grid;place-items:center}
+    .custom-nfc-mark svg{display:block;width:100%;height:100%;overflow:visible}
+     .custom-nfc-mark path{fill:none;stroke:#0a0a0b;stroke-width:7.2;stroke-linecap:round;stroke-linejoin:round}
+
+    .custom-logo-area{position:absolute!important;inset:0!important;z-index:7!important;padding:19% 18%!important;display:flex!important;align-items:center!important;justify-content:center!important;pointer-events:none}
+    .custom-placeholder{font-size:clamp(24px,8vw,42px)!important}
+    #logoPreview{display:none;max-width:88%!important;max-height:76%!important;width:auto;height:auto;object-fit:contain;transform:scale(var(--logo-scale));transform-origin:center;transition:transform .22s ease}
+    #logoPreview.logo-wide{max-width:96%!important;max-height:60%!important}
+    #logoPreview.logo-tall{max-width:64%!important;max-height:88%!important}
+
+    .custom-signature{position:absolute!important;z-index:9!important;left:auto!important;right:4.8%!important;bottom:7.4%!important;padding:2.2% 2.6%!important;background:#fff!important;border-radius:999px;font-size:clamp(9px,2.8vw,13px)!important;line-height:1!important;font-weight:850!important;letter-spacing:-.045em!important;white-space:nowrap}
+    .custom-signature span{color:var(--blue)!important}
+
+    /* Premium size control */
+    .logo-size-control{display:flex;align-items:center;gap:9px;min-width:160px;color:#8b8b90;font-size:14px;font-weight:800}
+    .logo-size-control input{width:130px;accent-color:var(--blue);cursor:pointer}
+
+    /* Thumbnails mirror the actual design languages */
+    .thumb-minimal::before{width:34px!important;height:24px!important;right:-13px!important;top:-11px!important;border:0!important;border-left:1.5px solid #1677ff!important;border-bottom:1.5px solid #1677ff!important;border-radius:0 0 0 100%!important;background:transparent!important;transform:none!important}
+    .thumb-minimal::after{width:28px!important;height:20px!important;left:-10px!important;bottom:-9px!important;border:0!important;border-right:1.5px solid #7d4dff!important;border-top:1.5px solid #7d4dff!important;border-radius:0 100% 0 0!important;background:transparent!important}
+    .thumb-flow::before{width:34px!important;height:31px!important;right:-12px!important;left:auto!important;top:-12px!important;background:#1677ff!important;border-radius:38% 0 58% 58%!important}
+    .thumb-flow::after{width:34px!important;height:31px!important;left:-12px!important;right:auto!important;bottom:-12px!important;background:#7d4dff!important;border-radius:58% 58% 38% 0!important}
+    .thumb-vector::before{width:38px!important;height:9px!important;right:-7px!important;left:auto!important;top:3px!important;background:#1677ff!important;transform:skewX(-32deg)!important}
+    .thumb-vector::after{width:38px!important;height:9px!important;left:-7px!important;right:auto!important;bottom:3px!important;background:#7d4dff!important;transform:skewX(-32deg)!important}
+
+    @media(max-width:759px){
+      .custom-logo-area{padding:18% 16%!important}
+      .custom-nfc-mark{left:5.5%!important;top:8.5%!important;width:10.8%!important;border-radius:8px}
+      .custom-signature{right:4.8%!important;bottom:7%!important;font-size:8px!important;padding:2.1% 2.5%!important}
+      .logo-size-row{display:block!important}
+      .logo-size-control{min-width:0;width:100%;gap:4px;font-size:10px}
+      .logo-size-control input{width:100%;min-width:0}
+    }
 </style>
 
+
+<style id="linktap-hero-tap-v2">
+/* =========================================================
+   HERO TAP V2 — tarjeta toca el teléfono y deja la pantalla visible
+   ========================================================= */
+.hero-final{
+  --tap-ease:cubic-bezier(.22,.72,.22,1);
+}
+
+/* El teléfono gana protagonismo y queda más frontal para leer el perfil. */
+.hero-final .hero-phone{
+  z-index:3 !important;
+  transform:rotate(2deg) !important;
+  animation:heroPhoneBreath 5.2s ease-in-out infinite !important;
+}
+.hero-final .hero-phone-screen{
+  background:linear-gradient(165deg,#0b0c0f 0%,#12141a 56%,#08090b 100%) !important;
+}
+
+/* Perfil digital legible dentro del teléfono. */
+.hero-profile-ui{
+  padding:36px 10px 10px !important;
+  align-items:stretch !important;
+  text-align:center;
+}
+.hero-profile-kicker{
+  color:rgba(255,255,255,.42);
+  font-size:5.5px;
+  line-height:1;
+  font-weight:850;
+  letter-spacing:.14em;
+}
+.hero-profile-logo{
+  width:39px !important;
+  height:39px !important;
+  margin:8px auto 0 !important;
+  border-radius:12px !important;
+  background:#fff !important;
+  box-shadow:0 7px 18px rgba(0,0,0,.2);
+}
+.hero-profile-logo img{
+  width:32px !important;
+  max-width:82% !important;
+  max-height:82% !important;
+}
+.hero-profile-name{
+  margin-top:7px !important;
+  font-size:11px !important;
+  line-height:1 !important;
+  letter-spacing:-.045em;
+}
+.hero-profile-name span{color:#1677ff}
+.hero-profile-copy{
+  margin:4px auto 0 !important;
+  max-width:92px;
+  color:rgba(255,255,255,.58) !important;
+  font-size:6.3px !important;
+  line-height:1.25 !important;
+}
+.hero-profile-links{
+  margin-top:10px !important;
+  gap:5px !important;
+}
+.hero-profile-links .mini-link{
+  min-height:25px;
+  padding:0 8px !important;
+  display:grid !important;
+  grid-template-columns:15px 1fr 8px;
+  align-items:center;
+  gap:5px;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:9px !important;
+  background:rgba(255,255,255,.105) !important;
+  text-align:left;
+  font-size:6.2px !important;
+  font-weight:720 !important;
+}
+.mini-link-icon{
+  width:15px;height:15px;
+  display:grid;place-items:center;
+  border-radius:5px;
+  background:rgba(255,255,255,.10);
+  color:#fff;
+  font-size:7px;
+}
+.hero-profile-links .mini-link b{
+  color:rgba(255,255,255,.38);
+  font-size:10px;
+  font-weight:500;
+  text-align:right;
+}
+.hero-profile-footer{
+  margin-top:auto;
+  padding-top:6px;
+  color:rgba(255,255,255,.25);
+  font-size:5px;
+  font-weight:750;
+  letter-spacing:.04em;
+}
+
+/* La tarjeta vive arriba/izquierda: nunca tapa el centro del perfil. */
+.hero-real-card{
+  z-index:7 !important;
+  width:116px !important;
+  left:2px !important;
+  top:18% !important;
+  transform-origin:82% 48% !important;
+  animation:linkTapPhysicalTap 5.2s var(--tap-ease) infinite !important;
+  will-change:transform,filter;
+  filter:drop-shadow(0 14px 20px rgba(0,0,0,.16));
+}
+
+/* Pulso discreto exactamente en el momento del tap. */
+.hero-final::after{
+  content:"";
+  position:absolute;
+  z-index:6;
+  width:22px;
+  height:22px;
+  right:96px;
+  top:55px;
+  border:1.5px solid rgba(22,119,255,.62);
+  border-radius:50%;
+  opacity:0;
+  transform:scale(.45);
+  pointer-events:none;
+  animation:heroTapPulse 5.2s ease-out infinite;
+}
+
+@keyframes linkTapPhysicalTap{
+  0%,16%{
+    transform:translate3d(-14px,-4px,0) rotate(-8deg) scale(1);
+  }
+  31%{
+    transform:translate3d(4px,7px,0) rotate(-2deg) scale(.995);
+  }
+  38%{
+    transform:translate3d(15px,13px,0) rotate(5deg) scale(.985);
+    filter:drop-shadow(0 7px 10px rgba(0,0,0,.13));
+  }
+  44%{
+    transform:translate3d(14px,12px,0) rotate(4deg) scale(.987);
+    filter:drop-shadow(0 7px 10px rgba(0,0,0,.13));
+  }
+  61%{
+    transform:translate3d(-10px,-2px,0) rotate(-7deg) scale(1);
+  }
+  72%,100%{
+    transform:translate3d(-14px,-4px,0) rotate(-8deg) scale(1);
+  }
+}
+@keyframes heroTapPulse{
+  0%,35%{opacity:0;transform:scale(.45)}
+  39%{opacity:.72;transform:scale(.75)}
+  48%{opacity:0;transform:scale(1.55)}
+  100%{opacity:0;transform:scale(1.55)}
+}
+@keyframes heroPhoneBreath{
+  0%,100%{transform:translateY(0) rotate(2deg)}
+  50%{transform:translateY(3px) rotate(1.5deg)}
+}
+
+@media(max-width:759px){
+  .hero-final .hero-phone{
+    right:0 !important;
+    width:132px !important;
+    height:266px !important;
+  }
+  .hero-real-card{
+    width:112px !important;
+    left:0 !important;
+    top:17% !important;
+  }
+  .hero-final::after{right:102px;top:54px}
+}
+@media(max-width:390px){
+  .hero-final .hero-phone{
+    right:-1px !important;
+    width:121px !important;
+    height:244px !important;
+  }
+  .hero-real-card{width:101px !important;left:1px !important;top:18% !important}
+  .hero-profile-ui{padding:34px 9px 9px !important}
+  .hero-profile-logo{width:35px !important;height:35px !important}
+  .hero-profile-links .mini-link{min-height:23px}
+  .hero-final::after{right:93px;top:51px}
+}
+@media(min-width:760px){
+  .hero-final .hero-phone{
+    right:7% !important;
+    width:270px !important;
+    height:545px !important;
+  }
+  .hero-real-card{
+    width:235px !important;
+    left:5% !important;
+    top:15% !important;
+  }
+  .hero-profile-ui{padding:72px 20px 20px !important}
+  .hero-profile-kicker{font-size:9px}
+  .hero-profile-logo{width:72px !important;height:72px !important;margin-top:14px !important}
+  .hero-profile-logo img{width:58px !important}
+  .hero-profile-name{margin-top:12px !important;font-size:19px !important}
+  .hero-profile-copy{margin-top:6px !important;max-width:190px;font-size:11px !important}
+  .hero-profile-links{margin-top:18px !important;gap:8px !important}
+  .hero-profile-links .mini-link{
+    min-height:48px;
+    padding:0 14px !important;
+    grid-template-columns:28px 1fr 12px;
+    gap:9px;
+    border-radius:15px !important;
+    font-size:11px !important;
+  }
+  .mini-link-icon{width:28px;height:28px;border-radius:9px;font-size:12px}
+  .hero-profile-links .mini-link b{font-size:17px}
+  .hero-profile-footer{padding-top:10px;font-size:8px}
+  .hero-final::after{width:34px;height:34px;right:255px;top:116px}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-real-card{
+    animation:none !important;
+    transform:translate3d(-6px,0,0) rotate(-7deg) !important;
+  }
+  .hero-final .hero-phone{animation:none !important;transform:rotate(2deg) !important}
+  .hero-final::after{display:none}
+}
+</style>
+
+
+<style id="linktap-hero-clean-background">
+/* SOLO elimina el fondo/halo del visual. No altera posición ni animación. */
+.hero-final,
+.hero-visual.hero-final{
+  background:transparent !important;
+  box-shadow:none !important;
+}
+.hero-final .hero-glow,
+.hero-visual.hero-final::before{
+  display:none !important;
+  content:none !important;
+  background:none !important;
+  filter:none !important;
+  box-shadow:none !important;
+}
+</style>
 </head>
 
 <body>
@@ -3607,18 +3914,20 @@ html{scroll-behavior:smooth}
           <div class="hero-phone">
             <div class="hero-phone-screen">
               <div class="hero-island"></div>
-              <div class="mini-profile">
-                <div class="mini-logo">
+              <div class="mini-profile hero-profile-ui">
+                <div class="hero-profile-kicker">PERFIL DIGITAL</div>
+                <div class="mini-logo hero-profile-logo">
                   <img src="assets/linktap-logo.png" alt="">
                 </div>
-                <strong>LinkTap</strong>
-                <p>Todo lo que tus clientes necesitan.</p>
-                <div class="mini-links">
-                  <div class="mini-link">Instagram</div>
-                  <div class="mini-link">WhatsApp</div>
-                  <div class="mini-link">Cómo llegar</div>
-                  <div class="mini-link">Dejar reseña</div>
+                <strong class="hero-profile-name">LinkTap<span>.</span></strong>
+                <p class="hero-profile-copy">Todo tu negocio en un tap.</p>
+                <div class="mini-links hero-profile-links">
+                  <div class="mini-link"><span class="mini-link-icon">◎</span><span>Instagram</span><b>›</b></div>
+                  <div class="mini-link"><span class="mini-link-icon">◔</span><span>WhatsApp</span><b>›</b></div>
+                  <div class="mini-link"><span class="mini-link-icon">⌖</span><span>Cómo llegar</span><b>›</b></div>
+                  <div class="mini-link"><span class="mini-link-icon">★</span><span>Dejar reseña</span><b>›</b></div>
                 </div>
+                <div class="hero-profile-footer">linktap.cl</div>
               </div>
             </div>
           </div>
@@ -3905,48 +4214,55 @@ html{scroll-behavior:smooth}
             >
 
               <div class="design-layer design-minimal active" data-design="minimal" aria-hidden="true">
-                <i class="min-arc min-a"></i>
-                <i class="min-arc min-b"></i>
-                <i class="min-arc min-c"></i>
+                <svg class="design-svg" viewBox="0 0 1000 630" preserveAspectRatio="none">
+                  <!-- Superior derecha: contornos de círculos grandes, parcialmente fuera de la tarjeta -->
+                  <circle class="minimal-line ml1" cx="1035" cy="-22" r="250"/>
+                  <circle class="minimal-line ml2" cx="1035" cy="-22" r="205"/>
+                  <circle class="minimal-line ml3" cx="1035" cy="-22" r="160"/>
+                  <!-- Inferior izquierda: segundo grupo concéntrico, siempre lejos de logo y LinkTap -->
+                  <circle class="minimal-line ml4" cx="-35" cy="652" r="250"/>
+                  <circle class="minimal-line ml5" cx="-35" cy="652" r="205"/>
+                  <circle class="minimal-line ml6" cx="-35" cy="652" r="160"/>
+                </svg>
               </div>
 
               <div class="design-layer design-flow" data-design="flow" aria-hidden="true">
-                <i class="flow-piece flow-a"></i>
-                <i class="flow-piece flow-b"></i>
-                <i class="flow-line"></i>
+                <svg class="design-svg" viewBox="0 0 1000 630" preserveAspectRatio="none">
+                  <path class="flow-shape fs1" d="M1000 0H735C795 58 798 115 762 166C733 207 731 247 770 282C831 336 927 307 1000 252Z"/>
+                  <path class="flow-shape fs2" d="M1000 0H815C861 54 862 103 831 145C804 182 809 218 843 242C888 274 949 247 1000 209Z"/>
+                  <path class="flow-shape fs3" d="M1000 0H890C919 39 921 78 898 111C878 140 884 168 909 185C936 203 970 191 1000 169Z"/>
+                  <path class="flow-shape fs4" d="M0 630H265C205 572 202 515 238 464C267 423 269 383 230 348C169 294 73 323 0 378Z"/>
+                  <path class="flow-shape fs5" d="M0 630H185C139 576 138 527 169 485C196 448 191 412 157 388C112 356 51 383 0 421Z"/>
+                  <path class="flow-shape fs6" d="M0 630H110C81 591 79 552 102 519C122 490 116 462 91 445C64 427 30 439 0 461Z"/>
+                </svg>
               </div>
 
               <div class="design-layer design-vector" data-design="vector" aria-hidden="true">
-                <i class="vector-piece vector-a"></i>
-                <i class="vector-piece vector-b"></i>
-                <i class="vector-piece vector-c"></i>
+                <svg class="design-svg" viewBox="0 0 1000 630" preserveAspectRatio="none">
+                  <polygon class="vector-shape vs1" points="770,0 1000,0 1000,92 830,92"/>
+                  <polygon class="vector-shape vs2" points="825,112 1000,112 1000,180 870,180"/>
+                  <polygon class="vector-shape vs3" points="875,198 1000,198 1000,242 905,242"/>
+                  <polygon class="vector-shape vs4" points="0,538 170,538 230,630 0,630"/>
+                  <polygon class="vector-shape vs5" points="0,450 130,450 175,518 0,518"/>
+                  <polygon class="vector-shape vs6" points="0,388 95,388 125,432 0,432"/>
+                </svg>
               </div>
 
               <div class="custom-nfc-mark" aria-hidden="true">
-                <i></i><i></i><i></i>
+                <svg viewBox="0 0 100 100" role="img" focusable="false">
+                  <path d="M30 8 C8 31 8 69 30 92"/>
+                  <path d="M53 21 C38 38 38 62 53 79"/>
+                  <path d="M73 34 C65 44 65 56 73 66"/>
+                  <path d="M89 44 C85 48 85 54 89 58"/>
+                </svg>
               </div>
-
 
               <div class="custom-logo-area">
-
-                <div
-                  class="custom-placeholder"
-                  id="logoPlaceholder"
-                >
-                  TU LOGO
-                </div>
-
-                <img
-                  id="logoPreview"
-                  alt="Vista previa de tu logo"
-                >
-
+                <div class="custom-placeholder" id="logoPlaceholder">TU LOGO</div>
+                <img id="logoPreview" alt="Vista previa de tu logo">
               </div>
 
-
-              <div class="custom-signature">
-                LinkTap<span>.</span>
-              </div>
+              <div class="custom-signature">LinkTap<span>.</span></div>
 
             </div>
 
@@ -4056,6 +4372,18 @@ html{scroll-behavior:smooth}
                   <span class="style-thumb thumb-vector"></span>
                   Vector
                 </button>
+              </div>
+            </div>
+
+            <div class="custom-row logo-size-row">
+              <div class="custom-row-copy">
+                <strong>Tamaño del logo</strong>
+                <span>Ajusta el logo sin invadir las zonas protegidas.</span>
+              </div>
+              <div class="logo-size-control">
+                <span aria-hidden="true">−</span>
+                <input id="logoScale" type="range" min="82" max="118" value="100" step="1" aria-label="Tamaño del logo">
+                <span aria-hidden="true">+</span>
               </div>
             </div>
 
@@ -5588,35 +5916,6 @@ html{scroll-behavior:smooth}
     updateCardColors();
 
 
-    wantDesign.addEventListener(
-      "click",
-      () => {
-
-        const logoStatus =
-          logoPreview.style.display === "block"
-            ? "También subí mi logo en la vista previa."
-            : "Todavía no he subido mi logo.";
-
-
-        const message =
-          "Hola LinkTap, estuve personalizando mi tarjeta en linktap.cl y me interesa este diseño. " +
-          "Elegí los colores " +
-          colorOne.value +
-          " y " +
-          colorTwo.value +
-          ". " +
-          logoStatus;
-
-
-        window.open(
-          whatsappURL(message),
-          "_blank"
-        );
-
-      }
-    );
-
-
     /* =======================================================
        FAQ
        ======================================================= */
@@ -5942,6 +6241,17 @@ html{scroll-behavior:smooth}
       });
     }
 
+
+    const logoScale = document.getElementById("logoScale");
+    if (logoScale && customCard) {
+      const applyLogoScale = () => {
+        customCard.style.setProperty("--logo-scale", (Number(logoScale.value) / 100).toFixed(2));
+        customizerTouched = true;
+      };
+      logoScale.addEventListener("input", applyLogoScale);
+      applyLogoScale();
+    }
+
     [colorOne, colorTwo].forEach((picker) => {
       if (picker) picker.addEventListener("input", () => customizerTouched = true);
     });
@@ -5957,6 +6267,7 @@ html{scroll-behavior:smooth}
           "Hola LinkTap, personalicé una tarjeta en linktap.cl. " +
           "Estilo: " + selectedCardStyle.charAt(0).toUpperCase() + selectedCardStyle.slice(1) + ". " +
           "Colores: " + colorOne.value + " y " + colorTwo.value + ". " +
+          "Tamaño de logo: " + (logoScale ? logoScale.value : "100") + "%. " +
           (hasLogo ? "También cargué mi logo en la vista previa." : "Aún no he cargado mi logo.") +
           " Quiero continuar con este diseño.";
 
