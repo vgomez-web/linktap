@@ -3731,6 +3731,124 @@ html{scroll-behavior:smooth}
   box-shadow:none !important;
 }
 </style>
+
+<style id="linktap-hero-visual-fix-v3">
+/* HERO — ajuste visual pedido: NO cambia trayectorias ni composición. */
+.hero-visual.hero-final,
+.hero-final{
+  overflow:visible !important; /* evita que la tarjeta se recorte al alejarse */
+}
+
+/* Elimina la sombra exterior que se cortaba bajo el teléfono.
+   Conserva únicamente un borde interior muy sutil del dispositivo. */
+.hero-final .hero-phone{
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10) !important;
+  filter:none !important;
+}
+
+/* Tarjeta más grande y con esquinas limpias/redondeadas.
+   La animación linkTapPhysicalTap permanece exactamente igual. */
+.hero-final .hero-real-card{
+  width:132px !important;
+  border-radius:15px !important;
+  clip-path:inset(0 round 15px);
+}
+
+@media(max-width:390px){
+  .hero-final .hero-real-card{
+    width:118px !important;
+    border-radius:14px !important;
+    clip-path:inset(0 round 14px);
+  }
+}
+
+@media(min-width:760px){
+  .hero-final .hero-real-card{
+    width:270px !important;
+    border-radius:28px !important;
+    clip-path:inset(0 round 28px);
+  }
+}
+</style>
+
+<style id="linktap-final-requested-adjustments">
+/* =========================================================
+   AJUSTES SOLICITADOS — sin cambiar composición ni timing
+   1) Reposo de tarjeta más arriba; el punto de TAP se conserva.
+   2) Visual sin fondos/sombras recortadas.
+   3) Slider de logo llega hasta 160%.
+   ========================================================= */
+
+/* No recortar la tarjeta durante ningún punto del recorrido. */
+.hero,
+.hero .container,
+.hero-grid,
+.hero-visual,
+.hero-visual.hero-final,
+.hero-final{
+  overflow:visible !important;
+}
+
+/* Sin halo/fondo rectangular alrededor del conjunto. */
+.hero-final,
+.hero-visual.hero-final,
+.hero-final .hero-glow{
+  background:transparent !important;
+  box-shadow:none !important;
+  filter:none !important;
+}
+.hero-final .hero-glow{display:none !important;}
+
+/* El teléfono conserva exactamente posición/tamaño/inclinación.
+   Quitamos únicamente cualquier sombra exterior susceptible de recorte. */
+.hero-final .hero-phone{
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.10) !important;
+  filter:none !important;
+}
+
+/* La tarjeta conserva tamaño, bordes y punto de contacto actuales. */
+.hero-final .hero-real-card{
+  filter:none !important;
+}
+
+/* MISMO timing (5.2 s) y mismo TAP. Solo sube el reposo/retirada. */
+@keyframes linkTapPhysicalTap{
+  0%,16%{
+    transform:translate3d(-14px,-58px,0) rotate(-8deg) scale(1);
+  }
+  31%{
+    transform:translate3d(4px,-8px,0) rotate(-2deg) scale(.995);
+  }
+  38%{
+    transform:translate3d(15px,13px,0) rotate(5deg) scale(.985);
+  }
+  44%{
+    transform:translate3d(14px,12px,0) rotate(4deg) scale(.987);
+  }
+  61%{
+    transform:translate3d(-10px,-34px,0) rotate(-7deg) scale(1);
+  }
+  72%,100%{
+    transform:translate3d(-14px,-58px,0) rotate(-8deg) scale(1);
+  }
+}
+
+/* En móvil el recorrido superior es proporcional para no salir demasiado del hero. */
+@media(max-width:759px){
+  @keyframes linkTapPhysicalTap{
+    0%,16%{transform:translate3d(-14px,-42px,0) rotate(-8deg) scale(1)}
+    31%{transform:translate3d(4px,-5px,0) rotate(-2deg) scale(.995)}
+    38%{transform:translate3d(15px,13px,0) rotate(5deg) scale(.985)}
+    44%{transform:translate3d(14px,12px,0) rotate(4deg) scale(.987)}
+    61%{transform:translate3d(-10px,-25px,0) rotate(-7deg) scale(1)}
+    72%,100%{transform:translate3d(-14px,-42px,0) rotate(-8deg) scale(1)}
+  }
+}
+
+/* El control conserva su tamaño inicial en 100%, pero ahora permite 160%. */
+#logoScale{accent-color:#1677ff;}
+</style>
+
 </head>
 
 <body>
@@ -4382,7 +4500,7 @@ html{scroll-behavior:smooth}
               </div>
               <div class="logo-size-control">
                 <span aria-hidden="true">−</span>
-                <input id="logoScale" type="range" min="82" max="118" value="100" step="1" aria-label="Tamaño del logo">
+                <input id="logoScale" type="range" min="82" max="160" value="100" step="1" aria-label="Tamaño del logo">
                 <span aria-hidden="true">+</span>
               </div>
             </div>
