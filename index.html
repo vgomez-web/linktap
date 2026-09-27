@@ -3936,6 +3936,61 @@ html{scroll-behavior:smooth}
 .nfc-phone{z-index:5}
 .nfc-label,.nfc-explain{pointer-events:none}
 </style>
+
+<style>
+/* ===== NFC mobile/header spacing refinement ===== */
+@media (max-width: 759px){
+  /* Promo (34px) + header (62px): la historia se fija debajo de ambos. */
+  .nfc-sticky{
+    top:96px !important;
+    height:calc(100dvh - 96px) !important;
+    min-height:calc(100vh - 96px) !important;
+    align-items:center;
+  }
+
+  /* El encabezado de la historia permanece visible y separado del header. */
+  .nfc-copy{
+    top:16px !important;
+    width:min(92%, 520px) !important;
+    padding:0 8px;
+    z-index:30 !important;
+  }
+  .nfc-copy .eyebrow{font-size:9px;}
+  .nfc-copy h2{
+    max-width:360px;
+    margin:7px auto 7px !important;
+    font-size:clamp(30px, 9.2vw, 40px) !important;
+    line-height:.94;
+    letter-spacing:-.055em;
+  }
+  .nfc-copy p{
+    max-width:360px;
+    margin:0 auto;
+    font-size:11px !important;
+    line-height:1.35;
+  }
+
+  /* Acercamos la demostración al texto sin invadirlo. */
+  .nfc-scene{
+    height:calc(100% - 118px) !important;
+    margin-top:118px !important;
+  }
+  .nfc-card-stack{
+    top:35% !important;
+    width:min(88vw, 520px) !important;
+  }
+  .nfc-phone{top:56% !important;}
+
+  /* La barra de compra se oculta mientras la historia NFC está activa. */
+  .sticky-buy.nfc-hidden{
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+    transform:translateY(calc(100% + 24px)) !important;
+  }
+}
+</style>
+
 </head>
 
 <body>
@@ -6363,11 +6418,18 @@ html{scroll-behavior:smooth}
         finalCTA.getBoundingClientRect().top;
 
 
+      const nfcSection = document.getElementById("nfc-story");
+      const nfcRect = nfcSection ? nfcSection.getBoundingClientRect() : null;
+      const nfcActive = !!nfcRect &&
+        nfcRect.top < window.innerHeight &&
+        nfcRect.bottom > 96;
+
       const shouldShow =
         scrollY > 420 &&
-        finalTop > window.innerHeight * 0.65;
+        finalTop > window.innerHeight * 0.65 &&
+        !nfcActive;
 
-
+      stickyBuy.classList.toggle("nfc-hidden", nfcActive);
       stickyBuy.classList.toggle(
         "show",
         shouldShow
@@ -6625,7 +6687,7 @@ html{scroll-behavior:smooth}
 
       const scene=nfcStack.parentElement;
       const sceneH=scene?scene.clientHeight:innerHeight*.68;
-      const initialCenter=sceneH*(mobile?.40:.42);
+      const initialCenter=sceneH*(mobile?.35:.42);
       const phoneTop=sceneH*(mobile?.57:.56);
       const cardH=nfcStack.offsetHeight;
       const overlap=mobile?14:18;
