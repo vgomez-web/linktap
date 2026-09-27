@@ -10,7 +10,7 @@
 <style>
 
 /* =========================================================
-   LINKTAP · INVITACIÓN PRIVADA
+   LINKTAP · INVITACIÓN
 ========================================================= */
 
 * {
@@ -22,6 +22,7 @@
 
 :root {
   --blue: #075cff;
+  --ig-blue: #0095f6;
   --black: #080808;
   --gray: #6e6e73;
   --gray2: #a1a1a6;
@@ -68,8 +69,8 @@ a {
 }
 
 img {
-  max-width: 100%;
   display: block;
+  max-width: 100%;
 }
 
 .blue {
@@ -83,15 +84,15 @@ img {
 
 
 /* =========================================================
-   AMBIENTE
+   FONDO
 ========================================================= */
 
 .ambient {
   position: fixed;
   inset: 0;
+  z-index: -10;
   pointer-events: none;
   overflow: hidden;
-  z-index: -5;
 }
 
 .orb {
@@ -101,11 +102,11 @@ img {
 }
 
 .orb.one {
-  width: 350px;
-  height: 350px;
+  width: 360px;
+  height: 360px;
   right: -210px;
   top: -180px;
-  background: rgba(7,92,255,.11);
+  background: rgba(7,92,255,.10);
 }
 
 .orb.two {
@@ -113,7 +114,7 @@ img {
   height: 330px;
   left: -220px;
   top: 55%;
-  background: rgba(7,92,255,.055);
+  background: rgba(7,92,255,.05);
 }
 
 
@@ -125,11 +126,11 @@ img {
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,.84),
-      rgba(255,255,255,.58)
+      rgba(255,255,255,.88),
+      rgba(255,255,255,.62)
     );
 
-  border: 1px solid rgba(255,255,255,.9);
+  border: 1px solid rgba(255,255,255,.92);
 
   box-shadow:
     0 24px 70px rgba(0,0,0,.055),
@@ -158,7 +159,7 @@ img {
     25px
     calc(28px + env(safe-area-inset-bottom));
 
-  background: rgba(255,255,255,.86);
+  background: rgba(255,255,255,.88);
 
   backdrop-filter: blur(35px) saturate(160%);
   -webkit-backdrop-filter: blur(35px) saturate(160%);
@@ -192,7 +193,7 @@ img {
   border-radius: 100px;
   border: 1px solid rgba(0,0,0,.07);
 
-  background: rgba(255,255,255,.64);
+  background: rgba(255,255,255,.65);
 
   font-size: 11px;
   font-weight: 700;
@@ -203,8 +204,11 @@ img {
   width: 7px;
   height: 7px;
   border-radius: 50%;
+
   background: var(--blue);
-  box-shadow: 0 0 15px rgba(7,92,255,.5);
+
+  box-shadow:
+    0 0 15px rgba(7,92,255,.5);
 }
 
 .intro h1 {
@@ -231,17 +235,25 @@ img {
   opacity: 0;
   transform: translateY(8px);
 
-  animation: giftIn .7s ease 1.2s forwards;
+  animation:
+    giftIn .7s ease 1.2s forwards;
 }
 
 .intro-skip {
   position: absolute;
-  bottom: calc(25px + env(safe-area-inset-bottom));
+
+  bottom:
+    calc(25px + env(safe-area-inset-bottom));
+
   left: 50%;
+
   transform: translateX(-50%);
 
+  background: transparent;
   color: var(--gray2);
+
   font-size: 12px;
+  cursor: pointer;
 }
 
 @keyframes introEnter {
@@ -249,6 +261,7 @@ img {
     opacity: 0;
     transform: translateY(16px) scale(.98);
   }
+
   to {
     opacity: 1;
     transform: none;
@@ -269,9 +282,12 @@ img {
 
 header {
   height: 72px;
+
   display: flex;
   align-items: center;
-  padding-top: env(safe-area-inset-top);
+
+  padding-top:
+    env(safe-area-inset-top);
 }
 
 .nav {
@@ -288,16 +304,17 @@ header {
 
 .nav-benefit {
   padding: 10px 14px;
+
   border-radius: 100px;
-
-  font-size: 12px;
-  font-weight: 650;
-
   border: 1px solid var(--line);
+
   background: rgba(255,255,255,.7);
 
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
+
+  font-size: 12px;
+  font-weight: 650;
 }
 
 
@@ -310,6 +327,7 @@ header {
   line-height: 1;
   font-weight: 720;
   letter-spacing: .11em;
+
   color: var(--gray);
 }
 
@@ -361,16 +379,18 @@ header {
 
 .hero-copy {
   max-width: 470px;
+
   margin: 25px auto 0;
 
   color: var(--gray);
+
   font-size: 17px;
   line-height: 1.5;
 }
 
 
 /* =========================================================
-   TARJETA REAL
+   TARJETA LINKTAP REAL
 ========================================================= */
 
 .card-stage {
@@ -380,7 +400,7 @@ header {
   max-width: 560px;
   height: 285px;
 
-  margin: 7px auto 0;
+  margin: 8px auto 0;
 
   display: flex;
   align-items: center;
@@ -397,7 +417,8 @@ header {
 
   border-radius: 50%;
 
-  background: rgba(7,92,255,.08);
+  background: rgba(7,92,255,.075);
+
   filter: blur(55px);
 
   transform: translateY(30px);
@@ -411,13 +432,16 @@ header {
 
   filter:
     drop-shadow(0 28px 25px rgba(0,0,0,.13))
-    drop-shadow(0 8px 8px rgba(0,0,0,.07));
+    drop-shadow(0 8px 8px rgba(0,0,0,.06));
 
-  animation: floatCard 5.5s ease-in-out infinite;
+  animation:
+    floatCard 5.5s ease-in-out infinite;
 }
 
 @keyframes floatCard {
-  0%, 100% {
+
+  0%,
+  100% {
     transform:
       translateY(4px)
       rotateZ(-2deg)
@@ -430,6 +454,7 @@ header {
       rotateZ(-.6deg)
       rotateY(2deg);
   }
+
 }
 
 
@@ -450,11 +475,13 @@ header {
 
 .btn {
   min-height: 52px;
+
   padding: 0 22px;
 
   display: inline-flex;
   justify-content: center;
   align-items: center;
+
   gap: 7px;
 
   border-radius: 100px;
@@ -466,7 +493,8 @@ header {
 
   transition:
     transform .2s ease,
-    opacity .2s ease;
+    opacity .2s ease,
+    background .2s ease;
 }
 
 .btn:active {
@@ -479,7 +507,10 @@ header {
 }
 
 .btn-glass {
-  background: rgba(255,255,255,.72);
+  color: #080808;
+
+  background: rgba(255,255,255,.73);
+
   border: 1px solid rgba(0,0,0,.075);
 
   backdrop-filter: blur(20px);
@@ -487,7 +518,7 @@ header {
 }
 
 .btn-blue {
-  color: white;
+  color: #fff;
   background: var(--blue);
 }
 
@@ -497,12 +528,13 @@ header {
 ========================================================= */
 
 .instagram-section {
-  padding: 85px 0 100px;
+  padding: 80px 0 95px;
 }
 
 .section-head {
   text-align: center;
-  margin-bottom: 38px;
+
+  margin-bottom: 34px;
 }
 
 .section-head .eyebrow {
@@ -517,79 +549,65 @@ header {
 
 .section-head p {
   max-width: 440px;
+
   margin: 19px auto 0;
 
   color: var(--gray);
+
   font-size: 16px;
   line-height: 1.5;
 }
 
 
 /* =========================================================
-   PERFIL
+   PERFIL INSTAGRAM
 ========================================================= */
 
 .profile-shell {
-  max-width: 560px;
+  width: min(100%, 560px);
+
   margin: auto;
 
-  padding: 24px;
-  border-radius: 35px;
+  padding: 22px;
+
+  border-radius: 34px;
 }
+
+
+/* CABECERA */
 
 .profile-top {
   display: flex;
   align-items: center;
-  gap: 17px;
+
+  gap: 16px;
 }
 
 .profile-avatar {
   width: 76px;
   height: 76px;
+
   flex: 0 0 76px;
 
   border-radius: 50%;
 
-  display: grid;
-  place-items: center;
+  overflow: hidden;
 
   background: #fff;
-  border: 1px solid var(--line);
 
-  box-shadow: 0 8px 30px rgba(0,0,0,.06);
+  border: 1px solid rgba(0,0,0,.07);
 
-  overflow: hidden;
+  box-shadow:
+    0 8px 25px rgba(0,0,0,.06);
 }
 
-.avatar-logo {
-  width: 54px;
-  height: 54px;
+.profile-logo-img {
+  width: 100%;
+  height: 100%;
 
-  position: relative;
-
-  display: grid;
-  place-items: center;
-
-  font-size: 38px;
-  font-weight: 800;
-  letter-spacing: -.09em;
-}
-
-.avatar-logo::after {
-  content: "";
-  position: absolute;
-
-  width: 10px;
-  height: 10px;
-
-  top: 10px;
-  right: 6px;
+  object-fit: cover;
 
   border-radius: 50%;
-
-  background: var(--blue);
-
-  box-shadow: 0 0 0 3px #fff;
 }
 
 .profile-identity {
@@ -599,23 +617,60 @@ header {
 .username {
   display: flex;
   align-items: center;
+
   gap: 6px;
 
-  font-size: 19px;
-  font-weight: 720;
-  letter-spacing: -.025em;
+  font-size: 20px;
+  font-weight: 750;
+  letter-spacing: -.035em;
+}
+
+.verified-badge {
+  width: 19px;
+  height: 19px;
+
+  flex: 0 0 19px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.verified-badge svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+}
+
+.verified-badge .badge-bg {
+  fill: var(--ig-blue);
+}
+
+.verified-badge .badge-check {
+  fill: none;
+
+  stroke: #fff;
+  stroke-width: 2.1;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 .brand-name {
   margin-top: 6px;
 
-  font-size: 13px;
   color: var(--gray);
+
+  font-size: 13px;
   line-height: 1.3;
 }
 
+
+/* ESTADÍSTICAS */
+
 .profile-stats {
-  margin-top: 25px;
+  margin-top: 21px;
 
   display: grid;
   grid-template-columns: repeat(3,1fr);
@@ -625,7 +680,8 @@ header {
 }
 
 .stat {
-  padding: 19px 5px;
+  padding: 17px 4px;
+
   text-align: center;
 }
 
@@ -634,7 +690,8 @@ header {
 
   font-size: 23px;
   line-height: 1;
-  letter-spacing: -.04em;
+
+  letter-spacing: -.045em;
 }
 
 .stat span {
@@ -642,12 +699,17 @@ header {
 
   margin-top: 7px;
 
-  font-size: 11px;
   color: var(--gray);
+
+  font-size: 10px;
+  font-weight: 550;
 }
 
+
+/* BIO */
+
 .profile-bio {
-  padding: 21px 2px 19px;
+  padding: 18px 2px;
 }
 
 .profile-bio strong {
@@ -658,24 +720,26 @@ header {
   margin-top: 8px;
 
   font-size: 14px;
-  line-height: 1.45;
+  line-height: 1.42;
 }
 
 .profile-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
 
-  margin-top: 11px;
+  gap: 5px;
+
+  margin-top: 10px;
 
   color: var(--blue);
+
   font-size: 14px;
-  font-weight: 650;
+  font-weight: 670;
 }
 
 
 /* =========================================================
-   FEED
+   MINI FEED
 ========================================================= */
 
 .feed {
@@ -685,9 +749,10 @@ header {
   gap: 3px;
 
   overflow: hidden;
+
   border-radius: 17px;
 
-  background: #eee;
+  background: #f1f1f1;
 }
 
 .post {
@@ -695,14 +760,14 @@ header {
 
   aspect-ratio: 1 / 1;
 
+  overflow: hidden;
+
   background:
     linear-gradient(
       145deg,
       #fff,
       #f3f3f3
     );
-
-  overflow: hidden;
 }
 
 .post-inner {
@@ -717,10 +782,12 @@ header {
 }
 
 .post-title {
-  font-size: clamp(11px, 3.5vw, 18px);
+  font-size: clamp(10px, 3.5vw, 18px);
   line-height: .88;
+
   letter-spacing: -.06em;
-  font-weight: 800;
+
+  font-weight: 820;
 }
 
 .post-title .dot {
@@ -729,24 +796,27 @@ header {
 
 .mini-card {
   width: 76%;
+
   aspect-ratio: 1.58 / 1;
 
   align-self: center;
 
-  border-radius: 7px;
-
-  background: white;
-  border: 1px solid rgba(0,0,0,.07);
-
-  box-shadow: 0 7px 15px rgba(0,0,0,.08);
-
-  transform: rotate(-8deg);
-
   display: grid;
   place-items: center;
 
+  border-radius: 7px;
+
+  background: #fff;
+
+  border: 1px solid rgba(0,0,0,.07);
+
+  box-shadow:
+    0 7px 15px rgba(0,0,0,.08);
+
+  transform: rotate(-8deg);
+
   font-size: 7px;
-  font-weight: 700;
+  font-weight: 720;
 }
 
 .post:nth-child(2) .mini-card {
@@ -758,14 +828,16 @@ header {
 }
 
 .post-small {
-  font-size: 6px;
   color: var(--gray);
+
+  font-size: 6px;
+
   letter-spacing: .05em;
 }
 
 
 /* =========================================================
-   PROFILE ACTIONS
+   ACCIONES PERFIL
 ========================================================= */
 
 .profile-actions {
@@ -774,37 +846,48 @@ header {
 
   gap: 9px;
 
-  margin-top: 17px;
+  margin-top: 15px;
 }
 
 .profile-actions .btn {
   width: 100%;
+
+  min-height: 48px;
+
   padding: 0 12px;
+
+  font-size: 13px;
 }
 
-.share-message {
-  text-align: center;
 
+/* =========================================================
+   COMPARTIR
+========================================================= */
+
+.share-message {
   max-width: 480px;
 
-  margin: 34px auto 0;
+  margin: 33px auto 0;
+
+  text-align: center;
 }
 
 .share-message h3 {
   font-size: clamp(28px, 7vw, 40px);
   line-height: 1;
+
   letter-spacing: -.05em;
 }
 
 .share-message p {
+  max-width: 370px;
+
+  margin: 13px auto 20px;
+
   color: var(--gray);
 
   font-size: 14px;
   line-height: 1.5;
-
-  margin: 13px auto 20px;
-
-  max-width: 370px;
 }
 
 
@@ -813,7 +896,8 @@ header {
 ========================================================= */
 
 .benefit {
-  padding: 110px 0 100px;
+  padding: 105px 0 95px;
+
   text-align: center;
 }
 
@@ -824,7 +908,9 @@ header {
 .discount {
   font-size: clamp(78px, 23vw, 155px);
   line-height: .77;
+
   letter-spacing: -.09em;
+
   font-weight: 780;
 }
 
@@ -846,6 +932,7 @@ header {
   width: min(100%, 470px);
 
   margin: 42px auto 0;
+
   padding: 25px;
 
   border-radius: 29px;
@@ -854,13 +941,14 @@ header {
 }
 
 .coupon-label {
-  font-size: 10px;
-  font-weight: 750;
-  letter-spacing: .12em;
+  margin-bottom: 16px;
 
   color: var(--gray);
 
-  margin-bottom: 16px;
+  font-size: 10px;
+  font-weight: 750;
+
+  letter-spacing: .12em;
 }
 
 .coupon-main {
@@ -873,7 +961,9 @@ header {
 
 .coupon-code {
   font-size: clamp(27px, 8vw, 37px);
+
   font-weight: 760;
+
   letter-spacing: -.05em;
 }
 
@@ -910,7 +1000,7 @@ header {
 
 .closing {
   padding:
-    90px
+    85px
     0
     calc(55px + env(safe-area-inset-bottom));
 
@@ -924,6 +1014,7 @@ header {
 
   font-size: clamp(42px, 11vw, 72px);
   line-height: .91;
+
   letter-spacing: -.07em;
 }
 
@@ -939,18 +1030,20 @@ header {
 }
 
 .footer-brand {
-  margin-top: 75px;
+  margin-top: 70px;
 
   font-size: 20px;
   font-weight: 720;
+
   letter-spacing: -.05em;
 }
 
 .footer-copy {
   margin-top: 9px;
 
-  font-size: 10px;
   color: var(--gray2);
+
+  font-size: 10px;
 }
 
 
@@ -961,16 +1054,19 @@ header {
 .toast {
   position: fixed;
 
-  left: 50%;
-  bottom: calc(22px + env(safe-area-inset-bottom));
-
   z-index: 1000;
 
+  left: 50%;
+
+  bottom:
+    calc(22px + env(safe-area-inset-bottom));
+
   transform:
-    translate(-50%, 20px)
+    translate(-50%,20px)
     scale(.96);
 
   opacity: 0;
+
   pointer-events: none;
 
   padding: 12px 17px;
@@ -978,6 +1074,7 @@ header {
   border-radius: 100px;
 
   background: rgba(10,10,10,.88);
+
   color: white;
 
   backdrop-filter: blur(18px);
@@ -986,16 +1083,16 @@ header {
   font-size: 12px;
   font-weight: 650;
 
-  transition: .3s ease;
-
   white-space: nowrap;
+
+  transition: .3s ease;
 }
 
 .toast.show {
   opacity: 1;
 
   transform:
-    translate(-50%, 0)
+    translate(-50%,0)
     scale(1);
 }
 
@@ -1020,25 +1117,28 @@ header {
 
   .hero {
     min-height: calc(100svh - 67px);
+
     padding-top: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 48px;
   }
 
   .hero h1 {
-    font-size: clamp(49px, 15vw, 68px);
+    font-size:
+      clamp(49px,15vw,68px);
   }
 
   .hero-copy {
     max-width: 350px;
+
     font-size: 15px;
   }
 
   .card-stage {
-    height: 255px;
+    height: 250px;
   }
 
   .real-card {
-    width: min(88vw, 370px);
+    width: min(88vw,370px);
   }
 
   .hero .actions {
@@ -1046,30 +1146,58 @@ header {
   }
 
   .hero .btn {
-    width: min(100%, 390px);
+    width: min(100%,390px);
   }
 
+
+  /* INSTAGRAM */
+
   .instagram-section {
-    padding: 70px 0 80px;
+    padding: 62px 0 75px;
   }
 
   .section-head {
-    margin-bottom: 29px;
+    margin-bottom: 27px;
+  }
+
+  .section-head p {
+    max-width: 340px;
   }
 
   .profile-shell {
-    padding: 18px;
+    padding: 17px;
+
     border-radius: 29px;
   }
 
   .profile-avatar {
-    width: 68px;
-    height: 68px;
-    flex-basis: 68px;
+    width: 67px;
+    height: 67px;
+
+    flex-basis: 67px;
+  }
+
+  .username {
+    font-size: 19px;
+  }
+
+  .verified-badge {
+    width: 18px;
+    height: 18px;
+
+    flex-basis: 18px;
+  }
+
+  .brand-name {
+    font-size: 12px;
   }
 
   .profile-stats {
-    margin-top: 20px;
+    margin-top: 18px;
+  }
+
+  .stat {
+    padding: 15px 3px;
   }
 
   .stat strong {
@@ -1077,15 +1205,28 @@ header {
   }
 
   .stat span {
-    font-size: 10px;
+    font-size: 9px;
+  }
+
+  .profile-bio {
+    padding: 16px 2px;
   }
 
   .profile-actions {
     grid-template-columns: 1fr;
+
+    margin-top: 13px;
   }
 
+  .profile-actions .btn {
+    min-height: 48px;
+  }
+
+
+  /* BENEFICIO */
+
   .benefit {
-    padding: 90px 0 80px;
+    padding: 88px 0 78px;
   }
 
   .coupon {
@@ -1101,8 +1242,11 @@ header {
     width: 100%;
   }
 
+
+  /* CIERRE */
+
   .closing {
-    padding-top: 80px;
+    padding-top: 75px;
   }
 
   .closing .actions {
@@ -1112,11 +1256,12 @@ header {
   .closing .btn {
     width: 100%;
   }
+
 }
 
 
 /* =========================================================
-   REDUCED MOTION
+   REDUCIR MOVIMIENTO
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -1142,9 +1287,7 @@ header {
 <body class="intro-open">
 
 
-<!-- ======================================================
-     AMBIENTE
-======================================================= -->
+<!-- FONDO -->
 
 <div class="ambient">
   <div class="orb one"></div>
@@ -1152,9 +1295,9 @@ header {
 </div>
 
 
-<!-- ======================================================
+<!-- =====================================================
      INTRO
-======================================================= -->
+====================================================== -->
 
 <div class="intro" id="intro">
 
@@ -1192,20 +1335,28 @@ header {
 </div>
 
 
-<!-- ======================================================
+<!-- =====================================================
      HEADER
-======================================================= -->
+====================================================== -->
 
 <header>
 
   <div class="container nav">
 
-    <a href="#" class="wordmark">
+    <a
+      href="#"
+      class="wordmark">
+
       LinkTap<span class="blue">.</span>
+
     </a>
 
-    <a href="#beneficio" class="nav-benefit">
+    <a
+      href="#beneficio"
+      class="nav-benefit">
+
       Tu beneficio
+
     </a>
 
   </div>
@@ -1216,9 +1367,9 @@ header {
 <main>
 
 
-<!-- ======================================================
+<!-- =====================================================
      HERO
-======================================================= -->
+====================================================== -->
 
 <section class="hero container">
 
@@ -1227,15 +1378,20 @@ header {
   </div>
 
   <h1 class="reveal">
+
     Tu negocio,<br>
+
     <span class="secondary">
       a un tap<span class="blue">.</span>
     </span>
+
   </h1>
 
   <p class="hero-copy reveal">
+
     Una forma más simple de conectar
     tu negocio con tus clientes.
+
   </p>
 
 
@@ -1243,12 +1399,10 @@ header {
 
     <div class="card-glow"></div>
 
-    <!-- TARJETA REAL -->
     <img
       src="../assets/linktap-front.png"
       alt="Tarjeta LinkTap"
-      class="real-card"
-    >
+      class="real-card">
 
   </div>
 
@@ -1260,7 +1414,9 @@ header {
       target="_blank"
       rel="noopener"
       class="btn btn-black">
+
       Conocer LinkTap →
+
     </a>
 
     <a
@@ -1268,7 +1424,9 @@ header {
       target="_blank"
       rel="noopener"
       class="btn btn-glass">
+
       Seguir @linktap.cl ↗
+
     </a>
 
   </div>
@@ -1276,10 +1434,9 @@ header {
 </section>
 
 
-
-<!-- ======================================================
+<!-- =====================================================
      INSTAGRAM
-======================================================= -->
+====================================================== -->
 
 <section class="instagram-section">
 
@@ -1293,14 +1450,19 @@ header {
       </div>
 
       <h2>
+
         Estamos recién<br>
+
         comenzando<span class="blue">.</span>
+
       </h2>
 
       <p>
+
         Sigue el crecimiento de LinkTap,
         descubre lo que estamos creando
         y ayúdanos a llegar a más personas.
+
       </p>
 
     </div>
@@ -1310,25 +1472,85 @@ header {
 
     <div class="profile-shell glass reveal">
 
+
+      <!-- CABECERA -->
+
       <div class="profile-top">
+
+
+        <!-- LOGO REAL -->
 
         <div class="profile-avatar">
 
-          <div class="avatar-logo">
-            L
-          </div>
+          <img
+            src="../assets/linktap-logo.png"
+            alt="Logo de LinkTap"
+            class="profile-logo-img">
 
         </div>
 
 
+        <!-- NOMBRE -->
+
         <div class="profile-identity">
 
           <div class="username">
-            linktap.cl
+
+            <span>
+              linktap.cl
+            </span>
+
+
+            <!-- CHECK AZUL -->
+
+            <span
+              class="verified-badge"
+              aria-label="Cuenta verificada">
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true">
+
+                <path
+                  class="badge-bg"
+                  d="
+                    M22.25 12
+                    c0-1.43-1.05-2.62-2.42-2.84
+                    .28-1.36-.46-2.75-1.77-3.22
+                    -1.3-.47-2.73.12-3.35 1.36
+                    A2.88 2.88 0 0 0 12 5.5
+                    a2.88 2.88 0 0 0-2.71 1.8
+                    c-.62-1.24-2.05-1.83-3.35-1.36
+                    -1.31.47-2.05 1.86-1.77 3.22
+                    A2.88 2.88 0 0 0 1.75 12
+                    c0 1.43 1.05 2.62 2.42 2.84
+                    -.28 1.36.46 2.75 1.77 3.22
+                    1.3.47 2.73-.12 3.35-1.36
+                    A2.88 2.88 0 0 0 12 18.5
+                    a2.88 2.88 0 0 0 2.71-1.8
+                    c.62 1.24 2.05 1.83 3.35 1.36
+                    1.31-.47 2.05-1.86 1.77-3.22
+                    A2.88 2.88 0 0 0 22.25 12
+                    Z
+                  ">
+                </path>
+
+                <path
+                  class="badge-check"
+                  d="M8.3 12.1l2.25 2.2 5-5">
+                </path>
+
+              </svg>
+
+            </span>
+
           </div>
 
+
           <div class="brand-name">
+
             LinkTap · ACERCA Y CONECTA
+
           </div>
 
         </div>
@@ -1340,37 +1562,57 @@ header {
 
       <div class="profile-stats">
 
+
         <div class="stat">
+
           <strong
             class="counter"
             data-target="3">
+
             0
+
           </strong>
 
-          <span>publicaciones</span>
+          <span>
+            publicaciones
+          </span>
+
         </div>
 
 
         <div class="stat">
+
           <strong
             class="counter"
             data-target="206">
+
             0
+
           </strong>
 
-          <span>seguidores</span>
+          <span>
+            seguidores
+          </span>
+
         </div>
 
 
         <div class="stat">
+
           <strong
             class="counter"
             data-target="12">
+
             0
+
           </strong>
 
-          <span>seguidos</span>
+          <span>
+            seguidos
+          </span>
+
         </div>
+
 
       </div>
 
@@ -1384,9 +1626,11 @@ header {
         </strong>
 
         <p>
+
           Tarjetas NFC<br>
           redes, contacto, y más<br>
           tu negocio a un TAP
+
         </p>
 
         <a
@@ -1394,16 +1638,19 @@ header {
           target="_blank"
           rel="noopener"
           class="profile-link">
+
           ↗ linktap.cl
+
         </a>
 
       </div>
 
 
-      <!-- MINI FEED -->
+      <!-- PUBLICACIONES -->
 
       <div class="feed">
 
+
         <a
           href="https://www.instagram.com/linktap.cl/"
           target="_blank"
@@ -1413,15 +1660,21 @@ header {
           <div class="post-inner">
 
             <div class="post-title">
+
               ACÉRCALA<span class="dot">.</span>
+
             </div>
 
             <div class="mini-card">
+
               LinkTap
+
             </div>
 
             <div class="post-small">
+
               MIRA LO QUE PASA
+
             </div>
 
           </div>
@@ -1438,16 +1691,22 @@ header {
           <div class="post-inner">
 
             <div class="post-title">
+
               ESTO ES<br>
               LinkTap<span class="dot">.</span>
+
             </div>
 
             <div class="mini-card">
+
               LinkTap
+
             </div>
 
             <div class="post-small">
+
               ACERCA Y CONECTA
+
             </div>
 
           </div>
@@ -1464,25 +1723,32 @@ header {
           <div class="post-inner">
 
             <div class="post-title">
+
               UN TAP<span class="dot">.</span>
+
             </div>
 
             <div class="mini-card">
+
               LinkTap
+
             </div>
 
             <div class="post-small">
+
               MÁS CERCA
+
             </div>
 
           </div>
 
         </a>
+
 
       </div>
 
 
-      <!-- ACCIONES -->
+      <!-- BOTONES PERFIL -->
 
       <div class="profile-actions">
 
@@ -1491,39 +1757,52 @@ header {
           target="_blank"
           rel="noopener"
           class="btn btn-black">
+
           Seguir @linktap.cl ↗
+
         </a>
+
 
         <button
           class="btn btn-glass"
           type="button"
           onclick="shareProfile()">
+
           Compartir perfil ↑
+
         </button>
 
       </div>
 
+
     </div>
 
 
-    <!-- COMPARTIR -->
+    <!-- COMPARTIR LINKTAP -->
 
     <div class="share-message reveal">
 
       <h3>
+
         ¿Te gustó la idea<span class="blue">?</span>
+
       </h3>
 
       <p>
-        Si quieres ayudarnos, comparte LinkTap
-        con alguien a quien también podría servirle.
+
+        Si quieres ayudarnos,
+        comparte LinkTap con alguien
+        a quien también podría servirle.
+
       </p>
 
       <button
         class="btn btn-glass"
         type="button"
         onclick="shareLinkTap()">
+
         Compartir LinkTap ↑
+
       </button>
 
     </div>
@@ -1534,10 +1813,9 @@ header {
 </section>
 
 
-
-<!-- ======================================================
+<!-- =====================================================
      BENEFICIO
-======================================================= -->
+====================================================== -->
 
 <section
   class="benefit"
@@ -1545,23 +1823,35 @@ header {
 
   <div class="container">
 
+
     <div class="eyebrow reveal">
+
       POR ESTAR DESDE EL COMIENZO
+
     </div>
+
 
     <div class="discount reveal">
+
       15% OFF<span class="blue">.</span>
+
     </div>
 
+
     <p class="discount-description reveal">
+
       En tu primera compra LinkTap.
+
     </p>
 
 
     <div class="coupon glass reveal">
 
+
       <div class="coupon-label">
+
         TU BENEFICIO
+
       </div>
 
 
@@ -1570,25 +1860,33 @@ header {
         <div
           class="coupon-code"
           id="couponCode">
+
           PRIMEROS15
+
         </div>
+
 
         <button
           type="button"
           class="copy"
           id="copyButton"
           onclick="copyCoupon()">
+
           Copiar código
+
         </button>
 
       </div>
 
 
       <p class="coupon-note">
+
         Guárdalo. Cuando quieras pedir tu LinkTap,
         usa este código y tendrás un 15% de descuento
         en tu primera compra.
+
       </p>
+
 
     </div>
 
@@ -1597,24 +1895,30 @@ header {
 </section>
 
 
-
-<!-- ======================================================
+<!-- =====================================================
      CIERRE
-======================================================= -->
+====================================================== -->
 
 <section class="closing">
 
   <div class="container">
 
+
     <h2 class="reveal">
+
       Gracias por estar<br>
+
       desde el comienzo<span class="blue">.</span>
+
     </h2>
 
+
     <p class="reveal">
+
       LinkTap recién empieza.
       Gracias por dedicar unos minutos
       a conocer el proyecto.
+
     </p>
 
 
@@ -1625,27 +1929,38 @@ header {
         target="_blank"
         rel="noopener"
         class="btn btn-black">
+
         Conocer LinkTap →
+
       </a>
+
 
       <a
         href="https://www.instagram.com/linktap.cl/"
         target="_blank"
         rel="noopener"
         class="btn btn-glass">
+
         Seguir @linktap.cl ↗
+
       </a>
 
     </div>
 
 
     <div class="footer-brand">
+
       LinkTap<span class="blue">.</span>
+
     </div>
 
+
     <div class="footer-copy">
+
       ACERCA Y CONECTA · 2026
+
     </div>
+
 
   </div>
 
@@ -1655,23 +1970,21 @@ header {
 </main>
 
 
-
-<!-- ======================================================
-     TOAST
-======================================================= -->
+<!-- TOAST -->
 
 <div
   class="toast"
   id="toast">
-  Enlace copiado ✓
-</div>
 
+  Enlace copiado ✓
+
+</div>
 
 
 <script>
 
 /* =========================================================
-   CONFIGURACIÓN
+   CONFIG
 ========================================================= */
 
 const INSTAGRAM_URL =
@@ -1699,25 +2012,30 @@ function closeIntro() {
 
   intro.classList.add("hide");
 
-  document.body.classList.remove("intro-open");
+  document.body.classList.remove(
+    "intro-open"
+  );
 
 }
 
 
-window.addEventListener("load", () => {
+window.addEventListener(
+  "load",
+  () => {
 
-  setTimeout(() => {
+    setTimeout(
+      closeIntro,
+      3300
+    );
 
-    closeIntro();
-
-  }, 3300);
-
-});
+  }
+);
 
 
-intro.addEventListener("click", closeIntro);
-
-skipIntro.addEventListener("click", closeIntro);
+intro.addEventListener(
+  "click",
+  closeIntro
+);
 
 
 /* =========================================================
@@ -1726,35 +2044,49 @@ skipIntro.addEventListener("click", closeIntro);
 
 let toastTimer;
 
+
 function showToast(message) {
 
   const toast =
     document.getElementById("toast");
 
-  toast.textContent = message;
+  toast.textContent =
+    message;
 
-  toast.classList.add("show");
+  toast.classList.add(
+    "show"
+  );
 
-  clearTimeout(toastTimer);
+  clearTimeout(
+    toastTimer
+  );
 
-  toastTimer = setTimeout(() => {
+  toastTimer =
+    setTimeout(
+      () => {
 
-    toast.classList.remove("show");
+        toast.classList.remove(
+          "show"
+        );
 
-  }, 2200);
+      },
+      2200
+    );
 
 }
 
 
 /* =========================================================
-   COPIAR
+   COPIAR TEXTO
 ========================================================= */
 
 async function copyText(text) {
 
   try {
 
-    await navigator.clipboard.writeText(text);
+    await navigator.clipboard.writeText(
+      text
+    );
 
     return true;
 
@@ -1763,18 +2095,28 @@ async function copyText(text) {
   catch (error) {
 
     const textarea =
-      document.createElement("textarea");
+      document.createElement(
+        "textarea"
+      );
 
-    textarea.value = text;
+    textarea.value =
+      text;
 
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
+    textarea.style.position =
+      "fixed";
 
-    document.body.appendChild(textarea);
+    textarea.style.opacity =
+      "0";
+
+    document.body.appendChild(
+      textarea
+    );
 
     textarea.select();
 
-    document.execCommand("copy");
+    document.execCommand(
+      "copy"
+    );
 
     textarea.remove();
 
@@ -1792,9 +2134,13 @@ async function copyText(text) {
 async function copyCoupon() {
 
   const button =
-    document.getElementById("copyButton");
+    document.getElementById(
+      "copyButton"
+    );
 
-  await copyText(COUPON);
+  await copyText(
+    COUPON
+  );
 
   button.textContent =
     "✓ Copiado";
@@ -1804,19 +2150,26 @@ async function copyCoupon() {
   );
 
 
-  if ("vibrate" in navigator) {
+  if (
+    "vibrate" in navigator
+  ) {
 
-    navigator.vibrate(30);
+    navigator.vibrate(
+      30
+    );
 
   }
 
 
-  setTimeout(() => {
+  setTimeout(
+    () => {
 
-    button.textContent =
-      "Copiar código";
+      button.textContent =
+        "Copiar código";
 
-  }, 2400);
+    },
+    2400
+  );
 
 }
 
@@ -1833,7 +2186,7 @@ async function shareProfile() {
       "LinkTap",
 
     text:
-      "Te comparto LinkTap · Tu negocio, a un tap.",
+      "Conoce LinkTap · Tu negocio, a un tap.",
 
     url:
       INSTAGRAM_URL
@@ -1841,7 +2194,9 @@ async function shareProfile() {
   };
 
 
-  if (navigator.share) {
+  if (
+    navigator.share
+  ) {
 
     try {
 
@@ -1900,7 +2255,9 @@ async function shareLinkTap() {
   };
 
 
-  if (navigator.share) {
+  if (
+    navigator.share
+  ) {
 
     try {
 
@@ -1957,7 +2314,9 @@ const revealObserver =
 
             entry.target
               .classList
-              .add("visible");
+              .add(
+                "visible"
+              );
 
             revealObserver
               .unobserve(
@@ -1979,17 +2338,22 @@ const revealObserver =
 
 
 document
-  .querySelectorAll(".reveal")
-  .forEach(element => {
+  .querySelectorAll(
+    ".reveal"
+  )
+  .forEach(
+    element => {
 
-    revealObserver
-      .observe(element);
+      revealObserver.observe(
+        element
+      );
 
-  });
+    }
+  );
 
 
 /* =========================================================
-   CONTADORES INSTAGRAM
+   CONTADORES
 ========================================================= */
 
 const counters =
@@ -2022,12 +2386,14 @@ function animateCounter(
         1
       );
 
+
     const eased =
       1 -
       Math.pow(
         1 - progress,
         3
       );
+
 
     element.textContent =
       Math.round(
@@ -2077,6 +2443,7 @@ const counterObserver =
             countersPlayed =
               true;
 
+
             counters.forEach(
               counter => {
 
@@ -2089,6 +2456,7 @@ const counterObserver =
 
               }
             );
+
 
             counterObserver
               .disconnect();
