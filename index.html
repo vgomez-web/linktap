@@ -4165,6 +4165,63 @@ html{scroll-behavior:smooth}
     }
 </style>
 
+
+<style id="linktap-v4-final">
+/* V4 — final mobile polish */
+.profile-lab-head .section-description{min-height:3.05em;display:flex;align-items:flex-start;justify-content:center;margin-bottom:0}
+
+/* Pack 3: compact, legible in one mobile viewport */
+.pack-story{padding:64px 0 68px!important}
+.pack-story-head .section-description{max-width:620px}
+.pack3-visual{margin-top:22px!important;min-height:300px!important;gap:54px!important}
+.pack3-stack{width:310px!important;flex-basis:310px!important}
+.pack3-card{width:238px!important;border-radius:18px!important}
+.pack3-card-back{transform:translate(28px,20px) rotate(4deg)!important;opacity:.66}
+.pack3-card-mid{transform:translate(14px,10px) rotate(2deg)!important;opacity:.84}
+.pack3-card-front{transform:none!important;opacity:1!important}
+.pack3-logo{position:absolute!important;inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;font-size:27px!important;padding:24px!important}
+.pack3-logo img{display:block!important;max-width:48%!important;max-height:44%!important;margin:auto!important;object-fit:contain!important}
+.pack3-nfc{position:absolute!important;left:15px!important;top:14px!important;width:42px!important;height:42px!important;font-size:0!important;letter-spacing:0!important}
+.pack3-nfc i{position:absolute;left:0;top:0;border:2px solid #111;border-right-color:transparent;border-bottom-color:transparent;border-radius:50%;transform:rotate(-45deg);transform-origin:center}
+.pack3-nfc i:nth-child(1){width:10px;height:10px;left:15px;top:15px}
+.pack3-nfc i:nth-child(2){width:18px;height:18px;left:11px;top:11px}
+.pack3-nfc i:nth-child(3){width:26px;height:26px;left:7px;top:7px}
+.pack3-nfc i:nth-child(4){width:34px;height:34px;left:3px;top:3px}
+.pack3-routes{gap:8px!important}.pack3-route{min-height:38px!important}
+.pack3-footer{margin-top:0!important}.pack3-footer span{margin-top:0!important}.pack3-footer small{margin-top:4px!important}
+
+/* Profile: fixed geometry regardless of 1/2-line lead */
+.profile-stage{margin-top:22px!important}
+.profile-lab-foot{gap:0}
+
+@media(max-width:700px){
+  .profile-lab-head .section-description{min-height:3.2em;max-width:340px;font-size:15px;line-height:1.55;padding:0 8px}
+  .profile-stage{height:548px!important;margin-top:14px!important}
+  .profile-phone{width:min(238px,64vw)!important;height:478px!important;top:20px!important}
+  .profile-callout{font-size:9px!important;max-width:58px!important;opacity:.42;transition:.25s}
+  .profile-callout.active{opacity:1}
+  .profile-callout.left{left:2px!important}.profile-callout.right{right:2px!important}
+  .profile-callout.c1{top:126px!important}.profile-callout.c2{top:206px!important}.profile-callout.c3{top:292px!important}.profile-callout.c4{top:380px!important}.profile-callout.c5{top:462px!important}
+
+  .pack-story{padding:34px 0 38px!important;min-height:auto!important}
+  .pack-story-head .eyebrow{font-size:9px!important}
+  .pack-story-head .section-title{font-size:clamp(42px,12vw,58px)!important;line-height:.92!important;margin-top:8px!important}
+  .pack-story-head .section-description{font-size:14px!important;line-height:1.45!important;margin-top:16px!important;max-width:340px!important}
+  .pack3-visual{min-height:252px!important;margin-top:12px!important;display:flex!important;flex-direction:column!important;gap:18px!important;padding:0!important}
+  .pack3-stack{width:min(226px,59vw)!important;height:150px!important;flex:0 0 150px!important;margin:0 auto!important;transform:none!important}
+  .pack3-card{width:min(190px,50vw)!important;border-radius:14px!important;left:50%!important;top:50%!important}
+  .pack3-card-back{transform:translate(-42%,-42%) rotate(4deg)!important}
+  .pack3-card-mid{transform:translate(-50%,-50%) rotate(2deg)!important}
+  .pack3-card-front{transform:translate(-58%,-58%)!important}
+  .pack3-logo{font-size:20px!important;padding:18px!important}
+  .pack3-nfc{left:10px!important;top:9px!important;transform:scale(.72);transform-origin:top left}
+  .pack3-routes{width:min(94vw,360px)!important;margin:0 auto!important;display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:3px!important}
+  .pack3-route{padding:4px 1px!important;min-height:34px!important;display:block!important;text-align:center!important}
+  .pack3-route b{display:block!important;margin-bottom:2px!important;font-size:9px!important}.pack3-route strong{font-size:7.5px!important;white-space:nowrap!important}
+  .pack3-footer{margin-top:5px!important}.pack3-footer span{font-size:10px!important}.pack3-footer small{font-size:8px!important}
+}
+</style>
+
 </head>
 
 <body>
@@ -4732,11 +4789,11 @@ html{scroll-behavior:smooth}
 
         <div class="pack3-visual reveal">
           <div class="pack3-stack" aria-label="Tres tarjetas LinkTap con el mismo diseño">
-            <div class="pack3-card pack3-card-back" data-pack-card><div class="pack3-logo" data-pack-logo>LinkTap</div><div class="pack3-nfc">)))</div></div>
-            <div class="pack3-card pack3-card-mid" data-pack-card><div class="pack3-logo" data-pack-logo>LinkTap</div><div class="pack3-nfc">)))</div></div>
+            <div class="pack3-card pack3-card-back" data-pack-card><div class="pack3-logo" data-pack-logo>LinkTap</div><div class="pack3-nfc" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+            <div class="pack3-card pack3-card-mid" data-pack-card><div class="pack3-logo" data-pack-logo>LinkTap</div><div class="pack3-nfc" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
             <div class="pack3-card pack3-card-front" data-pack-card>
               <div class="pack3-logo" data-pack-logo>LinkTap</div>
-              <div class="pack3-nfc">)))</div>
+              <div class="pack3-nfc" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
             </div>
           </div>
 
@@ -4748,9 +4805,8 @@ html{scroll-behavior:smooth}
         </div>
 
         <div class="pack3-footer reveal">
-          <strong>Pack 3</strong>
           <span>Personalización incluida desde 3 unidades.</span>
-          <small>Si aún no personalizas tu tarjeta, verás el diseño LinkTap predeterminado. Puedes cambiarlo arriba cuando quieras.</small>
+          <small>Logo · colores · estilo de tu marca</small>
         </div>
       </div>
     </section>
@@ -6290,18 +6346,19 @@ html{scroll-behavior:smooth}
         finalCTA.getBoundingClientRect().top;
 
 
-      const nfcSection = document.getElementById("nfc-story");
-      const nfcRect = nfcSection ? nfcSection.getBoundingClientRect() : null;
-      const nfcActive = !!nfcRect &&
-        nfcRect.top < window.innerHeight &&
-        nfcRect.bottom > 96;
+      const demoSections = ["pack3-demo", "perfil-digital", "nfc-story"]
+        .map(id => document.getElementById(id)).filter(Boolean);
+      const demoActive = demoSections.some(section => {
+        const rect = section.getBoundingClientRect();
+        return rect.top < window.innerHeight * .92 && rect.bottom > 96;
+      });
 
       const shouldShow =
         scrollY > 420 &&
         finalTop > window.innerHeight * 0.65 &&
-        !nfcActive;
+        !demoActive;
 
-      stickyBuy.classList.toggle("nfc-hidden", nfcActive);
+      stickyBuy.classList.toggle("nfc-hidden", demoActive);
       stickyBuy.classList.toggle(
         "show",
         shouldShow
@@ -6587,9 +6644,13 @@ html{scroll-behavior:smooth}
       const scene=nfcStack.parentElement;
       const sceneH=scene?scene.clientHeight:innerHeight*.68;
       const initialCenter=sceneH*(mobile?.35:.42);
-      const phoneTop=sceneH*(mobile?.57:.56);
+      const sceneRect=scene?scene.getBoundingClientRect():{top:0};
+      const phoneRect=nfcPhone.getBoundingClientRect();
+      const phoneTop=Math.max(0,phoneRect.top-sceneRect.top);
       const cardH=nfcStack.offsetHeight;
-      const overlap=mobile?28:34;
+      /* Deliberate physical contact: the lower edge of the scaled card
+         crosses the phone's top frame by a few pixels. */
+      const overlap=mobile?12:16;
       const finalCenter=phoneTop+overlap-(cardH*finalScale/2);
       const centerY=initialCenter+(finalCenter-initialCenter)*approach;
 
