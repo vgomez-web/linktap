@@ -4222,6 +4222,44 @@ html{scroll-behavior:smooth}
 }
 </style>
 
+
+<style id="linktap-v5-final">
+/* V5 — Pack 3 exact state, corrected NFC mark, compact mobile, real video demos */
+.pack3-card{background:#fff!important;--pack-logo-scale:1}
+.pack3-card::before,.pack3-card::after{display:none!important}
+.pack3-card[data-pack-style="minimal"]{background:
+ radial-gradient(circle at 105% -8%,transparent 0 19%,color-mix(in srgb,var(--custom-one) 28%,white) 19.5% 22%,transparent 22.5% 28%,var(--custom-two) 28.5% 31%,transparent 31.5% 37%,var(--custom-one) 37.5% 40%,transparent 40.5%),
+ radial-gradient(circle at -5% 108%,transparent 0 19%,color-mix(in srgb,var(--custom-one) 28%,white) 19.5% 22%,transparent 22.5% 28%,var(--custom-two) 28.5% 31%,transparent 31.5% 37%,var(--custom-one) 37.5% 40%,transparent 40.5%),#fff!important}
+.pack3-card[data-pack-style="flow"]{background:linear-gradient(135deg,#fff 0 54%,color-mix(in srgb,var(--custom-one) 25%,white) 54% 65%,var(--custom-two) 65% 76%,var(--custom-one) 76% 88%,#fff 88%)!important}
+.pack3-card[data-pack-style="vector"]{background:linear-gradient(165deg,#fff 0 55%,transparent 55%),linear-gradient(135deg,var(--custom-one) 0 22%,var(--custom-two) 22% 42%,#fff 42%)!important}
+.pack3-logo{inset:0!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:17%!important;line-height:.82!important}
+.pack3-logo img{max-width:82%!important;max-height:72%!important;transform:scale(var(--pack-logo-scale))!important;transform-origin:center!important}
+.pack3-placeholder{font-size:clamp(17px,4.2vw,27px);font-weight:950;letter-spacing:-.07em;text-align:center;line-height:.78}
+/* exact four-wave NFC symbol: same geometry as the customizer */
+.pack3-nfc{left:5.2%!important;top:8.2%!important;width:11%!important;height:auto!important;aspect-ratio:1!important;transform:none!important}
+.pack3-nfc i{display:none!important}
+.pack3-nfc::before{content:"";position:absolute;inset:0;background-repeat:no-repeat;background-size:100% 100%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%230a0a0b' stroke-width='7.2' stroke-linecap='round'%3E%3Cpath d='M30 8 C8 31 8 69 30 92'/%3E%3Cpath d='M53 21 C38 38 38 62 53 79'/%3E%3Cpath d='M73 34 C65 44 65 56 73 66'/%3E%3Cpath d='M89 44 C85 48 85 54 89 58'/%3E%3C/g%3E%3C/svg%3E")!important}
+.pack3-footer{padding-bottom:0!important}
+/* real video cards */
+.demo-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#1b1b1e}
+.demo-card .demo-content{z-index:2;pointer-events:none;transition:opacity .25s ease;background:linear-gradient(to top,rgba(0,0,0,.78),rgba(0,0,0,.05) 62%)}
+.demo-card .demo-play{z-index:4;border:0;cursor:pointer;transition:transform .2s ease,opacity .2s ease}
+.demo-card.is-playing .demo-content{opacity:0}
+.demo-card.is-playing .demo-play{top:auto;left:auto;right:14px;bottom:14px;transform:none;width:38px;height:38px;font-size:11px;opacity:.78}
+@media(max-width:700px){
+ .pack-story{padding:28px 0 30px!important}
+ .pack-story-head .eyebrow{margin-bottom:0!important}
+ .pack-story-head .section-title{margin-top:7px!important}
+ .pack-story-head .section-description{margin-top:12px!important}
+ .pack3-visual{min-height:0!important;height:auto!important;margin-top:12px!important;gap:10px!important}
+ .pack3-stack{height:138px!important;flex-basis:138px!important;width:min(218px,58vw)!important}
+ .pack3-card{width:min(184px,49vw)!important}
+ .pack3-routes{margin-top:0!important}
+ .pack3-route{min-height:30px!important}
+ .pack3-footer{margin-top:12px!important;padding:0 10px!important}
+ .pack3-footer span{font-size:10px!important}.pack3-footer small{font-size:8px!important;margin-top:3px!important}
+}
+</style>
 </head>
 
 <body>
@@ -4789,10 +4827,10 @@ html{scroll-behavior:smooth}
 
         <div class="pack3-visual reveal">
           <div class="pack3-stack" aria-label="Tres tarjetas LinkTap con el mismo diseño">
-            <div class="pack3-card pack3-card-back" data-pack-card><div class="pack3-logo" data-pack-logo>LinkTap</div><div class="pack3-nfc" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
-            <div class="pack3-card pack3-card-mid" data-pack-card><div class="pack3-logo" data-pack-logo>LinkTap</div><div class="pack3-nfc" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+            <div class="pack3-card pack3-card-back" data-pack-card><div class="pack3-logo" data-pack-logo>TU LOGO</div><div class="pack3-nfc" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
+            <div class="pack3-card pack3-card-mid" data-pack-card><div class="pack3-logo" data-pack-logo>TU LOGO</div><div class="pack3-nfc" aria-hidden="true"><i></i><i></i><i></i><i></i></div></div>
             <div class="pack3-card pack3-card-front" data-pack-card>
-              <div class="pack3-logo" data-pack-logo>LinkTap</div>
+              <div class="pack3-logo" data-pack-logo>TU LOGO</div>
               <div class="pack3-nfc" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
             </div>
           </div>
@@ -5067,13 +5105,13 @@ html{scroll-behavior:smooth}
 
         <div class="services-showcase reveal" id="servicesShowcase">
           <div class="service-selector" role="tablist" aria-label="Servicios digitales">
-            <button type="button" data-service-select="menu">Menú digital</button>
+            <button type="button" class="active" data-service-select="menu">Menú digital</button>
             <button type="button" data-service-select="catalogo">Catálogo digital</button>
-            <button type="button" class="active" data-service-select="perfil">Perfil digital</button>
+            <button type="button" data-service-select="perfil">Perfil digital</button>
           </div>
 
           <div class="service-visuals" id="serviceVisuals">
-            <article class="service-mini" data-service-card="menu" tabindex="0">
+            <article class="service-mini active" data-service-card="menu" tabindex="0">
               <div class="mini-device">
                 <div class="mini-top"><span>MENÚ</span><i class="mini-dot"></i></div>
                 <div class="menu-hero"><b>Costa</b><span>Cocina local · Menú digital</span></div>
@@ -5097,7 +5135,7 @@ html{scroll-behavior:smooth}
               <div class="service-meta"><strong>Catálogo digital</strong><span>$24.990</span><p>Tus productos o servicios organizados en un solo lugar.</p><a href="#" class="whatsapp-product" data-product="Catálogo Digital por $24.990">Me interesa →</a></div>
             </article>
 
-            <article class="service-mini active" data-service-card="perfil" tabindex="0">
+            <article class="service-mini" data-service-card="perfil" tabindex="0">
               <div class="mini-device">
                 <div class="mini-top"><span>PERFIL</span><i class="mini-dot"></i></div>
                 <div class="profile-mini-head"><div class="profile-mini-avatar">L</div><b>Tu negocio</b><span>Todo conectado en un lugar</span></div>
@@ -5328,88 +5366,42 @@ html{scroll-behavior:smooth}
         </div>
 
 
-        <div
-          class="horizontal-track demo-track"
-        >
+        <div class="horizontal-track demo-track" id="realDemoTrack">
 
-          <article class="demo-card">
-
-            <div class="demo-play">
-              ▶
-            </div>
-
+          <article class="demo-card" data-video-card>
+            <video class="demo-video" src="assets/videoreseña.mov" muted playsinline preload="metadata" aria-label="Demostración de Google Reseñas"></video>
+            <button class="demo-play" type="button" aria-label="Reproducir video">▶</button>
             <div class="demo-content">
-
-              <span class="demo-badge">
-                LinkTap
-              </span>
-
-              <h3>
-                Deja una reseña.
-              </h3>
-
-              <p>
-                Del tap a Google Reviews.
-              </p>
-
+              <span class="demo-badge">LinkTap</span>
+              <h3>Deja una reseña.</h3>
+              <p>Del tap a Google Reviews.</p>
             </div>
-
           </article>
 
-
-          <article class="demo-card">
-
-            <div class="demo-play">
-              ▶
-            </div>
-
+          <article class="demo-card" data-video-card>
+            <video class="demo-video" src="assets/videomenu.mov" muted playsinline preload="metadata" aria-label="Demostración de menú digital"></video>
+            <button class="demo-play" type="button" aria-label="Reproducir video">▶</button>
             <div class="demo-content">
-
-              <span class="demo-badge">
-                LinkTap
-              </span>
-
-              <h3>
-                Abre tu menú.
-              </h3>
-
-              <p>
-                La carta directamente en el celular.
-              </p>
-
+              <span class="demo-badge">LinkTap</span>
+              <h3>Abre tu menú.</h3>
+              <p>La carta directamente en el celular.</p>
             </div>
-
           </article>
 
-
-          <article class="demo-card">
-
-            <div class="demo-play">
-              ▶
-            </div>
-
+          <article class="demo-card" data-video-card>
+            <video class="demo-video" src="assets/videoperfil.mov" muted playsinline preload="metadata" aria-label="Demostración de perfil digital"></video>
+            <button class="demo-play" type="button" aria-label="Reproducir video">▶</button>
             <div class="demo-content">
-
-              <span class="demo-badge">
-                LinkTap
-              </span>
-
-              <h3>
-                Comparte tu negocio.
-              </h3>
-
-              <p>
-                Redes, contacto y mucho más.
-              </p>
-
+              <span class="demo-badge">LinkTap</span>
+              <h3>Comparte tu negocio.</h3>
+              <p>Redes, contacto y mucho más.</p>
             </div>
-
           </article>
 
         </div>
 
         <div class="swipe-hint">
-          Próximamente agregaremos tus videos reales →
+          Toca ▶ para verlos funcionar · Sin sonido
         </div>
 
       </div>
@@ -6552,7 +6544,7 @@ html{scroll-behavior:smooth}
     serviceSelects.forEach(btn=>btn.addEventListener("click",()=>selectService(btn.dataset.serviceSelect)));
     let serviceScrollTimer;
     serviceVisuals?.addEventListener("scroll",()=>{if(!matchMedia("(max-width:700px)").matches)return;clearTimeout(serviceScrollTimer);serviceScrollTimer=setTimeout(()=>{const box=serviceVisuals.getBoundingClientRect(),center=box.left+box.width/2;let best=serviceCards[0],dist=Infinity;serviceCards.forEach(c=>{const r=c.getBoundingClientRect(),d=Math.abs(r.left+r.width/2-center);if(d<dist){dist=d;best=c}});selectService(best.dataset.serviceCard,false)},90)},{passive:true});
-    selectService("perfil",false);
+    selectService("menu",false);
 
     /* Interactive profile examples — each use case has a distinct layout */
     const profileData={
@@ -6577,16 +6569,52 @@ html{scroll-behavior:smooth}
     /* Reuse the exact customizer state in the Pack 3 visual. */
     function syncPack3(){
       const cards=[...document.querySelectorAll("[data-pack-card]")];if(!cards.length)return;
-      cards.forEach(card=>{card.style.setProperty("--pack-one",colorOne.value);card.style.setProperty("--pack-two",colorTwo.value)});
-      const targets=[...document.querySelectorAll("[data-pack-logo]")];if(!targets.length)return;
-      targets.forEach(target=>{if(logoPreview && logoPreview.src && logoPreview.style.display!=="none"){target.innerHTML=`<img src="${logoPreview.src}" alt="Logo personalizado">`}else{target.textContent="LinkTap"}})
+      const scale=logoScale ? (Number(logoScale.value)/100).toFixed(2) : "1";
+      cards.forEach(card=>{
+        card.style.setProperty("--custom-one",colorOne.value);
+        card.style.setProperty("--custom-two",colorTwo.value);
+        card.style.setProperty("--pack-one",colorOne.value);
+        card.style.setProperty("--pack-two",colorTwo.value);
+        card.style.setProperty("--pack-logo-scale",scale);
+        card.dataset.packStyle=selectedCardStyle;
+      });
+      const targets=[...document.querySelectorAll("[data-pack-logo]")];
+      targets.forEach(target=>{
+        if(logoPreview && logoPreview.src && logoPreview.style.display!=="none"){
+          target.innerHTML=`<img src="${logoPreview.src}" alt="Logo personalizado">`;
+        }else{
+          target.innerHTML=`<span class="pack3-placeholder">TU<br>LOGO</span>`;
+        }
+      });
     }
-    [colorOne,colorTwo].forEach(el=>el&&el.addEventListener("input",syncPack3));logoInput&&logoInput.addEventListener("change",()=>setTimeout(syncPack3,80));syncPack3();
+
+    [colorOne,colorTwo].forEach(el=>el&&el.addEventListener("input",syncPack3));
+    logoInput&&logoInput.addEventListener("change",()=>setTimeout(syncPack3,80));
+    logoScale&&logoScale.addEventListener("input",syncPack3);
+    styleChoices.forEach(btn=>btn.addEventListener("click",()=>setTimeout(syncPack3,0)));
+    syncPack3();
 
     /* Compact horizontal process: progress follows the user's scroll. */
     const flowScroller=document.getElementById("flowScroller"),flowProgress=document.getElementById("flowProgress"),flowSteps=[...document.querySelectorAll(".flow-step")];
     function updateFlow(){if(!flowScroller||!flowProgress)return;const max=Math.max(1,flowScroller.scrollWidth-flowScroller.clientWidth),p=Math.max(0,Math.min(1,flowScroller.scrollLeft/max));flowProgress.style.width=`${25+p*75}%`;const idx=Math.min(flowSteps.length-1,Math.round(p*(flowSteps.length-1)));flowSteps.forEach((s,i)=>s.classList.toggle("active",i===idx))}
     flowScroller&&flowScroller.addEventListener("scroll",updateFlow,{passive:true});updateFlow();
+
+
+    /* Real videos — manual play, always muted, one at a time. */
+    const demoVideoCards=[...document.querySelectorAll("[data-video-card]")];
+    demoVideoCards.forEach(card=>{
+      const video=card.querySelector(".demo-video"),play=card.querySelector(".demo-play");
+      if(!video||!play)return;
+      video.muted=true; video.volume=0;
+      const reset=()=>{card.classList.remove("is-playing");play.textContent="▶";play.setAttribute("aria-label","Reproducir video")};
+      play.addEventListener("click",async()=>{
+        demoVideoCards.forEach(other=>{if(other===card)return;const ov=other.querySelector(".demo-video");if(ov&&!ov.paused){ov.pause();other.classList.remove("is-playing");const op=other.querySelector(".demo-play");if(op)op.textContent="▶"}});
+        if(video.paused){video.muted=true;try{await video.play();card.classList.add("is-playing");play.textContent="❚❚";play.setAttribute("aria-label","Pausar video")}catch(e){}}
+        else{video.pause();reset()}
+      });
+      video.addEventListener("ended",()=>{video.currentTime=0;reset()});
+      video.addEventListener("pause",()=>{if(!video.ended)reset()});
+    });
 
     /* NFC scroll-controlled story — transparent interior reveal */
     const nfcStory=document.getElementById("nfc-story"),
