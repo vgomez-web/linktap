@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>GODPLAY | Tu mundo gamer</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#080808;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* ============================= */
+/* NAV */
+/* ============================= */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:72px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:0 6%;
+
+    z-index:1000;
+
+    background:rgba(10,0,0,.30);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.brand{
+    font-size:22px;
+    font-weight:900;
+    letter-spacing:-1px;
+}
+
+.brand span{
+    color:#ff1a1a;
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+    opacity:.7;
+    transition:.3s;
+}
+
+.menu a:hover{
+    opacity:1;
+}
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+
+.hero{
+    height:100vh;
+    min-height:700px;
+
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at 50% 35%,
+        #ff2a2a 0%,
+        #c40000 28%,
+        #670000 58%,
+        #100000 100%
+    );
+}
+
+/* GLOW */
+
+.hero::before{
+    content:"";
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    background:#ff0000;
+
+    filter:blur(170px);
+    opacity:.45;
+
+    border-radius:50%;
+
+    top:20%;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+/* GRID GAMER */
+
+.grid{
+    position:absolute;
+    inset:0;
+
+    background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+
+    background-size:60px 60px;
+
+    mask-image:linear-gradient(
+        to bottom,
+        transparent,
+        black 30%,
+        black 70%,
+        transparent
+    );
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+    position:relative;
+    z-index:5;
+
+    text-align:center;
+
+    width:90%;
+    max-width:950px;
+}
+
+/* LOGO TEXT */
+
+.godplay{
+    font-size:clamp(72px,13vw,180px);
+    font-weight:900;
+
+    letter-spacing:-8px;
+    line-height:.8;
+
+    text-shadow:
+    0 15px 50px rgba(0,0,0,.35);
+}
+
+.subtitle{
+    margin-top:30px;
+
+    font-size:clamp(20px,3vw,34px);
+
+    font-weight:700;
+    letter-spacing:8px;
+
+    text-transform:uppercase;
+}
+
+.description{
+    margin:22px auto 0;
+
+    max-width:520px;
+
+    font-size:16px;
+    line-height:1.7;
+
+    opacity:.75;
+}
+
+/* BUTTON */
+
+.explore{
+    margin-top:38px;
+
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+
+    padding:17px 28px;
+
+    border-radius:100px;
+
+    background:white;
+    color:#111;
+
+    text-decoration:none;
+
+    font-size:14px;
+    font-weight:800;
+
+    transition:.35s;
+}
+
+.explore:hover{
+    transform:translateY(-4px) scale(1.03);
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.25);
+}
+
+/* SCROLL */
+
+.scroll{
+    position:absolute;
+
+    bottom:35px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:11px;
+
+    letter-spacing:3px;
+
+    opacity:.5;
+
+    z-index:10;
+}
+
+/* ============================= */
+/* CATALOG INTRO */
+/* ============================= */
+
+.catalog{
+    min-height:100vh;
+
+    padding:130px 6%;
+
+    background:#080808;
+}
+
+.section-label{
+    color:#ff2020;
+
+    font-size:12px;
+    font-weight:800;
+
+    letter-spacing:4px;
+
+    margin-bottom:20px;
+}
+
+.catalog h2{
+    font-size:clamp(42px,7vw,90px);
+
+    line-height:.95;
+
+    letter-spacing:-4px;
+
+    max-width:850px;
+}
+
+.catalog-intro{
+    margin-top:25px;
+
+    max-width:550px;
+
+    color:#999;
+
+    font-size:17px;
+    line-height:1.7;
+}
+
+/* ============================= */
+/* CATEGORIES */
+/* ============================= */
+
+.categories{
+    margin-top:70px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(3,1fr);
+
+    gap:18px;
+}
+
+.category{
+    height:430px;
+
+    border-radius:28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    padding:35px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+
+    background:
+    linear-gradient(
+        160deg,
+        #252525,
+        #080808
+    );
+
+    border:
+    1px solid rgba(255,255,255,.08);
+
+    transition:
+    transform .5s,
+    border .5s;
+}
+
+.category:hover{
+    transform:translateY(-10px);
+
+    border-color:
+    rgba(255,255,255,.25);
+}
+
+/* RED CATEGORY */
+
+.category.red{
+    background:
+    radial-gradient(
+        circle at 70% 20%,
+        #ff3333,
+        #bd0000 40%,
+        #510000
+    );
+}
+
+/* BLUE CATEGORY */
+
+.category.blue{
+    background:
+    radial-gradient(
+        circle at 70% 20%,
+        #2968ff,
+        #10246b 45%,
+        #060817
+    );
+}
+
+/* GREEN CATEGORY */
+
+.category.green{
+    background:
+    radial-gradient(
+        circle at 70% 20%,
+        #38d870,
+        #0b5629 45%,
+        #06130a
+    );
+}
+
+.category-number{
+    position:absolute;
+
+    top:25px;
+    right:28px;
+
+    opacity:.4;
+
+    font-size:13px;
+}
+
+.category h3{
+    font-size:38px;
+
+    letter-spacing:-2px;
+}
+
+.category p{
+    margin-top:10px;
+
+    opacity:.65;
+
+    font-size:14px;
+}
+
+/* ============================= */
+/* GAMES EXPERIENCE */
+/* ============================= */
+
+.games{
+    min-height:100vh;
+
+    padding:120px 0;
+
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at center,
+        #350000,
+        #090909 65%
+    );
+}
+
+.games-title{
+    padding:0 6%;
+}
+
+.games-title h2{
+    font-size:clamp(50px,8vw,110px);
+
+    letter-spacing:-5px;
+}
+
+.games-title p{
+    margin-top:15px;
+
+    color:#999;
+}
+
+/* CAROUSEL */
+
+.carousel{
+    margin-top:80px;
+
+    height:460px;
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    perspective:1300px;
+}
+
+.game{
+    position:absolute;
+
+    width:260px;
+    height:370px;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff3030,
+        #660000
+    );
+
+    box-shadow:
+    0 40px 90px rgba(0,0,0,.6);
+
+    transition:
+    transform .7s cubic-bezier(.2,.8,.2,1),
+    opacity .7s;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    font-size:24px;
+    font-weight:900;
+
+    overflow:hidden;
+}
+
+.game:nth-child(1){
+    transform:
+    translateX(-440px)
+    rotateY(55deg)
+    scale(.75);
+
+    opacity:.35;
+}
+
+.game:nth-child(2){
+    transform:
+    translateX(-250px)
+    rotateY(38deg)
+    scale(.86);
+
+    opacity:.65;
+}
+
+.game:nth-child(3){
+    transform:
+    translateX(0)
+    rotateY(0)
+    scale(1.1);
+
+    z-index:5;
+}
+
+.game:nth-child(4){
+    transform:
+    translateX(250px)
+    rotateY(-38deg)
+    scale(.86);
+
+    opacity:.65;
+}
+
+.game:nth-child(5){
+    transform:
+    translateX(440px)
+    rotateY(-55deg)
+    scale(.75);
+
+    opacity:.35;
+}
+
+/* PRODUCT INFO */
+
+.product-info{
+    text-align:center;
+
+    margin-top:25px;
+}
+
+.product-info h3{
+    font-size:27px;
+}
+
+.product-info span{
+    display:block;
+
+    margin-top:8px;
+
+    color:#aaa;
+}
+
+.price{
+    margin-top:12px;
+
+    font-size:24px;
+    font-weight:800;
+}
+
+.whatsapp{
+    margin-top:20px;
+
+    display:inline-block;
+
+    background:#fff;
+    color:#111;
+
+    padding:15px 25px;
+
+    border-radius:100px;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+    font-size:13px;
+}
+
+/* ============================= */
+/* STORE */
+/* ============================= */
+
+.store{
+    height:85vh;
+    min-height:600px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    background:
+    linear-gradient(
+        rgba(70,0,0,.72),
+        rgba(0,0,0,.92)
+    ),
+    url('assets/local.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+    overflow:hidden;
+}
+
+.store-content{
+    position:relative;
+    z-index:5;
+
+    width:90%;
+}
+
+.store small{
+    color:#ff3b3b;
+
+    letter-spacing:4px;
+
+    font-weight:800;
+}
+
+.store h2{
+    margin-top:18px;
+
+    font-size:clamp(50px,9vw,120px);
+
+    letter-spacing:-6px;
+
+    line-height:.9;
+}
+
+.store p{
+    margin:25px auto;
+
+    max-width:500px;
+
+    color:#bbb;
+
+    line-height:1.7;
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+
+footer{
+    padding:60px 6%;
+
+    display:flex;
+
+    justify-content:space-between;
+    align-items:center;
+
+    background:#050505;
+
+    border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+footer strong{
+    font-size:20px;
+}
+
+footer p{
+    font-size:12px;
+
+    color:#666;
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+
+@media(max-width:800px){
+
+    nav{
+        height:65px;
+        padding:0 20px;
+    }
+
+    .menu{
+        display:none;
+    }
+
+    .hero{
+        min-height:100svh;
+    }
+
+    .godplay{
+        font-size:19vw;
+        letter-spacing:-5px;
+    }
+
+    .subtitle{
+        font-size:16px;
+        letter-spacing:5px;
+    }
+
+    .description{
+        font-size:14px;
+        padding:0 15px;
+    }
+
+    .catalog{
+        padding:
+        100px 20px;
+    }
+
+    .catalog h2{
+        letter-spacing:-2px;
+    }
+
+    .categories{
+        grid-template-columns:1fr;
+    }
+
+    .category{
+        height:260px;
+    }
+
+    .games{
+        padding-top:100px;
+    }
+
+    .games-title{
+        padding:0 20px;
+    }
+
+    .games-title h2{
+        letter-spacing:-3px;
+    }
+
+    .carousel{
+        height:380px;
+    }
+
+    .game{
+        width:210px;
+        height:300px;
+    }
+
+    .game:nth-child(1){
+        transform:
+        translateX(-300px)
+        rotateY(60deg)
+        scale(.65);
+    }
+
+    .game:nth-child(2){
+        transform:
+        translateX(-175px)
+        rotateY(45deg)
+        scale(.78);
+    }
+
+    .game:nth-child(3){
+        transform:
+        translateX(0)
+        scale(1);
+    }
+
+    .game:nth-child(4){
+        transform:
+        translateX(175px)
+        rotateY(-45deg)
+        scale(.78);
+    }
+
+    .game:nth-child(5){
+        transform:
+        translateX(300px)
+        rotateY(-60deg)
+        scale(.65);
+    }
+
+    .store h2{
+        letter-spacing:-3px;
+    }
+
+    footer{
+        flex-direction:column;
+        gap:15px;
+
+        text-align:center;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+
+<nav>
+
+    <div class="brand">
+        GOD<span>PLAY</span>
+    </div>
+
+    <div class="menu">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#juegos">Juegos</a>
+        <a href="#local">Local</a>
+    </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="grid"></div>
+
+    <div class="hero-content">
+
+        <h1 class="godplay">
+            GODPLAY
+        </h1>
+
+        <div class="subtitle">
+            TU MUNDO GAMER
+        </div>
+
+        <p class="description">
+            Explora nuestro catálogo de consolas,
+            juegos y accesorios.
+        </p>
+
+        <a
+        href="#catalogo"
+        class="explore">
+            EXPLORA EL CATÁLOGO ↓
+        </a>
+
+    </div>
+
+    <div class="scroll">
+        DESLIZA PARA EXPLORAR
+    </div>
+
+</section>
+
+
+<!-- CATALOG -->
+
+<section
+class="catalog"
+id="catalogo">
+
+    <div class="section-label">
+        CATÁLOGO DIGITAL
+    </div>
+
+    <h2>
+        ELIGE TU
+        MUNDO.
+    </h2>
+
+    <p class="catalog-intro">
+        Encuentra consolas, juegos y accesorios
+        organizados por plataforma.
+    </p>
+
+
+    <div class="categories">
+
+        <div class="category red">
+
+            <span class="category-number">
+                01
+            </span>
+
+            <h3>
+                Nintendo
+            </h3>
+
+            <p>
+                Switch · Juegos · Accesorios →
+            </p>
+
+        </div>
+
+
+        <div class="category blue">
+
+            <span class="category-number">
+                02
+            </span>
+
+            <h3>
+                PlayStation
+            </h3>
+
+            <p>
+                PS5 · Juegos · Accesorios →
+            </p>
+
+        </div>
+
+
+        <div class="category green">
+
+            <span class="category-number">
+                03
+            </span>
+
+            <h3>
+                Xbox
+            </h3>
+
+            <p>
+                Consolas · Juegos · Accesorios →
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GAMES -->
+
+<section
+class="games"
+id="juegos">
+
+    <div class="games-title">
+
+        <div class="section-label">
+            JUEGOS
+        </div>
+
+        <h2>
+            ELIGE TU
+            PRÓXIMA AVENTURA.
+        </h2>
+
+        <p>
+            Desliza para explorar nuestro catálogo.
+        </p>
+
+    </div>
+
+
+    <div class="carousel">
+
+        <div class="game">
+            JUEGO 01
+        </div>
+
+        <div class="game">
+            JUEGO 02
+        </div>
+
+        <div class="game">
+            MARIO KART
+        </div>
+
+        <div class="game">
+            JUEGO 04
+        </div>
+
+        <div class="game">
+            JUEGO 05
+        </div>
+
+    </div>
+
+
+    <div class="product-info">
+
+        <h3>
+            Mario Kart 8 Deluxe
+        </h3>
+
+        <span>
+            Nintendo Switch · Disponible
+        </span>
+
+        <div class="price">
+            $XX.990
+        </div>
+
+        <a
+        href="#"
+        class="whatsapp">
+            CONSULTAR POR WHATSAPP →
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- LOCAL -->
+
+<section
+class="store"
+id="local">
+
+    <div class="store-content">
+
+        <small>
+            GODPLAY STORE
+        </small>
+
+        <h2>
+            VIVE GODPLAY
+            EN PERSONA.
+        </h2>
+
+        <p>
+            Ven a conocer nuestro local y descubre
+            consolas, juegos y accesorios en tienda.
+        </p>
+
+        <a
+        href="#"
+        class="explore">
+            CÓMO LLEGAR →
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <strong>
+        GODPLAY
+    </strong>
+
+    <p>
+        TU MUNDO GAMER
+    </p>
+
+</footer>
+
+<script>
+
+/* ============================
+   PARALLAX HERO
+============================ */
+
+const heroContent =
+document.querySelector('.hero-content');
+
+window.addEventListener(
+'scroll',
+()=>{
+
+    const y =
+    window.scrollY;
+
+    if(y < window.innerHeight){
+
+        heroContent.style.transform =
+        `translateY(${y * .18}px)
+        scale(${1 - y * .00015})`;
+
+        heroContent.style.opacity =
+        1 - y / 850;
+
+    }
+
+});
+
+
+/* ============================
+   CATEGORY MOUSE DEPTH
+============================ */
+
+document
+.querySelectorAll('.category')
+.forEach(card=>{
+
+    card.addEventListener(
+    'mousemove',
+    e=>{
+
+        const rect =
+        card.getBoundingClientRect();
+
+        const x =
+        e.clientX - rect.left;
+
+        const y =
+        e.clientY - rect.top;
+
+        const rotateY =
+        (x / rect.width - .5) * 7;
+
+        const rotateX =
+        (y / rect.height - .5) * -7;
+
+        card.style.transform =
+        `
+        perspective(900px)
+        rotateX(${rotateX}deg)
+        rotateY(${rotateY}deg)
+        translateY(-8px)
+        `;
+
+    });
+
+    card.addEventListener(
+    'mouseleave',
+    ()=>{
+
+        card.style.transform =
+        '';
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
