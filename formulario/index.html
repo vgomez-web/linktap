@@ -1,63 +1,971 @@
+
 <!doctype html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Crear mi perfil digital | LinkTap</title>
 <meta name="theme-color" content="#ffffff">
+<title>Crear mi perfil digital | LinkTap</title>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
-:root{--blue:#1677ff;--ink:#171719;--muted:#6e6e73;--soft:#f5f5f7;--line:#e8e8ed}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#fff;color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}button,input,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:20;background:#ffffffdf;backdrop-filter:blur(20px);border-bottom:1px solid var(--line)}nav{max-width:1080px;margin:auto;padding:18px 22px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800;font-size:24px;letter-spacing:-1px}.brand span{color:var(--blue)}.back{font-size:13px;color:var(--muted)}main{max-width:820px;margin:auto;padding:50px 20px 80px}.eyebrow{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}h1{font-size:clamp(36px,7vw,60px);line-height:1.08;letter-spacing:-2px;margin:15px 0}h1 span{color:var(--blue)}.lead{color:var(--muted);line-height:1.6;font-size:17px}.pill{display:inline-block;background:#edf5ff;color:#0863dc;border-radius:99px;padding:8px 14px;font-size:12px;font-weight:700}.section{margin-top:30px;padding:26px;border:1px solid var(--line);border-radius:28px}.section h2{margin:0 0 8px;font-size:23px;letter-spacing:-.6px}.hint{color:var(--muted);font-size:14px;line-height:1.55;margin:0 0 20px}.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.choices.two{grid-template-columns:repeat(2,1fr)}.choice{border:1.5px solid var(--line);border-radius:18px;background:#fff;text-align:left;padding:16px;min-height:94px}.choice strong{display:block;font-size:15px;margin-bottom:7px}.choice small{color:var(--muted);line-height:1.4}.choice.active{border-color:var(--blue);background:#f2f7ff}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.field{min-width:0}.field.full{grid-column:1/-1}.field label{display:block;font-size:13px;font-weight:650;margin-bottom:8px}.optional{color:var(--muted);font-weight:400;font-size:11px}input:not([type=checkbox]),textarea{width:100%;border:1px solid #dedee4;border-radius:14px;padding:14px 15px;background:#fff;color:var(--ink);outline:none}input:focus,textarea:focus{border-color:var(--blue)}textarea{min-height:95px;resize:vertical}.person{border:1px solid var(--line);border-radius:22px;background:#fcfcfd;padding:20px;margin-top:14px}.personhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.personhead h3{margin:0;font-size:17px}.linkbtn{background:none;border:0;color:var(--blue);font-weight:700}.add{width:100%;padding:16px;border:1px dashed #8dbdff;border-radius:16px;color:#0863dc;background:#f5f9ff;font-weight:700;margin-top:14px}.primary{width:100%;background:var(--blue);border:0;border-radius:16px;padding:16px;color:white;font-weight:750;margin-top:20px}.primary:disabled{opacity:.45;cursor:not-allowed}.hidden{display:none!important}.status{color:var(--muted);font-size:13px;line-height:1.6}.summary{white-space:pre-wrap;background:var(--soft);border-radius:16px;padding:20px;font-size:13px;line-height:1.65;overflow-wrap:anywhere}.checkline{display:flex;gap:10px;align-items:flex-start;margin-top:18px}.checkline label{font-size:13px;color:var(--muted);line-height:1.5}.help{background:var(--soft);padding:20px;border-radius:20px;margin-top:25px;font-size:14px}.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:40px}.turnstile-wrap{margin-top:18px}.notice{background:#fff8e8;border:1px solid #f4dcac;padding:14px;border-radius:14px;font-size:13px;line-height:1.5;margin-top:15px}@media(max-width:600px){main{padding:34px 16px 70px}.section{padding:20px;border-radius:23px}.choices{grid-template-columns:1fr}.choices.two{grid-template-columns:1fr 1fr}.fields{grid-template-columns:1fr}.field.full{grid-column:auto}}
+:root {
+  --blue:#1677ff;
+  --ink:#171719;
+  --muted:#6e6e73;
+  --soft:#f5f5f7;
+  --line:#e8e8ed;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  background:#fff;
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",
+    "Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,textarea { font:inherit; }
+button { cursor:pointer; }
+a { color:inherit;text-decoration:none; }
+.top {
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:#ffffffdf;
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+nav {
+  max-width:1080px;
+  margin:auto;
+  padding:18px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand { font-weight:800;font-size:24px;letter-spacing:-1px; }
+.brand span,h1 span { color:var(--blue); }
+.back { font-size:13px;color:var(--muted); }
+main { max-width:820px;margin:auto;padding:50px 20px 80px; }
+.eyebrow {
+  color:var(--blue);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+h1 {
+  font-size:clamp(36px,7vw,60px);
+  line-height:1.08;
+  letter-spacing:-2px;
+  margin:15px 0;
+}
+.lead { color:var(--muted);line-height:1.6;font-size:17px; }
+.pill {
+  display:inline-block;
+  background:#edf5ff;
+  color:#0863dc;
+  border-radius:99px;
+  padding:8px 14px;
+  font-size:12px;
+  font-weight:700;
+}
+.section {
+  margin-top:30px;
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:28px;
+}
+.section h2 { margin:0 0 8px;font-size:23px;letter-spacing:-.6px; }
+.hint {
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.55;
+  margin:0 0 20px;
+}
+.choices {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.choices.two { grid-template-columns:repeat(2,1fr); }
+.choice {
+  border:1.5px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  text-align:left;
+  padding:16px;
+  min-height:94px;
+}
+.choice strong { display:block;font-size:15px;margin-bottom:7px; }
+.choice small { color:var(--muted);line-height:1.4; }
+.choice.active { border-color:var(--blue);background:#f2f7ff; }
+.fields {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+.field { min-width:0; }
+.field.full { grid-column:1/-1; }
+.field label {
+  display:block;
+  font-size:13px;
+  font-weight:650;
+  margin-bottom:8px;
+}
+.optional {
+  color:var(--muted);
+  font-weight:400;
+  font-size:11px;
+}
+input:not([type=checkbox]),textarea {
+  width:100%;
+  border:1px solid #dedee4;
+  border-radius:14px;
+  padding:14px 15px;
+  background:#fff;
+  color:var(--ink);
+  outline:none;
+}
+input:focus,textarea:focus { border-color:var(--blue); }
+textarea { min-height:95px;resize:vertical; }
+.person {
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:#fcfcfd;
+  padding:20px;
+  margin-top:14px;
+}
+.personhead {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+}
+.personhead h3 { margin:0;font-size:17px; }
+.linkbtn {
+  background:none;
+  border:0;
+  color:var(--blue);
+  font-weight:700;
+}
+.add {
+  width:100%;
+  padding:16px;
+  border:1px dashed #8dbdff;
+  border-radius:16px;
+  color:#0863dc;
+  background:#f5f9ff;
+  font-weight:700;
+  margin-top:14px;
+}
+.primary {
+  width:100%;
+  background:var(--blue);
+  border:0;
+  border-radius:16px;
+  padding:16px;
+  color:white;
+  font-weight:750;
+  margin-top:20px;
+}
+.primary:disabled { opacity:.45;cursor:not-allowed; }
+.hidden { display:none!important; }
+.status {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.6;
+}
+.summary {
+  white-space:pre-wrap;
+  background:var(--soft);
+  border-radius:16px;
+  padding:20px;
+  font-size:13px;
+  line-height:1.65;
+  overflow-wrap:anywhere;
+}
+.checkline {
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  margin-top:18px;
+}
+.checkline label {
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.5;
+}
+.help {
+  background:var(--soft);
+  padding:20px;
+  border-radius:20px;
+  margin-top:25px;
+  font-size:14px;
+}
+.footer {
+  text-align:center;
+  color:var(--muted);
+  font-size:12px;
+  margin-top:40px;
+}
+.turnstile-wrap { margin-top:18px; }
+.notice {
+  background:#fff8e8;
+  border:1px solid #f4dcac;
+  padding:14px;
+  border-radius:14px;
+  font-size:13px;
+  line-height:1.5;
+  margin-top:15px;
+}
+@media(max-width:600px) {
+  main { padding:34px 16px 70px; }
+  .section { padding:20px;border-radius:23px; }
+  .choices { grid-template-columns:1fr; }
+  .choices.two { grid-template-columns:1fr 1fr; }
+  .fields { grid-template-columns:1fr; }
+  .field.full { grid-column:auto; }
+}
 </style>
 </head>
 <body>
-<header class="top"><nav><a class="brand" href="/">Link<span>Tap</span></a><a class="back" href="/">← Volver al sitio</a></nav></header>
+
+<header class="top">
+  <nav>
+    <a class="brand" href="/">Link<span>Tap</span></a>
+    <a class="back" href="/">← Volver al sitio</a>
+  </nav>
+</header>
+
 <main>
-<div class="eyebrow">LinkTap · Perfiles digitales</div>
-<h1>Tu perfil digital<br><span>empieza aquí.</span></h1>
-<p class="lead">Cuéntanos lo esencial de ti o tu empresa. Completa solo la información que quieras incluir en tus perfiles.</p>
-<span class="pill">Fácil de completar · Diseñado para tu celular</span>
-<form id="form" novalidate>
-<section class="section"><h2>01. Elige tu perfil</h2><p class="hint">Selecciona el plan que acordaste con LinkTap.</p><div class="choices" id="plans"><button type="button" class="choice active" data-value="necesario"><strong>Necesario</strong><small>Información y contacto esencial.</small></button><button type="button" class="choice" data-value="pro"><strong>Pro</strong><small>Presentación, servicios y enlaces.</small></button><button type="button" class="choice" data-value="completo"><strong>Completo</strong><small>Galería, video y contenido adicional.</small></button></div></section>
-<section class="section"><h2>02. ¿Para quién es?</h2><p class="hint">Si es una empresa, ingresas los datos corporativos una sola vez.</p><div class="choices two" id="types"><button type="button" class="choice active" data-value="individual"><strong>Para mí</strong><small>Un perfil personal o profesional.</small></button><button type="button" class="choice" data-value="empresa"><strong>Para una empresa</strong><small>Uno o varios ejecutivos.</small></button></div></section>
-<section class="section"><h2>03. Datos de contacto</h2><p class="hint">Estos datos son para confirmar tu solicitud y responderte.</p><div class="fields"><div class="field"><label for="contact">Tu nombre *</label><input id="contact" autocomplete="name" required maxlength="150" placeholder="Nombre de quien solicita"></div><div class="field"><label for="email">Correo electrónico *</label><input id="email" type="email" autocomplete="email" required maxlength="254" placeholder="correo@ejemplo.cl"></div><div class="field full"><label for="phone">WhatsApp de contacto <span class="optional">(opcional)</span></label><input id="phone" type="tel" maxlength="40" placeholder="+56 9 ..."></div></div></section>
-<section class="section hidden" id="company-section"><h2>04. Tu empresa</h2><p class="hint">Información compartida para los perfiles de tus ejecutivos.</p><div class="fields"><div class="field"><label for="company">Nombre de la empresa *</label><input id="company" maxlength="200" placeholder="Nombre comercial"></div><div class="field"><label for="company-web">Sitio web</label><input id="company-web" placeholder="https://..."></div><div class="field"><label for="company-social">Instagram corporativo</label><input id="company-social" placeholder="@empresa"></div><div class="field"><label for="company-address">Dirección</label><input id="company-address" placeholder="Ciudad o dirección"></div></div></section>
-<section class="section"><h2 id="people-title">04. Tu información</h2><p class="hint">Agrega los datos que quieres mostrar. Los campos de cada perfil son opcionales.</p><div id="people"></div><button type="button" id="add" class="add hidden">+ Agregar otro ejecutivo</button></section>
-<section class="section"><h2 id="last-title">05. Últimos detalles</h2><p class="hint">¿Quieres agregar alguna instrucción especial?</p><div class="field"><label for="notes">Comentarios <span class="optional">(opcional)</span></label><textarea id="notes" maxlength="3000" placeholder="Cuéntanos aquí..."></textarea></div><div class="checkline"><input type="checkbox" id="agree" required><label for="agree">Confirmo que tengo autorización para compartir estos datos con LinkTap para preparar los perfiles digitales. *</label></div><button type="button" class="primary" id="review">Revisar mi información →</button><p class="status">Tu información se guarda temporalmente en este navegador mientras completas el formulario.</p></section>
-<section class="section hidden" id="review-section"><h2>Revisa antes de enviar</h2><p class="hint">Comprueba que la información esté correcta.</p><div class="summary" id="summary"></div><div class="notice">Por ahora este formulario no permite subir fotografías ni logos. Puedes enviarlos posteriormente por el canal que acuerdes con LinkTap.</div><div class="turnstile-wrap"><div class="cf-turnstile" data-sitekey="0x4AAAAAAFcV6Z4oXF7n2k55" data-callback="linktapVerified" data-expired-callback="linktapExpired" data-error-callback="linktapExpired"></div></div><button type="button" class="primary" id="send" disabled>Enviar solicitud</button><p class="status" id="send-status" role="status" aria-live="polite">Completa la verificación de seguridad para continuar.</p></section>
-</form>
-<div class="help"><strong>¿Tienes dudas o necesitas agregar algo más?</strong><p class="status">Puedes hablar directamente con LinkTap. El contacto de WhatsApp se habilitará cuando confirmemos el número de atención.</p></div>
-<footer class="footer">LinkTap · Tu negocio, a un tap</footer>
+  <div class="eyebrow">LinkTap · Perfiles digitales</div>
+  <h1>Tu perfil digital<br><span>empieza aquí.</span></h1>
+  <p class="lead">
+    Cuéntanos lo esencial de ti o tu empresa.
+    Completa solo la información que quieras incluir en tus perfiles.
+  </p>
+  <span class="pill">Fácil de completar · Diseñado para tu celular</span>
+
+  <form id="form" novalidate>
+
+    <section class="section">
+      <h2>01. Elige tu perfil</h2>
+      <p class="hint">Selecciona el plan que acordaste con LinkTap.</p>
+      <div class="choices" id="plans">
+        <button type="button" class="choice active" data-value="necesario">
+          <strong>Necesario</strong>
+          <small>Información y contacto esencial.</small>
+        </button>
+        <button type="button" class="choice" data-value="pro">
+          <strong>Pro</strong>
+          <small>Presentación, servicios y enlaces.</small>
+        </button>
+        <button type="button" class="choice" data-value="completo">
+          <strong>Completo</strong>
+          <small>Galería, video y contenido adicional.</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>02. ¿Para quién es?</h2>
+      <p class="hint">
+        Si es una empresa, ingresas los datos corporativos una sola vez.
+      </p>
+      <div class="choices two" id="types">
+        <button type="button" class="choice active" data-value="individual">
+          <strong>Para mí</strong>
+          <small>Un perfil personal o profesional.</small>
+        </button>
+        <button type="button" class="choice" data-value="empresa">
+          <strong>Para una empresa</strong>
+          <small>Uno o varios ejecutivos.</small>
+        </button>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>03. Datos de contacto</h2>
+      <p class="hint">
+        Estos datos son para confirmar tu solicitud y responderte.
+      </p>
+      <div class="fields">
+        <div class="field">
+          <label for="contact">Tu nombre *</label>
+          <input id="contact" autocomplete="name" required
+            maxlength="150" placeholder="Nombre de quien solicita">
+        </div>
+        <div class="field">
+          <label for="email">Correo electrónico *</label>
+          <input id="email" type="email" autocomplete="email"
+            required maxlength="254" placeholder="correo@ejemplo.cl">
+        </div>
+        <div class="field full">
+          <label for="phone">
+            WhatsApp de contacto
+            <span class="optional">(opcional)</span>
+          </label>
+          <input id="phone" type="tel" maxlength="40"
+            placeholder="+56 9 ...">
+        </div>
+      </div>
+    </section>
+
+    <section class="section hidden" id="company-section">
+      <h2>04. Tu empresa</h2>
+      <p class="hint">
+        Información compartida para los perfiles de tus ejecutivos.
+      </p>
+      <div class="fields">
+        <div class="field">
+          <label for="company">Nombre de la empresa *</label>
+          <input id="company" maxlength="200"
+            placeholder="Nombre comercial">
+        </div>
+        <div class="field">
+          <label for="company-web">Sitio web</label>
+          <input id="company-web" placeholder="https://...">
+        </div>
+        <div class="field">
+          <label for="company-social">Instagram corporativo</label>
+          <input id="company-social" placeholder="@empresa">
+        </div>
+        <div class="field">
+          <label for="company-address">Dirección</label>
+          <input id="company-address" placeholder="Ciudad o dirección">
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 id="people-title">04. Tu información</h2>
+      <p class="hint">
+        Agrega los datos que quieres mostrar.
+        Los campos de cada perfil son opcionales.
+      </p>
+      <div id="people"></div>
+      <button type="button" id="add" class="add hidden">
+        + Agregar otro ejecutivo
+      </button>
+    </section>
+
+    <section class="section">
+      <h2 id="last-title">05. Últimos detalles</h2>
+      <p class="hint">¿Quieres agregar alguna instrucción especial?</p>
+      <div class="field">
+        <label for="notes">
+          Comentarios <span class="optional">(opcional)</span>
+        </label>
+        <textarea id="notes" maxlength="3000"
+          placeholder="Cuéntanos aquí..."></textarea>
+      </div>
+      <div class="checkline">
+        <input type="checkbox" id="agree" required>
+        <label for="agree">
+          Confirmo que tengo autorización para compartir estos datos
+          con LinkTap para preparar los perfiles digitales. *
+        </label>
+      </div>
+      <button type="button" class="primary" id="review">
+        Revisar mi información →
+      </button>
+      <p class="status">
+        Tu información se guarda temporalmente en este navegador
+        mientras completas el formulario.
+      </p>
+    </section>
+
+    <section class="section hidden" id="review-section">
+      <h2>Revisa antes de enviar</h2>
+      <p class="hint">Comprueba que la información esté correcta.</p>
+      <div class="summary" id="summary"></div>
+
+      <div class="notice">
+        Por ahora este formulario no permite subir fotografías ni logos.
+        Puedes enviarlos posteriormente por el canal que acuerdes con LinkTap.
+      </div>
+
+      <div class="turnstile-wrap">
+        <div class="cf-turnstile"
+          data-sitekey="0x4AAAAAAFcV6Z4oXF7n2k55"
+          data-callback="linktapVerified"
+          data-expired-callback="linktapExpired"
+          data-error-callback="linktapExpired">
+        </div>
+      </div>
+
+      <button type="button" class="primary" id="send" disabled>
+        Enviar solicitud
+      </button>
+      <p class="status" id="send-status"
+        role="status" aria-live="polite">
+        Completa la verificación de seguridad para continuar.
+      </p>
+    </section>
+
+  </form>
+
+  <div class="help">
+    <strong>¿Tienes dudas o necesitas agregar algo más?</strong>
+    <p class="status">
+      Puedes hablar directamente con LinkTap.
+      El contacto de WhatsApp se habilitará cuando confirmemos
+      el número de atención.
+    </p>
+  </div>
+
+  <footer class="footer">LinkTap · Tu negocio, a un tap</footer>
 </main>
+
 <script>
-(()=>{'use strict';
-const API='https://linktap-formularios-api.v-gomezsitja.workers.dev/api/solicitudes';
-const TEST_MODE=true; // Cambiar a false SOLO cuando el Worker y D1 se hayan probado de extremo a extremo.
-const $=id=>document.getElementById(id);
-let plan='necesario',tipo='individual',nextId=0,token='';
-const val=id=>$(id)?.value?.trim()||'';
-const safe=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c]));
-const draftKey='linktap-formulario-borrador-v2';
-function field(id,label,placeholder='',kind='text',full=false){return `<div class="field ${full?'full':''}"><label for="${id}">${label} <span class="optional">(opcional)</span></label>${kind==='textarea'?`<textarea id="${id}" placeholder="${safe(placeholder)}"></textarea>`:`<input id="${id}" type="${kind}" placeholder="${safe(placeholder)}">`}</div>`}
-function setupChoices(id,cb){$(id).addEventListener('click',e=>{const b=e.target.closest('[data-value]');if(!b)return;$(id).querySelectorAll('.choice').forEach(x=>x.classList.toggle('active',x===b));cb(b.dataset.value);save()})}
-setupChoices('plans',v=>{plan=v;renderExtras();hideReview()});
-setupChoices('types',v=>{tipo=v;const company=v==='empresa';$('company-section').classList.toggle('hidden',!company);$('add').classList.toggle('hidden',!company);$('people-title').textContent=company?'05. Datos de los ejecutivos':'04. Tu información';$('last-title').textContent=company?'06. Últimos detalles':'05. Últimos detalles';if(!company){while($('people').children.length>1)$('people').lastElementChild.remove()}hideReview()});
-function addPerson(){if($('people').children.length>=30)return;const n=++nextId;const el=document.createElement('div');el.className='person';el.dataset.person=n;el.innerHTML=`<div class="personhead"><h3>Perfil ${$('people').children.length+1}</h3><button type="button" class="linkbtn remove">Quitar</button></div><div class="fields">${field('name-'+n,'Nombre y apellido','Nombre que aparecerá')}${field('role-'+n,'Cargo o profesión','Ejecutivo comercial')}${field('whatsapp-'+n,'WhatsApp','+56 9 ...','tel')}${field('mail-'+n,'Correo profesional','correo@ejemplo.cl','email')}${field('instagram-'+n,'Instagram','@usuario')}<div class="extras" data-extras="${n}" style="display:contents"></div></div>`;$('people').appendChild(el);renderExtras();refreshPeople()}
-function refreshPeople(){$('people').querySelectorAll('.person').forEach((p,i)=>{p.querySelector('h3').textContent=(tipo==='empresa'?'Ejecutivo ':'Perfil ')+(i+1);p.querySelector('.remove').classList.toggle('hidden',tipo==='individual'||$('people').children.length===1)})}
-$('people').addEventListener('click',e=>{if(!e.target.classList.contains('remove'))return;e.target.closest('.person').remove();refreshPeople();hideReview();save()});
-$('add').addEventListener('click',()=>{addPerson();save();$('people').lastElementChild.scrollIntoView({behavior:'smooth',block:'center'})});
-function renderExtras(){document.querySelectorAll('[data-extras]').forEach(el=>{const n=el.dataset.extras;const saved={};el.querySelectorAll('input,textarea').forEach(x=>saved[x.id]=x.value);let html='';if(plan!=='necesario')html+=field('description-'+n,'Presentación','Cuéntanos sobre ti','textarea',true)+field('services-'+n,'Servicios o especialidades','Servicios que ofreces','textarea',true)+field('linkedin-'+n,'LinkedIn','https://linkedin.com/in/...');if(plan==='completo')html+=field('video-'+n,'Video (enlace)','https://...')+field('booking-'+n,'Reservas (enlace)','https://...')+field('catalog-'+n,'Catálogo (enlace)','https://...')+field('testimonials-'+n,'Testimonios','Opcional','textarea',true);el.innerHTML=html;el.querySelectorAll('input,textarea').forEach(x=>{if(saved[x.id]!==undefined)x.value=saved[x.id]})})}
-function profiles(){return [...document.querySelectorAll('.person')].map(p=>{const n=p.dataset.person;return {nombre:val('name-'+n),cargo:val('role-'+n),profesion:val('role-'+n),whatsapp:val('whatsapp-'+n),correo:val('mail-'+n),instagram:val('instagram-'+n),linkedin:val('linkedin-'+n),descripcion:val('description-'+n),servicios:val('services-'+n),enlaces:{video:val('video-'+n),reservas:val('booking-'+n),catalogo:val('catalog-'+n)},datos_extra:{testimonios:val('testimonials-'+n)}}})}
-function payload(){return {tipo_cliente:tipo,plan,nombre_contacto:val('contact'),correo_contacto:val('email'),telefono_contacto:val('phone'),notas:val('notes'),empresa:tipo==='empresa'?{nombre:val('company'),sitio_web:val('company-web'),direccion:val('company-address'),redes_sociales:{instagram:val('company-social')}}:null,perfiles:profiles(),turnstileToken:token}}
-function hideReview(){$('review-section').classList.add('hidden')}
-function save(){const data={plan,tipo,people:profiles(),values:{}};document.querySelectorAll('#form input:not([type=checkbox]),#form textarea').forEach(x=>data.values[x.id]=x.value);try{localStorage.setItem(draftKey,JSON.stringify(data))}catch{}}
-function restore(){let data;try{data=JSON.parse(localStorage.getItem(draftKey)||'null')}catch{}if(!data)return;if(['necesario','pro','completo'].includes(data.plan)){$('plans').querySelector(`[data-value="${data.plan}"]`).click()}if(['individual','empresa'].includes(data.tipo)){$('types').querySelector(`[data-value="${data.tipo}"]`).click()}const amount=Math.min(30,Math.max(1,data.people?.length||1));while($('people').children.length<amount)addPerson();document.querySelectorAll('#form input:not([type=checkbox]),#form textarea').forEach(x=>{if(typeof data.values?.[x.id]==='string')x.value=data.values[x.id]})}
-$('form').addEventListener('input',save);
-$('review').addEventListener('click',()=>{if(!val('contact')||!$('email').checkValidity()||!val('email')||!$('agree').checked){alert('Completa tu nombre, un correo válido y la autorización.');return}if(tipo==='empresa'&&!val('company')){alert('Indica el nombre de la empresa.');return}const p=payload();const lines=[`Plan: ${plan}`,`Tipo: ${tipo}`,`Contacto: ${p.nombre_contacto}`,`Correo: ${p.correo_contacto}`,`WhatsApp: ${p.telefono_contacto||'No indicado'}`];if(tipo==='empresa')lines.push(`Empresa: ${p.empresa.nombre}`,`Sitio: ${p.empresa.sitio_web||'No indicado'}`,`Instagram: ${p.empresa.redes_sociales.instagram||'No indicado'}`,`Dirección: ${p.empresa.direccion||'No indicada'}`);p.perfiles.forEach((x,i)=>lines.push(`\nPerfil ${i+1}`,`Nombre: ${x.nombre||'No indicado'}`,`Cargo: ${x.cargo||'No indicado'}`,`WhatsApp: ${x.whatsapp||'No indicado'}`,`Correo: ${x.correo||'No indicado'}`,`Instagram: ${x.instagram||'No indicado'}`,...(plan!=='necesario'?[`Presentación: ${x.descripcion||'No indicada'}`,`Servicios: ${x.servicios||'No indicados'}`,`LinkedIn: ${x.linkedin||'No indicado'}`]:[]),...(plan==='completo'?[`Video: ${x.enlaces.video||'No indicado'}`,`Reservas: ${x.enlaces.reservas||'No indicadas'}`,`Catálogo: ${x.enlaces.catalogo||'No indicado'}`,`Testimonios: ${x.datos_extra.testimonios||'No indicados'}`]:[])));lines.push(`\nComentarios: ${p.notas||'Sin comentarios'}`);$('summary').textContent=lines.join('\n');$('review-section').classList.remove('hidden');$('review-section').scrollIntoView({behavior:'smooth'});if(TEST_MODE){$('send').disabled=true;$('send-status').textContent='Modo de prueba: el envío estará disponible después de verificar la API y la base de datos.'}});
-window.linktapVerified=t=>{token=t;if(!TEST_MODE)$('send').disabled=false};window.linktapExpired=()=>{token='';$('send').disabled=true};
-$('send').addEventListener('click',async()=>{if(TEST_MODE)return;if(!token){$('send-status').textContent='Completa la verificación de seguridad.';return}const b=$('send');b.disabled=true;b.textContent='Enviando…';$('send-status').textContent='Comprobando recepción…';try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload())});const data=await r.json();if(!r.ok||data.ok!==true||typeof data.codigo!=='string'||!data.codigo.startsWith('LT-'))throw Error(data.error||'El servidor no confirmó la recepción');$('send-status').textContent='Solicitud recibida correctamente. Tu número de seguimiento es '+data.codigo;b.textContent='Solicitud enviada';try{localStorage.removeItem(draftKey)}catch{}}catch(err){$('send-status').textContent='No se pudo confirmar la recepción: '+err.message+'. Conservamos tu borrador en este navegador.';b.textContent='Intentar nuevamente';if(window.turnstile)window.turnstile.reset();token='';}});
-addPerson();restore();
+(() => {
+  'use strict';
+
+  const API =
+    'https://linktap-formularios-api.v-gomezsitja.workers.dev/api/solicitudes';
+
+  // El Worker, Turnstile y D1 ya fueron probados.
+  const TEST_MODE = false;
+
+  const $ = id => document.getElementById(id);
+
+  let plan = 'necesario';
+  let tipo = 'individual';
+  let nextId = 0;
+  let token = '';
+  let sending = false;
+  let sent = false;
+
+  const val = id => $(id)?.value?.trim() || '';
+
+  const safe = s => String(s).replace(
+    /[&<>"']/g,
+    c => ({
+      '&':'&amp;',
+      '<':'&lt;',
+      '>':'&gt;',
+      '"':'&quot;',
+      "'":'&#39;'
+    }[c])
+  );
+
+  const draftKey = 'linktap-formulario-borrador-v2';
+
+  function field(id, label, placeholder = '', kind = 'text', full = false) {
+    return `
+      <div class="field ${full ? 'full' : ''}">
+        <label for="${id}">
+          ${label} <span class="optional">(opcional)</span>
+        </label>
+        ${
+          kind === 'textarea'
+          ? `<textarea id="${id}" placeholder="${safe(placeholder)}"></textarea>`
+          : `<input id="${id}" type="${kind}" placeholder="${safe(placeholder)}">`
+        }
+      </div>
+    `;
+  }
+
+  function setupChoices(id, callback) {
+    $(id).addEventListener('click', event => {
+      const button = event.target.closest('[data-value]');
+      if (!button || sent) return;
+
+      $(id).querySelectorAll('.choice').forEach(item => {
+        item.classList.toggle('active', item === button);
+      });
+
+      callback(button.dataset.value);
+      save();
+    });
+  }
+
+  setupChoices('plans', value => {
+    plan = value;
+    renderExtras();
+    hideReview();
+  });
+
+  setupChoices('types', value => {
+    tipo = value;
+    const company = value === 'empresa';
+
+    $('company-section').classList.toggle('hidden', !company);
+    $('add').classList.toggle('hidden', !company);
+
+    $('people-title').textContent = company
+      ? '05. Datos de los ejecutivos'
+      : '04. Tu información';
+
+    $('last-title').textContent = company
+      ? '06. Últimos detalles'
+      : '05. Últimos detalles';
+
+    if (!company) {
+      while ($('people').children.length > 1) {
+        $('people').lastElementChild.remove();
+      }
+    }
+
+    refreshPeople();
+    hideReview();
+  });
+
+  function addPerson() {
+    if ($('people').children.length >= 30) return;
+
+    const n = ++nextId;
+    const element = document.createElement('div');
+
+    element.className = 'person';
+    element.dataset.person = n;
+
+    element.innerHTML = `
+      <div class="personhead">
+        <h3>Perfil ${$('people').children.length + 1}</h3>
+        <button type="button" class="linkbtn remove">Quitar</button>
+      </div>
+      <div class="fields">
+        ${field('name-' + n, 'Nombre y apellido', 'Nombre que aparecerá')}
+        ${field('role-' + n, 'Cargo o profesión', 'Ejecutivo comercial')}
+        ${field('whatsapp-' + n, 'WhatsApp', '+56 9 ...', 'tel')}
+        ${field('mail-' + n, 'Correo profesional', 'correo@ejemplo.cl', 'email')}
+        ${field('instagram-' + n, 'Instagram', '@usuario')}
+        <div class="extras" data-extras="${n}" style="display:contents"></div>
+      </div>
+    `;
+
+    $('people').appendChild(element);
+    renderExtras();
+    refreshPeople();
+  }
+
+  function refreshPeople() {
+    $('people').querySelectorAll('.person').forEach((person, index) => {
+      person.querySelector('h3').textContent =
+        (tipo === 'empresa' ? 'Ejecutivo ' : 'Perfil ') + (index + 1);
+
+      person.querySelector('.remove').classList.toggle(
+        'hidden',
+        tipo === 'individual' || $('people').children.length === 1
+      );
+    });
+  }
+
+  $('people').addEventListener('click', event => {
+    if (!event.target.classList.contains('remove') || sent) return;
+
+    event.target.closest('.person').remove();
+    refreshPeople();
+    hideReview();
+    save();
+  });
+
+  $('add').addEventListener('click', () => {
+    if (sent) return;
+
+    addPerson();
+    save();
+
+    $('people').lastElementChild.scrollIntoView({
+      behavior:'smooth',
+      block:'center'
+    });
+  });
+
+  function renderExtras() {
+    document.querySelectorAll('[data-extras]').forEach(element => {
+      const n = element.dataset.extras;
+      const saved = {};
+
+      element.querySelectorAll('input,textarea').forEach(input => {
+        saved[input.id] = input.value;
+      });
+
+      let html = '';
+
+      if (plan !== 'necesario') {
+        html += field(
+          'description-' + n,
+          'Presentación',
+          'Cuéntanos sobre ti',
+          'textarea',
+          true
+        );
+
+        html += field(
+          'services-' + n,
+          'Servicios o especialidades',
+          'Servicios que ofreces',
+          'textarea',
+          true
+        );
+
+        html += field(
+          'linkedin-' + n,
+          'LinkedIn',
+          'https://linkedin.com/in/...'
+        );
+      }
+
+      if (plan === 'completo') {
+        html += field('video-' + n, 'Video (enlace)', 'https://...');
+        html += field('booking-' + n, 'Reservas (enlace)', 'https://...');
+        html += field('catalog-' + n, 'Catálogo (enlace)', 'https://...');
+
+        html += field(
+          'testimonials-' + n,
+          'Testimonios',
+          'Opcional',
+          'textarea',
+          true
+        );
+      }
+
+      element.innerHTML = html;
+
+      element.querySelectorAll('input,textarea').forEach(input => {
+        if (saved[input.id] !== undefined) {
+          input.value = saved[input.id];
+        }
+      });
+    });
+  }
+
+  function profiles() {
+    return [...document.querySelectorAll('.person')].map(person => {
+      const n = person.dataset.person;
+
+      return {
+        nombre: val('name-' + n),
+        cargo: val('role-' + n),
+        profesion: val('role-' + n),
+        whatsapp: val('whatsapp-' + n),
+        correo: val('mail-' + n),
+        instagram: val('instagram-' + n),
+        linkedin: val('linkedin-' + n),
+        descripcion: val('description-' + n),
+        servicios: val('services-' + n),
+        enlaces: {
+          video: val('video-' + n),
+          reservas: val('booking-' + n),
+          catalogo: val('catalog-' + n)
+        },
+        datos_extra: {
+          testimonios: val('testimonials-' + n)
+        }
+      };
+    });
+  }
+
+  function payload() {
+    return {
+      tipo_cliente: tipo,
+      plan,
+      nombre_contacto: val('contact'),
+      correo_contacto: val('email'),
+      telefono_contacto: val('phone'),
+      notas: val('notes'),
+
+      empresa: tipo === 'empresa'
+        ? {
+            nombre: val('company'),
+            sitio_web: val('company-web'),
+            direccion: val('company-address'),
+            redes_sociales: {
+              instagram: val('company-social')
+            }
+          }
+        : null,
+
+      perfiles: profiles(),
+      turnstileToken: token
+    };
+  }
+
+  function hideReview() {
+    $('review-section').classList.add('hidden');
+    token = '';
+    $('send').disabled = true;
+
+    if (window.turnstile) {
+      try { window.turnstile.reset(); } catch {}
+    }
+  }
+
+  function save() {
+    if (sent) return;
+
+    const data = {
+      plan,
+      tipo,
+      people: profiles(),
+      values: {}
+    };
+
+    document.querySelectorAll(
+      '#form input:not([type=checkbox]), #form textarea'
+    ).forEach(input => {
+      data.values[input.id] = input.value;
+    });
+
+    try {
+      localStorage.setItem(draftKey, JSON.stringify(data));
+    } catch {}
+  }
+
+  function restore() {
+    let data;
+
+    try {
+      data = JSON.parse(localStorage.getItem(draftKey) || 'null');
+    } catch {}
+
+    if (!data) return;
+
+    if (['necesario','pro','completo'].includes(data.plan)) {
+      $('plans').querySelector(
+        `[data-value="${data.plan}"]`
+      ).click();
+    }
+
+    if (['individual','empresa'].includes(data.tipo)) {
+      $('types').querySelector(
+        `[data-value="${data.tipo}"]`
+      ).click();
+    }
+
+    const savedPeople = Array.isArray(data.people) ? data.people : [];
+    const amount = Math.min(30, Math.max(1, savedPeople.length || 1));
+
+    while ($('people').children.length < amount) {
+      addPerson();
+    }
+
+    // Restaurar datos por posición, aunque los IDs hayan cambiado.
+    document.querySelectorAll('.person').forEach((person, index) => {
+      const p = savedPeople[index];
+      if (!p) return;
+
+      const n = person.dataset.person;
+      const values = {
+        ['name-' + n]: p.nombre,
+        ['role-' + n]: p.cargo,
+        ['whatsapp-' + n]: p.whatsapp,
+        ['mail-' + n]: p.correo,
+        ['instagram-' + n]: p.instagram,
+        ['linkedin-' + n]: p.linkedin,
+        ['description-' + n]: p.descripcion,
+        ['services-' + n]: p.servicios,
+        ['linkedin-' + n]: p.linkedin,
+        ['video-' + n]: p.enlaces?.video,
+        ['booking-' + n]: p.enlaces?.reservas,
+        ['catalog-' + n]: p.enlaces?.catalogo,
+        ['testimonials-' + n]: p.datos_extra?.testimonios
+      };
+
+      Object.entries(values).forEach(([id, value]) => {
+        if ($(id) && typeof value === 'string') {
+          $(id).value = value;
+        }
+      });
+    });
+
+    ['contact','email','phone','company','company-web',
+     'company-social','company-address','notes'].forEach(id => {
+      if ($(id) && typeof data.values?.[id] === 'string') {
+        $(id).value = data.values[id];
+      }
+    });
+
+    refreshPeople();
+  }
+
+  $('form').addEventListener('input', () => {
+    save();
+    if (!$('review-section').classList.contains('hidden')) {
+      hideReview();
+    }
+  });
+
+  $('review').addEventListener('click', () => {
+    if (sent) return;
+
+    if (
+      !val('contact') ||
+      !val('email') ||
+      !$('email').checkValidity() ||
+      !$('agree').checked
+    ) {
+      alert('Completa tu nombre, un correo válido y la autorización.');
+      return;
+    }
+
+    if (tipo === 'empresa' && !val('company')) {
+      alert('Indica el nombre de la empresa.');
+      return;
+    }
+
+    const data = payload();
+
+    const lines = [
+      `Plan: ${plan}`,
+      `Tipo: ${tipo}`,
+      `Contacto: ${data.nombre_contacto}`,
+      `Correo: ${data.correo_contacto}`,
+      `WhatsApp: ${data.telefono_contacto || 'No indicado'}`
+    ];
+
+    if (tipo === 'empresa') {
+      lines.push(
+        `Empresa: ${data.empresa.nombre}`,
+        `Sitio: ${data.empresa.sitio_web || 'No indicado'}`,
+        `Instagram: ${data.empresa.redes_sociales.instagram || 'No indicado'}`,
+        `Dirección: ${data.empresa.direccion || 'No indicada'}`
+      );
+    }
+
+    data.perfiles.forEach((person, index) => {
+      lines.push(
+        `\nPerfil ${index + 1}`,
+        `Nombre: ${person.nombre || 'No indicado'}`,
+        `Cargo: ${person.cargo || 'No indicado'}`,
+        `WhatsApp: ${person.whatsapp || 'No indicado'}`,
+        `Correo: ${person.correo || 'No indicado'}`,
+        `Instagram: ${person.instagram || 'No indicado'}`
+      );
+
+      if (plan !== 'necesario') {
+        lines.push(
+          `Presentación: ${person.descripcion || 'No indicada'}`,
+          `Servicios: ${person.servicios || 'No indicados'}`,
+          `LinkedIn: ${person.linkedin || 'No indicado'}`
+        );
+      }
+
+      if (plan === 'completo') {
+        lines.push(
+          `Video: ${person.enlaces.video || 'No indicado'}`,
+          `Reservas: ${person.enlaces.reservas || 'No indicadas'}`,
+          `Catálogo: ${person.enlaces.catalogo || 'No indicado'}`,
+          `Testimonios: ${person.datos_extra.testimonios || 'No indicados'}`
+        );
+      }
+    });
+
+    lines.push(`\nComentarios: ${data.notas || 'Sin comentarios'}`);
+
+    $('summary').textContent = lines.join('\n');
+    $('review-section').classList.remove('hidden');
+
+    $('review-section').scrollIntoView({
+      behavior:'smooth'
+    });
+
+    if (TEST_MODE) {
+      $('send').disabled = true;
+      $('send-status').textContent = 'Modo de prueba.';
+    }
+  });
+
+  window.linktapVerified = value => {
+    token = value;
+
+    if (!TEST_MODE && !sending && !sent) {
+      $('send').disabled = false;
+      $('send-status').textContent =
+        'Verificación completada. Ya puedes enviar tu solicitud.';
+    }
+  };
+
+  window.linktapExpired = () => {
+    token = '';
+    $('send').disabled = true;
+
+    if (!sent) {
+      $('send-status').textContent =
+        'La verificación expiró. Complétala nuevamente.';
+    }
+  };
+
+  $('send').addEventListener('click', async () => {
+    if (TEST_MODE || sending || sent) return;
+
+    if (!token) {
+      $('send-status').textContent =
+        'Completa la verificación de seguridad.';
+      return;
+    }
+
+    sending = true;
+
+    const button = $('send');
+    button.disabled = true;
+    button.textContent = 'Enviando…';
+
+    $('send-status').textContent = 'Comprobando recepción…';
+
+    try {
+      const response = await fetch(API, {
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify(payload())
+      });
+
+      const data = await response.json();
+
+      if (
+        !response.ok ||
+        data.ok !== true ||
+        typeof data.codigo !== 'string' ||
+        !data.codigo.startsWith('LT-')
+      ) {
+        throw new Error(
+          data.error || 'El servidor no confirmó la recepción'
+        );
+      }
+
+      sent = true;
+      token = '';
+
+      $('send-status').textContent =
+        'Solicitud recibida correctamente.\n' +
+        'Tu número de seguimiento es ' + data.codigo;
+
+      button.textContent = 'Solicitud enviada';
+      button.disabled = true;
+
+      try {
+        localStorage.removeItem(draftKey);
+      } catch {}
+
+    } catch (error) {
+      $('send-status').textContent =
+        'No se pudo confirmar la recepción: ' +
+        error.message +
+        '. Conservamos tu borrador en este navegador.';
+
+      button.textContent = 'Intentar nuevamente';
+      token = '';
+
+      if (window.turnstile) {
+        try { window.turnstile.reset(); } catch {}
+      }
+
+    } finally {
+      sending = false;
+    }
+  });
+
+  addPerson();
+  restore();
+
 })();
 </script>
+
 </body>
 </html>
