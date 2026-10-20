@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prueba de formulario | LinkTap</title>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 18px;
+      background: #f5f5f7;
+      color: #171719;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Arial, sans-serif;
+    }
+    main {
+      max-width: 480px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 26px;
+      padding: 30px;
+      box-shadow: 0 12px 40px #00000008;
+    }
+    h1 { margin: 0 0 8px; font-size: 30px; }
+    h1 span { color: #1677ff; }
+    p { color: #6e6e73; line-height: 1.6; }
+    .cf-turnstile { margin: 25px 0; }
+    button {
+      width: 100%;
+      padding: 16px;
+      background: #1677ff;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+    }
+    button:disabled { opacity: .5; cursor: not-allowed; }
+    #resultado {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 12px;
+      background: #f5f5f7;
+      overflow-wrap: anywhere;
+      white-space: pre-wrap;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Link<span>Tap</span></h1>
+  <p><strong>Prueba interna de recepción</strong></p>
+  <p>Enviaremos una solicitud ficticia con dos ejecutivos
+     para comprobar el almacenamiento en Cloudflare D1.</p>
+
+  <div
+    class="cf-turnstile"
+    data-sitekey="0x4AAAAAAFcV6Z4oXF7n2k55"
+    data-callback="verificado"
+    data-expired-callback="expirado">
+  </div>
+
+  <button id="enviar" disabled onclick="enviarPrueba()">
+    Enviar solicitud de prueba
+  </button>
+
+  <div id="resultado" role="status">
+    Esperando verificación de seguridad...
+  </div>
+</main>
+
+<script>
+const API =
+  "https://linktap-formularios-api.v-gomezsitja.workers.dev/api/solicitudes";
+
+let token = "";
+
+function verificado(valor) {
+  token = valor;
+  document.getElementById("enviar").disabled = false;
+  document.getElementById("resultado").textContent =
+    "Verificación completada. Ya puedes enviar la prueba.";
+}
+
+function expirado() {
+  token = "";
+  document.getElementById("enviar").disabled = true;
+}
+
+async function enviarPrueba() {
+  const boton = document.getElementById("enviar");
+  const resultado = document.getElementById("resultado");
+
+  if (!token) return;
+
+  boton.disabled = true;
+  resultado.textContent = "Enviando solicitud de prueba...";
+
+  const datos = {
+    tipo_cliente: "empresa",
+    plan: "pro",
+    nombre_contacto: "Cliente de Prueba LinkTap",
+    correo_contacto: "prueba@example.com",
+    telefono_contacto: "+56900000000",
+    notas: "PRUEBA INTERNA - NO ES CLIENTE REAL",
+    empresa: {
+      nombre: "Empresa de Prueba LinkTap",
+      rubro: "Tecnología",
+      sitio_web: "https://example.com",
+      whatsapp: "+56900000000",
+      direccion: "Puerto Montt",
+      redes_sociales: {},
+      datos_extra: {}
+    },
+    perfiles: [
+      {
+        nombre: "Ejecutivo Prueba Uno",
+        cargo: "Gerente comercial",
+        correo: "ejecutivo1@example.com",
+        whatsapp: "+56900000001"
+      },
+      {
+        nombre: "Ejecutivo Prueba Dos",
+        cargo: "Ejecutivo comercial",
+        correo: "ejecutivo2@example.com",
+        whatsapp: "+56900000002"
+      }
+    ],
+    turnstileToken: token
+  };
+
+  try {
+    const respuesta = await fetch(API, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(datos)
+    });
+
+    const data = await respuesta.json();
+
+    if (!respuesta.ok || data.ok !== true || !data.codigo) {
+      throw new Error(data.error || "No se confirmó el guardado");
+    }
+
+    resultado.textContent =
+      "Solicitud guardada correctamente.\nCódigo: " + data.codigo;
+
+    boton.textContent = "Prueba enviada";
+
+  } catch (error) {
+    resultado.textContent = "Error: " + error.message;
+    boton.textContent = "Intentar nuevamente";
+
+    if (window.turnstile) {
+      window.turnstile.reset();
+    }
+
+    token = "";
+  }
+}
+</script>
+</body>
+</html>
