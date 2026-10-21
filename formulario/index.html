@@ -228,6 +228,57 @@ textarea { min-height:95px;resize:vertical; }
   .fields { grid-template-columns:1fr; }
   .field.full { grid-column:auto; }
 }
+
+/* LinkTap · diseño refinado y vista previa */
+:root{--blue:#1769ff;--ink:#141820;--muted:#667085;--soft:#f5f7fb;--line:#e5eaf1}
+body{background:linear-gradient(180deg,#f6f9ff 0,#fff 380px);}
+.top{background:rgba(255,255,255,.88);box-shadow:0 1px 14px rgba(15,23,42,.035)}
+nav{max-width:1190px}
+main{max-width:1190px;padding-top:54px}
+.hero{max-width:740px;margin-bottom:30px}
+.hero .lead{max-width:660px}
+.form-layout{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:30px;align-items:start}
+.form-main{min-width:0}
+.section{margin-top:0;margin-bottom:22px;background:#fff;border-color:#e8edf5;box-shadow:0 12px 40px rgba(26,52,91,.035);border-radius:24px;padding:28px}
+.section h2{font-size:21px}
+.choice{transition:transform .18s,border-color .18s,background .18s;min-height:106px}
+.choice:hover{border-color:#a4c6ff;transform:translateY(-2px)}
+.choice.active{box-shadow:inset 0 0 0 1px var(--blue)}
+.choice strong{font-size:15px}
+input:not([type=checkbox]),textarea{background:#fbfcff;transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#fff}
+.primary{transition:transform .2s,box-shadow .2s}
+.primary:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 10px 25px rgba(23,105,255,.22)}
+.person{background:#f9fbff;border-color:#e6ecf6}
+.preview-panel{position:sticky;top:94px;background:#fff;border:1px solid #e8edf5;border-radius:26px;padding:18px;box-shadow:0 18px 60px rgba(20,42,80,.08)}
+.preview-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.preview-header strong{font-size:15px}
+.preview-label{font-size:11px;background:#eaf2ff;color:#1261d8;padding:6px 9px;border-radius:99px;font-weight:700}
+.preview-intro{color:var(--muted);font-size:12px;line-height:1.5;margin:0 0 14px}
+.preview-select{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;color:var(--ink);margin-bottom:14px;font:inherit;font-size:13px}
+.phone{max-width:300px;margin:auto;border:7px solid #1a2230;border-radius:37px;background:#fff;overflow:hidden;box-shadow:0 15px 34px rgba(18,28,45,.14);min-height:470px}
+.phone-top{height:126px;background:linear-gradient(135deg,#111d38,#1b70f6);position:relative;display:flex;justify-content:center;align-items:flex-start;padding-top:14px;color:#dfeaff;font-size:10px;letter-spacing:2px;font-weight:800}
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:83px;height:17px;background:#1a2230;border-radius:0 0 13px 13px}
+.phone-content{padding:0 19px 24px;text-align:center;margin-top:-38px;position:relative}
+.avatar{width:76px;height:76px;margin:auto auto 12px;background:#eaf1ff;border:4px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:28px;font-weight:800;color:#2366ca;box-shadow:0 5px 20px rgba(0,0,0,.07)}
+.phone-name{font-size:20px;letter-spacing:-.6px;font-weight:800;line-height:1.2;overflow-wrap:anywhere}
+.phone-role{font-size:12px;color:#5f6c80;margin-top:5px;overflow-wrap:anywhere}
+.phone-company{font-size:11px;font-weight:700;color:#216bde;margin-top:8px;overflow-wrap:anywhere}
+.phone-bio{font-size:11px;color:#647084;line-height:1.5;margin:16px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.phone-action{display:block;width:100%;background:#1769ff;color:#fff;border-radius:12px;padding:12px 8px;font-size:12px;font-weight:750;margin-top:14px}
+.phone-links{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+.phone-chip{font-size:10px;color:#344054;border:1px solid #e5eaf2;background:#f7f9fc;padding:7px 10px;border-radius:20px;max-width:100%;overflow-wrap:anywhere}
+.phone-services{margin-top:14px;border-top:1px solid #edf0f5;padding-top:12px;font-size:11px;color:#475467;line-height:1.5;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere}
+.preview-foot{text-align:center;color:#98a2b3;font-size:11px;margin:14px 0 0}
+.progress-strip{display:flex;gap:8px;align-items:center;margin:20px 0 26px;color:#667085;font-size:12px;flex-wrap:wrap}
+.progress-strip span{background:#fff;border:1px solid #e5eaf2;border-radius:99px;padding:8px 12px}
+.progress-strip b{color:#1769ff}
+.help{margin-top:20px}
+@media(max-width:1000px){.form-layout{grid-template-columns:minmax(0,1fr) 310px;gap:18px}.section{padding:23px}}
+@media(max-width:780px){.form-layout{display:flex;flex-direction:column}.form-main{width:100%}.preview-panel{position:static;width:100%;order:2}.hero{margin-bottom:18px}.section{margin-bottom:16px}.phone{max-width:300px}}
+@media(max-width:600px){main{padding:32px 15px 65px}.section{padding:20px;border-radius:20px}.choices.two{grid-template-columns:1fr 1fr}.preview-panel{padding:18px}.progress-strip{gap:6px}.progress-strip span{font-size:11px;padding:7px 9px}}
+@media(prefers-reduced-motion:reduce){.choice,.primary{transition:none}.choice:hover,.primary:hover{transform:none}}
+
 </style>
 </head>
 <body>
@@ -240,6 +291,7 @@ textarea { min-height:95px;resize:vertical; }
 </header>
 
 <main>
+  <div class="hero">
   <div class="eyebrow">LinkTap · Perfiles digitales</div>
   <h1>Tu perfil digital<br><span>empieza aquí.</span></h1>
   <p class="lead">
@@ -248,6 +300,10 @@ textarea { min-height:95px;resize:vertical; }
   </p>
   <span class="pill">Fácil de completar · Diseñado para tu celular</span>
 
+  </div>
+  <div class="progress-strip" aria-label="Etapas del formulario"><span><b>01</b> Selecciona</span><span><b>02</b> Completa</span><span><b>03</b> Revisa y envía</span></div>
+  <div class="form-layout">
+  <div class="form-main">
   <form id="form" novalidate>
 
     <section class="section">
@@ -406,6 +462,30 @@ textarea { min-height:95px;resize:vertical; }
     </section>
 
   </form>
+  </div>
+
+<aside class="preview-panel" aria-label="Vista previa del perfil digital">
+  <div class="preview-header"><strong>Tu perfil en tiempo real</strong><span class="preview-label">VISTA PREVIA</span></div>
+  <p class="preview-intro">Así podría verse tu perfil. Los datos cambian mientras completas el formulario.</p>
+  <label for="preview-person" class="field" style="display:block;font-size:12px;font-weight:700;margin-bottom:7px">Perfil a visualizar</label>
+  <select id="preview-person" class="preview-select" aria-label="Seleccionar perfil"></select>
+  <div class="phone" aria-live="off">
+    <div class="phone-top"><div class="phone-notch"></div>LINKTAP</div>
+    <div class="phone-content">
+      <div id="pv-avatar" class="avatar">LT</div>
+      <div id="pv-name" class="phone-name">Tu nombre</div>
+      <div id="pv-role" class="phone-role">Tu cargo o profesión</div>
+      <div id="pv-company" class="phone-company hidden"></div>
+      <div id="pv-bio" class="phone-bio hidden"></div>
+      <div id="pv-whatsapp" class="phone-action hidden">Contactar por WhatsApp</div>
+      <div id="pv-links" class="phone-links"></div>
+      <div id="pv-services" class="phone-services hidden"></div>
+    </div>
+  </div>
+  <p class="preview-foot">Diseño ilustrativo · No es un perfil publicado</p>
+</aside>
+
+  </div>
 
   <div class="help">
     <strong>¿Tienes dudas o necesitas agregar algo más?</strong>
@@ -961,8 +1041,64 @@ textarea { min-height:95px;resize:vertical; }
     }
   });
 
+
+  // Vista previa: solo lee los campos del formulario, no envía información.
+  function updatePreview() {
+    const persons = [...document.querySelectorAll('#people .person')];
+    const selector = $('preview-person');
+    const previous = selector.value;
+    selector.replaceChildren();
+    persons.forEach((person, index) => {
+      const n = person.dataset.person;
+      const option = document.createElement('option');
+      option.value = n;
+      option.textContent = val('name-' + n) || (tipo === 'empresa' ? 'Ejecutivo ' : 'Perfil ') + (index + 1);
+      selector.appendChild(option);
+    });
+    if (persons.some(person => person.dataset.person === previous)) selector.value = previous;
+    const n = selector.value;
+    if (!n) return;
+    const name = val('name-' + n) || 'Tu nombre';
+    const role = val('role-' + n) || 'Tu cargo o profesión';
+    const company = tipo === 'empresa' ? val('company') : '';
+    const bio = plan === 'necesario' ? '' : val('description-' + n);
+    const services = plan === 'necesario' ? '' : val('services-' + n);
+    const initials = (val('name-' + n).split(/\s+/).filter(Boolean).slice(0,2).map(word => word[0]).join('') || 'LT').toUpperCase();
+    $('pv-avatar').textContent = initials;
+    $('pv-name').textContent = name;
+    $('pv-role').textContent = role;
+    $('pv-company').textContent = company;
+    $('pv-company').classList.toggle('hidden', !company);
+    $('pv-bio').textContent = bio;
+    $('pv-bio').classList.toggle('hidden', !bio);
+    $('pv-whatsapp').classList.toggle('hidden', !val('whatsapp-' + n));
+    $('pv-services').textContent = services ? 'Servicios y especialidades\n' + services : '';
+    $('pv-services').classList.toggle('hidden', !services);
+    const links = $('pv-links');
+    links.replaceChildren();
+    const addChip = (label, enabled) => {
+      if (!enabled) return;
+      const chip = document.createElement('span');
+      chip.className = 'phone-chip';
+      chip.textContent = label;
+      links.appendChild(chip);
+    };
+    addChip('Instagram', val('instagram-' + n));
+    addChip('Correo', val('mail-' + n));
+    addChip('LinkedIn', plan !== 'necesario' && val('linkedin-' + n));
+    addChip('Sitio web', tipo === 'empresa' && val('company-web'));
+    addChip('Reservas', plan === 'completo' && val('booking-' + n));
+    addChip('Catálogo', plan === 'completo' && val('catalog-' + n));
+    addChip('Video', plan === 'completo' && val('video-' + n));
+  }
+  $('preview-person').addEventListener('change', updatePreview);
+  $('form').addEventListener('input', updatePreview);
+  $('form').addEventListener('click', () => queueMicrotask(updatePreview));
+  new MutationObserver(updatePreview).observe($('people'), {childList:true});
+
   addPerson();
   restore();
+  updatePreview();
 
 })();
 </script>
