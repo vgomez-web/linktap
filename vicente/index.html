@@ -172,6 +172,60 @@ section[id]{scroll-margin-top:24px}
 @media(max-width:850px){.about-v2-layout{grid-template-columns:1fr;gap:30px}.about-v2-photo{min-height:0;aspect-ratio:5/4}.about-v2-body{padding:6px 0 0}.about-v2-small{display:none}.about-v2-intro{font-size:clamp(39px,8vw,65px)}.about-v2-footer{margin-top:36px}}
 @media(max-width:480px){.about-v2-photo{aspect-ratio:4/4.5}.about-v2-photo-tag{left:17px;bottom:17px;font-size:10px}.about-v2-intro{font-size:43px;margin:25px 0 18px}.about-v2-copy{font-size:16px}.about-v2-footer{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.about-v2-photo img{transition:none}}
+
+/* Ajustes móviles: portada y segunda sección */
+@media (max-width: 600px) {
+  .hero {height:auto!important;min-height:100svh!important;display:flex;align-items:flex-end;overflow:hidden;}
+  .hero-photo {width:126%!important;height:75%!important;right:-31%!important;bottom:22%!important;background-position:center bottom!important;background-size:contain!important;animation:none!important;}
+  .hero-inner {padding:0 22px max(56px,env(safe-area-inset-bottom))!important;width:100%;}
+  .hero-inner:before {height:83%!important;bottom:0!important;background:linear-gradient(0deg,#080a10 7%,rgba(8,10,16,.96) 33%,rgba(8,10,16,.70) 64%,transparent 100%)!important;}
+  .hero:after {background:linear-gradient(0deg,#080a10 0%,rgba(8,10,16,.92) 18%,transparent 72%)!important;}
+  .hero-index {font-size:9px!important;margin-bottom:13px!important;max-width:95%!important;}
+  .hero-title {font-size:clamp(37px,10vw,55px)!important;line-height:1.03!important;letter-spacing:-.07em!important;max-width:100%!important;white-space:nowrap;margin:0 0 17px!important;}
+  .hero-desc {font-size:14px!important;line-height:1.55!important;max-width:315px!important;margin:0 0 22px!important;}
+  .hero-actions {display:grid!important;grid-template-columns:1fr 1fr;gap:9px!important;}
+  .hero-actions .btn {gap:5px!important;padding:14px 10px!important;font-size:11px!important;white-space:nowrap;}
+  .hero-bigtype {top:24%!important;opacity:.10!important;}
+  .about-v2 {padding:56px 22px 65px!important;}
+  .about-v2-head {margin-bottom:5px!important;}
+  .about-v2-head .eyebrow {margin-bottom:12px!important;}
+  .about-v2-head .section-title {font-size:clamp(38px,10vw,52px)!important;}
+  .about-v2-layout {display:flex!important;flex-direction:column!important;gap:0!important;}
+  .about-v2-photo {display:flex!important;width:100%!important;height:clamp(300px,91vw,460px)!important;min-height:300px!important;aspect-ratio:auto!important;align-items:flex-end!important;justify-content:center!important;opacity:1!important;transform:none!important;visibility:visible!important;overflow:hidden!important;}
+  .about-v2-photo img {display:block!important;width:100%!important;height:100%!important;max-height:none!important;object-fit:contain!important;object-position:center bottom!important;transform:none!important;opacity:1!important;mask-image:linear-gradient(to bottom,#000 0%,#000 66%,rgba(0,0,0,.9) 76%,transparent 100%)!important;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 66%,rgba(0,0,0,.9) 76%,transparent 100%)!important;}
+  .about-v2-body {padding:0!important;margin-top:-8px!important;opacity:1!important;transform:none!important;visibility:visible!important;}
+  .about-v2-kicker {font-size:9px!important;letter-spacing:.09em!important;}
+  .about-v2-intro {font-size:clamp(33px,8.6vw,43px)!important;line-height:1.09!important;margin:18px 0 15px!important;}
+  .about-v2-copy {font-size:15px!important;line-height:1.65!important;}
+  .about-v2-footer {margin-top:25px!important;padding-top:18px!important;gap:14px!important;}
+  .about-v2-footer a {display:inline-flex;min-height:44px;align-items:center;}
+}
+@media(max-width:370px){.hero-title{font-size:35px!important}.hero-actions .btn{font-size:10px!important}}
+
+/* Mis marcas: composición visual, compacta y optimizada para móviles */
+.brand-card{isolation:isolate;min-height:430px;gap:14px}
+.brand-card:after{opacity:.5}
+.brand-card>div,.brand-card>a{position:relative;z-index:1}
+.brand-card .brand-name{font-size:clamp(40px,4.8vw,65px)}
+.brand-card p{margin:15px 0 0;max-width:390px}
+.brand-visual{height:155px;position:relative;display:flex;align-items:center;justify-content:center;margin:8px 0 2px;overflow:hidden}
+.nfc-visual{perspective:600px}
+.mini-nfc{width:min(62%,265px);aspect-ratio:1.586;transform:rotate(-12deg) rotateY(-11deg);border-radius:12px;overflow:hidden;box-shadow:4px 5px 0 #a4b6d6,15px 19px 28px #020b2299;animation:nfc-float 5s ease-in-out infinite}
+.mini-nfc img{width:100%;height:100%;object-fit:fill;display:block}
+.nfc-wave{position:absolute;width:210px;height:210px;border:1px solid #67a5ff65;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%);box-shadow:0 0 30px #3680ff12}
+.nfc-wave.w2{width:310px;height:310px;border-color:#67a5ff26}
+.nfc-dot{position:absolute;right:16%;top:12%;width:9px;height:9px;border-radius:50%;background:#65aaff;box-shadow:0 0 20px #65aaff}
+.web-visual{perspective:800px}
+.mini-browser{width:min(80%,310px);height:146px;background:#121217;border:1px solid #ffffff30;border-radius:10px;overflow:hidden;transform:rotate(-7deg) rotateY(-9deg);box-shadow:12px 20px 30px #09050988;animation:web-float 6s ease-in-out infinite}
+.browser-top{height:23px;border-bottom:1px solid #ffffff20;display:flex;align-items:center;gap:4px;padding:0 9px}
+.browser-top i{width:5px;height:5px;background:#ff6c71;border-radius:50%}.browser-top i:nth-child(2){background:#e7b969}.browser-top i:nth-child(3){background:#76c68c}.browser-top b{font:9px system-ui;color:#a7a7b0;margin:auto;font-weight:500}
+.browser-body{padding:16px 19px;text-align:left}.browser-tag{font:8px system-ui;letter-spacing:.16em;color:#ff7882}.browser-body strong{display:block;margin-top:8px;color:white;font:700 21px/1.05 system-ui;letter-spacing:-.05em}.browser-body strong span{color:#ff5a62}.browser-bars{display:flex;gap:6px;margin-top:12px}.browser-bars em{width:62px;height:4px;background:#ff5a62;border-radius:8px}.browser-bars em+em{width:35px;background:#ffffff38}
+.brand-link{transition:color .2s}.brand-link:hover{color:#91bbff}
+@keyframes nfc-float{50%{transform:translateY(-8px) rotate(-9deg) rotateY(-11deg)}}
+@keyframes web-float{50%{transform:translateY(-7px) rotate(-5deg) rotateY(-9deg)}}
+@media(max-width:600px){.brand-grid{gap:14px;margin-top:28px}.brand-card{min-height:0!important;padding:25px 25px 22px!important;border-radius:22px;gap:7px}.brand-top{font-size:10px}.brand-card .brand-name{font-size:clamp(42px,10vw,58px)}.brand-visual{height:138px;margin:3px 0}.brand-card p{font-size:14px;line-height:1.5;margin:10px 0 8px}.brand-link{padding-top:14px;font-size:13px}.mini-browser{height:135px}.mini-nfc{width:min(60%,235px)}}
+@media(prefers-reduced-motion:reduce){.mini-nfc,.mini-browser{animation:none}}
+
 </style>
 </head>
 <body>
@@ -195,8 +249,8 @@ section[id]{scroll-margin-top:24px}
 <div class="about-v2-body reveal"><span class="about-v2-kicker"><span class="about-v2-pulse"></span> FUNDADOR DE LINKTAP Y VG DESINGS</span><p class="about-v2-intro">Diseño, tecnología<br>y <em>creatividad.</em></p><p class="about-v2-copy">Soy <strong>Vicente Gómez</strong>, fundador de <strong>LinkTap</strong> y <strong>VG Desings</strong>. Me dedico a desarrollar proyectos que combinan diseño y tecnología, buscando soluciones útiles para personas y negocios.</p><div class="about-v2-footer"><span>CREATIVIDAD · TECNOLOGÍA · EMPRENDIMIENTO</span><a href="#marcas" aria-label="Conocer mis marcas">CONOCE MIS MARCAS <span aria-hidden="true">↗</span></a></div></div>
 </div></div></section>
 <section class="section brands" id="marcas"><div class="wrap"><div class="eyebrow">03 / LO QUE ESTOY CONSTRUYENDO</div><h2 class="section-title reveal">Mis marcas</h2><div class="brand-grid">
-<article class="brand-card linktap reveal"><div class="brand-top">01 / TECNOLOGÍA Y CONEXIÓN</div><div><div class="brand-name">Link<span>Tap.</span></div><p>Tarjetas NFC, perfiles digitales y herramientas inteligentes para conectar profesionales y empresas.</p></div><a class="brand-link" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Conoce LinkTap <span>↗</span></a></article>
-<article class="brand-card vg reveal"><div class="brand-top">02 / ESTUDIO CREATIVO</div><div><div class="brand-name">VG <span>Desings.</span></div><p>Diseño web, identidad visual y experiencias digitales. Menos ruido, más impacto.</p></div><a class="brand-link" href="https://vgdesings.cl" target="_blank" rel="noopener noreferrer">Conoce VG Desings <span>↗</span></a></article>
+<article class="brand-card linktap reveal"><div class="brand-top">01 / TECNOLOGÍA Y CONEXIÓN</div><div><div class="brand-name">Link<span>Tap.</span></div><div class="brand-visual nfc-visual" aria-hidden="true"><div class="nfc-wave w1"></div><div class="nfc-wave w2"></div><div class="mini-nfc"><img src="linktapfrente.png" alt=""></div><div class="nfc-dot"></div></div><p>Tarjetas NFC, perfiles digitales y herramientas inteligentes para conectar profesionales y empresas.</p></div><a class="brand-link" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Conoce LinkTap <span>↗</span></a></article>
+<article class="brand-card vg reveal"><div class="brand-top">02 / ESTUDIO CREATIVO</div><div><div class="brand-name">VG <span>Desings.</span></div><div class="brand-visual web-visual" aria-hidden="true"><div class="mini-browser"><div class="browser-top"><i></i><i></i><i></i><b>vgdesings.cl</b></div><div class="browser-body"><span class="browser-tag">ESTUDIO CREATIVO</span><strong>Menos ruido.<br>Más impacto<span>.</span></strong><div class="browser-bars"><em></em><em></em></div></div></div></div><p>Diseño web, identidad visual y experiencias digitales. Menos ruido, más impacto.</p></div><a class="brand-link" href="https://vgdesings.cl" target="_blank" rel="noopener noreferrer">Conoce VG Desings <span>↗</span></a></article>
 </div></div></section>
 
 <section class="section card-showcase" id="tarjeta-nfc" aria-label="Tarjeta NFC LinkTap">
