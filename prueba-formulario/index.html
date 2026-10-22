@@ -400,6 +400,20 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
 @media(max-width:800px){.benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:36px 27px}.hero h1{letter-spacing:-2px}.plan-choices .choice{min-height:205px}}
 @media(max-width:570px){main{padding:22px 14px 60px}.hero{border-radius:22px;padding:32px 23px}.hero h1{font-size:43px;letter-spacing:-2px}.hero .lead{font-size:15px}.hero-actions{align-items:flex-start;gap:15px}.hero-meta{line-height:1.5}.why-section{margin:34px 0}.benefit-grid{gap:9px}.benefit{padding:16px 13px;border-radius:15px}.benefit h3{font-size:13px}.benefit p{font-size:12px}.use-grid{grid-template-columns:1fr}.section{padding:20px 15px;border-radius:19px}.plan-choices{grid-template-columns:1fr!important}.plan-choices .choice{min-height:unset;padding:16px 17px;gap:7px}.plan-choices .choice .plan-price{margin-top:5px}.plan-choices .choice.featured{order:-1}.form-intro h2{font-size:30px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Ajustes finales de experiencia */
+.form-layout{display:block!important;max-width:850px;margin:0 auto}
+.preview-panel{display:none!important}
+.creator-card{display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e1e8f5;border-radius:22px;padding:23px 25px;margin:0 0 46px;box-shadow:0 8px 25px #17305b09}
+.creator-mark{flex:0 0 54px;width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:#102d63;color:white;font-size:18px;font-weight:850;letter-spacing:-1px}
+.creator-copy{flex:1;min-width:0}.creator-eyebrow{font-size:10px;letter-spacing:1.4px;color:#2860c6;font-weight:800}.creator-copy h2{font-size:20px;letter-spacing:-.6px;margin:5px 0}.creator-copy p{font-size:13px;color:#5b6a80;line-height:1.6;margin:0}.creator-copy strong{color:#182844}
+.creator-button{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;background:#eff4ff;color:#1748a2;padding:12px 15px;border-radius:12px;font-weight:800;font-size:12px}
+.form-intro{max-width:850px;margin:0 auto 24px}.form-intro h2{margin-top:9px}.form-intro p{margin-bottom:0}
+.nfc-offer{border-color:#bcd0ff;background:linear-gradient(135deg,#fff,#f7faff)}.nfc-offer h2{margin-top:9px}
+.nfc-options{margin-top:15px}.nfc-link{display:inline-flex;margin-top:17px;color:#2059c8;font-size:13px;font-weight:750}
+.section .field input[type=number],.section .field select{width:100%;padding:13px 14px;border:1px solid #dce3ee;border-radius:10px;background:#fff;color:#182844;font:inherit}
+@media(max-width:700px){.creator-card{flex-wrap:wrap;padding:20px;gap:13px}.creator-copy{flex-basis:calc(100% - 72px)}.creator-button{width:100%}}
+@media(max-width:500px){.creator-card{margin-bottom:32px}.form-intro{padding:0 4px}.creator-copy h2{font-size:18px}}
 </style>
 </head>
 <body>
@@ -419,7 +433,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
     <div class="hero-actions"><a class="hero-link" href="#planes">Completar mi información <span aria-hidden="true">↗</span></a><span class="hero-meta">Sin subir fotos ni logos · Diseño coordinado contigo</span></div>
   </div>
   <section class="why-section" aria-labelledby="why-title">
-    <div class="section-kicker">01 / DESCUBRE SU UTILIDAD</div>
+    <div class="section-kicker">DESCUBRE SU UTILIDAD</div>
     <h2 id="why-title">Más que una tarjeta de contacto.</h2>
     <p class="why-lead">Un perfil digital ayuda a que otras personas encuentren tu información y conozcan tu trabajo sin buscar entre distintas aplicaciones.</p>
     <div class="benefit-grid">
@@ -437,7 +451,11 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       </div>
     </details>
   </section>
-  <div class="form-intro" id="planes"><div class="section-kicker">02 / CREA TU PERFIL</div><h2>Ahora cuéntanos sobre ti.</h2><p>Completa el contenido que aparecerá en tu perfil. Las fotos, logos, colores y otros detalles visuales los coordinaremos directamente contigo.</p></div>
+  <section class="creator-card" aria-labelledby="creator-title">
+    <div class="creator-mark">VG</div><div class="creator-copy"><span class="creator-eyebrow">UN EJEMPLO REAL</span><h2 id="creator-title">Conoce mi perfil digital.</h2><p>Soy <strong>Vicente Gómez, creador de LinkTap.</strong> Te invito a explorar mi perfil y descubrir cómo puedes presentar tu información en un solo lugar.</p></div>
+    <a class="creator-button" href="https://linktap.cl/vicente" target="_blank" rel="noopener noreferrer">Ver el perfil del creador ↗</a>
+  </section>
+  <div class="form-intro" id="planes"><div class="section-kicker">TU PERFIL DIGITAL</div><h2>Ahora cuéntanos sobre ti.</h2><p>Completa la información que quieres compartir. Nosotros organizaremos el contenido y coordinaremos contigo las fotografías, el logo y los detalles visuales.</p></div>
 
   <div class="form-layout"><div class="form-main"><form id="form" novalidate>
 
@@ -461,8 +479,9 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       <p class="plan-footnote">Valores referenciales del servicio · 12 meses de hosting incluidos · Este formulario no realiza cobros.</p>
       <details class="plan-details"><summary>Ver diferencias entre los planes <span>+</span></summary>
       <div class="compare-wrap"><table class="compare"><thead><tr><th>Incluye</th><th>Necesario</th><th>Pro</th><th>Empresa</th></tr></thead><tbody>
+      <tr><td>Foto principal o logo</td><td>✓</td><td>✓</td><td>✓</td></tr>
       <tr><td>Contacto y redes</td><td>✓</td><td>✓</td><td>✓</td></tr>
-      <tr><td>Presentación básica</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Presentación personal o empresarial</td><td>✓</td><td>✓</td><td>✓</td></tr>
       <tr><td>Servicios y enlaces adicionales</td><td>—</td><td>✓</td><td>✓</td></tr>
       <tr><td>Galería y video</td><td>—</td><td>✓</td><td>✓</td></tr>
       <tr><td>Equipo y sucursales</td><td>—</td><td>—</td><td>✓</td></tr>
@@ -542,13 +561,28 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
     <section class="section">
       <h2 id="people-title">04. Tu información</h2>
       <p class="hint">
-        Agrega los datos que quieres mostrar. El plan Empresa admite hasta 5 integrantes dentro del perfil corporativo.
-        Los campos son opcionales. En Empresa, cada integrante forma parte del mismo perfil corporativo.
+        Agrega los datos que quieres mostrar. El plan Empresa incluye hasta 5 integrantes en un mismo perfil corporativo. Si necesitas más integrantes o perfiles independientes, indícalo en la sección de solicitudes especiales. Los campos de contenido son opcionales.
       </p>
       <div id="people"></div>
       <button type="button" id="add" class="add hidden">
         + Agregar integrante
       </button>
+    </section>
+
+    <section class="section">
+      <h2>¿Necesitas más perfiles o integrantes?</h2>
+      <p class="hint">Puedes solicitar perfiles independientes para distintas personas o ampliar el equipo corporativo. Te contactaremos para cotizarlo.</p>
+      <div class="field"><label for="extra-profiles">Perfiles independientes adicionales (opcional)</label><input id="extra-profiles" type="number" min="0" max="100" value="0" inputmode="numeric"></div>
+      <div class="field"><label for="extra-members">Integrantes adicionales al máximo de 5 (opcional)</label><input id="extra-members" type="number" min="0" max="100" value="0" inputmode="numeric"></div>
+    </section>
+
+    <section class="section nfc-offer">
+      <span class="section-kicker">COMPLEMENTA TU PERFIL</span>
+      <h2>¿Quieres cotizar tarjetas NFC LinkTap?</h2>
+      <p class="hint">Comparte tu perfil acercando una tarjeta a un celular compatible. Desde $19.990 por tarjeta; packs disponibles.</p>
+      <div class="choices two" id="nfc-choices"><button type="button" class="choice active" data-value="no"><strong>Solo mi perfil</strong><small>Por ahora no necesito tarjetas.</small></button><button type="button" class="choice" data-value="si"><strong>Quiero cotizar tarjetas</strong><small>Agregar interés a esta solicitud.</small></button></div>
+      <div id="nfc-options" class="hidden nfc-options"><div class="fields"><div class="field"><label for="nfc-qty">Cantidad aproximada</label><input id="nfc-qty" type="number" min="1" max="10000" value="1" inputmode="numeric"></div><div class="field"><label for="nfc-for">¿Para quiénes?</label><select id="nfc-for"><option value="Para mí">Para mí</option><option value="Para mi equipo">Para mi equipo</option><option value="Para distintas personas">Para distintas personas</option></select></div></div><p class="hint">Esto no realiza una compra. Te enviaremos la cotización antes de producir las tarjetas.</p></div>
+      <a class="nfc-link" href="https://linktap.cl/solicitud/" target="_blank" rel="noopener noreferrer">Conocer las tarjetas y sus packs ↗</a>
     </section>
 
     <section class="section">
@@ -583,10 +617,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       <p class="hint">Comprueba que la información esté correcta.</p>
       <div class="summary" id="summary"></div>
 
-      <div class="notice">
-        Por ahora este formulario no permite subir fotografías ni logos.
-        Puedes enviarlos posteriormente por el canal que acuerdes con LinkTap.
-      </div>
+      <div class="notice">Todos los planes incluyen foto principal o logo. Las imágenes y el diseño se coordinarán directamente contigo después del envío.</div>
 
       <div class="turnstile-wrap">
         <div class="cf-turnstile"
@@ -661,6 +692,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
   let token = '';
   let sending = false;
   let sent = false;
+  let wantsNfc = false;
 
   const val = id => $(id)?.value?.trim() || '';
 
@@ -705,6 +737,12 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       save();
     });
   }
+
+  setupChoices('nfc-choices', value => {
+    wantsNfc = value === 'si';
+    $('nfc-options').classList.toggle('hidden', !wantsNfc);
+    hideReview();
+  });
 
   setupChoices('plans', value => {
     plan = value;
@@ -900,7 +938,12 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       nombre_contacto: val('contact'),
       correo_contacto: val('email'),
       telefono_contacto: val('phone'),
-      notas: val('notes'),
+      notas: [val('notes'),
+        `Perfiles independientes adicionales solicitados: ${Math.max(0,Math.min(100,Number(val('extra-profiles'))||0))}`,
+        `Integrantes extra solicitados: ${Math.max(0,Math.min(100,Number(val('extra-members'))||0))}`,
+        `Interés tarjetas NFC: ${wantsNfc ? 'Sí' : 'No'}`,
+        ...(wantsNfc ? [`Cantidad de tarjetas NFC: ${Math.max(1,Math.min(10000,Number(val('nfc-qty'))||1))}`, `Destino tarjetas NFC: ${val('nfc-for')}`] : [])
+      ].filter(Boolean).join('\n'),
 
       empresa: tipo === 'empresa'
         ? {
@@ -935,6 +978,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       plan,
       tipo,
       people: profiles(),
+      wantsNfc,
       values: {}
     };
 
@@ -957,6 +1001,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
     } catch {}
 
     if (!data) return;
+    if (data.wantsNfc) $('nfc-choices').querySelector('[data-value="si"]').click();
 
     if (['necesario','pro','empresa'].includes(data.plan)) {
       $('plans').querySelector(
@@ -1007,7 +1052,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
     });
 
     ['contact','email','phone','company','company-web',
-     'company-social','company-address','notes'].forEach(id => {
+     'company-social','company-address','notes','extra-profiles','extra-members','nfc-qty','nfc-for'].forEach(id => {
       if ($(id) && typeof data.values?.[id] === 'string') {
         $(id).value = data.values[id];
       }
@@ -1094,7 +1139,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       }
     });
 
-    lines.push(`\nComentarios: ${data.notas || 'Sin comentarios'}`);
+    lines.push(`\nComentarios y solicitudes adicionales: ${data.notas || 'Sin comentarios'}`);
 
     $('summary').textContent = lines.join('\n');
     $('review-section').classList.remove('hidden');
