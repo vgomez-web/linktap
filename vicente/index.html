@@ -18,7 +18,7 @@
 .nav .nav-cta{border:1px solid #ffffff5c;border-radius:100px;padding:12px 19px;opacity:1}
 .hero{height:min(900px,100svh);min-height:660px;background:#0b0c10;color:white;position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end}
 .hero:before{content:"";position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse at 73% 39%,#253d65 0,transparent 41%),radial-gradient(ellipse at 35% 92%,#20263c,transparent 48%),#080a0f}
-.hero-photo{position:absolute;z-index:-2;right:-3%;bottom:-9%;height:120%;width:70%;background:url("vicentehero.webp") center 26%/cover no-repeat;filter:contrast(1.11) saturate(.76) brightness(.78);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);animation:herozoom 2s cubic-bezier(.2,.75,.2,1) both}
+.hero-photo{position:absolute;z-index:-2;right:-3%;bottom:-9%;height:120%;width:70%;background:url("vicentehero.png") center 26%/cover no-repeat;filter:contrast(1.11) saturate(.76) brightness(.78);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);animation:herozoom 2s cubic-bezier(.2,.75,.2,1) both}
 .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0c10a0,transparent 55%),linear-gradient(0deg,#0b0c10 0,transparent 28%,#08112440 100%),radial-gradient(ellipse at 48% 28%,#b5d3ff20,transparent 48%);mix-blend-mode:normal}
 .hero-glow{position:absolute;z-index:-1;right:-20%;top:-20%;height:95%;width:70%;border-radius:50%;background:radial-gradient(ellipse,#317cff30,transparent 62%);pointer-events:none;filter:blur(25px)}
 .hero-inner{width:100%;max-width:1500px;margin:0 auto;padding:180px clamp(22px,7vw,110px) 86px;position:relative}
@@ -46,7 +46,7 @@
 .hero:before{z-index:-4;background:radial-gradient(ellipse at 69% 34%,#23476d 0%,transparent 37%),radial-gradient(ellipse at 92% 80%,#14243b 0%,transparent 38%),linear-gradient(125deg,#08090e,#111a2a 58%,#080a10)}
 .hero-bigtype{position:absolute;z-index:-2;left:3%;right:3%;top:20%;display:flex;flex-direction:column;align-items:center;pointer-events:none;font-family:'Space Grotesk',sans-serif;font-size:clamp(115px,16vw,285px);line-height:.76;letter-spacing:-.115em;font-weight:700;color:#eaf2ff;opacity:.18;white-space:nowrap;text-shadow:0 0 45px #6099ff16}
 .hero-bigtype span:last-child{margin-left:8%}
-.hero-photo{z-index:-1;right:-3%;bottom:-9%;height:112%;width:76%;background:url('vicentehero.webp') center bottom/contain no-repeat;filter:drop-shadow(-20px 0 42px #5896ff25) contrast(1.04) saturate(.9);-webkit-mask-image:none;mask-image:none;animation:herozoom 2s cubic-bezier(.2,.75,.2,1) both}
+.hero-photo{z-index:-1;right:-3%;bottom:-9%;height:112%;width:76%;background:url('vicentehero.png') center bottom/contain no-repeat;filter:drop-shadow(-20px 0 42px #5896ff25) contrast(1.04) saturate(.9);-webkit-mask-image:none;mask-image:none;animation:herozoom 2s cubic-bezier(.2,.75,.2,1) both}
 .hero-photo:after{display:none}
 .hero-glow{z-index:-3;right:0;top:7%;width:65%;height:75%;background:radial-gradient(ellipse,#4d9fff38,transparent 65%);filter:blur(45px)}
 .hero-inner{z-index:2;padding-bottom:92px}
@@ -296,6 +296,58 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 .card-scene .nfc-card{position:relative;z-index:2;filter:drop-shadow(0 26px 30px rgba(1,10,30,.38))}
 @media(max-width:600px){.card-scene::before{width:98%;height:75%;filter:blur(25px)}}
 @media(prefers-reduced-motion:reduce){.card-scene::before{animation:none}}
+
+/* Ajustes finales responsive — LinkTap / Vicente */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:85px}
+body{min-width:320px;overflow-x:clip}
+img,video,svg{max-width:100%}
+img{height:auto}
+.hero,.section,.wrap,.hero-inner,.about-v2-layout,.brand-grid,.contact-grid{min-width:0}
+.hero-actions .btn,.brand-link,.contact a{touch-action:manipulation}
+.hero-photo{background-image:url("vicentehero.png")}
+.about-v2-photo img{object-fit:contain}
+@media(min-width:851px) and (max-width:1100px){
+ .about-v2-layout{gap:30px;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+ .about-v2-photo{min-height:470px}
+ .about-v2-intro{font-size:clamp(35px,4.5vw,58px)}
+}
+@media(max-width:850px){
+ .about-v2-layout{grid-template-columns:minmax(0,1fr)}
+ .about-v2-photo{width:100%;min-width:0}
+ .about-v2-body{min-width:0}
+ .contact-grid>*{min-width:0}
+}
+@media(max-width:600px){
+ .hero{width:100%;min-height:100svh!important;max-width:100vw}
+ .hero-inner{min-width:0;max-width:100%;padding-left:max(18px,env(safe-area-inset-left))!important;padding-right:max(18px,env(safe-area-inset-right))!important}
+ .hero-title{max-width:100%!important;font-size:clamp(32px,9.4vw,52px)!important;white-space:normal!important;overflow-wrap:normal!important;letter-spacing:-.065em!important}
+ .hero-desc{max-width:100%!important}
+ .hero-actions{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;min-width:0}
+ .hero-actions .btn{min-width:0;min-height:52px;white-space:normal!important;text-align:center;font-size:clamp(10px,2.9vw,13px)!important;line-height:1.25;padding:12px 8px!important}
+ .hero-photo{background-image:url("vicentehero.png")!important}
+ .about-v2{padding-left:20px!important;padding-right:20px!important}
+ .about-v2-photo{width:100%!important;max-width:100%!important;height:clamp(270px,85vw,440px)!important;min-height:0!important}
+ .about-v2-photo img{width:100%!important;height:100%!important;object-fit:contain!important;object-position:center bottom!important}
+ .about-v2-intro{overflow-wrap:break-word;font-size:clamp(32px,8.3vw,43px)!important}
+ .about-v2-copy{overflow-wrap:break-word}
+ .brand-card,.service,.preview-panel,.contact-grid>*{min-width:0}
+ .card-scene{max-width:100%;overflow:visible}
+ .nfc-card{max-width:90%}
+ .brand-marquee{max-width:100%;overflow:hidden}
+ .section-title{overflow-wrap:break-word}
+}
+@media(max-width:380px){
+ .hero-inner{padding-left:16px!important;padding-right:16px!important}
+ .hero-title{font-size:clamp(31px,9vw,37px)!important}
+ .hero-actions{gap:7px!important}
+ .hero-actions .btn{font-size:10px!important;padding:10px 6px!important}
+ .about-v2{padding-left:16px!important;padding-right:16px!important}
+ .about-v2-intro{font-size:31px!important}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important}
+}
 </style>
 </head>
 <body>
@@ -310,12 +362,12 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 <div class="hero-actions"><a class="btn btn-blue" href="#colaboraciones">Ver colaboraciones <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a><a class="btn btn-outline" href="#contacto">Hablemos <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></div>
 </div><div class="hero-meta">CREATIVIDAD EN MOVIMIENTO<br>SCROLL PARA DESCUBRIR ↓</div>
 </section>
-<div class="ticker" aria-label="Áreas de trabajo"><div class="ticker-track"><span>DISEÑO WEB</span><span>TECNOLOGÍA NFC</span><span>PERFILES DIGITALES</span><span>IDENTIDAD VISUAL</span></div></div>
+
 <section class="section about about-v2" id="sobre-mi">
 <div class="wrap">
 <div class="about-v2-head reveal"><div><div class="eyebrow">02 / SOBRE MÍ</div><h2 class="section-title">Sobre mí<span class="about-blue-dot">.</span></h2></div><span class="about-v2-small">PERSONA DETRÁS DE LOS PROYECTOS</span></div>
 <div class="about-v2-layout">
-<div class="about-v2-photo reveal"><img src="vicentefrentehero.webp" alt="Retrato de Vicente Gómez" loading="lazy"></div>
+<div class="about-v2-photo reveal"><img src="vicentefrentehero.png" alt="Retrato de Vicente Gómez" loading="lazy"></div>
 <div class="about-v2-body reveal"><span class="about-v2-kicker"><span class="about-v2-pulse"></span> FUNDADOR DE LINKTAP Y VG DESINGS</span><p class="about-v2-intro">Diseño, tecnología<br>y <em>creatividad.</em></p><p class="about-v2-copy">Soy <strong>Vicente Gómez</strong>, fundador de <strong>LinkTap</strong> y <strong>VG Desings</strong>. Me dedico al diseño, desarrollo web, marketing y creación de soluciones digitales. Ayudo a emprendedores y empresas a fortalecer su marca, conectar con sus clientes y hacer crecer sus negocios.</p><div class="about-v2-footer"><a href="#marcas" aria-label="Conocer mis marcas">CONOCE MIS MARCAS <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
 </div></div></section>
 <section class="section brands" id="marcas"><div class="wrap"><div class="brand-section-heading"><div class="eyebrow">03 / LO QUE ESTOY CONSTRUYENDO</div><h2 class="section-title reveal">Mis marcas</h2></div><div class="brand-grid">
