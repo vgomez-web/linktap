@@ -1,577 +1,267 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="es-CL">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b0c10">
+<meta property="og:type" content="website"><meta property="og:title" content="Vicente Gómez — Diseño y tecnología"><meta property="og:description" content="Fundador de LinkTap y VG Desings. Soluciones digitales desde Puerto Montt."><meta property="og:image" content="vicentehero.png">
+<meta name="description" content="Vicente Gómez — fundador de LinkTap y VG Desings. Diseño web, perfiles digitales y tecnología NFC en Puerto Montt.">
+<title>Vicente Gómez — Diseño, tecnología y conexiones</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0b0c10;--blue:#2879ff;--red:#ed343c;--paper:#f6f6f3;--muted:#7d8592}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);font-family:"DM Sans",Arial,sans-serif;color:#171a20}a{color:inherit;text-decoration:none}button{font:inherit}::selection{background:#5b91ff;color:#fff}
+.site-header{position:absolute;z-index:15;top:0;left:0;width:100%;padding:25px clamp(22px,5vw,90px);display:flex;align-items:center;justify-content:space-between;color:#fff}
+.monogram{font-family:"Space Grotesk",sans-serif;font-size:24px;font-weight:700;letter-spacing:-.12em}.monogram span{color:#428aff}
+.nav{display:flex;gap:25px;align-items:center;font-size:12px;font-weight:700;letter-spacing:.04em}.nav a{opacity:.78}.nav a:hover{opacity:1}
+.nav .nav-cta{border:1px solid #ffffff5c;border-radius:100px;padding:12px 19px;opacity:1}
+.hero{height:min(900px,100svh);min-height:660px;background:#0b0c10;color:white;position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:flex-end}
+.hero:before{content:"";position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse at 73% 39%,#253d65 0,transparent 41%),radial-gradient(ellipse at 35% 92%,#20263c,transparent 48%),#080a0f}
+.hero-photo{position:absolute;z-index:-2;right:-3%;bottom:-9%;height:120%;width:70%;background:url("vicentehero.png") center 26%/cover no-repeat;filter:contrast(1.11) saturate(.76) brightness(.78);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);animation:herozoom 2s cubic-bezier(.2,.75,.2,1) both}
+.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0c10a0,transparent 55%),linear-gradient(0deg,#0b0c10 0,transparent 28%,#08112440 100%),radial-gradient(ellipse at 48% 28%,#b5d3ff20,transparent 48%);mix-blend-mode:normal}
+.hero-glow{position:absolute;z-index:-1;right:-20%;top:-20%;height:95%;width:70%;border-radius:50%;background:radial-gradient(ellipse,#317cff30,transparent 62%);pointer-events:none;filter:blur(25px)}
+.hero-inner{width:100%;max-width:1500px;margin:0 auto;padding:180px clamp(22px,7vw,110px) 86px;position:relative}
+.hero-index{font-size:11px;letter-spacing:.22em;color:#9ca9bf;font-weight:700;margin-bottom:22px}
+.hero-title{font-family:"Space Grotesk",sans-serif;font-size:clamp(78px,11.7vw,190px);font-weight:700;letter-spacing:-.105em;line-height:.79;margin:0 0 36px;position:relative;max-width:1000px}
+.hero-title span{display:block}.hero-title em{font-style:normal;color:#4b91ff}
+.hero-desc{max-width:380px;font-size:clamp(15px,1.6vw,19px);line-height:1.6;color:#d6deea;margin:0 0 27px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;gap:24px;border-radius:100px;padding:16px 24px;font-size:13px;font-weight:800;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-3px)}.btn-blue{background:#2879ff;color:white}.btn-outline{border:1px solid #ffffff75;color:white}
+.hero-meta{position:absolute;right:clamp(22px,7vw,110px);bottom:87px;font-size:10px;letter-spacing:.13em;line-height:1.9;color:#b2c0d7;text-align:right}
+.ticker{background:#e9ecf0;overflow:hidden;padding:17px 0;border-bottom:1px solid #dce0e5}.ticker-track{display:flex;gap:45px;justify-content:center;flex-wrap:wrap;font-family:"Space Grotesk",sans-serif;font-size:11px;letter-spacing:.14em;font-weight:700;color:#555d69}.ticker-track b{color:#2675ef}
+.section{padding:clamp(80px,11vw,160px) clamp(22px,7vw,110px)}.wrap{max-width:1350px;margin:auto}.eyebrow{font-size:11px;letter-spacing:.2em;font-weight:800;color:#377cf0;margin-bottom:25px}.section-title{font-family:"Space Grotesk",sans-serif;font-size:clamp(39px,6vw,86px);line-height:1.04;letter-spacing:-.07em;margin:0}.about{background:#f7f7f4}.about-grid{display:grid;grid-template-columns:1fr .8fr;gap:clamp(35px,8vw,120px);align-items:end}.about-copy{font-size:clamp(17px,2vw,23px);line-height:1.65;color:#666c76;max-width:570px}.about-copy strong{color:#171a20}.about-note{border-top:1px solid #d6d8da;padding-top:22px;display:flex;justify-content:space-between;gap:20px;color:#727883;font-size:13px}
+.brands{background:#111318;color:white}.brands .section-title{max-width:780px}.brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:58px}.brand-card{min-height:470px;border:1px solid #ffffff18;border-radius:24px;padding:clamp(26px,4vw,55px);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .3s}.brand-card:hover{transform:translateY(-5px)}.brand-card:after{content:"";position:absolute;width:350px;height:350px;right:-100px;top:-130px;border:1px solid #ffffff25;border-radius:50%;pointer-events:none}.brand-card.linktap{background:radial-gradient(ellipse at 80% 0%,#246ef34d,transparent 65%),#15233e}.brand-card.vg{background:radial-gradient(ellipse at 85% 0%,#e94b4b25,transparent 65%),#242225}.brand-top{font-size:11px;letter-spacing:.16em;color:#bdc8d7;font-weight:800}.brand-name{font-family:"Space Grotesk",sans-serif;font-size:clamp(50px,6vw,83px);letter-spacing:-.075em;font-weight:700;line-height:1}.brand-name span{color:#428aff}.vg .brand-name span{color:#ff5a62}.brand-card p{font-size:16px;line-height:1.6;color:#c1c8d4;max-width:320px}.brand-link{border-top:1px solid #ffffff33;padding-top:18px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700}
+.services{background:#fff}.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:60px}.service{border-top:2px solid #1a1b20;padding-top:22px;min-height:190px}.service small{color:#8b9098;font-weight:800}.service h3{font-family:"Space Grotesk",sans-serif;font-size:clamp(22px,2.2vw,30px);letter-spacing:-.05em;margin:45px 0 12px}.service p{font-size:13px;color:#747b84;line-height:1.6}
+.work{background:#f0f1ef}.work-head{display:flex;align-items:end;justify-content:space-between;gap:25px}.work-head p{max-width:310px;color:#6e7580;line-height:1.6}.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:50px}.project{border-radius:22px;overflow:hidden;background:#fff}.project-art{height:310px;padding:30px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.project-art span{font-family:"Space Grotesk",sans-serif;font-size:clamp(35px,4vw,63px);letter-spacing:-.07em;font-weight:700;text-align:center}.project-art.a{background:linear-gradient(135deg,#d9e7df,#8ebba8);color:#1b5944}.project-art.b{background:linear-gradient(135deg,#e5e2ed,#afa5ca);color:#463e6e}.project-art.c{background:linear-gradient(135deg,#c6dcff,#3e80ed);color:#fff}.project-art.d{background:linear-gradient(135deg,#ece9e3,#d1c6b6);color:#403a32}.project-details{padding:25px;display:flex;justify-content:space-between;gap:10px}.project-details strong{font-size:17px}.project-details small{color:#79818b;display:block;margin-top:8px}.project-details .arr{font-size:25px;color:#68717c}
+.statement{background:#fff;padding:110px 22px;text-align:center}.statement h2{max-width:1100px;margin:auto;font-family:"Space Grotesk",sans-serif;font-size:clamp(38px,6.7vw,92px);letter-spacing:-.075em;line-height:1.12}.statement h2 span{color:#a0a6af}
+.contact{background:#0b0c10;color:white;padding-bottom:60px}.contact .section-title{max-width:950px}.contact-links{display:flex;gap:13px;flex-wrap:wrap;margin-top:45px}.contact-links .btn-outline{border-color:#ffffff45}.footer{margin-top:130px;padding-top:28px;border-top:1px solid #ffffff28;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#aab3c1;font-size:12px}.footer b{color:#fff}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}
+@keyframes herozoom{from{transform:scale(1.11);opacity:.45}to{transform:scale(1);opacity:1}}
+@media(max-width:850px){.nav a:not(.nav-cta){display:none}.hero{min-height:740px;height:95svh}.hero-photo{width:100%;height:95%;right:-17%;bottom:3%;background-position:47% 20%;-webkit-mask-image:linear-gradient(to right,transparent,black 12%,black 90%);mask-image:linear-gradient(to right,transparent,black 12%,black 90%)}.hero:after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#080a0f 3%,#080a0fbd 37%,transparent 85%);pointer-events:none}.hero-inner{padding-bottom:68px}.hero-title{font-size:clamp(72px,15vw,125px)}.hero-meta{display:none}.about-grid,.brand-grid,.work-grid{grid-template-columns:1fr}.services-grid{grid-template-columns:repeat(2,1fr)}.brand-card{min-height:380px}.about-note{margin-top:20px}.work-head{display:block}}
+@media(max-width:480px){.site-header{padding:20px 22px}.hero{min-height:690px}.hero-photo{right:-25%;width:120%;height:95%;background-position:47% 17%}.hero-inner{padding:120px 22px 50px}.hero-title{font-size:clamp(64px,16.4vw,87px);margin-bottom:25px}.hero-index{font-size:9px}.hero-desc{font-size:15px;max-width:300px}.btn{font-size:12px;padding:15px 19px}.ticker-track{gap:14px;font-size:9px}.services-grid{grid-template-columns:1fr 1fr}.service{min-height:175px}.project-art{height:220px}.footer{margin-top:80px}.contact-links{flex-direction:column;align-items:stretch}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-photo{animation:none}.reveal{opacity:1;transform:none;transition:none}*{transition-duration:0s!important}}
 
-  <title>Vicente Gómez | Perfil Digital</title>
-  <meta name="description" content="Perfil digital de Vicente Gómez. VG Desings y LinkTap.">
+/* Hero 2.0: recorte real con tipografía detrás de la silueta */
+.hero{background:#080a10;isolation:isolate}
+.hero:before{z-index:-4;background:radial-gradient(ellipse at 69% 34%,#23476d 0%,transparent 37%),radial-gradient(ellipse at 92% 80%,#14243b 0%,transparent 38%),linear-gradient(125deg,#08090e,#111a2a 58%,#080a10)}
+.hero-bigtype{position:absolute;z-index:-2;left:3%;right:3%;top:20%;display:flex;flex-direction:column;align-items:center;pointer-events:none;font-family:'Space Grotesk',sans-serif;font-size:clamp(115px,16vw,285px);line-height:.76;letter-spacing:-.115em;font-weight:700;color:#eaf2ff;opacity:.18;white-space:nowrap;text-shadow:0 0 45px #6099ff16}
+.hero-bigtype span:last-child{margin-left:8%}
+.hero-photo{z-index:-1;right:-3%;bottom:-9%;height:112%;width:76%;background:url('vicentehero.png') center bottom/contain no-repeat;filter:drop-shadow(-20px 0 42px #5896ff25) contrast(1.04) saturate(.9);-webkit-mask-image:none;mask-image:none;animation:herozoom 2s cubic-bezier(.2,.75,.2,1) both}
+.hero-photo:after{display:none}
+.hero-glow{z-index:-3;right:0;top:7%;width:65%;height:75%;background:radial-gradient(ellipse,#4d9fff38,transparent 65%);filter:blur(45px)}
+.hero-inner{z-index:2;padding-bottom:92px}
+.hero-inner:before{content:'';position:absolute;z-index:-1;left:0;bottom:0;width:70%;height:100%;background:linear-gradient(90deg,#080a10e8,transparent);pointer-events:none}
+.hero-title{font-size:clamp(43px,5.6vw,82px);letter-spacing:-.075em;line-height:1.02;max-width:720px;margin-bottom:20px;text-shadow:0 3px 30px #0008}
+.hero-title-dot{color:#438bff}
+.hero-desc{max-width:420px}
+@media(max-width:850px){.hero-photo{right:-23%;width:115%;height:84%;bottom:12%;background-position:center bottom}.hero-bigtype{top:19%;font-size:clamp(85px,18vw,165px);left:-2%;right:-2%}.hero-inner{padding-bottom:68px}.hero-inner:before{width:100%;height:58%;background:linear-gradient(0deg,#080a10 0%,#080a10df 40%,transparent 100%)}.hero-title{font-size:clamp(43px,8vw,68px)}.hero:after{z-index:0;pointer-events:none;background:linear-gradient(0deg,#080a10 0%,#080a10ab 24%,transparent 55%)}}
+@media(max-width:480px){.hero{height:100svh;min-height:690px}.hero-photo{width:137%;height:84%;right:-35%;bottom:14%}.hero-bigtype{top:19%;font-size:19vw;opacity:.23}.hero-inner{padding:120px 22px 52px}.hero-title{font-size:clamp(40px,10vw,58px);margin-bottom:14px}.hero-desc{max-width:320px}.hero-index{max-width:250px;line-height:1.6}.hero-actions{gap:8px}}
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    :root {
-      --black: #0b0b0d;
-      --gray: #77777d;
-      --light-gray: #f3f3f5;
-      --border: #e9e9ec;
-      --white: #ffffff;
-      --red: #ff1e1e;
-      --blue: #1457ff;
-    }
+/* Producto LinkTap: proporciones reales de tarjeta ID-1 (85.60 x 53.98 mm) */
+.card-showcase{background:#080e1a;color:#fff;position:relative;overflow:hidden;isolation:isolate}
+.card-showcase:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 75% 48%,#1d60ba60,transparent 45%),radial-gradient(ellipse at 25% 100%,#1b2e5b70,transparent 55%);z-index:-1}
+.card-showcase-grid{display:grid;grid-template-columns:.88fr 1.12fr;gap:clamp(25px,6vw,90px);align-items:center}
+.card-showcase .eyebrow{color:#8cb8ff}.card-showcase h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(43px,6vw,83px);line-height:1.02;letter-spacing:-.07em;margin:0 0 22px}
+.card-showcase h2 span{color:#5e9bff}.card-showcase p{font-size:16px;line-height:1.7;color:#b6c5db;max-width:390px}
+.card-showcase .product-action{display:inline-flex;align-items:center;gap:28px;border:1px solid #7aa7e780;border-radius:100px;padding:15px 22px;font-size:13px;font-weight:800;margin-top:24px}
+.card-scene{min-height:440px;display:grid;place-items:center;perspective:1100px;position:relative}
+.card-scene:after{content:"";position:absolute;width:68%;height:18%;border-radius:50%;background:#000a;filter:blur(32px);bottom:10%;left:16%;z-index:-1}
+.nfc-card{position:relative;width:min(100%,520px);aspect-ratio:85.60/53.98;border-radius:clamp(15px,2.2vw,24px);overflow:hidden;transform:rotate(-9deg) rotateY(-12deg) rotateX(6deg);transform-style:preserve-3d;box-shadow:2px 3px 0 #cbd3de,5px 6px 0 #8d9aad,8px 10px 0 #53677e,23px 35px 55px #0009,0 0 65px #387bff33;transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s;will-change:transform;background:white}
+.nfc-card img{display:block;width:100%;height:100%;object-fit:fill}
+.nfc-card:after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px #ffffff88,inset 0 2px 4px #fff9;pointer-events:none;background:linear-gradient(130deg,#ffffff44 0%,transparent 34%,transparent 67%,#ffffff20 100%)}
+.card-scene:hover .nfc-card{transform:rotate(-4deg) rotateY(0) rotateX(1deg);box-shadow:2px 3px 0 #cbd3de,5px 6px 0 #8d9aad,8px 10px 0 #53677e,14px 30px 55px #0009}
+.card-orbit{position:absolute;width:80%;aspect-ratio:1;border:1px solid #5794fa28;border-radius:50%;transform:rotateX(64deg);pointer-events:none}
+.card-orbit.two{width:110%;border-color:#5794fa1a}
+.card-measure{font-size:10px;letter-spacing:.17em;color:#9db2d0;text-align:center;margin-top:12px}
+@media(max-width:850px){.card-showcase-grid{grid-template-columns:1fr}.card-scene{min-height:360px}.nfc-card{width:min(88%,520px)}}
+@media(max-width:480px){.card-scene{min-height:290px}.nfc-card{width:88%;border-radius:15px}.card-showcase p{font-size:14px}}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 15% 0%, rgba(255, 30, 30, 0.045), transparent 28%),
-        radial-gradient(circle at 90% 50%, rgba(20, 87, 255, 0.045), transparent 30%),
-        #f7f7f8;
-      color: var(--black);
-      min-height: 100vh;
-      padding: 40px 18px;
-    }
+/* Dirección editorial: títulos sobrios, contenido y productos protagonistas */
+.hero-title{font-size:clamp(54px,8vw,116px);letter-spacing:-.085em;line-height:1.02;max-width:950px}
+.section-title{font-size:clamp(34px,4.3vw,62px);line-height:1.12;letter-spacing:-.055em}
+.statement h2{font-size:clamp(32px,4.8vw,60px);max-width:900px}
+.brand-name{font-size:clamp(39px,4.8vw,64px)}
+.brand-card{min-height:395px}
+.card-showcase h2{font-size:clamp(34px,4.5vw,61px)!important;letter-spacing:-.055em!important;line-height:1.1!important}
+.project-art span{font-size:clamp(30px,3.4vw,48px)}
+.collaborators{background:#fff;border-top:1px solid #eceef0}
+.collab-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:43px}
+.collab-heading p{max-width:365px;color:#747b85;font-size:14px;line-height:1.7;margin:0}
+.collab-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #dce0e4;border-left:1px solid #dce0e4}
+.collab-item{min-height:148px;padding:25px;display:flex;flex-direction:column;justify-content:space-between;border-right:1px solid #dce0e4;border-bottom:1px solid #dce0e4;gap:10px}
+.collab-item span{font-size:10px;font-weight:800;color:#9aa4b0}
+.collab-item strong{font-family:"Space Grotesk",sans-serif;font-size:clamp(16px,1.7vw,22px);line-height:1.2;letter-spacing:-.03em}
+.collab-item small{font-size:11px;color:#858d99}
+.collab-footnote{font-size:11px;color:#939ba6;line-height:1.6;margin-top:18px}
+@media(max-width:850px){.collab-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.collab-heading{display:block}.collab-heading p{margin-top:18px}.hero-title{font-size:clamp(55px,11vw,90px)}}
+@media(max-width:480px){.hero-title{font-size:clamp(47px,12vw,68px)}.collab-item{padding:16px;min-height:133px}.collab-item strong{font-size:16px}}
 
-    .container {
-      width: 100%;
-      max-width: 560px;
-      margin: 0 auto;
-    }
+/* Carrusel continuo: logos reales, tamaño uniforme y pausa al interactuar */
+.brand-marquee{overflow:hidden;position:relative;margin-top:30px;mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 7%,#000 93%,transparent)}
+.brand-marquee-track{display:flex;width:max-content;animation:brand-scroll 23s linear infinite;will-change:transform}
+.brand-marquee:hover .brand-marquee-track,.brand-marquee:focus-within .brand-marquee-track{animation-play-state:paused}
+.brand-marquee-set{display:flex;align-items:center;gap:16px;padding-right:16px}
+.brand-logo{width:260px;height:150px;flex:none;border:1px solid #e7e9ed;border-radius:17px;background:#fff;display:flex;justify-content:center;align-items:center;padding:24px}
+.brand-logo img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+@keyframes brand-scroll{to{transform:translateX(-50%)}}
+.collab-footnote{font-size:12px;color:#858b96;margin-top:22px}
+/* Contacto editorial */
+.contact-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:center}
+.contact-intro{font-size:17px;line-height:1.7;color:#b4becd;max-width:470px;margin:20px 0 33px}
+.contact-primary{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#2879ff;border-radius:15px;color:#fff;font-size:15px;font-weight:800;padding:23px 25px;max-width:560px;transition:background .2s,transform .2s}
+.contact-primary:hover{background:#1769f0;transform:translateY(-2px)}
+.contact-secondary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:560px;margin-top:12px}
+.contact-secondary a{background:#20242e;border:1px solid #303643;border-radius:13px;padding:16px 12px;display:flex;align-items:center;justify-content:space-between;gap:6px;color:#f1f4fa;font-size:12px;font-weight:700;transition:background .2s}
+.contact-secondary a:hover{background:#2d3545}
+.contact-signature{min-height:330px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 50%,#213d66 0%,#141925 48%,#0b0c10 75%);border:1px solid #ffffff15;border-radius:24px}
+.signature-mark{font-family:'Space Grotesk',sans-serif;font-size:clamp(90px,12vw,180px);letter-spacing:-.16em;font-weight:700;line-height:1}
+.signature-mark span{color:#2879ff}
+.contact-signature p{font-size:9px;letter-spacing:.2em;color:#8493a9;margin-top:20px}
+@media(max-width:850px){.contact-grid{grid-template-columns:1fr}.contact-signature{display:none}}
+@media(max-width:540px){.brand-logo{width:215px;height:130px;padding:18px}.contact-secondary{grid-template-columns:1fr 1fr}.contact-secondary a:last-child{grid-column:1/-1}.contact-primary{font-size:14px}.contact-intro{font-size:15px}}
+@media(prefers-reduced-motion:reduce){.brand-marquee-track{animation:none}.brand-marquee{overflow-x:auto;mask-image:none;-webkit-mask-image:none}}
+/* Ajustes finales de interacción y legibilidad */
+:focus-visible{outline:3px solid #438aff;outline-offset:4px}
+section[id]{scroll-margin-top:24px}
+.brand-marquee{touch-action:pan-y}
+.contact-primary:focus-visible,.contact-secondary a:focus-visible{outline-color:#a9ccff}
+@media(max-width:540px){.collab-heading{margin-bottom:20px}.brand-logo{width:205px;height:120px;padding:16px}.brand-marquee-track{animation-duration:20s}.contact-intro{font-size:15px}.contact-primary{padding:20px 19px}}
+@media(prefers-reduced-motion:reduce){.brand-marquee-track{animation:none!important;transform:none!important}.brand-marquee{overflow-x:auto!important;scrollbar-width:thin}}
+.brand-logo-link{cursor:pointer;text-decoration:none;transition:border-color .25s,box-shadow .25s,transform .25s}.brand-logo-link:hover{border-color:#b9c9e6;box-shadow:0 10px 28px rgba(28,56,108,.09);transform:translateY(-3px)}.brand-logo-link:focus-visible{outline:3px solid #2878ff;outline-offset:3px}
 
-    /* PERFIL */
+/* Especialidades — composición editorial bento */
+.services-bento{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:44px}
+.services-bento .service{border:0;border-radius:24px;min-height:235px;padding:27px 30px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:transform .35s ease,box-shadow .35s ease;background:#e8edff;color:#18396e}
+.services-bento .service:hover{transform:translateY(-5px);box-shadow:0 16px 36px rgba(25,34,50,.1)}
+.services-bento .service-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.services-bento .service svg{width:47px;height:47px;flex-shrink:0}
+.services-bento .service small,.services-bento .service-top span{font-size:12px;font-weight:700;letter-spacing:.12em;opacity:.6}
+.services-bento .service h3{margin:0 0 9px;font-size:clamp(23px,2.5vw,34px);letter-spacing:-.055em;color:inherit}
+.services-bento .service p{font-size:15px;line-height:1.55;color:inherit;opacity:.78;max-width:420px;margin:0}
+.services-bento .service-web{grid-column:span 2;background:#171b23;color:#fff;min-height:280px}
+.services-bento .service-nfc{background:#dfeaff;color:#173d82}
+.services-bento .service-profile{background:#ebe6f4;color:#453568}
+.services-bento .service-brand{grid-column:span 2;background:#f5f5f5;color:#20242c;min-height:145px;display:grid;grid-template-columns:90px 1fr;align-items:center}
+.services-bento .service-brand .service-top{flex-direction:column;gap:8px}
+.services-bento .service-brand h3{font-size:clamp(23px,2.3vw,31px)}
+@media(max-width:600px){.services-bento{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:28px}.services-bento .service{border-radius:18px;padding:19px;min-height:205px}.services-bento .service-web{min-height:235px}.services-bento .service svg{width:34px;height:34px}.services-bento .service h3{font-size:clamp(19px,5vw,25px)}.services-bento .service p{font-size:12px}.services-bento .service-brand{grid-template-columns:65px 1fr;min-height:125px}.services-bento .service-top span{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.services-bento .service:hover{transform:none}}
 
-    .profile {
-      text-align: center;
-      margin-bottom: 34px;
-    }
-
-    .profile-badge {
-      width: 76px;
-      height: 76px;
-      margin: 0 auto 18px;
-      border-radius: 24px;
-      background: #0b0b0d;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 25px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      box-shadow: 0 12px 35px rgba(0,0,0,.12);
-    }
-
-    .profile h1 {
-      font-size: 32px;
-      line-height: 1.1;
-      letter-spacing: -1.2px;
-      margin-bottom: 9px;
-    }
-
-    .profile p {
-      font-size: 15px;
-      line-height: 1.5;
-      color: #707074;
-      max-width: 390px;
-      margin: auto;
-    }
-
-    /* MARCAS */
-
-    .brand {
-      background: rgba(255,255,255,.92);
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 26px;
-      margin-bottom: 18px;
-      box-shadow: 0 12px 40px rgba(0,0,0,.055);
-    }
-
-    .brand-header {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 22px;
-    }
-
-    .logo-box {
-      width: 92px;
-      height: 92px;
-      border-radius: 22px;
-      border: 1px solid #eeeeef;
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .logo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .brand-info {
-      min-width: 0;
-    }
-
-    .brand-name {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -.7px;
-      margin-bottom: 5px;
-    }
-
-    .brand-description {
-      color: #77777b;
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    /* VG DESINGS */
-
-    .vg {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .vg::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 30px;
-      right: 30px;
-      height: 3px;
-      background: var(--red);
-      border-radius: 0 0 10px 10px;
-    }
-
-    /* LINKTAP */
-
-    .linktap {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .linktap::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 30px;
-      right: 30px;
-      height: 3px;
-      background: var(--blue);
-      border-radius: 0 0 10px 10px;
-    }
-
-    /* BOTONES */
-
-    .links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .link {
-      text-decoration: none;
-      color: #111;
-      min-height: 62px;
-      border-radius: 17px;
-      background: #f6f6f7;
-      padding: 0 17px;
-      display: flex;
-      align-items: center;
-      transition: transform .18s ease, background .18s ease;
-    }
-
-    .link:hover {
-      transform: translateY(-2px);
-      background: #eeeeef;
-    }
-
-    .link-icon {
-      width: 37px;
-      height: 37px;
-      background: white;
-      border-radius: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 13px;
-      font-size: 17px;
-      font-weight: 700;
-      box-shadow: 0 2px 10px rgba(0,0,0,.04);
-    }
-
-    .link-content {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .link-title {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 2px;
-    }
-
-    .link-subtitle {
-      color: #88888d;
-      font-size: 12px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .arrow {
-      color: #a0a0a5;
-      font-size: 22px;
-      margin-left: 10px;
-    }
-
-    /* CONTACTO */
-
-    .contact {
-      margin-top: 26px;
-    }
-
-    .contact-label {
-      text-align: center;
-      color: #8a8a8e;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 12px;
-    }
-
-    .whatsapp {
-      text-decoration: none;
-      background: var(--black);
-      color: white;
-      border-radius: 20px;
-      min-height: 72px;
-      padding: 0 20px;
-      display: flex;
-      align-items: center;
-      transition: transform .18s ease;
-      box-shadow: 0 12px 30px rgba(0,0,0,.11);
-    }
-
-    .whatsapp:hover {
-      transform: translateY(-2px);
-    }
-
-    .whatsapp-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: white;
-      color: black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 14px;
-      font-size: 20px;
-      font-weight: 800;
-    }
-
-    .whatsapp-text {
-      flex: 1;
-    }
-
-    .whatsapp-title {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 3px;
-    }
-
-    .whatsapp-number {
-      color: #bcbcc0;
-      font-size: 12px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      text-align: center;
-      padding: 38px 0 10px;
-    }
-
-    .powered {
-      color: #99999e;
-      font-size: 11px;
-      margin-bottom: 7px;
-    }
-
-    .linktap-footer {
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -.5px;
-      color: #111;
-    }
-
-    .blue-dot {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      background: var(--blue);
-      border-radius: 50%;
-      margin-left: 1px;
-      margin-right: 1px;
-      transform: translateY(-9px);
-    }
-
-    .slogan {
-      color: #a0a0a5;
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-top: 5px;
-    }
-
-    @media (max-width: 480px) {
-      body {
-        padding: 28px 14px;
-      }
-
-      .profile h1 {
-        font-size: 29px;
-      }
-
-      .brand {
-        padding: 21px;
-        border-radius: 24px;
-      }
-
-      .logo-box {
-        width: 78px;
-        height: 78px;
-        border-radius: 18px;
-      }
-
-      .brand-name {
-        font-size: 21px;
-      }
-    }
-  </style>
+/* Sobre mí — retrato editorial */
+.about-v2{background:#f7f7f4;padding-top:clamp(80px,10vw,150px);padding-bottom:clamp(80px,10vw,150px)}
+.about-v2-head{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:clamp(30px,5vw,65px)}
+.about-v2-head .section-title{margin-bottom:0}.about-blue-dot{color:#3978ff}
+.about-v2-small{font-size:11px;letter-spacing:.13em;color:#8c919a;white-space:nowrap;padding-bottom:9px}
+.about-v2-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.94fr);gap:clamp(24px,5vw,86px);align-items:stretch}
+/* Retrato editorial sin marco, integrado al fondo mediante un fade suave */
+.about-v2-photo{position:relative;isolation:isolate;overflow:hidden;border-radius:0;min-height:590px;background:transparent;display:flex;align-items:flex-end;justify-content:center}
+.about-v2-photo img{display:block;width:100%;height:100%;max-height:690px;object-fit:contain;object-position:center bottom;transform:translateY(14px) scale(1.045);transform-origin:center bottom;filter:drop-shadow(0 20px 35px rgba(30,36,45,.08));transition:transform .9s cubic-bezier(.2,.7,.2,1);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 72%,rgba(0,0,0,.93) 79%,rgba(0,0,0,.55) 89%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 72%,rgba(0,0,0,.93) 79%,rgba(0,0,0,.55) 89%,transparent 100%)}
+.about-v2-photo:hover img{transform:translateY(10px) scale(1.065)}
+.about-v2-photo:after{content:none}
+.about-v2-photo-tag{display:none}
+.about-v2-body{display:flex;flex-direction:column;justify-content:center;min-width:0;padding:18px 0}
+.about-v2-kicker{font-size:11px;font-weight:700;letter-spacing:.13em;color:#526071;display:flex;align-items:center;gap:9px}
+.about-v2-pulse{width:8px;height:8px;border-radius:50%;background:#3978ff;box-shadow:0 0 0 5px rgba(57,120,255,.12)}
+.about-v2-intro{font-size:clamp(38px,4.7vw,74px);font-weight:750;letter-spacing:-.065em;line-height:1.08;color:#191d24;margin:28px 0 26px}
+.about-v2-intro em{font-style:normal;color:#3978ff}
+.about-v2-copy{font-size:clamp(16px,1.5vw,20px);line-height:1.75;color:#656c76;max-width:550px;margin:0}
+.about-v2-copy strong{color:#20242b;font-weight:650}
+.about-v2-footer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:22px;border-top:1px solid #d7d9dc;padding-top:25px;margin-top:clamp(36px,5vw,80px);font-size:11px;letter-spacing:.07em;color:#7d8490}
+.about-v2-footer a{color:#245de3;text-decoration:none;font-weight:750;white-space:nowrap}.about-v2-footer a:hover{text-decoration:underline}
+@media(max-width:850px){.about-v2-layout{grid-template-columns:1fr;gap:30px}.about-v2-photo{min-height:0;aspect-ratio:5/4}.about-v2-body{padding:6px 0 0}.about-v2-small{display:none}.about-v2-intro{font-size:clamp(39px,8vw,65px)}.about-v2-footer{margin-top:36px}}
+@media(max-width:480px){.about-v2-photo{aspect-ratio:4/4.5}.about-v2-photo-tag{left:17px;bottom:17px;font-size:10px}.about-v2-intro{font-size:43px;margin:25px 0 18px}.about-v2-copy{font-size:16px}.about-v2-footer{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.about-v2-photo img{transition:none}}
+</style>
 </head>
-
 <body>
+<header class="site-header"><a class="monogram" href="#inicio" aria-label="Inicio Vicente Gómez">VG<span>.</span></a><nav class="nav" aria-label="Navegación"><a href="#sobre-mi">Sobre mí</a><a href="#marcas">Mis marcas</a><a href="#colaboraciones">Colaboraciones</a><a class="nav-cta" href="#contacto">Hablemos ↗</a></nav></header>
+<main>
+<section class="hero" id="inicio" aria-label="Presentación Vicente Gómez">
+<div class="hero-bigtype" aria-hidden="true"><span>VICENTE</span><span>GÓMEZ.</span></div><div class="hero-photo" role="img" aria-label="Retrato de Vicente Gómez sin fondo"></div><div class="hero-glow"></div>
+<div class="hero-inner">
+<div class="hero-index">01 / PORTAFOLIO PERSONAL · PUERTO MONTT, CHILE</div>
+<h1 class="hero-title">VICENTE GÓMEZ<span class="hero-title-dot">.</span></h1>
+<p class="hero-desc">Fundador de <strong>LinkTap</strong> y <strong>VG Desings</strong>.<br>Diseño, tecnología y nuevas formas de conectar.</p>
+<div class="hero-actions"><a class="btn btn-blue" href="#colaboraciones">Ver colaboraciones <span>↗</span></a><a class="btn btn-outline" href="#contacto">Hablemos <span>↗</span></a></div>
+</div><div class="hero-meta">CREATIVIDAD EN MOVIMIENTO<br>SCROLL PARA DESCUBRIR ↓</div>
+</section>
+<div class="ticker"><div class="ticker-track"><span>DISEÑO WEB</span><b>✳</b><span>TECNOLOGÍA NFC</span><b>✳</b><span>PERFILES DIGITALES</span><b>✳</b><span>IDENTIDAD VISUAL</span></div></div>
+<section class="section about about-v2" id="sobre-mi">
+<div class="wrap">
+<div class="about-v2-head reveal"><div><div class="eyebrow">02 / SOBRE MÍ</div><h2 class="section-title">Sobre mí<span class="about-blue-dot">.</span></h2></div><span class="about-v2-small">PERSONA DETRÁS DE LOS PROYECTOS ↗</span></div>
+<div class="about-v2-layout">
+<div class="about-v2-photo reveal"><img src="vicentefrentehero.png" alt="Retrato de Vicente Gómez" loading="lazy"></div>
+<div class="about-v2-body reveal"><span class="about-v2-kicker"><span class="about-v2-pulse"></span> FUNDADOR DE LINKTAP Y VG DESINGS</span><p class="about-v2-intro">Diseño, tecnología<br>y <em>creatividad.</em></p><p class="about-v2-copy">Soy <strong>Vicente Gómez</strong>, fundador de <strong>LinkTap</strong> y <strong>VG Desings</strong>. Me dedico a desarrollar proyectos que combinan diseño y tecnología, buscando soluciones útiles para personas y negocios.</p><div class="about-v2-footer"><span>CREATIVIDAD · TECNOLOGÍA · EMPRENDIMIENTO</span><a href="#marcas" aria-label="Conocer mis marcas">CONOCE MIS MARCAS <span aria-hidden="true">↗</span></a></div></div>
+</div></div></section>
+<section class="section brands" id="marcas"><div class="wrap"><div class="eyebrow">03 / LO QUE ESTOY CONSTRUYENDO</div><h2 class="section-title reveal">Mis marcas</h2><div class="brand-grid">
+<article class="brand-card linktap reveal"><div class="brand-top">01 / TECNOLOGÍA Y CONEXIÓN</div><div><div class="brand-name">Link<span>Tap.</span></div><p>Tarjetas NFC, perfiles digitales y herramientas inteligentes para conectar profesionales y empresas.</p></div><a class="brand-link" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Conoce LinkTap <span>↗</span></a></article>
+<article class="brand-card vg reveal"><div class="brand-top">02 / ESTUDIO CREATIVO</div><div><div class="brand-name">VG <span>Desings.</span></div><p>Diseño web, identidad visual y experiencias digitales. Menos ruido, más impacto.</p></div><a class="brand-link" href="https://vgdesings.cl" target="_blank" rel="noopener noreferrer">Conoce VG Desings <span>↗</span></a></article>
+</div></div></section>
 
-  <main class="container">
+<section class="section card-showcase" id="tarjeta-nfc" aria-label="Tarjeta NFC LinkTap">
+ <div class="wrap card-showcase-grid">
+  <div class="reveal">
+   <div class="eyebrow">04 / PRODUCTO DESTACADO</div>
+   <h2>LinkTap <span>NFC</span></h2>
+   <p>Una forma simple y profesional de compartir tus datos, redes sociales y perfil digital. Acerca tu LinkTap y conecta.</p>
+   <a class="product-action" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Descubre LinkTap <span>↗</span></a>
+  </div>
+  <div class="reveal">
+   <div class="card-scene">
+    <div class="card-orbit" aria-hidden="true"></div><div class="card-orbit two" aria-hidden="true"></div>
+    <div class="nfc-card"><img src="linktapfrente.png" alt="Diseño frontal real de tarjeta NFC LinkTap, presentada con bordes redondeados y proporciones de tarjeta bancaria" loading="lazy" width="2048" height="1291"></div>
+   </div>
+   <div class="card-measure">FORMATO FÍSICO · 85,60 × 53,98 MM · NFC</div>
+  </div>
+ </div>
+</section>
+<section class="section services" id="servicios"><div class="wrap"><div class="eyebrow">05 / ESPECIALIDADES</div><h2 class="section-title reveal">Lo que hago.</h2><div class="services-grid services-bento">
+<div class="service service-web reveal"><div class="service-top"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="7" width="33" height="25" rx="4" stroke="currentColor" stroke-width="2"/><path d="M13 39h17M20 32v7M28 18h15v23H28z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>01 /</span></div><div><h3>Desarrollo web</h3><p>Sitios web modernos, funcionales y adaptados a cada negocio.</p></div></div>
+<div class="service service-nfc reveal"><div class="service-top"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="5" y="9" width="31" height="30" rx="5" stroke="currentColor" stroke-width="2"/><path d="M13 18c6-6 14-6 20 0M17 23c4-4 8-4 12 0M21 28a3 3 0 0 1 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>02 /</span></div><div><h3>Tarjetas NFC</h3><p>Conexiones con un toque.</p></div></div>
+<div class="service service-profile reveal"><div class="service-top"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="12" y="3" width="24" height="42" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="17" r="5" stroke="currentColor" stroke-width="2"/><path d="M16 31c2-7 14-7 16 0M20 39h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>03 /</span></div><div><h3>Perfiles digitales</h3><p>Toda tu información en un lugar.</p></div></div>
+<div class="service service-brand reveal"><div class="service-top"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="m10 34 4-13L32 3l13 13-18 18-13 4-4-4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m26 9 13 13M14 34l7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>04 /</span></div><div><h3>Branding</h3><p>Identidad visual y diseño de marca.</p></div></div>
+</div></div></section>
 
-    <!-- PERFIL -->
-
-    <header class="profile">
-
-      <div class="profile-badge">
-        VG
+<section class="section collaborators" id="colaboraciones">
+<div class="wrap">
+  <div class="eyebrow">06 / EXPERIENCIA</div>
+  <div class="collab-heading"><h2 class="section-title reveal">Marcas y colaboraciones</h2>
+  <p>Una selección de marcas con las que he trabajado.</p></div>
+  <div class="brand-marquee" aria-label="Marcas con las que he trabajado">
+    <div class="brand-marquee-track">
+      <div class="brand-marquee-set">
+        <a class="brand-logo brand-logo-link" href="https://linktap.cl/cosmederm" target="_blank" rel="noopener noreferrer" aria-label="Visitar página de Clínica Cosmederm"><img src="cosmedermlogo.png" alt="Clínica Cosmederm" loading="lazy"></a>
+        <a class="brand-logo brand-logo-link" href="https://veterinariaaustral.cl/" target="_blank" rel="noopener noreferrer" aria-label="Visitar página de Clínica Veterinaria Austral"><img src="veterinariaaustral.png" alt="Clínica Veterinaria Austral" loading="lazy"></a>
+        <a class="brand-logo brand-logo-link" href="https://linktap.cl/monteverde//" target="_blank" rel="noopener noreferrer" aria-label="Visitar página de Clínica Dental Monteverde"><img src="monteverdelogo.png" alt="Clínica Dental Monteverde" loading="lazy"></a>
       </div>
-
-      <h1>Vicente Gómez</h1>
-
-      <p>
-        Diseño digital, desarrollo web y soluciones NFC para conectar negocios con sus clientes.
-      </p>
-
-    </header>
-
-
-    <!-- VG DESINGS -->
-
-    <section class="brand vg">
-
-      <div class="brand-header">
-
-        <div class="logo-box">
-
-          <!-- LOGO VG DESINGS CORREGIDO -->
-
-          <img
-            src="8.png"
-            alt="VG Desings"
-          >
-
-        </div>
-
-        <div class="brand-info">
-
-          <div class="brand-name">
-            VG Desings
-          </div>
-
-          <div class="brand-description">
-            Diseño web, identidad visual y soluciones digitales.
-          </div>
-
-        </div>
-
+      <div class="brand-marquee-set" aria-hidden="true">
+        <a class="brand-logo brand-logo-link" href="https://linktap.cl/cosmederm" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="cosmedermlogo.png" alt="" loading="lazy"></a>
+        <a class="brand-logo brand-logo-link" href="https://veterinariaaustral.cl/" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="veterinariaaustral.png" alt="" loading="lazy"></a>
+        <a class="brand-logo brand-logo-link" href="https://linktap.cl/monteverde//" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="monteverdelogo.png" alt="" loading="lazy"></a>
       </div>
-
-
-      <div class="links">
-
-        <a
-          class="link"
-          href="https://vgdesings.cl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="link-icon">↗</div>
-
-          <div class="link-content">
-            <div class="link-title">Sitio web</div>
-            <div class="link-subtitle">vgdesings.cl</div>
-          </div>
-
-          <div class="arrow">›</div>
-
-        </a>
-
-
-        <a
-          class="link"
-          href="https://www.instagram.com/vg_desings"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="link-icon">◎</div>
-
-          <div class="link-content">
-            <div class="link-title">Instagram</div>
-            <div class="link-subtitle">@vg_desings</div>
-          </div>
-
-          <div class="arrow">›</div>
-
-        </a>
-
+    </div>
+  </div>
+</div></section>
+<section class="statement"><div class="eyebrow">MI FILOSOFÍA</div><h2 class="reveal">Diseño y tecnología <span>con propósito.</span></h2></section>
+<section class="section contact" id="contacto"><div class="wrap">
+  <div class="contact-grid">
+    <div><div class="eyebrow">CONTACTO</div><h2 class="section-title reveal">Conversemos.</h2>
+      <p class="contact-intro">¿Tienes un proyecto o necesitas una solución digital? Estoy disponible para conversar.</p>
+      <a class="contact-primary" href="https://wa.me/56963074376?text=Hola%20Vicente%2C%20vi%20tu%20perfil%20digital%20y%20me%20gustar%C3%ADa%20conversar%20sobre%20un%20proyecto." target="_blank" rel="noopener noreferrer"><span>Contactar por WhatsApp</span><span>↗</span></a>
+      <div class="contact-secondary">
+        <a href="mailto:linktap.cl@gmail.com"><span>✉</span> Correo <span>↗</span></a>
+        <a href="https://www.instagram.com/vg_desings" target="_blank" rel="noopener noreferrer"><span>◎</span> Instagram <span>↗</span></a>
+        <a href="vicente-gomez.vcf" download><span>＋</span> Guardar contacto <span>↓</span></a>
       </div>
-
-    </section>
-
-
-    <!-- LINKTAP -->
-
-    <section class="brand linktap">
-
-      <div class="brand-header">
-
-        <div class="logo-box">
-
-          <!-- LOGO LINKTAP CORREGIDO -->
-
-          <img
-            src="ACERCA Y CONECTA (1080 x 1080 px) (2).png"
-            alt="LinkTap"
-          >
-
-        </div>
-
-        <div class="brand-info">
-
-          <div class="brand-name">
-            LinkTap
-          </div>
-
-          <div class="brand-description">
-            Tarjetas NFC para conectar tu negocio con el mundo digital.
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <div class="links">
-
-        <a
-          class="link"
-          href="https://www.instagram.com/linktap.cl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="link-icon">◎</div>
-
-          <div class="link-content">
-            <div class="link-title">Instagram</div>
-            <div class="link-subtitle">@linktap.cl</div>
-          </div>
-
-          <div class="arrow">›</div>
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- WHATSAPP -->
-
-    <section class="contact">
-
-      <div class="contact-label">
-        Contacto directo
-      </div>
-
-      <a
-        class="whatsapp"
-        href="https://wa.me/56963074376"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <div class="whatsapp-icon">
-          W
-        </div>
-
-        <div class="whatsapp-text">
-
-          <div class="whatsapp-title">
-            Hablar por WhatsApp
-          </div>
-
-          <div class="whatsapp-number">
-            +56 9 6307 4376
-          </div>
-
-        </div>
-
-        <div class="arrow">›</div>
-
-      </a>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-      <div class="powered">
-        Perfil digital creado con
-      </div>
-
-      <div class="linktap-footer">
-        Link<span class="blue-dot"></span>Tap
-      </div>
-
-      <div class="slogan">
-        Acerca y conecta
-      </div>
-
-    </footer>
-
-  </main>
-
-</body>
-</html>
+    </div>
+    <div class="contact-signature" aria-hidden="true"><div class="signature-mark">VG<span>.</span></div><p>DISEÑO · TECNOLOGÍA · CONEXIÓN</p></div>
+  </div>
+  <footer class="footer"><span><b>VICENTE GÓMEZ</b> · PUERTO MONTT, CHILE</span><span>DISEÑADO PARA CONECTAR · LINKTAP</span><a href="#inicio">VOLVER ARRIBA ↑</a></footer>
+</div></section>
+</main>
+<script>
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.09});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body></html>
