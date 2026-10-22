@@ -4,7 +4,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#ffffff">\n<meta name="description" content="Completa tu información para crear tu perfil digital LinkTap. Para profesionales y empresas.">\n<link rel="preconnect" href="https://fonts.googleapis.com">\n<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Completa tu información para crear tu perfil digital LinkTap. Para profesionales y empresas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <title>Crear mi perfil digital | LinkTap</title>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
@@ -277,6 +281,125 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
 @media(max-width:600px){main{padding:30px 15px 60px}.section{padding:20px;border-radius:20px}.form-layout{gap:8px}.preview-panel{padding:17px}.choices.two{grid-template-columns:1fr 1fr}.hero h1{font-size:clamp(36px,10vw,52px)}}
 @media(prefers-reduced-motion:reduce){.choice{transition:none}.choice:hover{transform:none}}
 
+
+/* Guía educativa y preview 3.0 */
+.intro-guide{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(270px,.8fr);gap:32px;align-items:center;padding:36px;margin:12px 0 38px;border:1px solid #e0eafa;border-radius:30px;background:linear-gradient(125deg,#f0f7ff,#fff 70%);overflow:hidden}
+.guide-kicker{font-size:10px;font-weight:800;letter-spacing:.16em;color:#1677ff;display:block;margin-bottom:12px}
+.intro-guide h2{font-size:clamp(28px,3.8vw,44px);letter-spacing:-.055em;line-height:1.12;margin:0 0 17px}
+.intro-guide h2 span{color:#1677ff}
+.guide-copy>p{font-size:15px;line-height:1.75;color:#58667c}
+.guide-benefits{display:grid;gap:14px;margin-top:24px}
+.guide-benefits>div{display:grid;grid-template-columns:36px 1fr;column-gap:12px;align-items:start}
+.guide-icon{grid-row:span 2;width:36px;height:36px;display:grid;place-items:center;background:white;color:#1677ff;border:1px solid #dbe8fa;border-radius:12px;font-size:19px}
+.guide-benefits strong{font-size:14px}
+.guide-benefits small{font-size:12px;color:#64748b;line-height:1.5;margin-top:3px}
+.guide-note{background:#fff;border:1px solid #e2ebf7;border-radius:14px;padding:13px 15px;margin-top:23px!important;font-size:13px!important}
+.guide-demo{width:min(100%,320px);margin:auto;background:white;border:1px solid #dbe7f6;border-radius:24px;box-shadow:0 24px 55px #1b5ca21c;overflow:hidden;transform:rotate(2deg)}
+.guide-demo-top{height:32px;background:#f8faff;display:flex;justify-content:space-between;align-items:center;padding:0 14px;font-size:10px;color:#78889f;border-bottom:1px solid #e9eef6}
+.demo-dot{color:#b3c1d6}
+.guide-demo-cover{height:90px;background:linear-gradient(120deg,#172e57,#197cff);position:relative;overflow:hidden}
+.guide-demo-cover:after{content:'';position:absolute;width:150px;height:150px;border:1px solid #ffffff4d;border-radius:50%;right:-25px;top:-80px}
+.guide-demo-content{position:relative;margin-top:-30px;text-align:center;padding:0 19px 22px}
+.guide-demo-avatar{height:62px;width:62px;margin:0 auto 12px;display:grid;place-items:center;border-radius:50%;border:4px solid white;background:#e7f1ff;color:#1769df;font-size:21px;font-weight:800}
+.guide-demo-content>strong{display:block;font-size:19px;letter-spacing:-.04em}
+.guide-demo-content>small{display:block;color:#68788d;font-size:11px;margin-top:5px}
+.guide-demo-content>p{font-size:11px;color:#64748b;line-height:1.5;margin:12px 0}
+.guide-demo-button{background:#1677ff;color:#fff;padding:12px;border-radius:12px;font-size:12px;font-weight:700}
+.guide-demo-tags{display:flex;justify-content:center;gap:5px;margin-top:12px;flex-wrap:wrap}
+.guide-demo-tags span{background:#f0f6ff;border:1px solid #e0ebfa;border-radius:20px;padding:6px 8px;font-size:10px;color:#4a6182}
+.guide-demo-caption{text-align:center;font-size:10px;color:#98a4b5;background:#fafcff;padding:9px}
+.form-intro{display:flex;justify-content:space-between;gap:20px;align-items:center;margin:10px 0 22px}
+.form-intro h2{font-size:clamp(26px,3.6vw,38px);letter-spacing:-.055em;margin:0 0 7px}
+.form-intro p{color:#667085;font-size:14px;line-height:1.6}
+.form-intro-badge{font-size:11px;font-weight:750;white-space:nowrap;color:#1268d9;background:#eaf3ff;padding:10px 13px;border-radius:99px}
+.preview-panel{border-radius:28px;padding:20px;background:linear-gradient(180deg,#fff,#fbfdff)}
+.preview-top{margin-bottom:8px}
+.preview-top>div strong{display:block;font-size:19px;letter-spacing:-.035em}
+.preview-top .guide-kicker{margin-bottom:4px}
+.preview-person-label{display:block;font-size:12px;font-weight:700;margin:13px 0 7px}
+.preview-select{border-color:#d9e6f6;background:#f8fbff}
+.mock-phone{border:5px solid #1b2a43;border-radius:29px;max-width:285px;box-shadow:0 20px 40px #182f5430}
+.mock-browser{height:33px;background:#f9fbff;border-bottom:1px solid #e8edf5;display:flex;justify-content:space-between;align-items:center;gap:5px;padding:0 12px;color:#8291a6;font-size:9px}
+.mock-cover{height:118px;background:linear-gradient(135deg,#11274a,#1677ff);position:relative;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;padding-top:17px;letter-spacing:.17em;font-size:10px}
+.mock-cover-shape{position:absolute;width:145px;height:145px;border:1px solid #ffffff38;border-radius:50%;right:-15px;bottom:-100px}
+.mock-body{margin-top:-34px;padding:0 17px 22px}
+.mock-avatar{box-shadow:0 7px 16px #1b4d9020}
+.mock-name{font-size:21px}
+.mock-role{font-size:12px}
+.mock-bio{background:#f7faff;padding:10px;border-radius:11px}
+.mock-action{display:flex;justify-content:center;align-items:center;gap:7px;background:#1677ff}
+.mock-action span:last-child{margin-left:auto}
+.mock-action span:first-child{margin-left:auto}
+.mock-links span{font-size:10px;padding:8px 10px;background:#f3f7fd;border-color:#e2ebf7}
+.mock-services{background:#f8fbff;padding:11px;border-radius:10px;border:0;margin-top:13px}
+.mock-brand{font-size:10px;color:#a3afbf;margin-top:23px}
+.mock-brand b{color:#273f61}
+.mock-brand b span{color:#1677ff}
+.preview-note{display:flex;gap:10px;margin-top:15px;padding:13px;background:#f0f7ff;border:1px solid #e0edff;border-radius:13px}
+.preview-note>span{color:#1677ff;font-size:17px}
+.preview-note p{font-size:11px;color:#61718a;line-height:1.5;margin:0}
+@media(max-width:900px){.intro-guide{grid-template-columns:1fr 290px;gap:18px;padding:24px}}
+@media(max-width:750px){.intro-guide{grid-template-columns:1fr}.guide-demo{transform:none}.form-intro{align-items:flex-start}}
+@media(max-width:480px){.intro-guide{padding:22px 18px;border-radius:23px}.guide-benefits{gap:16px}.form-intro{flex-direction:column;gap:10px}.form-intro-badge{align-self:flex-start}.preview-panel{padding:16px}}
+
+ 
+/* Launch visual system */
+:root{--blue:#185dff;--ink:#111827;--muted:#647084;--soft:#f7f9fd;--line:#e5eaf2}
+body{background:linear-gradient(180deg,#f6f9ff 0,#fff 470px);font-family:"DM Sans",-apple-system,BlinkMacSystemFont,sans-serif}
+nav{max-width:1140px}
+main{max-width:1120px;padding:50px 22px 100px}
+.hero{padding:48px clamp(24px,6vw,74px);border-radius:32px;background:#0c1936;color:white;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-130px;top:-160px;width:470px;height:470px;border-radius:50%;background:radial-gradient(circle,#2768ff80,transparent 70%);pointer-events:none}
+.hero .eyebrow{color:#a9c7ff;display:flex;align-items:center;gap:9px;letter-spacing:1.5px}
+.eyebrow-dot{height:8px;width:8px;background:#7bd1ff;border-radius:50%;box-shadow:0 0 0 5px #7bd1ff1e}
+.hero h1{font-size:clamp(42px,6vw,76px);letter-spacing:-3px;line-height:1.04;margin:26px 0 22px;max-width:760px}
+.hero h1 span{color:#83b1ff}
+.hero .lead{color:#c4cee0;max-width:590px;font-size:clamp(15px,2vw,18px)}
+.hero-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:30px}
+.hero-link{background:#fff;color:#13295d;padding:14px 19px;border-radius:13px;font-size:14px;font-weight:800}
+.hero-link span{margin-left:18px}
+.hero-meta{font-size:12px;color:#b2c2df}
+.why-section{margin:56px 0 48px}
+.section-kicker{font-size:11px;color:var(--blue);font-weight:800;letter-spacing:1.6px}
+.why-section h2,.form-intro h2{font-size:clamp(27px,4vw,38px);letter-spacing:-1.4px;margin:12px 0}
+.why-lead,.form-intro p{color:var(--muted);line-height:1.7;max-width:720px;margin:0 0 24px}
+.benefit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.benefit{background:#fff;border:1px solid var(--line);padding:23px 20px;border-radius:20px}
+.benefit-icon{display:grid;place-items:center;background:#eaf1ff;color:#1d5df0;border-radius:13px;width:38px;height:38px;font-size:22px}
+.benefit h3{font-size:15px;letter-spacing:-.25px;margin:18px 0 8px}
+.benefit p{color:var(--muted);font-size:13px;line-height:1.55;margin:0}
+.use-details,.plan-details{margin-top:16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.use-details summary,.plan-details summary{padding:17px 20px;cursor:pointer;font-size:13px;font-weight:750;display:flex;justify-content:space-between;list-style:none}
+.use-details summary::-webkit-details-marker,.plan-details summary::-webkit-details-marker{display:none}
+.use-details[open] summary span,.plan-details[open] summary span{transform:rotate(45deg)}
+.use-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px 20px}
+.use-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.use-grid strong{color:var(--ink)}
+.form-intro{padding-top:12px;scroll-margin-top:100px}
+.form-layout{max-width:100%}
+.section{background:#fff;border-radius:22px;box-shadow:0 6px 32px #15234206}
+.plan-choices{align-items:stretch}
+.plan-choices .choice{display:flex;flex-direction:column;gap:10px;min-height:225px;padding:22px 18px;position:relative}
+.plan-choices .choice strong{margin:0}
+.plan-choices .choice .plan-name{font-size:20px;font-weight:800;letter-spacing:-.7px}
+.plan-choices .choice .plan-tagline{font-size:13px;font-weight:700}
+.plan-choices .choice small{font-size:12px;line-height:1.55}
+.plan-choices .choice .plan-price{margin-top:auto;font-size:15px;font-weight:800}
+.plan-price em{font-size:11px;font-weight:500;font-style:normal;color:var(--muted);display:block;margin-top:3px}
+.plan-choices .choice.featured{border-color:#a8c1ff;background:#f7faff}
+.plan-choices .choice.featured.active{border-color:var(--blue);box-shadow:0 0 0 2px #185dff1c}
+.plan-choices .choice.active{border-color:var(--blue);background:#f3f7ff}
+.recommend{align-self:flex-start;background:#1b5cff;color:#fff;border-radius:99px;font-size:10px;font-weight:800;padding:5px 9px;letter-spacing:.5px}
+.plan-footnote{font-size:12px;color:var(--muted);line-height:1.6;margin:14px 0 0}
+.compare-wrap{overflow-x:auto;padding:0 14px 14px}
+.compare{border-collapse:collapse;width:100%;font-size:12px;min-width:420px}
+.compare th,.compare td{padding:12px 8px;text-align:center;border-bottom:1px solid var(--line)}
+.compare th:first-child,.compare td:first-child{text-align:left}
+.compare th{font-weight:800}
+input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
+@media(max-width:800px){.benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:36px 27px}.hero h1{letter-spacing:-2px}.plan-choices .choice{min-height:205px}}
+@media(max-width:570px){main{padding:22px 14px 60px}.hero{border-radius:22px;padding:32px 23px}.hero h1{font-size:43px;letter-spacing:-2px}.hero .lead{font-size:15px}.hero-actions{align-items:flex-start;gap:15px}.hero-meta{line-height:1.5}.why-section{margin:34px 0}.benefit-grid{gap:9px}.benefit{padding:16px 13px;border-radius:15px}.benefit h3{font-size:13px}.benefit p{font-size:12px}.use-grid{grid-template-columns:1fr}.section{padding:20px 15px;border-radius:19px}.plan-choices{grid-template-columns:1fr!important}.plan-choices .choice{min-height:unset;padding:16px 17px;gap:7px}.plan-choices .choice .plan-price{margin-top:5px}.plan-choices .choice.featured{order:-1}.form-intro h2{font-size:30px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -289,33 +412,61 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
 </header>
 
 <main>
-  <div class="eyebrow">LinkTap · Perfiles digitales</div>
-  <h1>Tu perfil digital<br><span>empieza aquí.</span></h1>
-  <p class="lead">
-    Cuéntanos lo esencial de ti o tu empresa.
-    Completa solo la información que quieras incluir en tus perfiles.
-  </p>
-  <span class="pill">Fácil de completar · Diseñado para tu celular</span>
+  <div class="hero">
+    <div class="eyebrow"><span class="eyebrow-dot"></span> LINKTAP / PERFILES DIGITALES</div>
+    <h1>Tu presentación.<br><span>En un solo lugar.</span></h1>
+    <p class="lead">Reúne quién eres, qué haces y cómo pueden contactarte en una página que puedes compartir por enlace, código QR o tarjeta NFC.</p>
+    <div class="hero-actions"><a class="hero-link" href="#planes">Completar mi información <span aria-hidden="true">↗</span></a><span class="hero-meta">Sin subir fotos ni logos · Diseño coordinado contigo</span></div>
+  </div>
+  <section class="why-section" aria-labelledby="why-title">
+    <div class="section-kicker">01 / DESCUBRE SU UTILIDAD</div>
+    <h2 id="why-title">Más que una tarjeta de contacto.</h2>
+    <p class="why-lead">Un perfil digital ayuda a que otras personas encuentren tu información y conozcan tu trabajo sin buscar entre distintas aplicaciones.</p>
+    <div class="benefit-grid">
+      <article class="benefit"><span class="benefit-icon">↗</span><h3>Date a conocer</h3><p>Presenta tu profesión, cargo o emprendimiento.</p></article>
+      <article class="benefit"><span class="benefit-icon">▦</span><h3>Muestra lo que haces</h3><p>Comparte servicios, proyectos o catálogo según tu plan.</p></article>
+      <article class="benefit"><span class="benefit-icon">◎</span><h3>Facilita el contacto</h3><p>WhatsApp, correo y redes desde un mismo lugar.</p></article>
+      <article class="benefit"><span class="benefit-icon">⌁</span><h3>Compártelo fácilmente</h3><p>Enlace directo, QR o tarjeta NFC compatible.</p></article>
+    </div>
+    <details class="use-details"><summary>¿Cómo se puede usar en tu rubro? <span>+</span></summary>
+      <div class="use-grid">
+        <p><strong>Profesionales:</strong> presentación, especialidades y contacto.</p>
+        <p><strong>Emprendimientos:</strong> servicios, redes y catálogo.</p>
+        <p><strong>Empresas:</strong> información corporativa y equipo.</p>
+        <p><strong>Creadores:</strong> portafolio, proyectos y enlaces.</p>
+      </div>
+    </details>
+  </section>
+  <div class="form-intro" id="planes"><div class="section-kicker">02 / CREA TU PERFIL</div><h2>Ahora cuéntanos sobre ti.</h2><p>Completa el contenido que aparecerá en tu perfil. Las fotos, logos, colores y otros detalles visuales los coordinaremos directamente contigo.</p></div>
 
   <div class="form-layout"><div class="form-main"><form id="form" novalidate>
 
     <section class="section">
-      <h2>01. Elige tu perfil</h2>
-      <p class="hint">Selecciona el plan que acordaste con LinkTap.</p>
-      <div class="choices" id="plans">
-        <button type="button" class="choice active" data-value="necesario">
-          <strong>Necesario</strong>
-          <small>Información y contacto esencial.</small>
+      <h2>01. Selecciona tu plan</h2>
+      <p class="hint">Elige el plan acordado con LinkTap. Mostraremos los campos que corresponden a tu perfil.</p>
+      <div class="choices plan-choices" id="plans">
+        <button type="button" class="choice" data-value="necesario" aria-label="Plan Necesario, 29.990 pesos">
+          <span class="plan-name">Necesario</span><span class="plan-tagline">Lo esencial para conectar.</span>
+          <small>Datos de contacto, redes y presentación básica.</small><span class="plan-price">$29.990 <em>pago único</em></span>
         </button>
-        <button type="button" class="choice" data-value="pro">
-          <strong>Pro</strong>
-          <small>Presentación, servicios y enlaces.</small>
+        <button type="button" class="choice active featured" data-value="pro" aria-label="Plan Pro recomendado, 44.990 pesos">
+          <span class="recommend">MÁS ELEGIDO</span><span class="plan-name">Pro</span><span class="plan-tagline">Tu presentación profesional.</span>
+          <small>Más contenido, servicios, enlaces y opciones visuales.</small><span class="plan-price">$44.990 <em>pago único</em></span>
         </button>
-        <button type="button" class="choice" data-value="completo">
-          <strong>Completo</strong>
-          <small>Galería, video y contenido adicional.</small>
+        <button type="button" class="choice" data-value="empresa" aria-label="Plan Empresa, 59.990 pesos">
+          <span class="plan-name">Empresa</span><span class="plan-tagline">Tu negocio en un solo lugar.</span>
+          <small>Información corporativa, equipo y sucursales.</small><span class="plan-price">$59.990 <em>pago único</em></span>
         </button>
       </div>
+      <p class="plan-footnote">Valores referenciales del servicio · 12 meses de hosting incluidos · Este formulario no realiza cobros.</p>
+      <details class="plan-details"><summary>Ver diferencias entre los planes <span>+</span></summary>
+      <div class="compare-wrap"><table class="compare"><thead><tr><th>Incluye</th><th>Necesario</th><th>Pro</th><th>Empresa</th></tr></thead><tbody>
+      <tr><td>Contacto y redes</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Presentación básica</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Servicios y enlaces adicionales</td><td>—</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Galería y video</td><td>—</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Equipo y sucursales</td><td>—</td><td>—</td><td>✓</td></tr>
+      </tbody></table></div></details>
     </section>
 
     <section class="section">
@@ -330,7 +481,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
         </button>
         <button type="button" class="choice" data-value="empresa">
           <strong>Para una empresa</strong>
-          <small>Uno o varios ejecutivos.</small>
+          <small>Datos corporativos y equipo de trabajo.</small>
         </button>
       </div>
     </section>
@@ -365,7 +516,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
     <section class="section hidden" id="company-section">
       <h2>04. Tu empresa</h2>
       <p class="hint">
-        Información compartida para los perfiles de tus ejecutivos.
+        Información corporativa que se mostrará en el perfil de tu empresa.
       </p>
       <div class="fields">
         <div class="field">
@@ -391,12 +542,12 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
     <section class="section">
       <h2 id="people-title">04. Tu información</h2>
       <p class="hint">
-        Agrega los datos que quieres mostrar.
-        Los campos de cada perfil son opcionales.
+        Agrega los datos que quieres mostrar. El plan Empresa admite hasta 5 integrantes dentro del perfil corporativo.
+        Los campos son opcionales. En Empresa, cada integrante forma parte del mismo perfil corporativo.
       </p>
       <div id="people"></div>
       <button type="button" id="add" class="add hidden">
-        + Agregar otro ejecutivo
+        + Agregar integrante
       </button>
     </section>
 
@@ -417,7 +568,8 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
           con LinkTap para preparar los perfiles digitales. *
         </label>
       </div>
-      <p class="form-error hidden" id="form-error" role="alert"></p>\n      <button type="button" class="primary" id="review">
+      <p class="form-error hidden" id="form-error" role="alert"></p>
+      <button type="button" class="primary" id="review">
         Revisar mi información →
       </button>
       <p class="status">
@@ -448,7 +600,8 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
       <button type="button" class="primary" id="send" disabled>
         Enviar solicitud
       </button>
-      <div class="success-box hidden" id="success-box" role="status"><strong>¡Solicitud recibida!</strong><span>Tu código de seguimiento:</span><div class="success-code" id="success-code"></div><div><button class="copy-code" type="button" id="copy-code">Copiar código</button></div><small>Guárdalo para futuras consultas.</small></div>\n      <p class="status" id="send-status"
+      <div class="success-box hidden" id="success-box" role="status"><strong>¡Solicitud recibida!</strong><span>Tu código de seguimiento:</span><div class="success-code" id="success-code"></div><div><button class="copy-code" type="button" id="copy-code">Copiar código</button></div><small>Guárdalo para futuras consultas.</small></div>
+      <p class="status" id="send-status"
         role="status" aria-live="polite">
         Completa la verificación de seguridad para continuar.
       </p>
@@ -456,21 +609,26 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
 
   </form></div>
 <aside class="preview-panel" aria-label="Vista previa del perfil">
-  <div class="preview-top"><strong>Así se verá tu perfil</strong><span class="preview-tag">VISTA PREVIA</span></div>
-  <p class="preview-help">Los datos se actualizan mientras escribes. Esta vista es ilustrativa.</p>
-  <label for="preview-person" style="font-size:12px;font-weight:700;display:block;margin-bottom:6px">Perfil a visualizar</label>
+  <div class="preview-top"><div><span class="guide-kicker">EN TIEMPO REAL</span><strong>Tu perfil digital</strong></div><span class="preview-tag">VISTA PREVIA</span></div>
+  <p class="preview-help">Escribe tus datos para ver cómo podría presentarse tu perfil a tus clientes.</p>
+  <label for="preview-person" class="preview-person-label">Seleccionar perfil</label>
   <select id="preview-person" class="preview-select"></select>
-  <div class="mock-phone"><div class="mock-cover">LINKTAP</div><div class="mock-body">
-    <div class="mock-avatar" id="pv-avatar">LT</div>
-    <div class="mock-name" id="pv-name">Tu nombre</div>
-    <div class="mock-role" id="pv-role">Tu cargo o profesión</div>
-    <div class="mock-company hidden" id="pv-company"></div>
-    <div class="mock-bio hidden" id="pv-bio"></div>
-    <div class="mock-action hidden" id="pv-whatsapp">Contactar por WhatsApp</div>
-    <div class="mock-links" id="pv-links"></div>
-    <div class="mock-services hidden" id="pv-services"></div>
-  </div></div>
-  <p class="preview-disclaimer">Vista referencial · No es un perfil publicado</p>
+  <div class="mock-phone">
+    <div class="mock-browser"><span>● ● ●</span><span>linktap.cl / mi-perfil</span><span>↗</span></div>
+    <div class="mock-cover"><span>LINKTAP</span><span class="mock-cover-shape"></span></div>
+    <div class="mock-body">
+      <div class="mock-avatar" id="pv-avatar">LT</div>
+      <div class="mock-name" id="pv-name">Tu nombre</div>
+      <div class="mock-role" id="pv-role">Tu cargo o profesión</div>
+      <div class="mock-company hidden" id="pv-company"></div>
+      <div class="mock-bio hidden" id="pv-bio"></div>
+      <div class="mock-action hidden" id="pv-whatsapp"><span>◉</span> Contactar por WhatsApp <span>↗</span></div>
+      <div class="mock-links" id="pv-links"></div>
+      <div class="mock-services hidden" id="pv-services"></div>
+      <div class="mock-brand">Creado con <b>Link<span>Tap</span></b></div>
+    </div>
+  </div>
+  <div class="preview-note"><span>✦</span><p>Esta es una simulación. El diseño definitivo se prepara según tu plan y la información entregada.</p></div>
 </aside></div>
 
   <div class="help">
@@ -497,7 +655,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
 
   const $ = id => document.getElementById(id);
 
-  let plan = 'necesario';
+  let plan = 'pro';
   let tipo = 'individual';
   let nextId = 0;
   let token = '';
@@ -550,19 +708,28 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
 
   setupChoices('plans', value => {
     plan = value;
+    if (value === 'empresa') {
+      $('types').querySelector('[data-value="empresa"]').click();
+      while ($('people').children.length > 5) $('people').lastElementChild.remove();
+    } else if (tipo === 'empresa') {
+      $('types').querySelector('[data-value="individual"]').click();
+    }
     renderExtras();
     hideReview();
   });
 
   setupChoices('types', value => {
+    if (plan === 'empresa' && value !== 'empresa') {
+      $('plans').querySelector('[data-value="pro"]').click();
+    }
     tipo = value;
     const company = value === 'empresa';
 
     $('company-section').classList.toggle('hidden', !company);
-    $('add').classList.toggle('hidden', !company);
+    $('add').classList.toggle('hidden', !company || plan !== 'empresa');
 
     $('people-title').textContent = company
-      ? '05. Datos de los ejecutivos'
+      ? '05. Integrantes de tu equipo'
       : '04. Tu información';
 
     $('last-title').textContent = company
@@ -580,7 +747,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
   });
 
   function addPerson() {
-    if ($('people').children.length >= 30) return;
+    if ($('people').children.length >= (plan === 'empresa' ? 5 : 30)) return;
 
     const n = ++nextId;
     const element = document.createElement('div');
@@ -611,7 +778,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
   function refreshPeople() {
     $('people').querySelectorAll('.person').forEach((person, index) => {
       person.querySelector('h3').textContent =
-        (tipo === 'empresa' ? 'Ejecutivo ' : 'Perfil ') + (index + 1);
+        (tipo === 'empresa' ? 'Integrante ' : 'Perfil ') + (index + 1);
 
       person.querySelector('.remove').classList.toggle(
         'hidden',
@@ -676,7 +843,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
         );
       }
 
-      if (plan === 'completo') {
+      if (plan === 'pro' || plan === 'empresa') {
         html += field('video-' + n, 'Video (enlace)', 'https://...');
         html += field('booking-' + n, 'Reservas (enlace)', 'https://...');
         html += field('catalog-' + n, 'Catálogo (enlace)', 'https://...');
@@ -791,7 +958,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
 
     if (!data) return;
 
-    if (['necesario','pro','completo'].includes(data.plan)) {
+    if (['necesario','pro','empresa'].includes(data.plan)) {
       $('plans').querySelector(
         `[data-value="${data.plan}"]`
       ).click();
@@ -804,7 +971,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
     }
 
     const savedPeople = Array.isArray(data.people) ? data.people : [];
-    const amount = Math.min(30, Math.max(1, savedPeople.length || 1));
+    const amount = Math.min(plan === 'empresa' ? 5 : 1, Math.max(1, savedPeople.length || 1));
 
     while ($('people').children.length < amount) {
       addPerson();
@@ -917,7 +1084,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
         );
       }
 
-      if (plan === 'completo') {
+      if (plan === 'pro' || plan === 'empresa') {
         lines.push(
           `Video: ${person.enlaces.video || 'No indicado'}`,
           `Reservas: ${person.enlaces.reservas || 'No indicadas'}`,
@@ -1046,7 +1213,7 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
       const n = person.dataset.person;
       const option = document.createElement('option');
       option.value = n;
-      option.textContent = val('name-' + n) || (tipo === 'empresa' ? 'Ejecutivo ' : 'Perfil ') + (index + 1);
+      option.textContent = val('name-' + n) || (tipo === 'empresa' ? 'Integrante ' : 'Perfil ') + (index + 1);
       selector.appendChild(option);
     });
     if (persons.some(person => person.dataset.person === previous)) selector.value = previous;
@@ -1072,8 +1239,8 @@ input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
     [['Instagram', val('instagram-' + n)],['Correo',val('mail-' + n)],
      ['LinkedIn',plan !== 'necesario' && val('linkedin-' + n)],
      ['Sitio web',tipo === 'empresa' && val('company-web')],
-     ['Reservas',plan === 'completo' && val('booking-' + n)],
-     ['Catálogo',plan === 'completo' && val('catalog-' + n)]].forEach(([label, enabled])=>{
+     ['Reservas',(plan === 'pro' || plan === 'empresa') && val('booking-' + n)],
+     ['Catálogo',(plan === 'pro' || plan === 'empresa') && val('catalog-' + n)]].forEach(([label, enabled])=>{
        if (!enabled) return;
        const chip=document.createElement('span');
        chip.textContent=label;
