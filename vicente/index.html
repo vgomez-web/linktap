@@ -606,8 +606,27 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 @media(max-width:850px){.contact-grid{grid-template-columns:minmax(0,1fr)}.contact-signature{display:none}.contact-primary,.contact-secondary{max-width:none}}
 @media(max-width:600px){.section.contact{padding-left:22px!important;padding-right:22px!important}.contact-intro{margin:18px 0 25px}.contact-primary{min-height:62px;padding:17px 20px}.contact-secondary{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.contact-secondary a{min-height:62px;padding:15px 13px;justify-content:flex-start;font-size:13px}.contact-secondary a:last-child{grid-column:1/-1;min-height:60px}.contact-secondary a .arrow-wrap,.contact-secondary a>span:last-child{margin-left:auto}.footer{margin-top:65px!important}}
 @media(max-width:360px){.contact-secondary{grid-template-columns:1fr}.contact-secondary a:last-child{grid-column:auto}}
+
+/* CORRECCIÓN MÓVIL DEFINITIVA: disposición vertical sin grid heredado */
+@media screen and (max-width: 850px) {
+  #contacto .contact-grid { display:block !important; width:100% !important; }
+  #contacto .contact-grid > div:first-child { width:100% !important; min-width:0 !important; }
+  #contacto .contact-signature { display:none !important; }
+  #contacto .contact-primary,
+  #contacto .contact-secondary { width:100% !important; max-width:none !important; box-sizing:border-box !important; }
+  #contacto .contact-secondary { display:flex !important; flex-direction:column !important; align-items:stretch !important; gap:10px !important; margin-top:12px !important; }
+  #contacto .contact-secondary > a { display:flex !important; width:100% !important; min-width:0 !important; min-height:58px !important; box-sizing:border-box !important; margin:0 !important; padding:17px 19px !important; align-items:center !important; justify-content:flex-start !important; gap:14px !important; grid-column:auto !important; font-size:14px !important; text-align:left !important; }
+  #contacto .contact-secondary > a > span:first-child { width:20px !important; flex:0 0 20px !important; text-align:center !important; }
+  #contacto .contact-secondary > a > span:last-child { margin-left:auto !important; }
+  #contacto .contact-primary { min-height:60px !important; }
+}
 </style>
 
+<link rel="preload" as="image" href="vicentefrentehero.webp" fetchpriority="high">
+<style>/* Retrato visible sin depender del observador de scroll */
+.about-v2-photo{opacity:1!important;visibility:visible!important;transform:none!important;transition:none!important}
+.about-v2-photo img{opacity:1!important;visibility:visible!important;transition:none!important}
+</style>
 </head>
 
 <body>
@@ -644,7 +663,7 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
 <div class="about-v2-layout">
 
-<div class="about-v2-photo reveal"><img src="vicentefrentehero.webp" alt="Retrato de Vicente Gómez" loading="lazy"></div>
+<div class="about-v2-photo"><img src="vicentefrentehero.webp" alt="Retrato de Vicente Gómez" loading="eager" decoding="async" fetchpriority="high" width="2048" height="2048"></div>
 
 <div class="about-v2-body reveal"><span class="about-v2-kicker"><span class="about-v2-pulse"></span> FUNDADOR DE LINKTAP Y VG DESINGS</span><p class="about-v2-intro">Diseño, tecnología<br>y <em>creatividad.</em></p><p class="about-v2-copy">Soy <strong>Vicente Gómez</strong>, fundador de <strong>LinkTap</strong> y <strong>VG Desings</strong>. Me dedico al diseño, desarrollo web, marketing y creación de soluciones digitales. Ayudo a emprendedores y empresas a fortalecer su marca, conectar con sus clientes y hacer crecer sus negocios.</p><div class="about-v2-footer"><a href="#marcas" aria-label="Conocer mis marcas">CONOCE MIS MARCAS <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
 
