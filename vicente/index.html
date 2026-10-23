@@ -595,6 +595,17 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
 @media(prefers-reduced-motion:reduce){.card-scene::before{animation:none}}
 
+
+/* Contacto responsive: botones uniformes y sin espacios irregulares */
+.contact-grid{gap:clamp(28px,5vw,72px);align-items:center}
+.contact-grid>div:first-child{min-width:0}
+.contact-secondary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;width:100%;max-width:560px;margin-top:12px}
+.contact-secondary a{min-width:0;min-height:64px;display:flex;justify-content:center;align-items:center;gap:10px;padding:13px 12px;text-align:center;line-height:1.3;white-space:normal}
+.contact-secondary a span:first-child{flex-shrink:0}
+.contact-secondary a .arrow-wrap,.contact-secondary a>span:last-child{margin-left:auto;flex-shrink:0}
+@media(max-width:850px){.contact-grid{grid-template-columns:minmax(0,1fr)}.contact-signature{display:none}.contact-primary,.contact-secondary{max-width:none}}
+@media(max-width:600px){.section.contact{padding-left:22px!important;padding-right:22px!important}.contact-intro{margin:18px 0 25px}.contact-primary{min-height:62px;padding:17px 20px}.contact-secondary{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.contact-secondary a{min-height:62px;padding:15px 13px;justify-content:flex-start;font-size:13px}.contact-secondary a:last-child{grid-column:1/-1;min-height:60px}.contact-secondary a .arrow-wrap,.contact-secondary a>span:last-child{margin-left:auto}.footer{margin-top:65px!important}}
+@media(max-width:360px){.contact-secondary{grid-template-columns:1fr}.contact-secondary a:last-child{grid-column:auto}}
 </style>
 
 </head>
