@@ -627,6 +627,46 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 .about-v2-photo{opacity:1!important;visibility:visible!important;transform:none!important;transition:none!important}
 .about-v2-photo img{opacity:1!important;visibility:visible!important;transition:none!important}
 </style>
+<style id="vicente-ios-glass-refinement">
+/* Vicente / iOS-inspired glass refinement — only presentation */
+:root{--ios-font:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+body{font-family:var(--ios-font);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button,input,.nav,.contact-primary,.contact-secondary{font-family:var(--ios-font)}
+.section-title,.about-v2-copy h3,.brand-card h3,.service h3,.collab-heading h2{font-family:var(--ios-font);letter-spacing:-.052em;font-weight:750}
+.hero-title,.hero-bigtype,.signature-mark{font-family:var(--ios-font);font-weight:800}
+.site-header .nav-cta{background:rgba(255,255,255,.11);border:1px solid rgba(255,255,255,.29);box-shadow:inset 0 1px rgba(255,255,255,.17),0 8px 25px rgba(0,0,0,.13);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);border-radius:999px}
+.brand-card{border-color:rgba(255,255,255,.25);box-shadow:inset 0 1px rgba(255,255,255,.12),0 16px 42px rgba(9,18,36,.10);border-radius:28px}
+.contact-primary{border-radius:18px;box-shadow:inset 0 1px rgba(255,255,255,.22),0 10px 30px rgba(21,95,238,.20);font-weight:650}
+.contact-secondary a{border-radius:17px;background:rgba(255,255,255,.085);border:1px solid rgba(255,255,255,.17);box-shadow:inset 0 1px rgba(255,255,255,.08);-webkit-backdrop-filter:blur(12px) saturate(1.2);backdrop-filter:blur(12px) saturate(1.2);font-weight:600}
+.service{border-top-color:rgba(16,24,40,.14)}
+@media(max-width:850px){
+ html,body{max-width:100%;overflow-x:clip}
+ .site-header{padding:calc(13px + env(safe-area-inset-top,0px)) 20px 12px;gap:12px}
+ .site-header .nav-cta{padding:11px 17px;min-height:43px;display:inline-flex;align-items:center}
+ .hero{min-height:0;height:100svh;max-height:850px}
+ .hero-inner{max-width:100%;min-width:0}
+ .section-title{font-size:clamp(36px,9vw,54px);line-height:1.06}
+ .about-v2-layout{gap:20px}
+ .brand-card{min-height:0;border-radius:24px}
+ .contact-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+ .contact-grid>div{min-width:0}
+ .contact-primary,.contact-secondary{max-width:none;width:100%}
+ .contact-secondary{display:grid;grid-template-columns:minmax(0,1fr);gap:10px}
+ .contact-secondary a{width:100%;min-width:0;min-height:54px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;font-size:15px;line-height:1.25}
+ .contact-secondary a .arrow-wrap{margin-left:auto}
+ .contact-primary{min-height:58px;padding:17px 20px;font-size:15px}
+ .contact-signature{max-width:100%;overflow:hidden}
+}
+@media(max-width:480px){
+ .hero{height:100svh;min-height:0}
+ .hero-photo{animation:none!important;transition:none!important}
+ .about-v2-photo,.about-v2-photo img{opacity:1!important;visibility:visible!important;transition:none!important}
+ .contact-intro{font-size:15px;line-height:1.6;margin:15px 0 24px}
+ .contact-secondary a{border-radius:16px}
+ .section-title{letter-spacing:-.052em}
+}
+@media(prefers-reduced-motion:reduce){.brand-card,.contact-primary,.contact-secondary a{transition:none!important}}
+</style>
 </head>
 
 <body>
@@ -783,7 +823,7 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
         <a href="mailto:linktap.cl@gmail.com"><span>✉</span> Correo <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 
-        <a href="https://www\.instagram.com/vg_desings" target="_blank" rel="noopener noreferrer"><span>◎</span> Instagram <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a href="https://www.instagram.com/vg_desings/" target="_blank" rel="noopener noreferrer"><span>◎</span> Instagram <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 
         <a href="vicente-gomez.vcf" id="guardar-contacto" aria-label="Abrir tarjeta de contacto de Vicente Gómez"><span>＋</span> Guardar contacto <span aria-hidden="true">↗</span></a>
 
