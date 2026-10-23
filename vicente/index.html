@@ -12,9 +12,9 @@
 
 <meta name="description" content="Vicente Gómez — fundador de LinkTap y VG Desings. Diseño web, perfiles digitales y tecnología NFC en Puerto Montt.">
 
+<link rel="preload" as="image" href="vicentehero.webp" fetchpriority="high" type="image/webp">
 <title>Vicente Gómez — Diseño, tecnología y conexiones</title>
 
-<link rel="preload" as="image" href="/vicente/vicentehero.webp" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -39,7 +39,7 @@
 
 .hero:before{content:"";position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse at 73% 39%,#253d65 0,transparent 41%),radial-gradient(ellipse at 35% 92%,#20263c,transparent 48%),#080a0f}
 
-.hero-photo{position:absolute;z-index:-2;right:-3%;bottom:-9%;height:120%;width:70%;background:url("/vicente/vicentehero.webp") center 26%/cover no-repeat;filter:contrast(1.11) saturate(.76) brightness(.78);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);animation:none}
+.hero-photo{position:absolute;z-index:-2;right:-3%;bottom:-9%;height:120%;width:70%;background:url("vicentehero.webp") center 26%/cover no-repeat;filter:contrast(1.11) saturate(.76) brightness(.78);-webkit-mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 22%,black 84%,transparent 100%);animation:none}
 
 .hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0b0c10a0,transparent 55%),linear-gradient(0deg,#0b0c10 0,transparent 28%,#08112440 100%),radial-gradient(ellipse at 48% 28%,#b5d3ff20,transparent 48%);mix-blend-mode:normal}
 
@@ -55,7 +55,7 @@
 
 .hero-desc{max-width:380px;font-size:clamp(15px,1.6vw,19px);line-height:1.6;color:#d6deea;margin:0 0 27px}
 
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;gap:24px;border-radius:100px;padding:16px 24px;font-size:13px;font-weight:800;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-3px)}.btn-blue{background:#2879ff;color:white}.btn-outline{border:1px solid #ffffff75;color:white}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;gap:24px;border-radius:100px;padding:16px 24px;font-size:13px;font-weight:800;transition:transform .2s,*background* .2s}.btn:hover{transform:translateY(-3px)}.btn-blue{background:#2879ff;color:white}.btn-outline{border:1px solid #ffffff75;color:white}
 
 .hero-meta{position:absolute;right:clamp(22px,7vw,110px);bottom:87px;font-size:10px;letter-spacing:.13em;line-height:1.9;color:#b2c0d7;text-align:right}
 
@@ -73,7 +73,7 @@
 
 .contact{background:#0b0c10;color:white;padding-bottom:60px}.contact .section-title{max-width:950px}.contact-links{display:flex;gap:13px;flex-wrap:wrap;margin-top:45px}.contact-links .btn-outline{border-color:#ffffff45}.footer{margin-top:130px;padding-top:28px;border-top:1px solid #ffffff28;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#aab3c1;font-size:12px}.footer b{color:#fff}
 
-.reveal{opacity:1;transform:none;transition:opacity .45s,transform .45s}.reveal.visible{opacity:1;transform:none}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}
 
 @keyframes herozoom{from{transform:scale(1.11);opacity:.45}to{transform:scale(1);opacity:1}}
 
@@ -95,7 +95,7 @@
 
 .hero-bigtype span:last-child{margin-left:8%}
 
-.hero-photo{z-index:-1;right:-3%;bottom:-9%;height:112%;width:76%;background:url('/vicente/vicentehero.webp') center bottom/contain no-repeat;filter:drop-shadow(-20px 0 42px #5896ff25) contrast(1.04) saturate(.9);-webkit-mask-image:none;mask-image:none;animation:none}
+.hero-photo{z-index:-1;right:-3%;bottom:-9%;height:112%;width:76%;background:url('vicentehero.webp') center bottom/contain no-repeat;filter:drop-shadow(-20px 0 42px #5896ff25) contrast(1.04) saturate(.9);-webkit-mask-image:none;mask-image:none;animation:none}
 
 .hero-photo:after{display:none}
 
@@ -221,13 +221,13 @@
 
 .contact-intro{font-size:17px;line-height:1.7;color:#b4becd;max-width:470px;margin:20px 0 33px}
 
-.contact-primary{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#2879ff;border-radius:15px;color:#fff;font-size:15px;font-weight:800;padding:23px 25px;max-width:560px;transition:background .2s,transform .2s}
+.contact-primary{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#2879ff;border-radius:15px;color:#fff;font-size:15px;font-weight:800;padding:23px 25px;max-width:560px;transition:*background* .2s,transform .2s}
 
 .contact-primary:hover{background:#1769f0;transform:translateY(-2px)}
 
 .contact-secondary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:560px;margin-top:12px}
 
-.contact-secondary a{background:#20242e;border:1px solid #303643;border-radius:13px;padding:16px 12px;display:flex;align-items:center;justify-content:space-between;gap:6px;color:#f1f4fa;font-size:12px;font-weight:700;transition:background .2s}
+.contact-secondary a{background:#20242e;border:1px solid #303643;border-radius:13px;padding:16px 12px;display:flex;align-items:center;justify-content:space-between;gap:6px;color:#f1f4fa;font-size:12px;font-weight:700;transition:*background* .2s}
 
 .contact-secondary a:hover{background:#2d3545}
 
@@ -595,11 +595,6 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
 @media(prefers-reduced-motion:reduce){.card-scene::before{animation:none}}
 
-/* Reparación de visibilidad y carga de fotografías. */
-.reveal,.reveal.visible{opacity:1!important;transform:none!important;visibility:visible!important}
-.hero-photo{animation:none!important;opacity:1!important}
-.about-v2-photo,.about-v2-photo img{opacity:1!important;visibility:visible!important}
-@media(max-width:850px){.hero-photo{background-size:contain!important}}
 </style>
 
 </head>
@@ -638,7 +633,7 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
 <div class="about-v2-layout">
 
-<div class="about-v2-photo reveal"><img src="/vicente/vicentefrentehero.webp" alt="Retrato de Vicente Gómez" loading="eager" fetchpriority="high" decoding="async"></div>
+<div class="about-v2-photo reveal"><img src="vicentefrentehero.webp" alt="Retrato de Vicente Gómez" loading="lazy"></div>
 
 <div class="about-v2-body reveal"><span class="about-v2-kicker"><span class="about-v2-pulse"></span> FUNDADOR DE LINKTAP Y VG DESINGS</span><p class="about-v2-intro">Diseño, tecnología<br>y <em>creatividad.</em></p><p class="about-v2-copy">Soy <strong>Vicente Gómez</strong>, fundador de <strong>LinkTap</strong> y <strong>VG Desings</strong>. Me dedico al diseño, desarrollo web, marketing y creación de soluciones digitales. Ayudo a emprendedores y empresas a fortalecer su marca, conectar con sus clientes y hacer crecer sus negocios.</p><div class="about-v2-footer"><a href="#marcas" aria-label="Conocer mis marcas">CONOCE MIS MARCAS <svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div></div>
 
@@ -646,7 +641,7 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
 <section class="section brands" id="marcas"><div class="wrap"><div class="brand-section-heading"><div class="eyebrow">03 / LO QUE ESTOY CONSTRUYENDO</div><h2 class="section-title reveal">Mis marcas</h2></div><div class="brand-grid">
 
-<article class="brand-card linktap reveal"><div class="brand-top">01 / TECNOLOGÍA Y CONEXIÓN</div><div><div class="brand-name">Link<span>Tap.</span></div><div class="brand-visual nfc-visual" aria-hidden="true"><div class="nfc-wave w1"></div><div class="nfc-wave w2"></div><div class="mini-nfc"><img src="/vicente/linktapfrente.png" alt=""></div><div class="nfc-dot"></div></div><p>Tarjetas NFC, perfiles digitales y herramientas inteligentes para conectar profesionales y empresas.</p></div><a class="brand-link" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Conoce LinkTap <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></article>
+<article class="brand-card linktap reveal"><div class="brand-top">01 / TECNOLOGÍA Y CONEXIÓN</div><div><div class="brand-name">Link<span>Tap.</span></div><div class="brand-visual nfc-visual" aria-hidden="true"><div class="nfc-wave w1"></div><div class="nfc-wave w2"></div><div class="mini-nfc"><img src="linktapfrente.png" alt=""></div><div class="nfc-dot"></div></div><p>Tarjetas NFC, perfiles digitales y herramientas inteligentes para conectar profesionales y empresas.</p></div><a class="brand-link" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Conoce LinkTap <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></article>
 
 <article class="brand-card vg reveal"><div class="brand-top">02 / ESTUDIO CREATIVO</div><div><div class="brand-name">VG <span>Desings.</span></div><div class="brand-visual web-visual" aria-hidden="true"><div class="mini-browser"><div class="browser-top"><i></i><i></i><i></i><b>vgdesings.cl</b></div><div class="browser-body"><span class="browser-tag">ESTUDIO CREATIVO</span><strong>Menos ruido.<br>Más impacto<span>.</span></strong><div class="browser-bars"><em></em><em></em></div></div></div></div><p>Diseño web, identidad visual y experiencias digitales. Menos ruido, más impacto.</p></div><a class="brand-link" href="https://vgdesings.cl" target="_blank" rel="noopener noreferrer">Conoce VG Desings <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></article>
 
@@ -676,7 +671,7 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
     <div class="card-orbit" aria-hidden="true"></div><div class="card-orbit two" aria-hidden="true"></div>
 
-    <div class="nfc-card"><img src="/vicente/linktapfrente.png" alt="Diseño frontal real de tarjeta NFC LinkTap, presentada con bordes redondeados y proporciones de tarjeta bancaria" loading="lazy" width="2048" height="1291"></div>
+    <div class="nfc-card"><img src="linktapfrente.png" alt="Diseño frontal real de tarjeta NFC LinkTap, presentada con bordes redondeados y proporciones de tarjeta bancaria" loading="lazy" width="2048" height="1291"></div>
 
    </div>
 
@@ -692,7 +687,7 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
 <div class="service service-web reveal"><div class="service-top"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="4" y="7" width="33" height="25" rx="4" stroke="currentColor" stroke-width="2"/><path d="M13 39h17M20 32v7M28 18h15v23H28z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>01 /</span></div><div><h3>Desarrollo web</h3><p>Sitios web modernos, funcionales y adaptados a cada negocio.</p></div></div>
 
-<div class="service service-nfc reveal"><div class="service-top"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="5" y="9" width="31" height="30" rx="5" stroke="currentColor" stroke-width="2"/><path d="M13 18c6-6 14-6 20 0M17 23c4-4 8-4 12 0M21 28a3 3 0 0 1 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>02 /</span></div><div><h3>Tarjetas NFC</h3><p>Tu negocio, a un tap.</p></div></div>
+<div class="service service-nfc reveal"><div class="service-top"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="5" y="9" width="31" height="30" rx="5" stroke="currentColor" stroke-width="2"/><path d="M13 18c6-6 14-6 20 0M17 23c4-4 8-4 12 0M21 28a3 3 0 0 1 4 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>02 /</span></div><div><h3>Tarjetas NFC</h3><p>Conexiones con un toque.</p></div></div>
 
 <div class="service service-profile reveal"><div class="service-top"><svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="12" y="3" width="24" height="42" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="24" cy="17" r="5" stroke="currentColor" stroke-width="2"/><path d="M16 31c2-7 14-7 16 0M20 39h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>03 /</span></div><div><h3>Perfiles digitales</h3><p>Toda tu información en un lugar.</p></div></div>
 
@@ -758,9 +753,9 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
         <a href="mailto:linktap.cl@gmail.com"><span>✉</span> Correo <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 
-        <a href="https://www.instagram.com/vg_desings" target="_blank" rel="noopener noreferrer"><span>◎</span> Instagram <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+        <a href="https://www\.instagram.com/vg_desings" target="_blank" rel="noopener noreferrer"><span>◎</span> Instagram <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 
-        <a href="/vicente/vicente-gomez.vcf" id="guardar-contacto" aria-label="Abrir tarjeta de contacto de Vicente Gómez"><span>＋</span> Guardar contacto <span aria-hidden="true">↗</span></a>
+        <a href="vicente-gomez.vcf" id="guardar-contacto" aria-label="Abrir tarjeta de contacto de Vicente Gómez"><span>＋</span> Guardar contacto <span aria-hidden="true">↗</span></a>
 
       </div>
 
@@ -778,7 +773,9 @@ a:focus-visible{outline:2px solid #438aff;outline-offset:4px}
 
 <script>
 
-document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
+const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:.09});
+
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 
 </script>
 
