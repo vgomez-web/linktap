@@ -166,6 +166,72 @@
 .video-modal-bottom{font-size:12px;color:#c6d0df}
 body.video-modal-open{overflow:hidden}
 @media(max-width:700px){.video-frame.video-preview{aspect-ratio:4/5}.video-modal-top,.video-modal-bottom{min-height:58px}.video-modal{padding-left:8px;padding-right:8px}.video-modal-top{padding:0 8px}.video-modal-bottom{padding:0 8px}}
+</style><style>
+/* V10: el dispositivo conserva su proporción y cabe COMPLETO en el hero */
+.device{height:auto!important;aspect-ratio:9/19.5!important;box-sizing:border-box;transform:rotate(0deg)!important;animation:none!important}
+.device-screen{height:100%!important;box-sizing:border-box}
+@media(max-width:700px){
+ .hero{padding-bottom:34px!important}
+ .hero-art{width:100%!important;max-width:510px!important;height:auto!important;aspect-ratio:1/1.09!important;min-height:0!important;margin:20px auto 0!important;overflow:visible!important}
+ .hero-art .device{width:43%!important;right:2%!important;top:0!important;bottom:auto!important;padding:4px!important;border-radius:clamp(25px,8vw,37px)!important}
+ .hero-art .device-screen{border-radius:clamp(21px,7vw,32px)!important}
+ .hero-art .real-card{width:76%!important;left:0!important;top:30%!important}
+ .hero-art .device-content{padding:0 8% 9%!important;gap:0!important;justify-content:flex-start!important}
+ .hero-art .device-cover{height:26%!important;flex:0 0 26%!important}
+ .hero-art .device-avatar{width:clamp(32px,10vw,44px)!important;height:clamp(32px,10vw,44px)!important;margin:-11% auto 5px!important;font-size:13px!important}
+ .hero-art .device-content strong{font-size:clamp(10px,3vw,13px)!important;line-height:1.13!important}
+ .hero-art .device-content small{font-size:clamp(7px,2vw,9px)!important;margin:4px auto 0!important;line-height:1.2!important}
+ .hero-art .device-socials{margin:7px 0!important;gap:5px!important}
+ .hero-art .device-socials span{width:20px!important;height:20px!important;font-size:10px!important}
+ .hero-art .device-primary{padding:8px 3px!important;font-size:clamp(8px,2.25vw,10px)!important;margin-bottom:5px!important}
+ .hero-art .device-link{padding:7px 7px!important;font-size:clamp(8px,2.2vw,10px)!important;margin-bottom:4px!important}
+ .hero-art .device-homebar{bottom:5px!important}
+}
+@media(max-width:380px){
+ .hero-art{aspect-ratio:1/1.12!important}
+ .hero-art .device{width:44%!important}
+ .hero-art .device-socials{margin:5px 0!important}
+ .hero-art .device-link{padding:6px!important;margin-bottom:3px!important}
+}
+</style>
+<style id="linktap-launch-polish">
+/* V11 - ajuste final: tarjetas con borde físico, hero dentro de viewport y layout táctil */
+.real-card{border-radius:clamp(13px,2.8vw,24px)!important;overflow:hidden!important;filter:none!important;box-shadow:0 28px 48px #25446e30,0 4px 12px #25446e14;background:#fff;isolation:isolate}
+.real-card img{border-radius:inherit!important;width:100%!important;height:100%!important;object-fit:cover!important;display:block!important}
+.solution-card-shell{display:block;position:relative;width:min(100%,350px);aspect-ratio:1.586;border-radius:19px;overflow:hidden;transform:rotate(-7deg);box-shadow:0 20px 35px #2e4e7830;background:#fff;isolation:isolate}
+.solution-visual .solution-card-shell img{width:100%!important;height:100%!important;max-height:none!important;object-fit:cover!important;transform:none!important;filter:none!important;border-radius:inherit!important}
+.nfc-interaction .nfc-showcase{border-radius:22px!important;overflow:hidden!important;isolation:isolate}
+#nfc-chip-base,#nfc-scratch{border-radius:inherit!important}
+.hero-art{overflow:visible!important;isolation:isolate}
+.device{aspect-ratio:9/19.5!important;height:auto!important;transform:none!important;animation:none!important;box-sizing:border-box!important}
+.device-screen{height:100%!important;overflow:hidden!important}
+/* Keep profile content above the home bar and within screen */
+.device-content{padding-bottom:13%!important}
+.device-cover{flex-shrink:0}
+@media(max-width:700px){
+ .hero{padding-bottom:44px!important}
+ .hero-art{width:min(100%,490px)!important;aspect-ratio:1/1.08!important;height:auto!important;min-height:0!important;margin:24px auto 0!important}
+ .hero-art .real-card{left:1%!important;top:28%!important;width:75%!important}
+ .hero-art .device{top:1%!important;right:1%!important;width:42%!important;max-width:none!important;padding:4px!important;border-radius:clamp(24px,7.5vw,35px)!important}
+ .hero-art .device-screen{border-radius:clamp(21px,7vw,31px)!important}
+ .hero-art .device-content{padding:0 8% 12%!important;gap:0!important;justify-content:flex-start!important}
+ .hero-art .device-cover{height:24%!important;flex:0 0 24%!important}
+ .hero-art .device-avatar{width:clamp(32px,10vw,43px)!important;height:clamp(32px,10vw,43px)!important;margin:-10% auto 5px!important}
+ .hero-art .device-content strong{font-size:clamp(10px,2.8vw,13px)!important;line-height:1.13!important}
+ .hero-art .device-content small{font-size:clamp(7px,1.9vw,9px)!important;margin:3px auto 0!important;line-height:1.15!important}
+ .hero-art .device-socials{margin:5px 0!important;gap:5px!important}
+ .hero-art .device-socials span{width:19px!important;height:19px!important;font-size:9px!important}
+ .hero-art .device-primary{padding:7px 2px!important;font-size:clamp(7px,2vw,9px)!important;margin-bottom:4px!important}
+ .hero-art .device-link{padding:6px!important;font-size:clamp(7px,1.9vw,9px)!important;margin-bottom:3px!important}
+ .solution-card-shell{width:min(100%,315px);border-radius:17px}
+ .solution-visual{height:205px}
+ .hero-actions{gap:9px}
+ .hero-actions .btn{min-width:0;white-space:normal;text-align:center}
+ .hero-note{row-gap:8px}
+ .video-frame.video-preview video{object-fit:contain!important}
+}
+@media(max-width:390px){.hero-art{aspect-ratio:1/1.12!important}.hero-art .device{width:43%!important}.hero-art .device-socials{margin:4px 0!important}.hero-art .device-link{padding:5px!important}}
+@media(prefers-reduced-motion:reduce){.real-card,.device{animation:none!important}}
 </style></head><body>
 <header class="header"><div class="wrap header-inner"><a href="/" class="logo" aria-label="LinkTap inicio"><img src="/assets/linktap-logo.png" alt="LinkTap" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">Link<span>Tap</span></span></a><nav class="nav" id="nav" aria-label="Navegación principal"><a href="#soluciones">Soluciones</a><a href="#nfc">¿Qué es NFC?</a><a href="#ejemplos">Demostraciones</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a></nav><div class="nav-cta"><a class="btn btn-dark" href="https://linktap.cl/solicitud/">Solicitar tarjeta ↗</a></div><button class="menu-toggle" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button></div></header>
 <main>
@@ -194,7 +260,7 @@ body.video-modal-open{overflow:hidden}
     </div>
   </div>
 </div></div></section>
-<section class="section" id="soluciones"><div class="wrap"><div class="section-heading reveal"><div class="eyebrow">Descubre LinkTap</div><h2>Dos soluciones. Más formas de conectar.</h2><p>Elige cómo quieres compartir tu información. Puedes usar una tarjeta NFC, un perfil digital o combinarlos.</p></div><div class="solution-grid"><article class="solution reveal"><div class="eyebrow">Producto físico</div><h3>Tarjetas NFC</h3><p>Acerca la tarjeta a un celular compatible para compartir un enlace, sin tener que escribirlo.</p><div class="solution-visual"><img src="/assets/linktap-front.png" alt="Tarjeta NFC LinkTap" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/vgomez-web/linktap/main/assets/linktap-front.png'"></div><a class="btn btn-primary" href="https://linktap.cl/solicitud/">Solicitar desde $19.990 ↗</a></article><article class="solution profile reveal"><div class="eyebrow">Presencia digital</div><h3>Perfiles digitales</h3><p>Presenta quién eres, qué haces, tus servicios, redes y formas de contacto en un solo lugar.</p><div class="solution-visual"><div class="profile-mini" aria-hidden="true"><b>LT</b><strong>Mi negocio</strong><span></span><span></span><span></span></div></div><a class="btn btn-dark" href="https://linktap.cl/perfil-digital/">Descubrir perfiles ↗</a></article></div></div></section>
+<section class="section" id="soluciones"><div class="wrap"><div class="section-heading reveal"><div class="eyebrow">Descubre LinkTap</div><h2>Dos soluciones. Más formas de conectar.</h2><p>Elige cómo quieres compartir tu información. Puedes usar una tarjeta NFC, un perfil digital o combinarlos.</p></div><div class="solution-grid"><article class="solution reveal"><div class="eyebrow">Producto físico</div><h3>Tarjetas NFC</h3><p>Acerca la tarjeta a un celular compatible para compartir un enlace, sin tener que escribirlo.</p><div class="solution-visual"><span class="solution-card-shell"><img src="/assets/linktap-front.png" alt="Tarjeta NFC LinkTap" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/vgomez-web/linktap/main/assets/linktap-front.png'"></span></div><a class="btn btn-primary" href="https://linktap.cl/solicitud/">Solicitar desde $19.990 ↗</a></article><article class="solution profile reveal"><div class="eyebrow">Presencia digital</div><h3>Perfiles digitales</h3><p>Presenta quién eres, qué haces, tus servicios, redes y formas de contacto en un solo lugar.</p><div class="solution-visual"><div class="profile-mini" aria-hidden="true"><b>LT</b><strong>Mi negocio</strong><span></span><span></span><span></span></div></div><a class="btn btn-dark" href="https://linktap.cl/perfil-digital/">Descubrir perfiles ↗</a></article></div></div></section>
 <section class="section explainer" id="nfc"><div class="wrap explainer-grid"><div class="chip-stage reveal" id="chip-stage" aria-label="Animación de tarjeta LinkTap mostrando su interior NFC">
   <div class="nfc-interaction">
 <p class="nfc-instruction">👆 Desliza tu dedo sobre la tarjeta para descubrir el chip NFC que lleva dentro.</p>
@@ -249,8 +315,8 @@ canvas.addEventListener('pointermove',e=>{if(active)move(e)});
 ['pointerup','pointercancel','lostpointercapture'].forEach(type=>canvas.addEventListener(type,()=>{active=false;last=null}));
 reset.addEventListener('click',redraw);
 front.onload=()=>{ready=true;redraw()};
-front.onerror=()=>{warning.hidden=false;warning.textContent='No se pudo cargar /assets/linktap-front.png';canvas.style.display='none'};
-chip.onerror=()=>{warning.hidden=false;warning.textContent='No se pudo cargar /assets/linktap-chip.png'};
+front.onerror=()=>{if(!front.dataset.retry){front.dataset.retry='1';front.src='https://raw.githubusercontent.com/vgomez-web/linktap/main/assets/linktap-front.png';return;}warning.hidden=false;warning.textContent='No se pudo cargar la imagen de la tarjeta NFC';canvas.style.display='none'};
+chip.onerror=()=>{if(!chip.dataset.retry){chip.dataset.retry='1';chip.src='https://raw.githubusercontent.com/vgomez-web/linktap/main/assets/linktap-chip.png';return;}warning.hidden=false;warning.textContent='No se pudo cargar la imagen del chip NFC'};
 front.src='/assets/linktap-front.png';
 if('ResizeObserver' in window)new ResizeObserver(()=>{if(ready)redraw()}).observe(canvas);else window.addEventListener('resize',redraw);
 })();
