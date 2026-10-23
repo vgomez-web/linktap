@@ -55,7 +55,7 @@
 
 .hero-desc{max-width:380px;font-size:clamp(15px,1.6vw,19px);line-height:1.6;color:#d6deea;margin:0 0 27px}
 
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;gap:24px;border-radius:100px;padding:16px 24px;font-size:13px;font-weight:800;transition:transform .2s,*background* .2s}.btn:hover{transform:translateY(-3px)}.btn-blue{background:#2879ff;color:white}.btn-outline{border:1px solid #ffffff75;color:white}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn{display:inline-flex;justify-content:center;align-items:center;gap:24px;border-radius:100px;padding:16px 24px;font-size:13px;font-weight:800;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-3px)}.btn-blue{background:#2879ff;color:white}.btn-outline{border:1px solid #ffffff75;color:white}
 
 .hero-meta{position:absolute;right:clamp(22px,7vw,110px);bottom:87px;font-size:10px;letter-spacing:.13em;line-height:1.9;color:#b2c0d7;text-align:right}
 
@@ -221,13 +221,13 @@
 
 .contact-intro{font-size:17px;line-height:1.7;color:#b4becd;max-width:470px;margin:20px 0 33px}
 
-.contact-primary{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#2879ff;border-radius:15px;color:#fff;font-size:15px;font-weight:800;padding:23px 25px;max-width:560px;transition:*background* .2s,transform .2s}
+.contact-primary{display:flex;align-items:center;justify-content:space-between;gap:20px;background:#2879ff;border-radius:15px;color:#fff;font-size:15px;font-weight:800;padding:23px 25px;max-width:560px;transition:background .2s,transform .2s}
 
 .contact-primary:hover{background:#1769f0;transform:translateY(-2px)}
 
 .contact-secondary{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:560px;margin-top:12px}
 
-.contact-secondary a{background:#20242e;border:1px solid #303643;border-radius:13px;padding:16px 12px;display:flex;align-items:center;justify-content:space-between;gap:6px;color:#f1f4fa;font-size:12px;font-weight:700;transition:*background* .2s}
+.contact-secondary a{background:#20242e;border:1px solid #303643;border-radius:13px;padding:16px 12px;display:flex;align-items:center;justify-content:space-between;gap:6px;color:#f1f4fa;font-size:12px;font-weight:700;transition:background .2s}
 
 .contact-secondary a:hover{background:#2d3545}
 
@@ -667,6 +667,56 @@ button,input,.nav,.contact-primary,.contact-secondary{font-family:var(--ios-font
 }
 @media(prefers-reduced-motion:reduce){.brand-card,.contact-primary,.contact-secondary a{transition:none!important}}
 </style>
+
+<style id="vicente-premium-glass-v2">
+/* iPhone refinement: preserve original layout and artwork. */
+:root {--glass-edge:rgba(255,255,255,.32);--glass-shine:inset 0 1px 0 rgba(255,255,255,.29);}
+html {scroll-padding-top:20px;}
+body {font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;}
+.hero-title {text-wrap:balance;}
+.hero-title-dot,.nfc-dot {display:none!important;}
+.ticker {display:none!important;}
+/* Keep white and dark sections, with glass only on interaction surfaces. */
+.nav-cta,.btn-outline,.card-showcase .product-action {
+ background:linear-gradient(155deg,rgba(255,255,255,.19),rgba(255,255,255,.045) 65%);
+ border:1px solid rgba(255,255,255,.36);
+ box-shadow:var(--glass-shine),inset 0 -1px 0 rgba(255,255,255,.06),0 12px 30px rgba(0,0,0,.17);
+ -webkit-backdrop-filter:blur(20px) saturate(165%);backdrop-filter:blur(20px) saturate(165%);
+}
+.btn-blue,.contact-primary {
+ background:linear-gradient(155deg,#4893ff 0%,#2879ff 42%,#1761e5 100%);
+ border:1px solid rgba(189,219,255,.46);
+ box-shadow:inset 0 1px 1px rgba(255,255,255,.36),inset 0 -1px 0 rgba(8,54,146,.35),0 12px 30px rgba(18,88,225,.23);
+}
+.brand-card {border:1px solid rgba(255,255,255,.29);box-shadow:inset 0 1px rgba(255,255,255,.18),inset 0 -1px rgba(255,255,255,.05),0 18px 48px rgba(0,0,0,.17);}
+.brand-card.linktap {background:radial-gradient(ellipse at 85% 4%,rgba(69,135,255,.37),transparent 58%),linear-gradient(145deg,#172743,#152c55 70%,#182943);}
+.brand-card.vg {background:radial-gradient(ellipse at 85% 4%,rgba(245,101,109,.22),transparent 58%),linear-gradient(145deg,#252326,#3a272a 70%,#282226);}
+.brand-card::before {content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;background:linear-gradient(145deg,rgba(255,255,255,.095),transparent 34%,transparent 76%,rgba(255,255,255,.035));}
+.services-bento .service {border:1px solid rgba(255,255,255,.65);box-shadow:inset 0 1px rgba(255,255,255,.65),0 10px 30px rgba(35,56,94,.07);}
+.services-bento .service-web {border-color:rgba(255,255,255,.19);box-shadow:inset 0 1px rgba(255,255,255,.13),0 15px 30px rgba(0,0,0,.12);}
+.brand-logo {box-shadow:inset 0 1px rgba(255,255,255,.9),0 7px 24px rgba(25,40,65,.055);}
+.contact-secondary a {background:linear-gradient(145deg,rgba(255,255,255,.15),rgba(255,255,255,.065));border:1px solid rgba(255,255,255,.22);box-shadow:inset 0 1px rgba(255,255,255,.16),0 9px 25px rgba(0,0,0,.09);-webkit-backdrop-filter:blur(20px) saturate(150%);backdrop-filter:blur(20px) saturate(150%);}
+.about-v2-photo {background:transparent!important;}
+.about-v2-photo img {filter:drop-shadow(0 18px 32px rgba(25,32,45,.08));}
+@media(max-width:850px){
+ .hero {min-height:100svh;max-height:none;}
+ .hero-inner {padding-bottom:max(54px,env(safe-area-inset-bottom))!important;}
+ .hero-title {font-size:clamp(33px,9.15vw,60px)!important;letter-spacing:-.073em!important;white-space:nowrap;max-width:100%;}
+ .hero-actions .btn {border-radius:999px;min-height:52px;}
+ .section {padding-left:22px;padding-right:22px;}
+ .about-v2 {padding-top:65px!important;}
+ .about-v2-photo {overflow:visible!important;height:auto!important;min-height:0!important;aspect-ratio:auto!important;display:block!important;}
+ .about-v2-photo img {display:block!important;width:100%!important;height:auto!important;max-height:none!important;object-fit:contain!important;transform:none!important;mask-image:linear-gradient(to bottom,#000 0%,#000 78%,rgba(0,0,0,.9) 85%,rgba(0,0,0,.55) 94%,transparent 100%)!important;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 78%,rgba(0,0,0,.9) 85%,rgba(0,0,0,.55) 94%,transparent 100%)!important;}
+ .about-v2-body {margin-top:-10px!important;}
+ .brand-section-heading {position:relative!important;top:auto!important;background:transparent!important;}
+ .brand-card {border-radius:25px!important;}
+ .brand-visual {overflow:hidden!important;}
+ .contact-secondary {display:flex!important;flex-direction:column!important;gap:10px!important;}
+ .contact-secondary>a {width:100%!important;min-height:58px!important;}
+}
+@media(max-width:390px){.hero-title {font-size:9vw!important;}.hero-actions .btn {font-size:10.5px!important;}}
+@media(prefers-reduced-motion:reduce){.mini-nfc,.mini-browser {animation:none!important;}}
+</style>
 </head>
 
 <body>
@@ -683,7 +733,7 @@ button,input,.nav,.contact-primary,.contact-secondary{font-family:var(--ios-font
 
 <div class="hero-index">01 / PORTAFOLIO PERSONAL · PUERTO MONTT, CHILE</div>
 
-<h1 class="hero-title">VICENTE GÓMEZ<span class="hero-title-dot">.</span></h1>
+<h1 class="hero-title">VICENTE GÓMEZ</h1>
 
 <p class="hero-desc">Fundador de <strong>LinkTap</strong> y <strong>VG Desings</strong>.<br>Diseño, tecnología y nuevas formas de conectar.</p>
 
@@ -693,7 +743,7 @@ button,input,.nav,.contact-primary,.contact-secondary{font-family:var(--ios-font
 
 </section>
 
-<div class="ticker" aria-label="Áreas de trabajo"><div class="ticker-track"><span>DISEÑO WEB</span><span>TECNOLOGÍA NFC</span><span>PERFILES DIGITALES</span><span>IDENTIDAD VISUAL</span></div></div>
+
 
 <section class="section about about-v2" id="sobre-mi">
 
@@ -711,7 +761,7 @@ button,input,.nav,.contact-primary,.contact-secondary{font-family:var(--ios-font
 
 <section class="section brands" id="marcas"><div class="wrap"><div class="brand-section-heading"><div class="eyebrow">03 / LO QUE ESTOY CONSTRUYENDO</div><h2 class="section-title reveal">Mis marcas</h2></div><div class="brand-grid">
 
-<article class="brand-card linktap reveal"><div class="brand-top">01 / TECNOLOGÍA Y CONEXIÓN</div><div><div class="brand-name">Link<span>Tap.</span></div><div class="brand-visual nfc-visual" aria-hidden="true"><div class="nfc-wave w1"></div><div class="nfc-wave w2"></div><div class="mini-nfc"><img src="linktapfrente.png" alt=""></div><div class="nfc-dot"></div></div><p>Tarjetas NFC, perfiles digitales y herramientas inteligentes para conectar profesionales y empresas.</p></div><a class="brand-link" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Conoce LinkTap <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></article>
+<article class="brand-card linktap reveal"><div class="brand-top">01 / TECNOLOGÍA Y CONEXIÓN</div><div><div class="brand-name">Link<span>Tap.</span></div><div class="brand-visual nfc-visual" aria-hidden="true"><div class="nfc-wave w1"></div><div class="nfc-wave w2"></div><div class="mini-nfc"><img src="linktapfrente.png" alt=""></div></div><p>Tarjetas NFC, perfiles digitales y herramientas inteligentes para conectar profesionales y empresas.</p></div><a class="brand-link" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Conoce LinkTap <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></article>
 
 <article class="brand-card vg reveal"><div class="brand-top">02 / ESTUDIO CREATIVO</div><div><div class="brand-name">VG <span>Desings.</span></div><div class="brand-visual web-visual" aria-hidden="true"><div class="mini-browser"><div class="browser-top"><i></i><i></i><i></i><b>vgdesings.cl</b></div><div class="browser-body"><span class="browser-tag">ESTUDIO CREATIVO</span><strong>Menos ruido.<br>Más impacto<span>.</span></strong><div class="browser-bars"><em></em><em></em></div></div></div></div><p>Diseño web, identidad visual y experiencias digitales. Menos ruido, más impacto.</p></div><a class="brand-link" href="https://vgdesings.cl" target="_blank" rel="noopener noreferrer">Conoce VG Desings <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></article>
 
