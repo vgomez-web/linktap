@@ -135,7 +135,38 @@
 @media(prefers-reduced-motion:reduce){.device{animation:none}}
 
 </style>
-</head><body>
+<style>
+/* NFC táctil V8: imagen original, esquinas redondeadas y revelado con halo */
+.chip-stage{display:flex;align-items:center;justify-content:center;min-height:430px;padding:24px!important}
+.nfc-interaction{width:100%;display:flex;flex-direction:column;align-items:center;gap:17px}
+.nfc-instruction{font-size:clamp(13px,1.3vw,15px);font-weight:700;text-align:center;color:#315781;line-height:1.5;max-width:390px}
+.nfc-interaction .nfc-showcase{position:relative;width:min(100%,440px);aspect-ratio:1.586;border-radius:clamp(18px,4vw,28px);overflow:hidden;transform:none!important;animation:none!important;filter:none!important;box-shadow:0 22px 40px #2e598b29,0 3px 12px #274d7820;background:#fff;isolation:isolate}
+#nfc-chip-base,#nfc-scratch{position:absolute;inset:0;width:100%;height:100%;display:block;border-radius:inherit}
+#nfc-chip-base{object-fit:cover;max-height:none!important;filter:none!important}
+#nfc-scratch{z-index:2;touch-action:none;cursor:crosshair}
+.nfc-interaction .nfc-stage-bottom{position:static;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:10px;width:100%}
+.nfc-interaction .nfc-state{position:static;font-size:12px}
+.nfc-reset{border:1px solid #cfe0f5;border-radius:999px;background:#fff;color:#1677ff;font-weight:750;padding:11px 14px;font-size:12px;min-height:42px}
+.nfc-interaction .nfc-asset-warning{position:static}
+@media(max-width:700px){.chip-stage{min-height:0;padding:24px 14px!important}.nfc-interaction{gap:15px}.nfc-interaction .nfc-showcase{width:100%}.nfc-instruction{font-size:13px}}
+</style><style>
+/* V9: videos originales completos, sin zoom ni recortes */
+.video-frame.video-preview{aspect-ratio:9/13;background:#eaf0f8;position:relative;overflow:hidden}
+.video-frame.video-preview video{width:100%;height:100%;object-fit:contain;pointer-events:none}
+.video-open{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;border:0;color:#fff;font-size:15px;font-weight:800;background:linear-gradient(180deg,transparent 42%,#09162799 100%);text-shadow:0 2px 8px #0009;cursor:pointer}
+.video-open:hover,.video-open:focus-visible{background:linear-gradient(180deg,#0b20441a 30%,#091627b8 100%)}
+.video-play-icon{display:grid;place-items:center;width:66px;height:66px;border-radius:50%;background:#1677ff;color:#fff;box-shadow:0 12px 30px #1677ff66;font-size:25px;text-shadow:none;padding-left:4px}
+.video-fullscreen-icon{position:absolute;right:15px;top:14px;background:#0916279c;border-radius:10px;padding:4px 10px;font-size:22px}
+.video-modal[hidden]{display:none!important}
+.video-modal{position:fixed;inset:0;z-index:10000;background:#05080e;display:flex;flex-direction:column;color:#fff;padding:env(safe-area-inset-top,0px) max(14px,env(safe-area-inset-right,0px)) env(safe-area-inset-bottom,0px) max(14px,env(safe-area-inset-left,0px))}
+.video-modal-top,.video-modal-bottom{min-height:62px;display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:14px;font-weight:700;flex-shrink:0}
+.video-modal-top button,.video-modal-bottom button{background:#ffffff1c;border:1px solid #ffffff40;border-radius:999px;color:#fff;padding:12px 16px;font-weight:700;min-height:44px}
+.video-modal-center{min-height:0;flex:1;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#video-modal-player{display:block;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;background:#000}
+.video-modal-bottom{font-size:12px;color:#c6d0df}
+body.video-modal-open{overflow:hidden}
+@media(max-width:700px){.video-frame.video-preview{aspect-ratio:4/5}.video-modal-top,.video-modal-bottom{min-height:58px}.video-modal{padding-left:8px;padding-right:8px}.video-modal-top{padding:0 8px}.video-modal-bottom{padding:0 8px}}
+</style></head><body>
 <header class="header"><div class="wrap header-inner"><a href="/" class="logo" aria-label="LinkTap inicio"><img src="/assets/linktap-logo.png" alt="LinkTap" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">Link<span>Tap</span></span></a><nav class="nav" id="nav" aria-label="Navegación principal"><a href="#soluciones">Soluciones</a><a href="#nfc">¿Qué es NFC?</a><a href="#ejemplos">Demostraciones</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a></nav><div class="nav-cta"><a class="btn btn-dark" href="https://linktap.cl/solicitud/">Solicitar tarjeta ↗</a></div><button class="menu-toggle" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button></div></header>
 <main>
 <section class="hero" id="inicio"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">Tarjetas NFC y perfiles digitales</div><h1>Tu próxima <span>conexión</span> empieza aquí.</h1><p>Comparte tus redes, presenta tu negocio y conecta con tus clientes de una forma simple y profesional.</p><div class="hero-actions"><a class="btn btn-primary" href="https://linktap.cl/solicitud/">Explorar tarjetas ↗</a><a class="btn btn-outline" href="https://linktap.cl/perfil-digital/">Perfiles digitales ↗</a></div><div class="hero-note"><span>Sin aplicación LinkTap</span><span>Configuración personalizada</span></div></div><div class="hero-art" aria-label="Tarjeta original LinkTap y vista de perfil digital">
@@ -165,15 +196,19 @@
 </div></div></section>
 <section class="section" id="soluciones"><div class="wrap"><div class="section-heading reveal"><div class="eyebrow">Descubre LinkTap</div><h2>Dos soluciones. Más formas de conectar.</h2><p>Elige cómo quieres compartir tu información. Puedes usar una tarjeta NFC, un perfil digital o combinarlos.</p></div><div class="solution-grid"><article class="solution reveal"><div class="eyebrow">Producto físico</div><h3>Tarjetas NFC</h3><p>Acerca la tarjeta a un celular compatible para compartir un enlace, sin tener que escribirlo.</p><div class="solution-visual"><img src="/assets/linktap-front.png" alt="Tarjeta NFC LinkTap" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/vgomez-web/linktap/main/assets/linktap-front.png'"></div><a class="btn btn-primary" href="https://linktap.cl/solicitud/">Solicitar desde $19.990 ↗</a></article><article class="solution profile reveal"><div class="eyebrow">Presencia digital</div><h3>Perfiles digitales</h3><p>Presenta quién eres, qué haces, tus servicios, redes y formas de contacto en un solo lugar.</p><div class="solution-visual"><div class="profile-mini" aria-hidden="true"><b>LT</b><strong>Mi negocio</strong><span></span><span></span><span></span></div></div><a class="btn btn-dark" href="https://linktap.cl/perfil-digital/">Descubrir perfiles ↗</a></article></div></div></section>
 <section class="section explainer" id="nfc"><div class="wrap explainer-grid"><div class="chip-stage reveal" id="chip-stage" aria-label="Animación de tarjeta LinkTap mostrando su interior NFC">
-  <div class="nfc-showcase" id="nfc-showcase">
-    <img class="nfc-face nfc-front" src="/assets/linktap-front.png" alt="Diseño frontal original de la tarjeta LinkTap" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/vgomez-web/linktap/main/assets/linktap-front.png'">
-    <img class="nfc-face nfc-inside" src="/assets/linktap-chip.png" alt="Chip y antena NFC dentro de la tarjeta" loading="lazy">
-  </div>
-  <div class="nfc-stage-bottom"><span class="nfc-state" id="nfc-state">Diseño original LinkTap</span><button type="button" class="nfc-pause" id="nfc-pause" aria-pressed="false">Pausar animación</button></div>
-  <p class="nfc-asset-warning" id="nfc-asset-warning" hidden>La imagen del chip no se pudo cargar. Comprueba que <code>assets/linktap-chip.png</code> esté publicada en GitHub.</p>
+  <div class="nfc-interaction">
+<p class="nfc-instruction">👆 Desliza tu dedo sobre la tarjeta para descubrir el chip NFC que lleva dentro.</p>
+<div class="nfc-showcase" id="nfc-showcase">
+<img id="nfc-chip-base" src="/assets/linktap-chip.png" alt="Chip y antena NFC" draggable="false">
+<canvas id="nfc-scratch" aria-label="Desliza el dedo para revelar el chip"></canvas>
+</div>
+<div class="nfc-stage-bottom"><span class="nfc-state" id="nfc-state">Desliza para descubrir el interior</span><button type="button" class="nfc-reset" id="nfc-reset">↻ Restaurar tarjeta</button></div>
+<p class="nfc-asset-warning" id="nfc-asset-warning" hidden>Comprueba las imágenes de la carpeta assets.</p>
+</div>
 </div><div class="explain-copy reveal"><div class="eyebrow">La tecnología detrás de LinkTap</div><h2>Acerca. Conecta. Listo.</h2><p><strong>NFC</strong> significa comunicación de campo cercano. Permite que una tarjeta transmita un enlace a un celular compatible al acercarlos. Es una forma rápida de compartir información digital.</p><div class="steps"><div class="mini-step"><div class="step-num">01</div><div><strong>Acerca la tarjeta</strong><p>Colócala cerca del lector NFC del celular.</p></div></div><div class="mini-step"><div class="step-num">02</div><div><strong>El celular detecta el enlace</strong><p>En equipos compatibles, aparece una notificación o se abre el contenido.</p></div></div><div class="mini-step"><div class="step-num">03</div><div><strong>Tu cliente conecta contigo</strong><p>Accede a tus reseñas, redes, menú, perfil o sitio web.</p></div></div></div><div class="demo-controls" role="group" aria-label="Explorar usos NFC"><button class="demo-button active" data-demo="google">Reseñas</button><button class="demo-button" data-demo="contacto">Contacto</button><button class="demo-button" data-demo="menu">Menú</button></div><p class="demo-caption" id="demo-caption" aria-live="polite">Ejemplo: tu cliente acerca la tarjeta y accede al enlace para dejar una reseña en Google.</p><p class="muted" style="font-size:11px;margin-top:12px">El funcionamiento depende de la compatibilidad y configuración NFC del teléfono.</p></div></div></section>
 <section class="section" id="usos"><div class="wrap"><div class="section-heading reveal"><div class="eyebrow">Una tarjeta, muchas posibilidades</div><h2>Conecta con lo que importa.</h2><p>Tu LinkTap puede llevar a las personas directamente al contenido que quieres compartir.</p></div><div class="use-grid"><article class="use-card reveal"><div class="use-icon">★</div><h3>Reseñas de Google</h3><p>Facilita el acceso para que tus clientes dejen su opinión.</p></article><article class="use-card reveal"><div class="use-icon">◎</div><h3>Instagram</h3><p>Comparte tu cuenta y haz más fácil que te sigan.</p></article><article class="use-card reveal"><div class="use-icon">↗</div><h3>WhatsApp</h3><p>Abre una conversación con tu negocio.</p></article><article class="use-card reveal"><div class="use-icon">☷</div><h3>Menú digital</h3><p>Entrega acceso a la carta de tu restaurante o cafetería.</p></article><article class="use-card reveal"><div class="use-icon">▦</div><h3>Catálogo digital</h3><p>Muestra productos y servicios en un solo enlace.</p></article><article class="use-card reveal"><div class="use-icon">▣</div><h3>Perfil digital</h3><p>Reúne presentación, contacto y redes en un espacio propio.</p></article></div></div></section>
-<section class="section media-section" id="ejemplos"><div class="wrap"><div class="section-heading reveal"><div class="eyebrow">LinkTap en acción</div><h2>Míralo funcionar.</h2><p>Ejemplos con nuestros videos originales. Presiona reproducir para ver cada aplicación.</p></div><div class="video-grid"><article class="video-card reveal"><div class="video-frame"><video controls playsinline preload="none" aria-label="Demostración de reseñas de Google"><source src="/assets/videoreseña.mov" type="video/quicktime">Tu navegador no puede reproducir este video.</video><div class="video-hint">Video original · Reseñas</div></div><div class="video-copy"><h3>Más reseñas</h3><p>Conecta a tus clientes con tu enlace de reseñas de Google.</p></div></article><article class="video-card reveal"><div class="video-frame"><video controls playsinline preload="none" aria-label="Demostración de menú digital"><source src="/assets/videomenu.mov" type="video/quicktime">Tu navegador no puede reproducir este video.</video><div class="video-hint">Video original · Menú</div></div><div class="video-copy"><h3>Menú al instante</h3><p>Comparte tu carta digital de manera cómoda.</p></div></article><article class="video-card reveal"><div class="video-frame"><video controls playsinline preload="none" aria-label="Demostración de perfil digital"><source src="/assets/videoperfil.mov" type="video/quicktime">Tu navegador no puede reproducir este video.</video><div class="video-hint">Video original · Perfil</div></div><div class="video-copy"><h3>Tu presentación digital</h3><p>Tu información profesional reunida en un mismo lugar.</p></div></article></div></div></section>
+<section class="section media-section" id="ejemplos"><div class="wrap"><div class="section-heading reveal"><div class="eyebrow">LinkTap en acción</div><h2>Míralo funcionar.</h2><p>Descubre cómo se utilizan las tarjetas LinkTap. Abre cada demostración para verla completa, sin zoom ni recortes.</p></div><div class="video-grid"><article class="video-card reveal"><div class="video-frame video-preview"><video muted playsinline preload="metadata" aria-hidden="true" tabindex="-1"><source src="/assets/videoreseña.mov" type="video/quicktime"></video><button class="video-open" type="button" data-video="/assets/videoreseña.mov" data-title="Reseñas de Google" aria-label="Ver demostración de Reseñas de Google en pantalla completa"><span class="video-play-icon">▶</span><span>Ver demostración</span><span class="video-fullscreen-icon">⛶</span></button></div><div class="video-copy"><h3>Más reseñas</h3><p>Conecta a tus clientes con tu enlace de reseñas de Google.</p></div></article><article class="video-card reveal"><div class="video-frame video-preview"><video muted playsinline preload="metadata" aria-hidden="true" tabindex="-1"><source src="/assets/videomenu.mov" type="video/quicktime"></video><button class="video-open" type="button" data-video="/assets/videomenu.mov" data-title="Menú digital" aria-label="Ver demostración de Menú digital en pantalla completa"><span class="video-play-icon">▶</span><span>Ver demostración</span><span class="video-fullscreen-icon">⛶</span></button></div><div class="video-copy"><h3>Menú al instante</h3><p>Comparte tu carta digital de manera cómoda.</p></div></article><article class="video-card reveal"><div class="video-frame video-preview"><video muted playsinline preload="metadata" aria-hidden="true" tabindex="-1"><source src="/assets/videoperfil.mov" type="video/quicktime"></video><button class="video-open" type="button" data-video="/assets/videoperfil.mov" data-title="Perfil digital" aria-label="Ver demostración de Perfil digital en pantalla completa"><span class="video-play-icon">▶</span><span>Ver demostración</span><span class="video-fullscreen-icon">⛶</span></button></div><div class="video-copy"><h3>Tu presentación digital</h3><p>Tu información profesional reunida en un mismo lugar.</p></div></article></div></div></section>
+<div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-label="Reproductor de demostración" hidden><div class="video-modal-top"><span id="video-modal-title">Demostración LinkTap</span><button type="button" class="video-close" id="video-close" aria-label="Cerrar video">✕ Cerrar</button></div><div class="video-modal-center"><video id="video-modal-player" controls playsinline preload="none" aria-label="Video de demostración LinkTap"></video></div><div class="video-modal-bottom"><span>Video original LinkTap</span><button type="button" id="video-fullscreen">⛶ Pantalla completa</button></div></div>
 <section class="section" id="preguntas"><div class="wrap faq-grid"><div class="reveal"><div class="eyebrow">Resolvemos tus dudas</div><h2>Todo claro, desde el primer tap.</h2><p>Abre las preguntas que te interesen. Si necesitas ayuda, también puedes escribirnos.</p></div><div class="faq-list reveal"><details><summary>¿Qué es una tarjeta NFC?</summary><p>Es una tarjeta con un chip que permite compartir un enlace acercándola a un celular compatible. Puede llevar a tus redes, contacto, reseñas o perfil digital.</p></details><details><summary>¿Hay que instalar una aplicación?</summary><p>No necesitas una aplicación de LinkTap. El celular debe ser compatible con NFC y tenerlo habilitado cuando corresponda.</p></details><details><summary>¿La tarjeta y el perfil digital son lo mismo?</summary><p>No. La tarjeta NFC es el producto físico que comparte un enlace; el perfil digital es una página donde presentas tu información. Puedes usarlos juntos o por separado.</p></details><details><summary>¿Puedo elegir a qué página lleva la tarjeta?</summary><p>Sí. En la solicitud puedes indicar el destino NFC o dejar los detalles para coordinarlos con LinkTap.</p></details><details><summary>¿Cómo solicito mis tarjetas?</summary><p>Entra al formulario, selecciona la cantidad y completa tus datos. Revisaremos la solicitud antes de coordinar el pago y la entrega.</p></details><details><summary>¿Qué pasa si necesito varias tarjetas?</summary><p>Tenemos packs de 3, 5 y 10 tarjetas. También puedes indicar un pedido especial para cotizarlo.</p></details></div></div></section>
 <section class="closing" id="contacto"><div class="wrap"><div class="closing-inner reveal"><div class="eyebrow">Empieza con LinkTap</div><h2>Tu negocio, a un tap.</h2><p>Haz más fácil que tus clientes te encuentren, te conozcan y conecten contigo.</p><div class="hero-actions"><a class="btn btn-primary" href="https://linktap.cl/solicitud/">Solicitar tarjetas ↗</a><a class="btn btn-dark" href="https://linktap.cl/perfil-digital/">Ver perfiles digitales ↗</a><a class="btn btn-outline" id="wa-general" href="https://wa.me/56963074376?text=Hola%2C%20vi%20LinkTap.cl%20y%20me%20gustar%C3%ADa%20recibir%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">Hablar por WhatsApp ↗</a></div></div></div></section>
 </main><footer><div class="wrap footer-inner"><a href="/" class="logo" aria-label="Volver al inicio"><img src="/assets/linktap-logo.png" alt="LinkTap" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">Link<span>Tap</span></span></a><div class="links"><a href="https://linktap.cl/solicitud/">Tarjetas NFC</a><a href="https://linktap.cl/perfil-digital/">Perfiles digitales</a><a href="https://www.instagram.com/linktap.cl/" target="_blank" rel="noopener">Instagram</a><a href="mailto:linktap.cl@gmail.com">Correo</a></div><small>© 2026 LinkTap · Tu negocio, a un tap.</small></div></footer>
@@ -182,22 +217,52 @@
 </script>
 <script>
 (()=>{
-  const stage=document.getElementById('chip-stage'),showcase=document.getElementById('nfc-showcase'),label=document.getElementById('nfc-state'),pause=document.getElementById('nfc-pause'),warning=document.getElementById('nfc-asset-warning');
-  if(!stage||!showcase)return;
-  const front=showcase.querySelector('.nfc-front'),inside=showcase.querySelector('.nfc-inside');
-  let insideVisible=false,paused=false,timer=null,visible=true;
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function render(){showcase.classList.toggle('show-inside',insideVisible);label.textContent=insideVisible?'Así es el chip NFC por dentro':'Diseño original LinkTap'}
-  function stop(){if(timer){clearInterval(timer);timer=null}}
-  function sync(){stop();if(!paused&&!reduced&&visible&&inside.complete&&inside.naturalWidth>0){timer=setInterval(()=>{insideVisible=!insideVisible;render()},3800)}}
-  pause.addEventListener('click',()=>{paused=!paused;pause.textContent=paused?'Reanudar animación':'Pausar animación';pause.setAttribute('aria-pressed',String(paused));sync()});
-  inside.addEventListener('error',()=>{warning.hidden=false;paused=true;stop();pause.hidden=true});
-  inside.addEventListener('load',()=>{warning.hidden=true;sync()});
-  front.addEventListener('error',()=>{warning.hidden=false;warning.textContent='No se pudo cargar la imagen. Comprueba /assets/linktap-front.png en tu dominio.';paused=true;stop()});
-  if('IntersectionObserver' in window){new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync()},{threshold:.15}).observe(stage)}
-  document.addEventListener('visibilitychange',()=>{if(document.hidden){stop()}else{sync()}});
-  if(inside.complete){if(inside.naturalWidth){sync()}else{warning.hidden=false;pause.hidden=true}}
-  if(reduced){pause.textContent='Mostrar chip NFC';pause.addEventListener('click',()=>{insideVisible=!insideVisible;render();pause.textContent=insideVisible?'Mostrar tarjeta':'Mostrar chip NFC'})}
+const canvas=document.getElementById('nfc-scratch'),chip=document.getElementById('nfc-chip-base'),reset=document.getElementById('nfc-reset'),state=document.getElementById('nfc-state'),warning=document.getElementById('nfc-asset-warning');
+if(!canvas)return;
+const ctx=canvas.getContext('2d'),front=new Image();
+let ready=false,active=false,marks=0,last=null;
+function redraw(){
+if(!ready)return;
+const r=canvas.getBoundingClientRect();if(!r.width||!r.height)return;
+const dpr=Math.min(window.devicePixelRatio||1,2);
+canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);
+ctx.setTransform(dpr,0,0,dpr,0,0);ctx.globalCompositeOperation='source-over';ctx.clearRect(0,0,r.width,r.height);
+const scale=Math.max(r.width/front.naturalWidth,r.height/front.naturalHeight);
+const w=front.naturalWidth*scale,h=front.naturalHeight*scale;
+ctx.drawImage(front,(r.width-w)/2,(r.height-h)/2,w,h);
+marks=0;state.textContent='Desliza para descubrir el interior';
+}
+function erase(x,y){
+const r=canvas.getBoundingClientRect(),rad=Math.max(24,Math.min(r.width*.13,57));
+const g=ctx.createRadialGradient(x,y,rad*.12,x,y,rad);
+g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(.62,'rgba(0,0,0,.95)');g.addColorStop(1,'rgba(0,0,0,0)');
+ctx.globalCompositeOperation='destination-out';ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,rad,0,Math.PI*2);ctx.fill();ctx.globalCompositeOperation='source-over';
+}
+function move(e){
+const r=canvas.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;
+if(last){const d=Math.hypot(x-last.x,y-last.y),steps=Math.max(1,Math.ceil(d/9));for(let i=1;i<=steps;i++)erase(last.x+(x-last.x)*i/steps,last.y+(y-last.y)*i/steps);}
+else erase(x,y);
+last={x,y};marks++;if(marks>2)state.textContent='¡Estás descubriendo el chip NFC!';
+}
+canvas.addEventListener('pointerdown',e=>{if(!ready)return;active=true;last=null;canvas.setPointerCapture(e.pointerId);move(e)});
+canvas.addEventListener('pointermove',e=>{if(active)move(e)});
+['pointerup','pointercancel','lostpointercapture'].forEach(type=>canvas.addEventListener(type,()=>{active=false;last=null}));
+reset.addEventListener('click',redraw);
+front.onload=()=>{ready=true;redraw()};
+front.onerror=()=>{warning.hidden=false;warning.textContent='No se pudo cargar /assets/linktap-front.png';canvas.style.display='none'};
+chip.onerror=()=>{warning.hidden=false;warning.textContent='No se pudo cargar /assets/linktap-chip.png'};
+front.src='/assets/linktap-front.png';
+if('ResizeObserver' in window)new ResizeObserver(()=>{if(ready)redraw()}).observe(canvas);else window.addEventListener('resize',redraw);
 })();
 </script>
-</body></html>
+<script>
+(()=>{
+const modal=document.getElementById('video-modal'),player=document.getElementById('video-modal-player'),title=document.getElementById('video-modal-title'),close=document.getElementById('video-close'),full=document.getElementById('video-fullscreen');
+let lastTrigger=null;
+function dismiss(){player.pause();player.removeAttribute('src');player.load();modal.hidden=true;document.body.classList.remove('video-modal-open');if(lastTrigger)lastTrigger.focus();}
+document.querySelectorAll('.video-open').forEach(btn=>btn.addEventListener('click',()=>{lastTrigger=btn;title.textContent=btn.dataset.title;player.src=btn.dataset.video;modal.hidden=false;document.body.classList.add('video-modal-open');close.focus();const result=player.play();if(result&&result.catch)result.catch(()=>{});}));
+close.addEventListener('click',dismiss);
+full.addEventListener('click',()=>{if(player.webkitEnterFullscreen){player.webkitEnterFullscreen();return;}if(player.requestFullscreen){player.requestFullscreen().catch(()=>{});return;}if(modal.requestFullscreen)modal.requestFullscreen().catch(()=>{});});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)dismiss()});
+})();
+</script></body></html>
