@@ -1,10 +1,14 @@
 
 <!doctype html>
-<html lang="es">
+<html lang="es-CL">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#ffffff">
+<meta name="description" content="Completa tu información para crear tu perfil digital LinkTap. Para profesionales y empresas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <title>Crear mi perfil digital | LinkTap</title>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <style>
@@ -229,56 +233,187 @@ textarea { min-height:95px;resize:vertical; }
   .field.full { grid-column:auto; }
 }
 
-/* LinkTap · diseño refinado y vista previa */
-:root{--blue:#1769ff;--ink:#141820;--muted:#667085;--soft:#f5f7fb;--line:#e5eaf1}
-body{background:linear-gradient(180deg,#f6f9ff 0,#fff 380px);}
-.top{background:rgba(255,255,255,.88);box-shadow:0 1px 14px rgba(15,23,42,.035)}
-nav{max-width:1190px}
-main{max-width:1190px;padding-top:54px}
-.hero{max-width:740px;margin-bottom:30px}
-.hero .lead{max-width:660px}
-.form-layout{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:30px;align-items:start}
+/* LinkTap | Edición de lanzamiento */
+:root{--blue:#1677ff;--ink:#101827;--muted:#64748b;--soft:#f5f9ff;--line:#e2eaf5}
+body{font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:radial-gradient(ellipse at 50% 0%,#e9f4ff,transparent 520px),#fff}
+.top{background:rgba(255,255,255,.91);box-shadow:0 10px 30px #153b6b09}
+nav{max-width:1180px}
+.brand{letter-spacing:-1.4px}
+main{max-width:1180px;padding-top:48px}
+.hero{max-width:820px;margin-bottom:28px}
+.hero h1{letter-spacing:-.065em}
+.hero .lead{max-width:680px}
+.form-layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}
 .form-main{min-width:0}
-.section{margin-top:0;margin-bottom:22px;background:#fff;border-color:#e8edf5;box-shadow:0 12px 40px rgba(26,52,91,.035);border-radius:24px;padding:28px}
-.section h2{font-size:21px}
-.choice{transition:transform .18s,border-color .18s,background .18s;min-height:106px}
-.choice:hover{border-color:#a4c6ff;transform:translateY(-2px)}
+.section{margin-top:0;margin-bottom:20px;background:#fff;border-color:#e5ebf4;border-radius:24px;box-shadow:0 15px 40px #174b8509}
+.choice{transition:border-color .2s,transform .2s,background .2s}
+.choice:hover{border-color:#a5c9ff;transform:translateY(-2px)}
+.choice:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #90bfff;outline-offset:3px}
 .choice.active{box-shadow:inset 0 0 0 1px var(--blue)}
-.choice strong{font-size:15px}
-input:not([type=checkbox]),textarea{background:#fbfcff;transition:border-color .2s,box-shadow .2s}
-input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#fff}
-.primary{transition:transform .2s,box-shadow .2s}
-.primary:not(:disabled):hover{transform:translateY(-1px);box-shadow:0 10px 25px rgba(23,105,255,.22)}
-.person{background:#f9fbff;border-color:#e6ecf6}
-.preview-panel{position:sticky;top:94px;background:#fff;border:1px solid #e8edf5;border-radius:26px;padding:18px;box-shadow:0 18px 60px rgba(20,42,80,.08)}
-.preview-header{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
-.preview-header strong{font-size:15px}
-.preview-label{font-size:11px;background:#eaf2ff;color:#1261d8;padding:6px 9px;border-radius:99px;font-weight:700}
-.preview-intro{color:var(--muted);font-size:12px;line-height:1.5;margin:0 0 14px}
-.preview-select{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;color:var(--ink);margin-bottom:14px;font:inherit;font-size:13px}
-.phone{max-width:300px;margin:auto;border:7px solid #1a2230;border-radius:37px;background:#fff;overflow:hidden;box-shadow:0 15px 34px rgba(18,28,45,.14);min-height:470px}
-.phone-top{height:126px;background:linear-gradient(135deg,#111d38,#1b70f6);position:relative;display:flex;justify-content:center;align-items:flex-start;padding-top:14px;color:#dfeaff;font-size:10px;letter-spacing:2px;font-weight:800}
-.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:83px;height:17px;background:#1a2230;border-radius:0 0 13px 13px}
-.phone-content{padding:0 19px 24px;text-align:center;margin-top:-38px;position:relative}
-.avatar{width:76px;height:76px;margin:auto auto 12px;background:#eaf1ff;border:4px solid #fff;border-radius:50%;display:grid;place-items:center;font-size:28px;font-weight:800;color:#2366ca;box-shadow:0 5px 20px rgba(0,0,0,.07)}
-.phone-name{font-size:20px;letter-spacing:-.6px;font-weight:800;line-height:1.2;overflow-wrap:anywhere}
-.phone-role{font-size:12px;color:#5f6c80;margin-top:5px;overflow-wrap:anywhere}
-.phone-company{font-size:11px;font-weight:700;color:#216bde;margin-top:8px;overflow-wrap:anywhere}
-.phone-bio{font-size:11px;color:#647084;line-height:1.5;margin:16px 0;white-space:pre-wrap;overflow-wrap:anywhere}
-.phone-action{display:block;width:100%;background:#1769ff;color:#fff;border-radius:12px;padding:12px 8px;font-size:12px;font-weight:750;margin-top:14px}
-.phone-links{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:14px}
-.phone-chip{font-size:10px;color:#344054;border:1px solid #e5eaf2;background:#f7f9fc;padding:7px 10px;border-radius:20px;max-width:100%;overflow-wrap:anywhere}
-.phone-services{margin-top:14px;border-top:1px solid #edf0f5;padding-top:12px;font-size:11px;color:#475467;line-height:1.5;text-align:left;white-space:pre-wrap;overflow-wrap:anywhere}
-.preview-foot{text-align:center;color:#98a2b3;font-size:11px;margin:14px 0 0}
-.progress-strip{display:flex;gap:8px;align-items:center;margin:20px 0 26px;color:#667085;font-size:12px;flex-wrap:wrap}
-.progress-strip span{background:#fff;border:1px solid #e5eaf2;border-radius:99px;padding:8px 12px}
-.progress-strip b{color:#1769ff}
-.help{margin-top:20px}
-@media(max-width:1000px){.form-layout{grid-template-columns:minmax(0,1fr) 310px;gap:18px}.section{padding:23px}}
-@media(max-width:780px){.form-layout{display:flex;flex-direction:column}.form-main{width:100%}.preview-panel{position:static;width:100%;order:2}.hero{margin-bottom:18px}.section{margin-bottom:16px}.phone{max-width:300px}}
-@media(max-width:600px){main{padding:32px 15px 65px}.section{padding:20px;border-radius:20px}.choices.two{grid-template-columns:1fr 1fr}.preview-panel{padding:18px}.progress-strip{gap:6px}.progress-strip span{font-size:11px;padding:7px 9px}}
-@media(prefers-reduced-motion:reduce){.choice,.primary{transition:none}.choice:hover,.primary:hover{transform:none}}
+input:not([type=checkbox]),textarea{background:#fbfdff}
+input:focus,textarea:focus{box-shadow:0 0 0 3px #1677ff19}
+input[aria-invalid=true]{border-color:#c92b2b;background:#fffafa}
+.form-error{color:#b42318;font-size:13px;margin:12px 0 0;line-height:1.5}
+.preview-panel{position:sticky;top:90px;border:1px solid var(--line);border-radius:24px;background:#fff;padding:18px;box-shadow:0 18px 50px #153b6b13}
+.preview-top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px}
+.preview-top strong{font-size:15px}
+.preview-tag{background:#eaf3ff;color:#1267da;padding:6px 9px;border-radius:99px;font-size:10px;font-weight:800}
+.preview-help{font-size:12px;color:var(--muted);line-height:1.55;margin:0 0 14px}
+.preview-select{width:100%;border:1px solid var(--line);border-radius:12px;padding:10px;background:#fff;margin-bottom:15px;font:inherit}
+.mock-phone{border:7px solid #1c2b44;border-radius:34px;background:#fff;overflow:hidden;max-width:280px;margin:auto;box-shadow:0 16px 35px #14243d24}
+.mock-cover{height:112px;background:linear-gradient(120deg,#102447,#1677ff);display:grid;place-items:start center;padding-top:20px;color:#dcecff;font-size:11px;font-weight:800;letter-spacing:.17em}
+.mock-body{padding:0 18px 25px;text-align:center;margin-top:-33px;position:relative}
+.mock-avatar{height:70px;width:70px;margin:0 auto 12px;border-radius:50%;border:4px solid white;background:#eaf3ff;color:#1677ff;font-size:24px;font-weight:800;display:grid;place-items:center}
+.mock-name{font-size:20px;font-weight:800;letter-spacing:-.04em;overflow-wrap:anywhere}
+.mock-role{font-size:12px;color:#667085;margin-top:5px;overflow-wrap:anywhere}
+.mock-company{font-size:12px;color:#1677ff;font-weight:700;margin-top:8px;overflow-wrap:anywhere}
+.mock-bio{font-size:11px;color:#667085;line-height:1.5;white-space:pre-wrap;overflow-wrap:anywhere;margin-top:13px}
+.mock-action{background:#1677ff;color:white;border-radius:12px;font-size:12px;font-weight:700;padding:12px;margin-top:16px}
+.mock-links{display:flex;justify-content:center;flex-wrap:wrap;gap:6px;margin-top:13px}
+.mock-links span{font-size:10px;background:#f3f7ff;border:1px solid #e1eaf7;border-radius:30px;padding:7px 9px;color:#40536e}
+.mock-services{font-size:11px;text-align:left;color:#5b6b82;border-top:1px solid #edf0f5;margin-top:15px;padding-top:12px;white-space:pre-wrap;overflow-wrap:anywhere}
+.preview-disclaimer{text-align:center;font-size:11px;color:#8994a5;margin:12px 0 0}
+.success-box{border:1px solid #b8e5d0;background:#edfff5;border-radius:16px;padding:18px;margin-top:15px;color:#087443}
+.success-box strong{display:block;margin-bottom:6px}
+.success-code{display:inline-block;font-size:20px;letter-spacing:.02em;font-weight:800;margin:7px 0}
+.copy-code{border:1px solid #b8e5d0;background:white;color:#087443;border-radius:9px;padding:8px 12px;font-weight:700}
+@media(max-width:850px){.form-layout{grid-template-columns:1fr}.preview-panel{position:static}.hero{margin-bottom:20px}}
+@media(max-width:600px){main{padding:30px 15px 60px}.section{padding:20px;border-radius:20px}.form-layout{gap:8px}.preview-panel{padding:17px}.choices.two{grid-template-columns:1fr 1fr}.hero h1{font-size:clamp(36px,10vw,52px)}}
+@media(prefers-reduced-motion:reduce){.choice{transition:none}.choice:hover{transform:none}}
 
+
+/* Guía educativa y preview 3.0 */
+.intro-guide{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(270px,.8fr);gap:32px;align-items:center;padding:36px;margin:12px 0 38px;border:1px solid #e0eafa;border-radius:30px;background:linear-gradient(125deg,#f0f7ff,#fff 70%);overflow:hidden}
+.guide-kicker{font-size:10px;font-weight:800;letter-spacing:.16em;color:#1677ff;display:block;margin-bottom:12px}
+.intro-guide h2{font-size:clamp(28px,3.8vw,44px);letter-spacing:-.055em;line-height:1.12;margin:0 0 17px}
+.intro-guide h2 span{color:#1677ff}
+.guide-copy>p{font-size:15px;line-height:1.75;color:#58667c}
+.guide-benefits{display:grid;gap:14px;margin-top:24px}
+.guide-benefits>div{display:grid;grid-template-columns:36px 1fr;column-gap:12px;align-items:start}
+.guide-icon{grid-row:span 2;width:36px;height:36px;display:grid;place-items:center;background:white;color:#1677ff;border:1px solid #dbe8fa;border-radius:12px;font-size:19px}
+.guide-benefits strong{font-size:14px}
+.guide-benefits small{font-size:12px;color:#64748b;line-height:1.5;margin-top:3px}
+.guide-note{background:#fff;border:1px solid #e2ebf7;border-radius:14px;padding:13px 15px;margin-top:23px!important;font-size:13px!important}
+.guide-demo{width:min(100%,320px);margin:auto;background:white;border:1px solid #dbe7f6;border-radius:24px;box-shadow:0 24px 55px #1b5ca21c;overflow:hidden;transform:rotate(2deg)}
+.guide-demo-top{height:32px;background:#f8faff;display:flex;justify-content:space-between;align-items:center;padding:0 14px;font-size:10px;color:#78889f;border-bottom:1px solid #e9eef6}
+.demo-dot{color:#b3c1d6}
+.guide-demo-cover{height:90px;background:linear-gradient(120deg,#172e57,#197cff);position:relative;overflow:hidden}
+.guide-demo-cover:after{content:'';position:absolute;width:150px;height:150px;border:1px solid #ffffff4d;border-radius:50%;right:-25px;top:-80px}
+.guide-demo-content{position:relative;margin-top:-30px;text-align:center;padding:0 19px 22px}
+.guide-demo-avatar{height:62px;width:62px;margin:0 auto 12px;display:grid;place-items:center;border-radius:50%;border:4px solid white;background:#e7f1ff;color:#1769df;font-size:21px;font-weight:800}
+.guide-demo-content>strong{display:block;font-size:19px;letter-spacing:-.04em}
+.guide-demo-content>small{display:block;color:#68788d;font-size:11px;margin-top:5px}
+.guide-demo-content>p{font-size:11px;color:#64748b;line-height:1.5;margin:12px 0}
+.guide-demo-button{background:#1677ff;color:#fff;padding:12px;border-radius:12px;font-size:12px;font-weight:700}
+.guide-demo-tags{display:flex;justify-content:center;gap:5px;margin-top:12px;flex-wrap:wrap}
+.guide-demo-tags span{background:#f0f6ff;border:1px solid #e0ebfa;border-radius:20px;padding:6px 8px;font-size:10px;color:#4a6182}
+.guide-demo-caption{text-align:center;font-size:10px;color:#98a4b5;background:#fafcff;padding:9px}
+.form-intro{display:flex;justify-content:space-between;gap:20px;align-items:center;margin:10px 0 22px}
+.form-intro h2{font-size:clamp(26px,3.6vw,38px);letter-spacing:-.055em;margin:0 0 7px}
+.form-intro p{color:#667085;font-size:14px;line-height:1.6}
+.form-intro-badge{font-size:11px;font-weight:750;white-space:nowrap;color:#1268d9;background:#eaf3ff;padding:10px 13px;border-radius:99px}
+.preview-panel{border-radius:28px;padding:20px;background:linear-gradient(180deg,#fff,#fbfdff)}
+.preview-top{margin-bottom:8px}
+.preview-top>div strong{display:block;font-size:19px;letter-spacing:-.035em}
+.preview-top .guide-kicker{margin-bottom:4px}
+.preview-person-label{display:block;font-size:12px;font-weight:700;margin:13px 0 7px}
+.preview-select{border-color:#d9e6f6;background:#f8fbff}
+.mock-phone{border:5px solid #1b2a43;border-radius:29px;max-width:285px;box-shadow:0 20px 40px #182f5430}
+.mock-browser{height:33px;background:#f9fbff;border-bottom:1px solid #e8edf5;display:flex;justify-content:space-between;align-items:center;gap:5px;padding:0 12px;color:#8291a6;font-size:9px}
+.mock-cover{height:118px;background:linear-gradient(135deg,#11274a,#1677ff);position:relative;overflow:hidden;display:flex;align-items:flex-start;justify-content:center;padding-top:17px;letter-spacing:.17em;font-size:10px}
+.mock-cover-shape{position:absolute;width:145px;height:145px;border:1px solid #ffffff38;border-radius:50%;right:-15px;bottom:-100px}
+.mock-body{margin-top:-34px;padding:0 17px 22px}
+.mock-avatar{box-shadow:0 7px 16px #1b4d9020}
+.mock-name{font-size:21px}
+.mock-role{font-size:12px}
+.mock-bio{background:#f7faff;padding:10px;border-radius:11px}
+.mock-action{display:flex;justify-content:center;align-items:center;gap:7px;background:#1677ff}
+.mock-action span:last-child{margin-left:auto}
+.mock-action span:first-child{margin-left:auto}
+.mock-links span{font-size:10px;padding:8px 10px;background:#f3f7fd;border-color:#e2ebf7}
+.mock-services{background:#f8fbff;padding:11px;border-radius:10px;border:0;margin-top:13px}
+.mock-brand{font-size:10px;color:#a3afbf;margin-top:23px}
+.mock-brand b{color:#273f61}
+.mock-brand b span{color:#1677ff}
+.preview-note{display:flex;gap:10px;margin-top:15px;padding:13px;background:#f0f7ff;border:1px solid #e0edff;border-radius:13px}
+.preview-note>span{color:#1677ff;font-size:17px}
+.preview-note p{font-size:11px;color:#61718a;line-height:1.5;margin:0}
+@media(max-width:900px){.intro-guide{grid-template-columns:1fr 290px;gap:18px;padding:24px}}
+@media(max-width:750px){.intro-guide{grid-template-columns:1fr}.guide-demo{transform:none}.form-intro{align-items:flex-start}}
+@media(max-width:480px){.intro-guide{padding:22px 18px;border-radius:23px}.guide-benefits{gap:16px}.form-intro{flex-direction:column;gap:10px}.form-intro-badge{align-self:flex-start}.preview-panel{padding:16px}}
+
+ 
+/* Launch visual system */
+:root{--blue:#185dff;--ink:#111827;--muted:#647084;--soft:#f7f9fd;--line:#e5eaf2}
+body{background:linear-gradient(180deg,#f6f9ff 0,#fff 470px);font-family:"DM Sans",-apple-system,BlinkMacSystemFont,sans-serif}
+nav{max-width:1140px}
+main{max-width:1120px;padding:50px 22px 100px}
+.hero{padding:48px clamp(24px,6vw,74px);border-radius:32px;background:#0c1936;color:white;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-130px;top:-160px;width:470px;height:470px;border-radius:50%;background:radial-gradient(circle,#2768ff80,transparent 70%);pointer-events:none}
+.hero .eyebrow{color:#a9c7ff;display:flex;align-items:center;gap:9px;letter-spacing:1.5px}
+.eyebrow-dot{height:8px;width:8px;background:#7bd1ff;border-radius:50%;box-shadow:0 0 0 5px #7bd1ff1e}
+.hero h1{font-size:clamp(42px,6vw,76px);letter-spacing:-3px;line-height:1.04;margin:26px 0 22px;max-width:760px}
+.hero h1 span{color:#83b1ff}
+.hero .lead{color:#c4cee0;max-width:590px;font-size:clamp(15px,2vw,18px)}
+.hero-actions{display:flex;gap:20px;align-items:center;flex-wrap:wrap;margin-top:30px}
+.hero-link{background:#fff;color:#13295d;padding:14px 19px;border-radius:13px;font-size:14px;font-weight:800}
+.hero-link span{margin-left:18px}
+.hero-meta{font-size:12px;color:#b2c2df}
+.why-section{margin:56px 0 48px}
+.section-kicker{font-size:11px;color:var(--blue);font-weight:800;letter-spacing:1.6px}
+.why-section h2,.form-intro h2{font-size:clamp(27px,4vw,38px);letter-spacing:-1.4px;margin:12px 0}
+.why-lead,.form-intro p{color:var(--muted);line-height:1.7;max-width:720px;margin:0 0 24px}
+.benefit-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+.benefit{background:#fff;border:1px solid var(--line);padding:23px 20px;border-radius:20px}
+.benefit-icon{display:grid;place-items:center;background:#eaf1ff;color:#1d5df0;border-radius:13px;width:38px;height:38px;font-size:22px}
+.benefit h3{font-size:15px;letter-spacing:-.25px;margin:18px 0 8px}
+.benefit p{color:var(--muted);font-size:13px;line-height:1.55;margin:0}
+.use-details,.plan-details{margin-top:16px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.use-details summary,.plan-details summary{padding:17px 20px;cursor:pointer;font-size:13px;font-weight:750;display:flex;justify-content:space-between;list-style:none}
+.use-details summary::-webkit-details-marker,.plan-details summary::-webkit-details-marker{display:none}
+.use-details[open] summary span,.plan-details[open] summary span{transform:rotate(45deg)}
+.use-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 20px 20px}
+.use-grid p{margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.use-grid strong{color:var(--ink)}
+.form-intro{padding-top:12px;scroll-margin-top:100px}
+.form-layout{max-width:100%}
+.section{background:#fff;border-radius:22px;box-shadow:0 6px 32px #15234206}
+.plan-choices{align-items:stretch}
+.plan-choices .choice{display:flex;flex-direction:column;gap:10px;min-height:225px;padding:22px 18px;position:relative}
+.plan-choices .choice strong{margin:0}
+.plan-choices .choice .plan-name{font-size:20px;font-weight:800;letter-spacing:-.7px}
+.plan-choices .choice .plan-tagline{font-size:13px;font-weight:700}
+.plan-choices .choice small{font-size:12px;line-height:1.55}
+.plan-choices .choice .plan-price{margin-top:auto;font-size:15px;font-weight:800}
+.plan-price em{font-size:11px;font-weight:500;font-style:normal;color:var(--muted);display:block;margin-top:3px}
+.plan-choices .choice.featured{border-color:#a8c1ff;background:#f7faff}
+.plan-choices .choice.featured.active{border-color:var(--blue);box-shadow:0 0 0 2px #185dff1c}
+.plan-choices .choice.active{border-color:var(--blue);background:#f3f7ff}
+.recommend{align-self:flex-start;background:#1b5cff;color:#fff;border-radius:99px;font-size:10px;font-weight:800;padding:5px 9px;letter-spacing:.5px}
+.plan-footnote{font-size:12px;color:var(--muted);line-height:1.6;margin:14px 0 0}
+.compare-wrap{overflow-x:auto;padding:0 14px 14px}
+.compare{border-collapse:collapse;width:100%;font-size:12px;min-width:420px}
+.compare th,.compare td{padding:12px 8px;text-align:center;border-bottom:1px solid var(--line)}
+.compare th:first-child,.compare td:first-child{text-align:left}
+.compare th{font-weight:800}
+input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
+@media(max-width:800px){.benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding:36px 27px}.hero h1{letter-spacing:-2px}.plan-choices .choice{min-height:205px}}
+@media(max-width:570px){main{padding:22px 14px 60px}.hero{border-radius:22px;padding:32px 23px}.hero h1{font-size:43px;letter-spacing:-2px}.hero .lead{font-size:15px}.hero-actions{align-items:flex-start;gap:15px}.hero-meta{line-height:1.5}.why-section{margin:34px 0}.benefit-grid{gap:9px}.benefit{padding:16px 13px;border-radius:15px}.benefit h3{font-size:13px}.benefit p{font-size:12px}.use-grid{grid-template-columns:1fr}.section{padding:20px 15px;border-radius:19px}.plan-choices{grid-template-columns:1fr!important}.plan-choices .choice{min-height:unset;padding:16px 17px;gap:7px}.plan-choices .choice .plan-price{margin-top:5px}.plan-choices .choice.featured{order:-1}.form-intro h2{font-size:30px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Ajustes finales de experiencia */
+.form-layout{display:block!important;max-width:850px;margin:0 auto}
+.preview-panel{display:none!important}
+.creator-card{display:flex;align-items:center;gap:20px;background:#fff;border:1px solid #e1e8f5;border-radius:22px;padding:23px 25px;margin:0 0 46px;box-shadow:0 8px 25px #17305b09}
+.creator-mark{flex:0 0 54px;width:54px;height:54px;display:grid;place-items:center;border-radius:16px;background:#102d63;color:white;font-size:18px;font-weight:850;letter-spacing:-1px}
+.creator-copy{flex:1;min-width:0}.creator-eyebrow{font-size:10px;letter-spacing:1.4px;color:#2860c6;font-weight:800}.creator-copy h2{font-size:20px;letter-spacing:-.6px;margin:5px 0}.creator-copy p{font-size:13px;color:#5b6a80;line-height:1.6;margin:0}.creator-copy strong{color:#182844}
+.creator-button{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;background:#eff4ff;color:#1748a2;padding:12px 15px;border-radius:12px;font-weight:800;font-size:12px}
+.form-intro{max-width:850px;margin:0 auto 24px}.form-intro h2{margin-top:9px}.form-intro p{margin-bottom:0}
+.nfc-offer{border-color:#bcd0ff;background:linear-gradient(135deg,#fff,#f7faff)}.nfc-offer h2{margin-top:9px}
+.nfc-options{margin-top:15px}.nfc-link{display:inline-flex;margin-top:17px;color:#2059c8;font-size:13px;font-weight:750}
+.section .field input[type=number],.section .field select{width:100%;padding:13px 14px;border:1px solid #dce3ee;border-radius:10px;background:#fff;color:#182844;font:inherit}
+@media(max-width:700px){.creator-card{flex-wrap:wrap;padding:20px;gap:13px}.creator-copy{flex-basis:calc(100% - 72px)}.creator-button{width:100%}}
+@media(max-width:500px){.creator-card{margin-bottom:32px}.form-intro{padding:0 4px}.creator-copy h2{font-size:18px}}
 </style>
 </head>
 <body>
@@ -292,37 +427,65 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
 
 <main>
   <div class="hero">
-  <div class="eyebrow">LinkTap · Perfiles digitales</div>
-  <h1>Tu perfil digital<br><span>empieza aquí.</span></h1>
-  <p class="lead">
-    Cuéntanos lo esencial de ti o tu empresa.
-    Completa solo la información que quieras incluir en tus perfiles.
-  </p>
-  <span class="pill">Fácil de completar · Diseñado para tu celular</span>
-
+    <div class="eyebrow"><span class="eyebrow-dot"></span> LINKTAP / PERFILES DIGITALES</div>
+    <h1>Tu presentación.<br><span>En un solo lugar.</span></h1>
+    <p class="lead">Reúne quién eres, qué haces y cómo pueden contactarte en una página que puedes compartir por enlace, código QR o tarjeta NFC.</p>
+    <div class="hero-actions"><a class="hero-link" href="#planes">Completar mi información <span aria-hidden="true">↗</span></a><span class="hero-meta">Sin subir fotos ni logos · Diseño coordinado contigo</span></div>
   </div>
-  <div class="progress-strip" aria-label="Etapas del formulario"><span><b>01</b> Selecciona</span><span><b>02</b> Completa</span><span><b>03</b> Revisa y envía</span></div>
-  <div class="form-layout">
-  <div class="form-main">
-  <form id="form" novalidate>
+  <section class="why-section" aria-labelledby="why-title">
+    <div class="section-kicker">DESCUBRE SU UTILIDAD</div>
+    <h2 id="why-title">Más que una tarjeta de contacto.</h2>
+    <p class="why-lead">Un perfil digital ayuda a que otras personas encuentren tu información y conozcan tu trabajo sin buscar entre distintas aplicaciones.</p>
+    <div class="benefit-grid">
+      <article class="benefit"><span class="benefit-icon">↗</span><h3>Date a conocer</h3><p>Presenta tu profesión, cargo o emprendimiento.</p></article>
+      <article class="benefit"><span class="benefit-icon">▦</span><h3>Muestra lo que haces</h3><p>Comparte servicios, proyectos o catálogo según tu plan.</p></article>
+      <article class="benefit"><span class="benefit-icon">◎</span><h3>Facilita el contacto</h3><p>WhatsApp, correo y redes desde un mismo lugar.</p></article>
+      <article class="benefit"><span class="benefit-icon">⌁</span><h3>Compártelo fácilmente</h3><p>Enlace directo, QR o tarjeta NFC compatible.</p></article>
+    </div>
+    <details class="use-details"><summary>¿Cómo se puede usar en tu rubro? <span>+</span></summary>
+      <div class="use-grid">
+        <p><strong>Profesionales:</strong> presentación, especialidades y contacto.</p>
+        <p><strong>Emprendimientos:</strong> servicios, redes y catálogo.</p>
+        <p><strong>Empresas:</strong> información corporativa y equipo.</p>
+        <p><strong>Creadores:</strong> portafolio, proyectos y enlaces.</p>
+      </div>
+    </details>
+  </section>
+  <section class="creator-card" aria-labelledby="creator-title">
+    <div class="creator-mark">VG</div><div class="creator-copy"><span class="creator-eyebrow">UN EJEMPLO REAL</span><h2 id="creator-title">Conoce mi perfil digital.</h2><p>Soy <strong>Vicente Gómez, creador de LinkTap.</strong> Te invito a explorar mi perfil y descubrir cómo puedes presentar tu información en un solo lugar.</p></div>
+    <a class="creator-button" href="https://linktap.cl/vicente" target="_blank" rel="noopener noreferrer">Ver el perfil del creador ↗</a>
+  </section>
+  <div class="form-intro" id="planes"><div class="section-kicker">TU PERFIL DIGITAL</div><h2>Ahora cuéntanos sobre ti.</h2><p>Completa la información que quieres compartir. Nosotros organizaremos el contenido y coordinaremos contigo las fotografías, el logo y los detalles visuales.</p></div>
+
+  <div class="form-layout"><div class="form-main"><form id="form" novalidate>
 
     <section class="section">
-      <h2>01. Elige tu perfil</h2>
-      <p class="hint">Selecciona el plan que acordaste con LinkTap.</p>
-      <div class="choices" id="plans">
-        <button type="button" class="choice active" data-value="necesario">
-          <strong>Necesario</strong>
-          <small>Información y contacto esencial.</small>
+      <h2>01. Selecciona tu plan</h2>
+      <p class="hint">Elige el plan acordado con LinkTap. Mostraremos los campos que corresponden a tu perfil.</p>
+      <div class="choices plan-choices" id="plans">
+        <button type="button" class="choice" data-value="necesario" aria-label="Plan Necesario, 29.990 pesos">
+          <span class="plan-name">Necesario</span><span class="plan-tagline">Lo esencial para conectar.</span>
+          <small>Datos de contacto, redes y presentación básica.</small><span class="plan-price">$29.990 <em>pago único</em></span>
         </button>
-        <button type="button" class="choice" data-value="pro">
-          <strong>Pro</strong>
-          <small>Presentación, servicios y enlaces.</small>
+        <button type="button" class="choice active featured" data-value="pro" aria-label="Plan Pro recomendado, 44.990 pesos">
+          <span class="recommend">MÁS ELEGIDO</span><span class="plan-name">Pro</span><span class="plan-tagline">Tu presentación profesional.</span>
+          <small>Más contenido, servicios, enlaces y opciones visuales.</small><span class="plan-price">$44.990 <em>pago único</em></span>
         </button>
-        <button type="button" class="choice" data-value="completo">
-          <strong>Completo</strong>
-          <small>Galería, video y contenido adicional.</small>
+        <button type="button" class="choice" data-value="empresa" aria-label="Plan Empresa, 59.990 pesos">
+          <span class="plan-name">Empresa</span><span class="plan-tagline">Tu negocio en un solo lugar.</span>
+          <small>Información corporativa, equipo y sucursales.</small><span class="plan-price">$59.990 <em>pago único</em></span>
         </button>
       </div>
+      <p class="plan-footnote">Valores referenciales del servicio · 12 meses de hosting incluidos · Este formulario no realiza cobros.</p>
+      <details class="plan-details"><summary>Ver diferencias entre los planes <span>+</span></summary>
+      <div class="compare-wrap"><table class="compare"><thead><tr><th>Incluye</th><th>Necesario</th><th>Pro</th><th>Empresa</th></tr></thead><tbody>
+      <tr><td>Foto principal o logo</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Contacto y redes</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Presentación personal o empresarial</td><td>✓</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Servicios y enlaces adicionales</td><td>—</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Galería y video</td><td>—</td><td>✓</td><td>✓</td></tr>
+      <tr><td>Equipo y sucursales</td><td>—</td><td>—</td><td>✓</td></tr>
+      </tbody></table></div></details>
     </section>
 
     <section class="section">
@@ -337,7 +500,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
         </button>
         <button type="button" class="choice" data-value="empresa">
           <strong>Para una empresa</strong>
-          <small>Uno o varios ejecutivos.</small>
+          <small>Datos corporativos y equipo de trabajo.</small>
         </button>
       </div>
     </section>
@@ -372,7 +535,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
     <section class="section hidden" id="company-section">
       <h2>04. Tu empresa</h2>
       <p class="hint">
-        Información compartida para los perfiles de tus ejecutivos.
+        Información corporativa que se mostrará en el perfil de tu empresa.
       </p>
       <div class="fields">
         <div class="field">
@@ -398,13 +561,28 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
     <section class="section">
       <h2 id="people-title">04. Tu información</h2>
       <p class="hint">
-        Agrega los datos que quieres mostrar.
-        Los campos de cada perfil son opcionales.
+        Agrega los datos que quieres mostrar. El plan Empresa incluye hasta 5 integrantes en un mismo perfil corporativo. Si necesitas más integrantes o perfiles independientes, indícalo en la sección de solicitudes especiales. Los campos de contenido son opcionales.
       </p>
       <div id="people"></div>
       <button type="button" id="add" class="add hidden">
-        + Agregar otro ejecutivo
+        + Agregar integrante
       </button>
+    </section>
+
+    <section class="section">
+      <h2>¿Necesitas más perfiles o integrantes?</h2>
+      <p class="hint">Puedes solicitar perfiles independientes para distintas personas o ampliar el equipo corporativo. Te contactaremos para cotizarlo.</p>
+      <div class="field"><label for="extra-profiles">Perfiles independientes adicionales (opcional)</label><input id="extra-profiles" type="number" min="0" max="100" value="0" inputmode="numeric"></div>
+      <div class="field"><label for="extra-members">Integrantes adicionales al máximo de 5 (opcional)</label><input id="extra-members" type="number" min="0" max="100" value="0" inputmode="numeric"></div>
+    </section>
+
+    <section class="section nfc-offer">
+      <span class="section-kicker">COMPLEMENTA TU PERFIL</span>
+      <h2>¿Quieres cotizar tarjetas NFC LinkTap?</h2>
+      <p class="hint">Comparte tu perfil acercando una tarjeta a un celular compatible. Desde $19.990 por tarjeta; packs disponibles.</p>
+      <div class="choices two" id="nfc-choices"><button type="button" class="choice active" data-value="no"><strong>Solo mi perfil</strong><small>Por ahora no necesito tarjetas.</small></button><button type="button" class="choice" data-value="si"><strong>Quiero cotizar tarjetas</strong><small>Agregar interés a esta solicitud.</small></button></div>
+      <div id="nfc-options" class="hidden nfc-options"><div class="fields"><div class="field"><label for="nfc-qty">Cantidad aproximada</label><input id="nfc-qty" type="number" min="1" max="10000" value="1" inputmode="numeric"></div><div class="field"><label for="nfc-for">¿Para quiénes?</label><select id="nfc-for"><option value="Para mí">Para mí</option><option value="Para mi equipo">Para mi equipo</option><option value="Para distintas personas">Para distintas personas</option></select></div></div><p class="hint">Esto no realiza una compra. Te enviaremos la cotización antes de producir las tarjetas.</p></div>
+      <a class="nfc-link" href="https://linktap.cl/solicitud/" target="_blank" rel="noopener noreferrer">Conocer las tarjetas y sus packs ↗</a>
     </section>
 
     <section class="section">
@@ -424,6 +602,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
           con LinkTap para preparar los perfiles digitales. *
         </label>
       </div>
+      <p class="form-error hidden" id="form-error" role="alert"></p>
       <button type="button" class="primary" id="review">
         Revisar mi información →
       </button>
@@ -438,10 +617,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
       <p class="hint">Comprueba que la información esté correcta.</p>
       <div class="summary" id="summary"></div>
 
-      <div class="notice">
-        Por ahora este formulario no permite subir fotografías ni logos.
-        Puedes enviarlos posteriormente por el canal que acuerdes con LinkTap.
-      </div>
+      <div class="notice">Todos los planes incluyen foto principal o logo. Las imágenes y el diseño se coordinarán directamente contigo después del envío.</div>
 
       <div class="turnstile-wrap">
         <div class="cf-turnstile"
@@ -455,37 +631,36 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
       <button type="button" class="primary" id="send" disabled>
         Enviar solicitud
       </button>
+      <div class="success-box hidden" id="success-box" role="status"><strong>¡Solicitud recibida!</strong><span>Tu código de seguimiento:</span><div class="success-code" id="success-code"></div><div><button class="copy-code" type="button" id="copy-code">Copiar código</button></div><small>Guárdalo para futuras consultas.</small></div>
       <p class="status" id="send-status"
         role="status" aria-live="polite">
         Completa la verificación de seguridad para continuar.
       </p>
     </section>
 
-  </form>
-  </div>
-
-<aside class="preview-panel" aria-label="Vista previa del perfil digital">
-  <div class="preview-header"><strong>Tu perfil en tiempo real</strong><span class="preview-label">VISTA PREVIA</span></div>
-  <p class="preview-intro">Así podría verse tu perfil. Los datos cambian mientras completas el formulario.</p>
-  <label for="preview-person" class="field" style="display:block;font-size:12px;font-weight:700;margin-bottom:7px">Perfil a visualizar</label>
-  <select id="preview-person" class="preview-select" aria-label="Seleccionar perfil"></select>
-  <div class="phone" aria-live="off">
-    <div class="phone-top"><div class="phone-notch"></div>LINKTAP</div>
-    <div class="phone-content">
-      <div id="pv-avatar" class="avatar">LT</div>
-      <div id="pv-name" class="phone-name">Tu nombre</div>
-      <div id="pv-role" class="phone-role">Tu cargo o profesión</div>
-      <div id="pv-company" class="phone-company hidden"></div>
-      <div id="pv-bio" class="phone-bio hidden"></div>
-      <div id="pv-whatsapp" class="phone-action hidden">Contactar por WhatsApp</div>
-      <div id="pv-links" class="phone-links"></div>
-      <div id="pv-services" class="phone-services hidden"></div>
+  </form></div>
+<aside class="preview-panel" aria-label="Vista previa del perfil">
+  <div class="preview-top"><div><span class="guide-kicker">EN TIEMPO REAL</span><strong>Tu perfil digital</strong></div><span class="preview-tag">VISTA PREVIA</span></div>
+  <p class="preview-help">Escribe tus datos para ver cómo podría presentarse tu perfil a tus clientes.</p>
+  <label for="preview-person" class="preview-person-label">Seleccionar perfil</label>
+  <select id="preview-person" class="preview-select"></select>
+  <div class="mock-phone">
+    <div class="mock-browser"><span>● ● ●</span><span>linktap.cl / mi-perfil</span><span>↗</span></div>
+    <div class="mock-cover"><span>LINKTAP</span><span class="mock-cover-shape"></span></div>
+    <div class="mock-body">
+      <div class="mock-avatar" id="pv-avatar">LT</div>
+      <div class="mock-name" id="pv-name">Tu nombre</div>
+      <div class="mock-role" id="pv-role">Tu cargo o profesión</div>
+      <div class="mock-company hidden" id="pv-company"></div>
+      <div class="mock-bio hidden" id="pv-bio"></div>
+      <div class="mock-action hidden" id="pv-whatsapp"><span>◉</span> Contactar por WhatsApp <span>↗</span></div>
+      <div class="mock-links" id="pv-links"></div>
+      <div class="mock-services hidden" id="pv-services"></div>
+      <div class="mock-brand">Creado con <b>Link<span>Tap</span></b></div>
     </div>
   </div>
-  <p class="preview-foot">Diseño ilustrativo · No es un perfil publicado</p>
-</aside>
-
-  </div>
+  <div class="preview-note"><span>✦</span><p>Esta es una simulación. El diseño definitivo se prepara según tu plan y la información entregada.</p></div>
+</aside></div>
 
   <div class="help">
     <strong>¿Tienes dudas o necesitas agregar algo más?</strong>
@@ -511,12 +686,13 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
 
   const $ = id => document.getElementById(id);
 
-  let plan = 'necesario';
+  let plan = 'pro';
   let tipo = 'individual';
   let nextId = 0;
   let token = '';
   let sending = false;
   let sent = false;
+  let wantsNfc = false;
 
   const val = id => $(id)?.value?.trim() || '';
 
@@ -562,21 +738,36 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
     });
   }
 
+  setupChoices('nfc-choices', value => {
+    wantsNfc = value === 'si';
+    $('nfc-options').classList.toggle('hidden', !wantsNfc);
+    hideReview();
+  });
+
   setupChoices('plans', value => {
     plan = value;
+    if (value === 'empresa') {
+      $('types').querySelector('[data-value="empresa"]').click();
+      while ($('people').children.length > 5) $('people').lastElementChild.remove();
+    } else if (tipo === 'empresa') {
+      $('types').querySelector('[data-value="individual"]').click();
+    }
     renderExtras();
     hideReview();
   });
 
   setupChoices('types', value => {
+    if (plan === 'empresa' && value !== 'empresa') {
+      $('plans').querySelector('[data-value="pro"]').click();
+    }
     tipo = value;
     const company = value === 'empresa';
 
     $('company-section').classList.toggle('hidden', !company);
-    $('add').classList.toggle('hidden', !company);
+    $('add').classList.toggle('hidden', !company || plan !== 'empresa');
 
     $('people-title').textContent = company
-      ? '05. Datos de los ejecutivos'
+      ? '05. Integrantes de tu equipo'
       : '04. Tu información';
 
     $('last-title').textContent = company
@@ -594,7 +785,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
   });
 
   function addPerson() {
-    if ($('people').children.length >= 30) return;
+    if ($('people').children.length >= (plan === 'empresa' ? 5 : 30)) return;
 
     const n = ++nextId;
     const element = document.createElement('div');
@@ -625,7 +816,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
   function refreshPeople() {
     $('people').querySelectorAll('.person').forEach((person, index) => {
       person.querySelector('h3').textContent =
-        (tipo === 'empresa' ? 'Ejecutivo ' : 'Perfil ') + (index + 1);
+        (tipo === 'empresa' ? 'Integrante ' : 'Perfil ') + (index + 1);
 
       person.querySelector('.remove').classList.toggle(
         'hidden',
@@ -690,7 +881,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
         );
       }
 
-      if (plan === 'completo') {
+      if (plan === 'pro' || plan === 'empresa') {
         html += field('video-' + n, 'Video (enlace)', 'https://...');
         html += field('booking-' + n, 'Reservas (enlace)', 'https://...');
         html += field('catalog-' + n, 'Catálogo (enlace)', 'https://...');
@@ -747,7 +938,12 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
       nombre_contacto: val('contact'),
       correo_contacto: val('email'),
       telefono_contacto: val('phone'),
-      notas: val('notes'),
+      notas: [val('notes'),
+        `Perfiles independientes adicionales solicitados: ${Math.max(0,Math.min(100,Number(val('extra-profiles'))||0))}`,
+        `Integrantes extra solicitados: ${Math.max(0,Math.min(100,Number(val('extra-members'))||0))}`,
+        `Interés tarjetas NFC: ${wantsNfc ? 'Sí' : 'No'}`,
+        ...(wantsNfc ? [`Cantidad de tarjetas NFC: ${Math.max(1,Math.min(10000,Number(val('nfc-qty'))||1))}`, `Destino tarjetas NFC: ${val('nfc-for')}`] : [])
+      ].filter(Boolean).join('\n'),
 
       empresa: tipo === 'empresa'
         ? {
@@ -782,6 +978,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
       plan,
       tipo,
       people: profiles(),
+      wantsNfc,
       values: {}
     };
 
@@ -804,8 +1001,9 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
     } catch {}
 
     if (!data) return;
+    if (data.wantsNfc) $('nfc-choices').querySelector('[data-value="si"]').click();
 
-    if (['necesario','pro','completo'].includes(data.plan)) {
+    if (['necesario','pro','empresa'].includes(data.plan)) {
       $('plans').querySelector(
         `[data-value="${data.plan}"]`
       ).click();
@@ -818,7 +1016,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
     }
 
     const savedPeople = Array.isArray(data.people) ? data.people : [];
-    const amount = Math.min(30, Math.max(1, savedPeople.length || 1));
+    const amount = Math.min(plan === 'empresa' ? 5 : 1, Math.max(1, savedPeople.length || 1));
 
     while ($('people').children.length < amount) {
       addPerson();
@@ -854,7 +1052,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
     });
 
     ['contact','email','phone','company','company-web',
-     'company-social','company-address','notes'].forEach(id => {
+     'company-social','company-address','notes','extra-profiles','extra-members','nfc-qty','nfc-for'].forEach(id => {
       if ($(id) && typeof data.values?.[id] === 'string') {
         $(id).value = data.values[id];
       }
@@ -879,15 +1077,21 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
       !$('email').checkValidity() ||
       !$('agree').checked
     ) {
-      alert('Completa tu nombre, un correo válido y la autorización.');
+      $('form-error').textContent = 'Completa tu nombre, un correo válido y la autorización para continuar.';
+      $('form-error').classList.remove('hidden');
+      const first = !val('contact') ? $('contact') : (!$('email').checkValidity() ? $('email') : $('agree'));
+      first.focus();
       return;
     }
 
     if (tipo === 'empresa' && !val('company')) {
-      alert('Indica el nombre de la empresa.');
+      $('form-error').textContent = 'Indica el nombre de la empresa para continuar.';
+      $('form-error').classList.remove('hidden');
+      $('company').focus();
       return;
     }
 
+    $('form-error').classList.add('hidden');
     const data = payload();
 
     const lines = [
@@ -925,7 +1129,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
         );
       }
 
-      if (plan === 'completo') {
+      if (plan === 'pro' || plan === 'empresa') {
         lines.push(
           `Video: ${person.enlaces.video || 'No indicado'}`,
           `Reservas: ${person.enlaces.reservas || 'No indicadas'}`,
@@ -935,7 +1139,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
       }
     });
 
-    lines.push(`\nComentarios: ${data.notas || 'Sin comentarios'}`);
+    lines.push(`\nComentarios y solicitudes adicionales: ${data.notas || 'Sin comentarios'}`);
 
     $('summary').textContent = lines.join('\n');
     $('review-section').classList.remove('hidden');
@@ -1011,6 +1215,8 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
 
       sent = true;
       token = '';
+      $('success-code').textContent = data.codigo;
+      $('success-box').classList.remove('hidden');
 
       $('send-status').textContent =
         'Solicitud recibida correctamente.\n' +
@@ -1042,7 +1248,7 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
   });
 
 
-  // Vista previa: solo lee los campos del formulario, no envía información.
+  // Vista previa local: no envía datos ni altera el formato del Worker.
   function updatePreview() {
     const persons = [...document.querySelectorAll('#people .person')];
     const selector = $('preview-person');
@@ -1052,21 +1258,20 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
       const n = person.dataset.person;
       const option = document.createElement('option');
       option.value = n;
-      option.textContent = val('name-' + n) || (tipo === 'empresa' ? 'Ejecutivo ' : 'Perfil ') + (index + 1);
+      option.textContent = val('name-' + n) || (tipo === 'empresa' ? 'Integrante ' : 'Perfil ') + (index + 1);
       selector.appendChild(option);
     });
     if (persons.some(person => person.dataset.person === previous)) selector.value = previous;
     const n = selector.value;
     if (!n) return;
-    const name = val('name-' + n) || 'Tu nombre';
-    const role = val('role-' + n) || 'Tu cargo o profesión';
+    const name = val('name-' + n);
+    const role = val('role-' + n);
     const company = tipo === 'empresa' ? val('company') : '';
-    const bio = plan === 'necesario' ? '' : val('description-' + n);
-    const services = plan === 'necesario' ? '' : val('services-' + n);
-    const initials = (val('name-' + n).split(/\s+/).filter(Boolean).slice(0,2).map(word => word[0]).join('') || 'LT').toUpperCase();
-    $('pv-avatar').textContent = initials;
-    $('pv-name').textContent = name;
-    $('pv-role').textContent = role;
+    const bio = plan !== 'necesario' ? val('description-' + n) : '';
+    const services = plan !== 'necesario' ? val('services-' + n) : '';
+    $('pv-avatar').textContent = (name.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('') || 'LT').toUpperCase();
+    $('pv-name').textContent = name || 'Tu nombre';
+    $('pv-role').textContent = role || 'Tu cargo o profesión';
     $('pv-company').textContent = company;
     $('pv-company').classList.toggle('hidden', !company);
     $('pv-bio').textContent = bio;
@@ -1076,25 +1281,31 @@ input:focus,textarea:focus{box-shadow:0 0 0 3px rgba(23,105,255,.1);background:#
     $('pv-services').classList.toggle('hidden', !services);
     const links = $('pv-links');
     links.replaceChildren();
-    const addChip = (label, enabled) => {
-      if (!enabled) return;
-      const chip = document.createElement('span');
-      chip.className = 'phone-chip';
-      chip.textContent = label;
-      links.appendChild(chip);
-    };
-    addChip('Instagram', val('instagram-' + n));
-    addChip('Correo', val('mail-' + n));
-    addChip('LinkedIn', plan !== 'necesario' && val('linkedin-' + n));
-    addChip('Sitio web', tipo === 'empresa' && val('company-web'));
-    addChip('Reservas', plan === 'completo' && val('booking-' + n));
-    addChip('Catálogo', plan === 'completo' && val('catalog-' + n));
-    addChip('Video', plan === 'completo' && val('video-' + n));
+    [['Instagram', val('instagram-' + n)],['Correo',val('mail-' + n)],
+     ['LinkedIn',plan !== 'necesario' && val('linkedin-' + n)],
+     ['Sitio web',tipo === 'empresa' && val('company-web')],
+     ['Reservas',(plan === 'pro' || plan === 'empresa') && val('booking-' + n)],
+     ['Catálogo',(plan === 'pro' || plan === 'empresa') && val('catalog-' + n)]].forEach(([label, enabled])=>{
+       if (!enabled) return;
+       const chip=document.createElement('span');
+       chip.textContent=label;
+       links.appendChild(chip);
+     });
   }
-  $('preview-person').addEventListener('change', updatePreview);
-  $('form').addEventListener('input', updatePreview);
-  $('form').addEventListener('click', () => queueMicrotask(updatePreview));
-  new MutationObserver(updatePreview).observe($('people'), {childList:true});
+  $('preview-person').addEventListener('change',updatePreview);
+  $('form').addEventListener('input',updatePreview);
+  $('form').addEventListener('click',()=>queueMicrotask(updatePreview));
+  new MutationObserver(updatePreview).observe($('people'),{childList:true});
+
+  $('copy-code').addEventListener('click', async () => {
+    const code=$('success-code').textContent;
+    try {
+      await navigator.clipboard.writeText(code);
+      $('copy-code').textContent='¡Copiado!';
+    } catch {
+      $('copy-code').textContent='Selecciona el código para copiarlo';
+    }
+  });
 
   addPerson();
   restore();
