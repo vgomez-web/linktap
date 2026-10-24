@@ -279,6 +279,30 @@ body.video-modal-open{overflow:hidden}
 }
 @media(prefers-reduced-motion:reduce){.hero-art .device{animation:none!important}}
 </style>
+<style id="linktap-ios-responsive-audit">
+/* Mobile-first final polish: respect safe areas and prevent accidental overflow. */
+html{scroll-padding-top:calc(78px + env(safe-area-inset-top,0px))}
+img,video,svg,canvas{max-width:100%}
+@media(max-width:700px){
+  .wrap{width:calc(100% - 32px);max-width:var(--max)}
+  .header{padding-top:env(safe-area-inset-top,0px)}
+  .header-inner{min-width:0}
+  .hero-grid,.hero-copy,.hero-art,.solution,.closing-inner{min-width:0}
+  .hero h1,.section-heading h2{overflow-wrap:break-word}
+  .hero-actions{flex-wrap:wrap;gap:10px}
+  .hero-actions .btn{max-width:100%;white-space:normal;text-align:center;min-height:48px}
+  .menu-toggle{min-width:44px;min-height:44px;touch-action:manipulation}
+  .nav{max-height:calc(100dvh - 88px - env(safe-area-inset-bottom,0px));overflow-y:auto;overscroll-behavior:contain}
+  .nav a{min-height:44px;display:flex;align-items:center}
+  .section{scroll-margin-top:88px}
+}
+@media(max-width:390px){
+  .wrap{width:calc(100% - 28px)}
+  .hero h1{font-size:clamp(36px,10vw,43px)}
+  .hero-actions .btn{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
 </head><body>
 <header class="header"><div class="wrap header-inner"><a href="/" class="logo" aria-label="LinkTap inicio"><img src="/assets/linktap-logo.png" alt="LinkTap" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">Link<span>Tap</span></span></a><nav class="nav" id="nav" aria-label="Navegación principal"><a href="#soluciones">Soluciones</a><a href="#nfc">¿Qué es NFC?</a><a href="#ejemplos">Demostraciones</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a></nav><div class="nav-cta"><a class="btn btn-dark" href="https://linktap.cl/solicitud/">Solicitar tarjeta ↗</a></div><button class="menu-toggle" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button></div></header>
 <main>
