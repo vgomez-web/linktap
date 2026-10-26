@@ -991,6 +991,14 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
     });
   }
 
+  // Identifica solicitudes que llegan desde las tarjetas NFC de Santiago.
+  // Se añade a notas para conservar compatibilidad con el Worker existente.
+  const campaignParams = new URLSearchParams(window.location.search);
+  const sourceCard = campaignParams.get('tarjeta') || '';
+  const sourceIsSantiago = campaignParams.get('origen') === 'santiago';
+  const validSourceCard = sourceIsSantiago && /^MI-PERFIL-DIGITAL-00[1-5]$/.test(sourceCard)
+    ? sourceCard : '';
+
   function payload() {
     return {
       tipo_cliente: tipo,
@@ -998,7 +1006,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       nombre_contacto: val('contact'),
       correo_contacto: val('email'),
       telefono_contacto: val('phone'),
-      notas: [val('notes'),
+      notas: [validSourceCard ? `Origen: LinkTap Santiago | Tarjeta NFC: ${validSourceCard} | Vendedora: Catita` : '', val('notes'),
         `Perfiles independientes adicionales solicitados: ${Math.max(0,Math.min(100,Number(val('extra-profiles'))||0))}`,
         `Integrantes extra solicitados: ${Math.max(0,Math.min(100,Number(val('extra-members'))||0))}`,
         `Interés tarjetas NFC: ${wantsNfc ? 'Sí' : 'No'}`,
