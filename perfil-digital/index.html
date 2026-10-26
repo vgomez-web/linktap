@@ -1281,6 +1281,18 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
         );
       }
 
+      // Tras recibir la confirmación del Worker, volver a la tarjeta NFC
+      // para mostrar el estado de solicitud recibida en este navegador.
+      if (validSourceCard) {
+        try {
+          localStorage.setItem('lt-santiago-' + validSourceCard,
+            JSON.stringify({codigo:data.codigo, estado:'received', fecha:Date.now()}));
+        } catch (_) {}
+        const cardNumber = validSourceCard.slice(-3);
+        window.location.assign('/mi-perfil-digital-' + cardNumber + '/?solicitud=' + encodeURIComponent(data.codigo));
+        return;
+      }
+
       sent = true;
       token = '';
       $('success-code').textContent = data.codigo;
