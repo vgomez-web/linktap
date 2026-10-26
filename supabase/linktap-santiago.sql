@@ -24,11 +24,7 @@ create table if not exists public.lt_orders (
     check (status in ('received','designing','review','active','delayed','cancelled')),
   payment_confirmed_at timestamptz,
   complete_information_at timestamptz,
-  due_at timestamptz generated always as (
-    case when payment_confirmed_at is not null and complete_information_at is not null
-      then greatest(payment_confirmed_at, complete_information_at) + interval '24 hours'
-    end
-  ) stored,
+  -- Se calcula al consultar: greatest(payment_confirmed_at, complete_information_at) + interval '24 hours'
   tracking_token uuid not null unique default gen_random_uuid(),
   profile_url text,
   created_at timestamptz not null default now(),
