@@ -41,7 +41,7 @@
 </div></section></main><footer><span>© <span id="year"></span> Clínica Monteverde</span><span>Experiencia digital LinkTap</span></footer></div><script>
 document.getElementById('year').textContent=new Date().getFullYear();
 // Pega aquí el enlace directo de reseñas de Google cuando la clínica lo proporcione.
-const GOOGLE_REVIEW_URL = ''; // Pendiente: enlace oficial de Monteverde
+const GOOGLE_REVIEW_URL = 'https://g.page/r/CXZjLv8CutiZEBM/review';
 if(GOOGLE_REVIEW_URL){for(const id of ['review','review-secondary']){const a=document.getElementById(id);a.href=GOOGLE_REVIEW_URL;a.target='_blank';a.rel='noopener noreferrer';a.removeAttribute('aria-disabled');a.classList.remove('review-pending');}document.querySelector('#review small').textContent='Escribe tu reseña en Google ↗';document.getElementById('review-secondary').textContent='Escribir una reseña ↗';}
 if('IntersectionObserver'in window){const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));}else document.querySelectorAll('.reveal').forEach(el=>el.classList.add('visible'));
 </script></body></html>
