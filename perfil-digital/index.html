@@ -600,13 +600,24 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
 }
 @media(prefers-reduced-motion:reduce){.why-section .benefit{transition:none}.why-section .benefit:hover{transform:none}}
 </style>
+<style id="lt-profile-header-copy">
+.top{position:static;background:transparent;border:0;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+.top nav{padding:14px 20px 0}
+.lt-original-brand{display:inline-flex;align-items:center;min-width:44px;min-height:44px}
+.lt-original-brand img{display:block;width:64px;height:64px;object-fit:contain}
+main{padding-top:20px}
+.lt-hero-share{font-size:14px;line-height:1.55;color:#d6e5ff;margin:14px 0 0}
+.lt-hero-showcase .hero-actions{flex-direction:column;align-items:flex-start;gap:10px}
+.lt-hero-showcase .hero-link{max-width:100%;text-align:center}
+.lt-phone-demo-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid #ffffff50;border-radius:999px;text-decoration:none}
+@media(max-width:600px){.top nav{padding:12px 15px 0}main{padding-top:16px}}
+</style>
 </head>
 <body>
 
 <header class="top">
   <nav>
-    <a class="brand" href="/">Link<span>Tap</span></a>
-    <a class="back" href="/">← Volver al sitio</a>
+    <a class="brand lt-original-brand" href="/" aria-label="LinkTap · Inicio"><img src="/assets/linktap-logo.png" alt="LinkTap" width="64" height="64"></a>
   </nav>
 </header>
 
@@ -614,9 +625,10 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
   <div class="hero lt-hero-showcase">
     <div class="lt-hero-copy">
       <div class="eyebrow"><span class="eyebrow-dot"></span> LINKTAP / PERFILES DIGITALES</div>
-      <h1>Tu presentación.<br><span>En un solo lugar.</span></h1>
-      <p class="lead">Tu información, servicios y contactos reunidos en un perfil digital diseñado para ti. Compártelo por enlace, QR o tarjeta NFC.</p>
-      <div class="hero-actions"><a class="hero-link" href="#planes">Crear mi perfil <span aria-hidden="true">↗</span></a><span class="hero-meta">Desde $29.990 · Pago único</span></div>
+      <h1>Tu presentación,<br><span>siempre contigo.</span></h1>
+      <p class="lead">Tu perfil digital es tu propia página: quién eres, qué haces y cómo contactarte. Para ti, tu negocio o tu equipo.</p>
+      <p class="lt-hero-share">Compártelo por enlace, QR o con tu tarjeta LinkTap.</p>
+      <div class="hero-actions"><a class="hero-link" href="#planes">Quiero mi perfil digital <span aria-hidden="true">↗</span></a><span class="hero-meta">Desde $29.990 · Pago único</span></div>
     </div>
     <div class="lt-phone-stage" aria-label="Ejemplo ilustrativo de cómo se ve un perfil digital en el celular">
       <div class="lt-phone">
@@ -632,7 +644,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
           <div class="lt-phone-footer">Creado con <b>Link<span>Tap</span></b></div>
         </div>
       </div>
-      <a class="lt-phone-demo-link" href="https://linktap.cl/vicente" target="_blank" rel="noopener noreferrer">Explorar un perfil real ↗</a>
+      <a class="lt-phone-demo-link" href="https://linktap.cl/vicente" target="_blank" rel="noopener noreferrer">Ver un ejemplo ↗</a>
     </div>
   </div>
   <section class="why-section" aria-labelledby="why-title">
@@ -645,7 +657,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       <article class="benefit"><div class="benefit-art art-contact"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-4-.9L3 21l1.9-4.5A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 11.5h8M8 14.5h5"/></svg><span class="art-spark">✦</span></div><h3>Abre la conversación</h3><p>Que elijan cómo contactarte: WhatsApp, correo o redes.</p></article>
       <article class="benefit"><div class="benefit-art art-share"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"/><path d="M15 4h5v5M15 9l5-5M4 15v5h5M14 15h2v2h-2zM19 15v5h-5"/></svg><span class="art-spark">✦</span></div><h3>Acerca y conecta</h3><p>Con tu tarjeta NFC, abre tu perfil en un celular compatible.</p></article>
     </div>
-    <div class="lt-profile-bridge"><div><strong>Tu perfil digital + tu tarjeta LinkTap</strong><p>El perfil te presenta. La tarjeta facilita compartirlo.</p><small>La tarjeta NFC es opcional y se solicita por separado.</small></div><a href="https://linktap.cl/vicente/" target="_blank" rel="noopener">Ver un perfil real ↗</a></div>
+    <div class="lt-profile-bridge"><div><strong>Lleva tu presentación en el bolsillo.</strong><p>Con tu tarjeta LinkTap, comparte tu perfil en un tap desde un celular compatible.</p><small>La tarjeta NFC es opcional y se solicita por separado.</small></div><a href="https://linktap.cl/vicente/" target="_blank" rel="noopener">Ver un perfil real ↗</a></div>
     <details class="use-details"><summary>¿Cómo se puede usar en tu rubro? <span>+</span></summary>
       <div class="use-grid">
         <p><strong>Profesionales:</strong> presentación, especialidades y contacto.</p>
