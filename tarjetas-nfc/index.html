@@ -54,7 +54,16 @@
 .pricebox{background:linear-gradient(125deg,#101b30,#193967)}
 @media(max-width:850px){.hero-grid{grid-template-columns:1fr}.hero{padding:50px 0 60px}.visual{min-height:340px}.floating-chip{right:5%;bottom:4%}}
 @media(max-width:570px){.hero h1{font-size:clamp(39px,10vw,55px)}.hero .eyebrow{font-size:9px}.hero-price strong{font-size:43px}.visual{min-height:280px}.visual .halo{width:220px;height:220px}.visual .real-card{width:87%}.floating-chip{font-size:10px;padding:9px 12px;bottom:0}.hero .actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.hero .actions .btn{padding:12px 8px;font-size:12px}.lead{font-size:15px}}
-</style><style>.image-warning{position:relative;z-index:2;background:#fff;padding:22px;border:1px solid #f1c6c6;border-radius:16px;color:#9b2424;max-width:380px;line-height:1.5}.image-warning[hidden]{display:none!important}</style></head>
+</style><style>.image-warning{position:relative;z-index:2;background:#fff;padding:22px;border:1px solid #f1c6c6;border-radius:16px;color:#9b2424;max-width:380px;line-height:1.5}.image-warning[hidden]{display:none!important}</style><style id="lt-hero-spacing-fix">
+/* Sobrescribe estilos tardíos que dejaban una franja vacía bajo el menú. */
+.hero{padding-top:20px!important;padding-bottom:38px!important}
+.hero-grid{gap:32px!important}
+.hero h1{font-size:clamp(42px,4.15vw,62px)!important;line-height:1.07!important;letter-spacing:-2.5px!important;margin:12px 0 14px!important}
+.hero .lead{font-size:16px!important;line-height:1.5!important}
+.hero .visual{min-height:270px!important}
+@media(max-width:850px){.hero{padding-top:18px!important;padding-bottom:30px!important}.hero-grid{gap:16px!important}.hero h1{font-size:clamp(36px,6vw,49px)!important}.hero .visual{min-height:210px!important}}
+@media(max-width:570px){.hero{padding-top:14px!important;padding-bottom:26px!important}.hero h1{font-size:clamp(34px,9vw,43px)!important}.hero .visual{min-height:190px!important}}
+</style></head>
 <body>
 <header class="top"><nav class="wrap nav"><a class="brand" href="/" aria-label="LinkTap inicio">Link<span>Tap</span></a><div class="navlinks"><a href="/perfil-digital/">Perfiles digitales</a><a href="/personalizador/">Personalizador</a><a class="btn blue navcta" href="/solicitud/">Solicitar tarjeta</a></div></nav></header>
 <main>
