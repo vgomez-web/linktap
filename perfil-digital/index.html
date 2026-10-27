@@ -500,7 +500,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
 .lt-phone-demo-link{font-size:12px;font-weight:750;color:#c7ddff;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:760px){.lt-hero-showcase{grid-template-columns:1fr;gap:18px;padding:25px 20px!important}.lt-hero-showcase h1{font-size:clamp(36px,8vw,49px)!important}.lt-phone{width:194px;border-radius:29px;transform:rotate(3deg)}.lt-phone-screen{border-radius:22px}.lt-phone-stage{margin-top:4px}.lt-phone-banner{height:69px}.lt-phone-action{padding:8px}.lt-phone-demo-link{margin-top:2px}}
 @media(min-width:761px) and (max-width:1050px){.lt-phone{width:200px}.lt-hero-showcase h1{font-size:clamp(34px,4.3vw,48px)!important}}
-</style></head>
+</style><style id="lt-nfc-invite-style">.lt-nfc-invite{display:grid;grid-template-columns:220px minmax(0,1fr);align-items:center;gap:32px;margin:30px 0;padding:30px;border-radius:24px;background:linear-gradient(120deg,#edf5ff,#f9fbff);border:1px solid #dce9fa}.lt-nfc-invite-art{min-height:165px;display:grid;place-items:center}.lt-nfc-invite-card{width:190px;height:118px;border-radius:15px;transform:rotate(-9deg);background:white;box-shadow:0 18px 28px #15448c2a;display:flex;align-items:center;justify-content:space-around;padding:16px;color:#1d70ee}.lt-invite-logo{font-size:23px;font-weight:850;letter-spacing:-1px;color:#16243d}.lt-invite-logo span{color:#1677ff}.lt-nfc-invite h2{font-size:clamp(22px,3vw,30px);line-height:1.15;margin:8px 0 10px}.lt-nfc-invite p{font-size:14px;color:#596b83;line-height:1.6;margin:0 0 16px}.lt-nfc-invite-button{display:inline-flex;padding:12px 18px;border-radius:12px;background:#1677ff;color:white!important;font-size:14px;font-weight:800;text-decoration:none}.lt-nfc-invite-copy>small{display:block;margin-top:12px;color:#6b7c92;font-size:12px}@media(max-width:650px){.lt-nfc-invite{grid-template-columns:1fr;gap:12px;padding:20px;margin:20px 0}.lt-nfc-invite-art{min-height:120px}.lt-nfc-invite-card{width:160px;height:100px}.lt-nfc-invite h2{font-size:23px}}</style></head>
 <body>
 
 <header class="top">
@@ -686,14 +686,10 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
 
 
 
-    <section class="section nfc-offer">
-      <span class="section-kicker">COMPLEMENTA TU PERFIL</span>
-      <h2>¿Quieres cotizar tarjetas NFC LinkTap?</h2>
-      <p class="hint">Comparte tu perfil acercando una tarjeta a un celular compatible. Desde $19.990 por tarjeta; packs disponibles.</p>
-      <div class="choices two" id="nfc-choices"><button type="button" class="choice active" data-value="no"><strong>Solo mi perfil</strong><small>Por ahora no necesito tarjetas.</small></button><button type="button" class="choice" data-value="si"><strong>Quiero cotizar tarjetas</strong><small>Agregar interés a esta solicitud.</small></button></div>
-      <div id="nfc-options" class="hidden nfc-options"><div class="fields"><div class="field"><label for="nfc-qty">Cantidad aproximada</label><input id="nfc-qty" type="number" min="1" max="10000" value="1" inputmode="numeric"></div><div class="field"><label for="nfc-for">¿Para quiénes?</label><select id="nfc-for"><option value="Para mí">Para mí</option><option value="Para mi equipo">Para mi equipo</option><option value="Para distintas personas">Para distintas personas</option></select></div></div><p class="hint">Esto no realiza una compra. Te enviaremos la cotización antes de producir las tarjetas.</p></div>
-      <a class="nfc-link" href="https://linktap.cl/solicitud/" target="_blank" rel="noopener noreferrer">Conocer las tarjetas y sus packs ↗</a>
-    </section>
+    <div hidden aria-hidden="true" id="nfc-optional-internal">
+      <div id="nfc-choices"><button type="button" class="choice active" data-value="no">No</button><button type="button" class="choice" data-value="si">Sí</button></div>
+      <div id="nfc-options" class="hidden"><input id="nfc-qty" type="number" value="1"><select id="nfc-for"><option value="Para mí">Para mí</option><option value="Para mi equipo">Para mi equipo</option><option value="Para distintas personas">Para distintas personas</option></select></div>
+    </div>
 
     <section class="section">
       <h2 id="last-title">05. Últimos detalles</h2>
@@ -772,6 +768,10 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
   <div class="preview-note"><span>✦</span><p>Esta es una simulación. El diseño definitivo se prepara según tu plan y la información entregada.</p></div>
 </aside></div>
 
+  <section class="lt-nfc-invite" aria-labelledby="lt-nfc-invite-title">
+    <div class="lt-nfc-invite-art" aria-hidden="true"><div class="lt-nfc-invite-card"><span class="lt-invite-logo">Link<span>Tap</span></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="34" height="34"><path d="M8 8a6 6 0 0 1 0 8M12 5a10 10 0 0 1 0 14M16 2a14 14 0 0 1 0 20"/></svg></div></div>
+    <div class="lt-nfc-invite-copy"><span class="section-kicker">TAMBIÉN EN LINKTAP</span><h2 id="lt-nfc-invite-title">¿Y si pudieras compartir tu perfil con solo acercar una tarjeta?</h2><p>Conoce nuestras tarjetas NFC: una forma práctica de compartir tu perfil digital, redes o contacto con un tap. <strong>Desde $19.990.</strong></p><a href="/tarjetas-nfc/" class="lt-nfc-invite-button">Descubrir las tarjetas NFC ↗</a><small>Opcional · No necesitas una tarjeta para tener tu perfil digital.</small></div>
+  </section>
   <div class="help">
     <strong>¿Tienes dudas o necesitas agregar algo más?</strong>
     <p class="status">
