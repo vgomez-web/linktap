@@ -1222,6 +1222,14 @@ main{padding-top:20px}
   const validSourceCard = sourceIsSantiago && /^MI-PERFIL-DIGITAL-00[1-5]$/.test(sourceCard)
     ? sourceCard : '';
 
+  // Perfiles creados presencialmente con la skill, sin numeración.
+  const profileSlug = campaignParams.get('perfil') || '';
+  const validSourceProfile = !validSourceCard
+    && campaignParams.get('origen') === 'perfil-personal'
+    && profileSlug.length <= 90
+    && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(profileSlug)
+      ? profileSlug : '';
+
   function payload() {
     return {
       tipo_cliente: tipo,
@@ -1229,7 +1237,9 @@ main{padding-top:20px}
       nombre_contacto: val('contact'),
       correo_contacto: val('email'),
       telefono_contacto: val('phone'),
-      notas: [validSourceCard ? `Origen: LinkTap Santiago | Tarjeta NFC: ${validSourceCard} | Vendedora: Catita` : '', val('notes'),
+      notas: [validSourceCard ? `Origen: LinkTap Santiago | Tarjeta NFC: ${validSourceCard} | Vendedora: Catita` : '',
+        validSourceProfile ? 'Origen: activación presencial LinkTap | Página asignada: /' + validSourceProfile + '/' : '',
+        val('notes'),
         `Perfiles independientes adicionales solicitados: ${Math.max(0,Math.min(100,Number(val('extra-profiles'))||0))}`,
         `Integrantes extra solicitados: ${Math.max(0,Math.min(100,Number(val('extra-members'))||0))}`,
         `Interés tarjetas NFC: ${wantsNfc ? 'Sí' : 'No'}`,
@@ -1513,6 +1523,18 @@ main{padding-top:20px}
         } catch (_) {}
         const cardNumber = validSourceCard.slice(-3);
         window.location.assign('/mi-perfil-digital-' + cardNumber + '/?solicitud=' + encodeURIComponent(data.codigo));
+        return;
+      }
+
+      // Volver al perfil personal solo con recepción confirmada por el servidor.
+      if (validSourceProfile) {
+        try {
+          localStorage.setItem('lt-perfil-' + validSourceProfile,
+            JSON.stringify({codigo:data.codigo,fecha:Date.now()}));
+          localStorage.removeItem(draftKey);
+        } catch (_) {}
+        window.location.assign('/' + encodeURIComponent(validSourceProfile) +
+          '/?solicitud=' + encodeURIComponent(data.codigo));
         return;
       }
 
