@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://linktap.cl/</loc></url>
-<url><loc>https://linktap.cl/perfil-digital/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url><loc>https://linktap.cl/</loc><image:image><image:loc>https://linktap.cl/assets/flyerlinktap.png</image:loc></image:image></url>
+<url><loc>https://linktap.cl/perfil-digital/</loc><image:image><image:loc>https://linktap.cl/assets/flyerperfildigital%20linktap.png</image:loc></image:image></url>
 <url><loc>https://linktap.cl/solicitud/</loc></url>
-<url><loc>https://linktap.cl/tarjetas-nfc/</loc></url>
+<url><loc>https://linktap.cl/tarjetas-nfc/</loc><image:image><image:loc>https://linktap.cl/tarjetas-nfc/linktapfrente.png</image:loc></image:image></url>
 <url><loc>https://linktap.cl/personalizador/</loc></url>
-  <url><loc>https://linktap.cl/resenas-google/</loc></url>
+  <url><loc>https://linktap.cl/resenas-google/</loc><image:image><image:loc>https://linktap.cl/assets/flyerresenasgooglelinktap.png</image:loc></image:image></url>
 </urlset>
