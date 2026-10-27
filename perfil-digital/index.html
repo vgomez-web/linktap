@@ -612,6 +612,30 @@ main{padding-top:20px}
 .lt-phone-demo-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid #ffffff50;border-radius:999px;text-decoration:none}
 @media(max-width:600px){.top nav{padding:12px 15px 0}main{padding-top:16px}}
 </style>
+<style id="lt-simple-process-style">
+.lt-simple-process{margin:44px 0;color:#101725}
+.lt-simple-process h2{font-size:clamp(28px,3.4vw,40px);line-height:1.12;letter-spacing:-.045em;margin:12px 0 24px}
+.lt-process-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.lt-process-list>li{display:flex;gap:13px;align-items:flex-start;min-width:0;padding:18px 0;border-top:1px solid #dce6f4}
+.lt-process-index{color:#1677ff;font-size:13px;font-weight:800;line-height:1.5;padding-top:2px;flex:0 0 25px}
+.lt-process-list h3{font-size:18px;line-height:1.3;letter-spacing:-.025em;margin:0 0 6px}
+.lt-process-list p{font-size:14px;line-height:1.5;color:#64748b;margin:0}
+.lt-process-audience{margin-top:18px;padding:22px 24px;background:#f2f7ff;border-radius:20px}
+.lt-process-audience h3{font-size:20px;line-height:1.3;letter-spacing:-.03em;margin:0 0 6px}
+.lt-process-audience p{font-size:14px;line-height:1.5;color:#64748b;margin:0}
+.lt-process-audience ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;margin:14px 0 0;padding:0}
+.lt-process-audience li{font-size:12px;font-weight:700;color:#225a9d}
+@media(max-width:700px){
+.lt-simple-process{margin:32px 0}
+.lt-simple-process h2{margin-bottom:18px}
+.lt-process-list{grid-template-columns:1fr;gap:0}
+.lt-process-list>li{padding:17px 0}
+.lt-process-list h3{font-size:17px}
+.lt-process-list p{font-size:13px}
+.lt-process-audience{margin-top:12px;padding:20px}
+.lt-process-audience h3{font-size:19px}
+}
+</style>
 </head>
 <body>
 
@@ -667,21 +691,18 @@ main{padding-top:20px}
       </div>
     </details>
   </section>
-<section class="lt-story-section" aria-labelledby="lt-how-title">
-  <div class="section-kicker">ASÍ FUNCIONA</div><h2 id="lt-how-title">De tu información a nuevas conexiones.</h2>
-  <div class="lt-story-grid">
-    <article class="lt-story-card"><div class="lt-story-number">01</div><div class="lt-story-symbol">✦</div><h3>Lo personalizamos</h3><p>Organizamos tu información y adaptamos el diseño a tu identidad.</p></article>
-    <article class="lt-story-card"><div class="lt-story-number">02</div><div class="lt-story-symbol">↗</div><h3>Recibes tu enlace</h3><p>Tu perfil queda listo para abrirse desde cualquier celular.</p></article>
-    <article class="lt-story-card"><div class="lt-story-number">03</div><div class="lt-story-symbol">◎</div><h3>Conectas fácilmente</h3><p>Compártelo por enlace, código QR o con una tarjeta NFC opcional.</p></article>
-  </div>
-</section>
-<section class="lt-story-section" aria-labelledby="lt-for-title">
-  <div class="section-kicker">HECHO PARA TI</div><h2 id="lt-for-title">Un perfil para cada forma de trabajar.</h2>
-  <div class="lt-audience-grid">
-    <article class="lt-audience-card"><span>◉</span><h3>Profesionales</h3><p>Presentación, experiencia y contacto.</p></article>
-    <article class="lt-audience-card"><span>▣</span><h3>Emprendedores</h3><p>Productos, servicios y catálogo.</p></article>
-    <article class="lt-audience-card"><span>▤</span><h3>Empresas</h3><p>Perfiles para ejecutivos y equipos.</p></article>
-    <article class="lt-audience-card"><span>✧</span><h3>Creativos</h3><p>Proyectos, portafolio y colaboraciones.</p></article>
+<section class="lt-simple-process" aria-labelledby="lt-how-title">
+  <div class="section-kicker">ASÍ FUNCIONA</div>
+  <h2 id="lt-how-title">Tu perfil, en tres pasos.</h2>
+  <ol class="lt-process-list">
+    <li><span class="lt-process-index" aria-hidden="true">01</span><div><h3>Cuéntanos de ti.</h3><p>Comparte tu información, fotos y enlaces.</p></div></li>
+    <li><span class="lt-process-index" aria-hidden="true">02</span><div><h3>Le damos tu estilo.</h3><p>Diseñamos tu página con tu identidad.</p></div></li>
+    <li><span class="lt-process-index" aria-hidden="true">03</span><div><h3>Listo para compartir.</h3><p>Recibe tu enlace y empieza a darte a conocer.</p></div></li>
+  </ol>
+  <div class="lt-process-audience" aria-labelledby="lt-for-title">
+    <h3 id="lt-for-title">Para ti, tu negocio o tu equipo.</h3>
+    <p>El contenido se adapta a lo que haces.</p>
+    <ul aria-label="Tipos de perfil"><li>Profesionales</li><li>Emprendedores</li><li>Empresas</li><li>Creativos</li></ul>
   </div>
 </section>
 <section class="lt-custom-section" aria-labelledby="lt-custom-title">
