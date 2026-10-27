@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7f9fc">
+<meta name="robots" content="noindex,follow">
+<meta name="description" content="Activa el perfil digital de Cliente de Prueba con LinkTap.">
+<link rel="icon" href="/assets/favicon-32.png">
+<title>Cliente de Prueba · Crea tu perfil digital | LinkTap</title>
+<style>
+:root{color-scheme:light;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--ink:#12213a;--muted:#69798b;--blue:#1469ed;--border:#e5eaf2;--bg:#f7f9fc}
+*{box-sizing:border-box}
+body{margin:0;min-height:100svh;background:radial-gradient(ellipse at 50% 0%,#e8f0ff 0,transparent 50%),var(--bg);color:var(--ink)}
+.wrap{max-width:560px;margin:auto;min-height:100svh;display:flex;flex-direction:column;padding:24px 20px}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 0 26px}
+.brand{font-size:22px;font-weight:880;letter-spacing:-1px;text-decoration:none;color:var(--ink)}.brand b{color:var(--blue)}
+.pill{font-size:10px;font-weight:800;color:#4770b2;border:1px solid #d6e4fb;background:#f1f6ff;border-radius:20px;padding:9px 12px;letter-spacing:.12em}
+main{flex:1;display:grid;place-items:center;padding:7px 0 25px}
+.panel{width:100%;background:#fff;border:1px solid var(--border);border-radius:26px;box-shadow:0 22px 65px #17305a12;padding:38px 30px;text-align:center}
+.symbol{display:grid;place-items:center;width:88px;height:88px;margin:0 auto 24px;background:#f0f5ff;border:1px solid #e2eafa;border-radius:23px}
+.symbol img{width:64px;height:64px;object-fit:contain}
+.eyebrow{color:var(--blue);text-transform:uppercase;font-size:10px;font-weight:850;letter-spacing:.18em}
+h1{font-size:clamp(30px,8vw,42px);line-height:1.12;letter-spacing:-.055em;margin:14px 0 12px;font-weight:850}
+.intro{max-width:390px;margin:0 auto 10px;font-size:15px;line-height:1.65;color:var(--muted)}
+.person{border-radius:15px;background:#f7f9fe;border:1px solid #e8eef9;text-align:left;padding:16px 18px;margin:26px 0}
+.person small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#70849b;font-weight:800;margin-bottom:5px}
+.person strong{font-size:19px;letter-spacing:-.025em;overflow-wrap:anywhere}
+.person span{display:block;font-size:13px;line-height:1.6;color:var(--muted);margin-top:5px}
+.cta{width:100%;border:0;display:block;border-radius:14px;background:var(--blue);padding:17px 18px;color:white;text-decoration:none;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 8px 20px #1469ed2c}
+.cta:active{transform:scale(.99)}
+.micro{font-size:12px;color:#8b98a9;line-height:1.5;margin:17px 0 0}
+footer{text-align:center;font-size:11px;color:#8b98a9;padding:18px 0 12px}
+[hidden]{display:none!important}
+.worksite{margin:22px auto 18px;padding:8px 0;background:#f8fbff;border-radius:18px}
+.worker{transform-origin:49px 145px;animation:build 1.7s ease-in-out infinite alternate}
+.worker2{transform-origin:312px 145px;animation-delay:.5s}
+.spark{animation:blink 1.1s infinite alternate}
+.spark2{animation-delay:.4s}
+@keyframes build{to{transform:rotate(6deg) translateY(-3px)}}@keyframes blink{to{opacity:.15;transform:translateY(-5px)}}
+.progress{display:flex;gap:7px;margin:24px 0 9px}.progress span{height:8px;border-radius:50px;background:#e6ecf6;flex:1}.progress .done{background:var(--blue)}
+.labels{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#8796ab}.labels b{color:var(--blue)}
+.codebox{padding:15px 16px;background:#f8fafe;border:1px solid #edf1f8;border-radius:14px;margin:22px 0 15px}
+.codebox small{display:block;color:var(--muted);font-size:11px}
+.codebox strong{display:block;margin-top:6px;font-size:21px;letter-spacing:.03em;overflow-wrap:anywhere}
+.secondary{border:1px solid #dce6f7;border-radius:12px;padding:12px 18px;background:white;color:#275691;font-size:12px;font-weight:800;cursor:pointer}
+@media(max-width:420px){.wrap{padding:15px 16px}.panel{padding:30px 21px}header{padding-bottom:17px}.person{margin:20px 0}}
+@media(prefers-reduced-motion:reduce){.worker,.spark{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><a class="brand" href="https://linktap.cl/" aria-label="LinkTap inicio">Link<b>Tap</b></a><span class="pill">UN SOLO TAP</span></header>
+<main>
+<section class="panel" id="welcome" aria-labelledby="welcome-title">
+ <div class="symbol"><img src="/assets/icon-512.png" alt="LinkTap"></div>
+ <div class="eyebrow">Tu presentación empieza aquí</div>
+ <h1 id="welcome-title">Vamos a crear tu perfil digital.</h1>
+ <p class="intro">Preparamos este espacio para que puedas presentarte, compartir tus contactos y conectar de forma más sencilla.</p>
+ <div class="person"><small>Perfil reservado para</small><strong>Cliente de Prueba</strong><span>Tu presentación, siempre contigo</span></div>
+ <a class="cta" id="start" href="/perfil-digital/">Empezar mi perfil &nbsp;→</a>
+ <p class="micro">Completa tus datos en un formulario seguro. Tú eliges qué información compartir.</p>
+</section>
+<section class="panel" id="building" aria-labelledby="building-title" hidden>
+ <div class="eyebrow">LinkTap · Solicitud recibida</div>
+ <h1 id="building-title">Estamos construyendo tu perfil.</h1>
+ <p class="intro">Recibimos tu información, Cliente de Prueba. Estamos preparando tu presentación digital. Cuando esté publicada, aparecerá en esta misma dirección.</p>
+ <div class="worksite" aria-label="Dos personajes construyen una página web">
+ <svg viewBox="0 0 360 190" role="img" aria-label="Dos personajes construyen tu perfil digital" style="display:block;width:100%;max-width:360px;margin:auto">
+ <rect x="75" y="28" width="210" height="128" rx="13" fill="#e8f0ff" stroke="#1265ef" stroke-width="3"/>
+ <rect x="89" y="43" width="182" height="12" rx="5" fill="#1265ef"/>
+ <rect x="91" y="67" width="86" height="67" rx="6" fill="#fff"/>
+ <rect x="188" y="68" width="68" height="9" rx="4" fill="#9cbefc"/>
+ <rect x="188" y="87" width="55" height="9" rx="4" fill="#c6d8f9"/>
+ <rect x="188" y="106" width="65" height="9" rx="4" fill="#c6d8f9"/>
+ <g class="worker"><circle cx="49" cy="106" r="15" fill="#ffcc9e"/><path d="M33 103 Q49 73 65 103" fill="#f5b31b"/><rect x="35" y="124" width="30" height="36" rx="10" fill="#1265ef"/><path d="M61 131 L91 109" stroke="#ffcc9e" stroke-width="9" stroke-linecap="round"/><rect x="88" y="99" width="20" height="16" rx="3" fill="#f5b31b"/></g>
+ <g class="worker worker2"><circle cx="312" cy="104" r="15" fill="#ffcc9e"/><path d="M296 102 Q312 72 328 102" fill="#f5b31b"/><rect x="297" y="123" width="30" height="37" rx="10" fill="#253e65"/><path d="M301 132 L271 112" stroke="#ffcc9e" stroke-width="9" stroke-linecap="round"/><rect x="255" y="103" width="23" height="18" rx="3" fill="#65a5ff"/></g>
+ <circle class="spark" cx="176" cy="35" r="4" fill="#f5b31b"/><circle class="spark spark2" cx="210" cy="23" r="3" fill="#1265ef"/>
+ </svg></div>
+ <div class="progress"><span class="done"></span><span></span><span></span></div>
+ <div class="labels"><b>Recibida</b><span>En preparación</span><span>Publicada</span></div>
+ <div class="codebox"><small>Tu código de seguimiento</small><strong id="request-code"></strong></div>
+ <button class="secondary" type="button" id="copy-code">Copiar código</button>
+ <p class="micro">Guarda el código por si necesitas consultar por tu solicitud.</p>
+</section>
+</main>
+<footer>Creado con LinkTap · Tu presentación, siempre contigo</footer>
+</div>
+<script>
+(function () {
+ "use strict";
+ const slug = "cliente-de-prueba";
+ const key = "lt-perfil-" + slug;
+ const qs = new URLSearchParams(window.location.search);
+ const candidate = qs.get("solicitud");
+ const valid = value => typeof value === "string" && /^LT-[A-Z0-9-]{6,40}$/.test(value);
+ let saved = null;
+ try { saved = JSON.parse(localStorage.getItem(key) || "null"); } catch (_) {}
+ const code = valid(candidate) ? candidate : valid(saved && saved.codigo) ? saved.codigo : null;
+ document.getElementById("start").href = "/perfil-digital/?origen=perfil-personal&perfil=" + encodeURIComponent(slug);
+ if (code) {
+   if (valid(candidate)) {
+     try { localStorage.setItem(key, JSON.stringify({codigo:code,fecha:Date.now()})); } catch (_) {}
+   }
+   document.getElementById("welcome").hidden = true;
+   document.getElementById("building").hidden = false;
+   document.getElementById("request-code").textContent = code;
+ }
+ document.getElementById("copy-code").addEventListener("click", async function () {
+   if (!code) return;
+   try {
+     if (navigator.clipboard && window.isSecureContext) {
+       await navigator.clipboard.writeText(code);
+     } else {
+       const input = document.createElement("textarea");
+       input.value = code;document.body.appendChild(input);input.select();
+       if (!document.execCommand("copy")) throw Error("Copia no disponible");
+       input.remove();
+     }
+     this.textContent="¡Código copiado!";
+   } catch (_) { this.textContent="Selecciona el código para copiarlo"; }
+ });
+})();
+</script>
+</body>
+</html>
