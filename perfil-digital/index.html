@@ -570,7 +570,37 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
 .lt-audience-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}.lt-audience-card{background:#f4f7fc;border-radius:18px;padding:22px 18px;min-width:0}.lt-audience-card>span{display:block;color:#1677ff;font-size:29px;margin-bottom:16px}
 .lt-custom-section{margin:50px 0;padding:36px;border-radius:25px;background:#0d1935;color:white}.lt-custom-section .section-kicker{color:#8cbaff}.lt-custom-section h2{font-size:clamp(26px,4vw,42px);line-height:1.1;letter-spacing:-1.2px;margin:12px 0}.lt-custom-section h2 span{color:#82b1ff}.lt-custom-section p{max-width:630px;color:#c6d4ed;font-size:15px;line-height:1.65}.lt-custom-tags{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.lt-custom-tags span{padding:9px 13px;border-radius:30px;background:#213c69;color:#fff;font-size:12px;font-weight:700}.lt-custom-section>a{display:inline-block;background:white;color:#10244b;padding:12px 17px;border-radius:12px;font-size:13px;font-weight:800;text-decoration:none}
 @media(max-width:760px){.lt-story-section{margin:33px 0}.lt-story-section>h2{font-size:27px;margin-bottom:16px}.lt-story-grid{grid-template-columns:1fr;gap:10px}.lt-story-card{display:grid;grid-template-columns:66px minmax(0,1fr);grid-template-rows:auto auto;gap:4px 13px;align-items:center;padding:15px}.lt-story-number{position:absolute;top:12px;left:15px;font-size:10px}.lt-story-symbol{grid-column:1;grid-row:1/3;width:60px;height:60px;margin:12px 0 0;font-size:27px}.lt-story-card h3{grid-column:2;grid-row:1;font-size:15px;align-self:end}.lt-story-card p{grid-column:2;grid-row:2;font-size:12px;align-self:start}.lt-audience-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lt-audience-card{padding:17px 14px}.lt-audience-card>span{font-size:25px;margin-bottom:12px}.lt-audience-card h3{font-size:14px}.lt-audience-card p{font-size:11px}.lt-custom-section{margin:34px 0;padding:25px 20px}.lt-custom-section p{font-size:13px}}
-</style></head>
+</style><style id="lt-benefits-brand">
+.why-section{--blue:#1677ff;--ink:#101725}
+.why-section .section-kicker{color:#1677ff;letter-spacing:.15em}
+.why-section h2{font-size:clamp(32px,4.6vw,52px);line-height:1.08;letter-spacing:-.055em;margin:14px 0 18px;font-weight:800}
+.why-section h2 span{color:#1677ff}
+.why-section .why-lead{font-size:16px;line-height:1.6;max-width:620px;margin-bottom:26px}
+.why-section .benefit{padding:20px;background:#f7faff;border-color:#e2ebf8;border-radius:22px}
+.why-section .benefit-art{width:48px;height:48px;border-radius:15px;background:#e5efff;color:#1677ff;overflow:visible}
+.why-section .benefit-art svg{width:27px;height:27px;filter:none}
+.why-section .art-circle,.why-section .art-spark{display:none}
+.why-section .benefit h3{font-size:16px;line-height:1.2;margin:17px 0 8px;letter-spacing:-.035em}
+.why-section .benefit p{font-size:13px;line-height:1.5;color:#5d6c82}
+.why-section .benefit:last-child{background:#1677ff;border-color:#1677ff;color:white}
+.why-section .benefit:last-child .benefit-art{background:#ffffff24;color:#fff}
+.why-section .benefit:last-child p{color:#fff}
+.lt-profile-bridge{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:23px 24px;margin-top:16px;border-radius:22px;background:#101725;color:#fff}
+.lt-profile-bridge strong{font-size:16px;letter-spacing:-.025em}
+.lt-profile-bridge p{font-size:13px;line-height:1.5;color:#d7e3f5;margin:7px 0}
+.lt-profile-bridge small{font-size:11px;color:#b8c7dd}
+.lt-profile-bridge a{flex-shrink:0;background:white;color:#101725;border-radius:999px;padding:13px 18px;font-size:13px;font-weight:800;min-height:44px}
+@media(max-width:600px){
+.why-section .benefit-grid{gap:10px}
+.why-section .benefit{padding:16px 13px;border-radius:18px}
+.why-section .benefit h3{font-size:14px;margin:14px 0 7px}
+.why-section .benefit p{font-size:12px;margin:0}
+.why-section .why-lead{font-size:15px}
+.lt-profile-bridge{align-items:flex-start;flex-direction:column;padding:20px;gap:16px}
+}
+@media(prefers-reduced-motion:reduce){.why-section .benefit{transition:none}.why-section .benefit:hover{transform:none}}
+</style>
+</head>
 <body>
 
 <header class="top">
@@ -606,15 +636,16 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
     </div>
   </div>
   <section class="why-section" aria-labelledby="why-title">
-    <div class="section-kicker">DESCUBRE SU UTILIDAD</div>
-    <h2 id="why-title">Más que una tarjeta de contacto.</h2>
-    <p class="why-lead">Un perfil digital ayuda a que otras personas encuentren tu información y conozcan tu trabajo sin buscar entre distintas aplicaciones.</p>
+    <div class="section-kicker">TU MUNDO, EN UN LINK</div>
+    <h2 id="why-title">Que te conozcan.<br><span>Que conecten contigo.</span></h2>
+    <p class="why-lead">Tu presentación, servicios y contacto en un perfil con tu identidad. Compártelo con un enlace, un QR o un tap.</p>
     <div class="benefit-grid lt-graphic-benefits">
-      <article class="benefit"><div class="benefit-art art-person"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20v-2a7 7 0 0 1 14 0v2"/></svg><span class="art-spark">✦</span></div><h3>Preséntate</h3><p>Quién eres y qué haces.</p></article>
-      <article class="benefit"><div class="benefit-art art-work"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13c5 3 13 3 18 0M12 13v3"/></svg><span class="art-spark">✦</span></div><h3>Muestra tu trabajo</h3><p>Servicios, proyectos y catálogo.</p></article>
-      <article class="benefit"><div class="benefit-art art-contact"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-4-.9L3 21l1.9-4.5A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 11.5h8M8 14.5h5"/></svg><span class="art-spark">✦</span></div><h3>Conecta</h3><p>WhatsApp, correo y redes.</p></article>
-      <article class="benefit"><div class="benefit-art art-share"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"/><path d="M15 4h5v5M15 9l5-5M4 15v5h5M14 15h2v2h-2zM19 15v5h-5"/></svg><span class="art-spark">✦</span></div><h3>Comparte</h3><p>Enlace, QR o tarjeta NFC.</p></article>
+      <article class="benefit"><div class="benefit-art art-person"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 20v-2a7 7 0 0 1 14 0v2"/></svg><span class="art-spark">✦</span></div><h3>Hazte conocer</h3><p>Quién eres, qué haces y qué te distingue.</p></article>
+      <article class="benefit"><div class="benefit-art art-work"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13c5 3 13 3 18 0M12 13v3"/></svg><span class="art-spark">✦</span></div><h3>Muestra lo tuyo</h3><p>Tus servicios y proyectos en un solo lugar.</p></article>
+      <article class="benefit"><div class="benefit-art art-contact"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-4-.9L3 21l1.9-4.5A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 11.5h8M8 14.5h5"/></svg><span class="art-spark">✦</span></div><h3>Abre la conversación</h3><p>Que elijan cómo contactarte: WhatsApp, correo o redes.</p></article>
+      <article class="benefit"><div class="benefit-art art-share"><span class="art-circle"></span><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="7" height="7" rx="1"/><path d="M15 4h5v5M15 9l5-5M4 15v5h5M14 15h2v2h-2zM19 15v5h-5"/></svg><span class="art-spark">✦</span></div><h3>Acerca y conecta</h3><p>Con tu tarjeta NFC, abre tu perfil en un celular compatible.</p></article>
     </div>
+    <div class="lt-profile-bridge"><div><strong>Tu perfil digital + tu tarjeta LinkTap</strong><p>El perfil te presenta. La tarjeta facilita compartirlo.</p><small>La tarjeta NFC es opcional y se solicita por separado.</small></div><a href="https://linktap.cl/vicente/" target="_blank" rel="noopener">Ver un perfil real ↗</a></div>
     <details class="use-details"><summary>¿Cómo se puede usar en tu rubro? <span>+</span></summary>
       <div class="use-grid">
         <p><strong>Profesionales:</strong> presentación, especialidades y contacto.</p>
