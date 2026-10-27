@@ -479,7 +479,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
 .lt-graphic-benefits .benefit h3{font-size:17px;margin:14px 0 6px;letter-spacing:-.4px}
 .lt-graphic-benefits .benefit p{font-size:13px;line-height:1.45}
 @media(max-width:600px){.lt-graphic-benefits{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.lt-graphic-benefits .benefit{padding:9px 9px 13px;border-radius:17px}.lt-graphic-benefits .benefit-art{height:88px;border-radius:12px}.lt-graphic-benefits .benefit-art svg{width:38px;height:38px}.lt-graphic-benefits .benefit h3{font-size:14px;margin:10px 2px 5px}.lt-graphic-benefits .benefit p{font-size:11px;line-height:1.4;margin:0 2px}}
-</style><style>.extra-people-details{border:1px solid #dce6f5;border-radius:16px;padding:15px 17px;background:#f8fbff}.extra-people-details summary{cursor:pointer;font-weight:750;color:#1768e9;display:flex;justify-content:space-between;gap:12px;list-style:none}.extra-people-details summary::-webkit-details-marker{display:none}.extra-people-details[open] summary span{transform:rotate(45deg)}.extra-people-details .hint{margin:14px 0}.extra-people-details .field{margin-top:12px}</style></head>
+</style><style>.extra-people-details{border:1px solid #dce6f5;border-radius:16px;padding:15px 17px;background:#f8fbff}.extra-people-details summary{cursor:pointer;font-weight:750;color:#1768e9;display:flex;justify-content:space-between;gap:12px;list-style:none}.extra-people-details summary::-webkit-details-marker{display:none}.extra-people-details[open] summary span{transform:rotate(45deg)}.extra-people-details .hint{margin:14px 0}.extra-people-details .field{margin-top:12px}</style><style id="lt-quantity-start-style">.lt-quantity-start{margin:0 0 18px;padding:18px;border:1px solid #dfe8f5;border-radius:17px;background:#f7faff}.lt-quantity-start h3{font-size:17px;margin:0 0 12px}.lt-quantity-options{display:flex;gap:10px;flex-wrap:wrap}.lt-quantity-options label{display:flex;align-items:center;gap:9px;cursor:pointer;background:white;border:1px solid #dce6f4;border-radius:13px;padding:12px 15px;font-size:14px;font-weight:700}.lt-quantity-options input{accent-color:#1677ff}.lt-quantity-start [hidden]{display:none!important}#lt-extra-profile-fields{margin-top:15px}.lt-quantity-start .field{margin-top:12px}@media(max-width:540px){.lt-quantity-options label{flex:1;justify-content:center;padding:12px 8px;font-size:13px}}</style></head>
 <body>
 
 <header class="top">
@@ -557,6 +557,18 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       <p class="hint">
         Si es una empresa, ingresas los datos corporativos una sola vez.
       </p>
+      <div class="lt-quantity-start">
+        <h3>¿Cuántos perfiles necesitas?</h3>
+        <div class="lt-quantity-options">
+          <label><input type="radio" name="profile-quantity-choice" value="one" checked> Solo uno</label>
+          <label><input type="radio" name="profile-quantity-choice" value="multiple"> Varios perfiles</label>
+        </div>
+        <div id="lt-extra-profile-fields" hidden>
+          <p class="hint">Indica cuántos perfiles adicionales quieres solicitar. Te contactaremos para cotizarlos.</p>
+          <div class="field"><label for="extra-profiles">Cantidad de perfiles adicionales</label><input id="extra-profiles" type="number" min="0" max="100" value="0" inputmode="numeric"></div>
+          <div class="field" id="lt-company-extra-field" hidden><label for="extra-members">Personas adicionales en un perfil corporativo (opcional)</label><input id="extra-members" type="number" min="0" max="100" value="0" inputmode="numeric"></div>
+        </div>
+      </div>
       <div class="choices two" id="types">
         <button type="button" class="choice active" data-value="individual">
           <strong>Para mí</strong>
@@ -633,16 +645,7 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
       </button>
     </section>
 
-    <section class="section">
-      <h2>¿Necesitas perfiles para más personas?</h2>
-      <p class="hint">Si es solo para ti, no tienes que completar nada más.</p>
-      <details class="extra-people-details">
-        <summary>Sí, quiero solicitar más perfiles <span aria-hidden="true">+</span></summary>
-        <p class="hint">Cuéntanos cuántos necesitas y te enviaremos una cotización.</p>
-        <div class="field"><label for="extra-profiles">¿Cuántos perfiles adicionales necesitas?</label><input id="extra-profiles" type="number" min="0" max="100" value="0" inputmode="numeric"></div>
-        <div class="field"><label for="extra-members">¿Cuántas personas adicionales quieres agregar a un perfil de empresa? (opcional)</label><input id="extra-members" type="number" min="0" max="100" value="0" inputmode="numeric"></div>
-      </details>
-    </section>
+
 
     <section class="section nfc-offer">
       <span class="section-kicker">COMPLEMENTA TU PERFIL</span>
@@ -1411,5 +1414,21 @@ input:focus,textarea:focus{outline:3px solid #1b5cff20;border-color:var(--blue)}
 })();
 </script>
 
-</body>
+<script id="lt-quantity-flow">
+(function(){
+  function sync(){
+    var multiple=document.querySelector('input[name="profile-quantity-choice"]:checked')?.value==='multiple';
+    var panel=document.getElementById('lt-extra-profile-fields');
+    if(panel)panel.hidden=!multiple;
+    var company=document.querySelector('#types .choice.active')?.dataset.value==='empresa';
+    var companyField=document.getElementById('lt-company-extra-field');
+    if(companyField)companyField.hidden=!multiple||!company;
+    if(!multiple){document.getElementById('extra-profiles').value='0';document.getElementById('extra-members').value='0';}
+    else if(!company){document.getElementById('extra-members').value='0';}
+  }
+  document.querySelectorAll('input[name="profile-quantity-choice"]').forEach(function(el){el.addEventListener('change',sync)});
+  document.getElementById('types')?.addEventListener('click',function(){requestAnimationFrame(sync)});
+  sync();
+})();
+</script></body>
 </html>
