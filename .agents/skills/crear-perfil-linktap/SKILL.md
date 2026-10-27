@@ -1,51 +1,53 @@
 ---
 name: crear-perfil-linktap
-description: Crear rápidamente una carpeta y su index.html en el repositorio GitHub de LinkTap usando solo el nombre de una persona. Activar ante peticiones como "crear perfil de Camila Pérez", "haz un index para Juan", "crear carpeta para un cliente" o "nuevo perfil LinkTap".
+description: Crear rápidamente desde ChatGPT un perfil LinkTap con carpeta por nombre, formulario y estado en construcción, y luego publicar la página final en la misma URL.
 ---
 
-# Crear perfil LinkTap en GitHub
+# Skill: crear-perfil-linktap
 
 ## Objetivo
-Convertir una petición mínima, por ejemplo "crear perfil para Camila Pérez", en un archivo nuevo y publicado en el repositorio `vgomez-web/linktap`, rama `main`:
+Crear desde ChatGPT (incluido el celular) un perfil digital para una persona en el repositorio GitHub vgomez-web/linktap, rama main. El único dato obligatorio es el nombre; cargo o breve descripción son opcionales.
 
-- `camila-perez/index.html`
-- URL prevista: `https://linktap.cl/camila-perez/`
+Ejemplo: «Crea perfil LinkTap para Camila Pérez, arquitecta»:
+- Archivo: camila-perez/index.html
+- URL prevista: https://linktap.cl/camila-perez/
 
-En GitHub no se crean carpetas vacías: al crear ese archivo se crea también su carpeta. El usuario NO tiene que repetir nombre de repositorio, nombre de rama ni estructura.
+Crear una **carpeta** nueva dentro del mismo repositorio, **no otro repositorio**. No numerar perfiles personales. Las páginas antiguas mi-perfil-digital-001, 002, 003, 004 y 005 son otro flujo.
 
-## Datos de entrada
-1. **Nombre**: único dato obligatorio. Respetar mayúsculas, minúsculas y tildes en el contenido visible.
-2. **Tema o propósito**: opcional; usarlo para personalizar los textos si aparece en el pedido. Sin tema, crear un perfil digital personal genérico y elegante, sin inventar profesión, contactos, marcas ni biografía.
-3. **Carpeta padre**: opcional. Por defecto crear en la raíz del repositorio. Solo si el usuario pide explícitamente Monteverde, usar `monteverde/<slug>/index.html`. No asumir Monteverde para nuevas personas por asociación con trabajos anteriores.
+## Recorrido del cliente
+1. Abre https://linktap.cl/NOMBRE-APELLIDO/ y ve «Vamos a crear tu perfil digital», su nombre y un botón «Empezar mi perfil».
+2. Ese botón abre el formulario existente /perfil-digital/?origen=perfil-personal&perfil=NOMBRE-APELLIDO.
+3. Completa y envía sus datos. El servidor de formularios existente debe confirmar recepción y entregar código LT-...; nunca simular éxito.
+4. Solamente después de esa respuesta, el formulario lo devuelve a /NOMBRE-APELLIDO/?solicitud=CODIGO. Allí la pantalla muestra «Estamos construyendo tu perfil», los personajes trabajando y su código de seguimiento. Se guarda localmente el código para el mismo navegador.
+5. Cuando LinkTap termine el diseño y el usuario ordene publicarlo, actualizar el mismo index.html con el perfil definitivo, conservando la misma URL de tarjeta, enlace y QR.
 
-## Reglas para la ruta
-- Convertir nombre a minúsculas, quitar tildes y normalizar ñ→n, separar palabras con guion: "María José Núñez" → `maria-jose-nunez`.
-- El slug admite únicamente a-z, 0-9 y guiones simples. Eliminar caracteres de rutas como `/`, `..`, barras, y cualquier carácter peligroso.
-- No sobrescribir nunca un archivo existente, ni `index.html` de la raíz, ni perfiles previos.
-- Antes de crear, consultar si ya existe la ruta. Si existe, informar y pedir nueva ruta o permiso explícito para actualizar. No asumir que es el mismo cliente.
+## Operación A: iniciar perfil (por defecto)
+1. Identificar nombre, ocupación y descripción corta si fueron entregados. Nunca inventar datos personales, contactos, biografías o redes.
+2. Calcular slug seguro: minúsculas, sin tildes, ñ→n, espacios→guiones; permitir únicamente a-z, 0-9 y guiones simples, sin barras ni puntos, máximo 90 caracteres. Ejemplo: María José Núñez → maria-jose-nunez. Rechazar rutas reservadas como assets, perfil-digital, solicitud, monteverde, mi-perfil-digital-001 y otras rutas existentes.
+3. El destino por defecto es SLUG/index.html en la raíz. No agregar carpetas padre ni números salvo indicación expresa y flujo compatible.
+4. Consultar GitHub para comprobar si ya existe el archivo. Si existe, **no sobrescribir** ni asumir que corresponde al mismo cliente: entregar la ruta actual y solicitar instrucciones de actualización.
+5. Leer la plantilla .agents/skills/crear-perfil-linktap/assets/index-inicio.html del repositorio. Reemplazar exactamente todas sus variables:
+   - {{NOMBRE_HTML}}: nombre escapado para HTML (incluidos &, <, > y comillas) preservando ortografía.
+   - {{SUBTITULO_HTML}}: ocupación/descripción corta indicada por el usuario escapada para HTML, o «Tu presentación, siempre contigo».
+   - {{SLUG}}: slug seguro, válido como cadena JavaScript y como segmento de URL.
+6. Verificar que no queden variables sin reemplazar y que el botón lleva al formulario usando el slug correcto.
+7. Usar GitHub para crear SLUG/index.html en vgomez-web/linktap, rama main, commit «feat: iniciar perfil LinkTap de NOMBRE».
+8. Releer el archivo para verificar y devolver enlaces a GitHub y a la URL pública prevista. Advertir que GitHub Pages puede tardar.
 
-## Flujo de ejecución
-1. Identificar el nombre de la persona y el tema opcional del último mensaje.
-2. Calcular el slug y ruta del nuevo `index.html`.
-3. Usar la conexión de GitHub disponible para consultar el archivo objetivo en `vgomez-web/linktap`, rama `main`.
-4. Si no existe, obtener el archivo plantilla `.agents/skills/crear-perfil-linktap/assets/index-base.html` del mismo repositorio.
-5. Reemplazar **todas** las variables:
-   - `{{NOMBRE_HTML}}`: nombre escapado para HTML (especialmente &, <, >, comillas).
-   - `{{SUBTITULO_HTML}}`: tema breve indicado por usuario, o "Tu presentación, siempre contigo".
-   - `{{DESCRIPCION_HTML}}`: descripción acorde al tema, o "Un espacio simple para presentarte y conectar en un solo tap." No inventar datos personales.
-   - `{{SLUG}}`: slug seguro.
-   - `{{META_DESCRIPCION_HTML}}`: texto SEO corto y escapado ("Perfil digital de [nombre] en LinkTap").
-6. Crear solo el nuevo archivo `<ruta>/index.html` mediante la herramienta GitHub de creación de archivos, mensaje de commit: `feat: crear perfil LinkTap de <nombre>`.
-7. Verificar volviendo a leer el archivo creado. Informar la ruta y los enlaces GitHub y web previsto; distinguir archivo confirmado de publicación en GitHub Pages. Si hay error de escritura, no afirmar que el perfil fue creado.
+## Operación B: activar perfil definitivo
+Únicamente cuando el usuario solicite «activar», «finalizar» o «publicar» un perfil y disponga de su información final:
+1. Consultar SLUG/index.html para confirmar que es el perfil correcto en estado de inicio o construcción. No actualizar si hay dudas de identidad o de destino.
+2. Leer .agents/skills/crear-perfil-linktap/assets/index-base.html (la plantilla final, diferente de la de inicio).
+3. Completar {{NOMBRE_HTML}}, {{SUBTITULO_HTML}}, {{DESCRIPCION_HTML}} y {{META_DESCRIPCION_HTML}} con contenido real escapado. Opcionalmente usar un diseño final aprobado. No inventar ni publicar datos sensibles del formulario sin autorización.
+4. Actualizar únicamente SLUG/index.html con su SHA actual y verificar releyendo. Mantener exactamente la misma URL para que no sea necesario reprogramar la tarjeta NFC.
+5. Informar confirmación en GitHub, distinguiéndola de la propagación a GitHub Pages.
 
-## Diseño
-- Página estática en HTML, CSS y JS, responsive, rápida, compatible con GitHub Pages.
-- Estética minimalista y profesional de LinkTap; al proporcionar solo el nombre, diseño inicial listo para completar.
-- No incluir teléfonos, redes sociales ni direcciones inventadas. Botón "Compartir perfil" debe funcionar sin credenciales.
-- Si el usuario especifica una profesión o rubro, personalizar textos; no inventar calificaciones, experiencia o certificaciones.
-- No modificar archivos ajenos, `monteverde/index.html`, ni menús de otros clientes.
-- No usar APIs externas, tokens ni secretos.
+## Seguridad, compatibilidad y límites
+- El formulario actual /perfil-digital/ envía información al Cloudflare Worker existente. El cliente nunca necesita escribir en GitHub, usar claves ni autorizar commits.
+- El estado de construcción de perfiles nuevos se muestra por el parámetro solicitud y localStorage. **Aún no está sincronizado globalmente entre dispositivos**: si un cliente abre la URL desde otro navegador sin parámetro, podría ver la bienvenida hasta que LinkTap publique el perfil final.
+- Completar el formulario NO publica automáticamente el diseño final en GitHub. Esa actualización requiere la petición de activación y contenido confirmado.
+- Las tarjetas antiguas 001 a 005 de Santiago mantienen sus propias URLs y lógica. No tocarlas ni modificar monteverde/index.html u otras páginas.
+- LT-... es el número de la solicitud de seguimiento, nunca parte del nombre de la carpeta.
 
-## Respuesta final al usuario
-Ser breve: "Creado: `<ruta>/index.html`. GitHub: <enlace>. URL prevista: <enlace>."
-Si la página aún no está desplegada, aclarar que la URL pública depende de GitHub Pages y del dominio.
+## Respuesta final sugerida
+«Perfil creado en GitHub: https://github.com/vgomez-web/linktap/blob/main/SLUG/index.html. URL prevista: https://linktap.cl/SLUG/. Al pulsar Empezar, el cliente completa el formulario y vuelve a su página con el estado En construcción cuando el servidor confirma la recepción.»
