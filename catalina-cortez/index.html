@@ -1,126 +1,201 @@
 <!doctype html>
 <html lang="es-CL">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f7f9fc">
-<meta name="robots" content="noindex,follow">
-<meta name="description" content="Activa el perfil digital de Catalina Cortez con LinkTap.">
-<link rel="icon" href="/assets/favicon-32.png">
-<title>Catalina Cortez · Crea tu perfil digital | LinkTap</title>
-<style>
-:root{color-scheme:light;font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;--ink:#12213a;--muted:#69798b;--blue:#1469ed;--border:#e5eaf2;--bg:#f7f9fc}
-*{box-sizing:border-box}
-body{margin:0;min-height:100svh;background:radial-gradient(ellipse at 50% 0%,#e8f0ff 0,transparent 50%),var(--bg);color:var(--ink)}
-.wrap{max-width:560px;margin:auto;min-height:100svh;display:flex;flex-direction:column;padding:24px 20px}
-header{display:flex;align-items:center;justify-content:space-between;padding:14px 0 26px}
-.brand{font-size:22px;font-weight:880;letter-spacing:-1px;text-decoration:none;color:var(--ink)}.brand b{color:var(--blue)}
-.pill{font-size:10px;font-weight:800;color:#4770b2;border:1px solid #d6e4fb;background:#f1f6ff;border-radius:20px;padding:9px 12px;letter-spacing:.12em}
-main{flex:1;display:grid;place-items:center;padding:7px 0 25px}
-.panel{width:100%;background:#fff;border:1px solid var(--border);border-radius:26px;box-shadow:0 22px 65px #17305a12;padding:38px 30px;text-align:center}
-.symbol{display:grid;place-items:center;width:88px;height:88px;margin:0 auto 24px;background:#f0f5ff;border:1px solid #e2eafa;border-radius:23px}
-.symbol img{width:64px;height:64px;object-fit:contain}
-.eyebrow{color:var(--blue);text-transform:uppercase;font-size:10px;font-weight:850;letter-spacing:.18em}
-h1{font-size:clamp(30px,8vw,42px);line-height:1.12;letter-spacing:-.055em;margin:14px 0 12px;font-weight:850}
-.intro{max-width:390px;margin:0 auto 10px;font-size:15px;line-height:1.65;color:var(--muted)}
-.person{border-radius:15px;background:#f7f9fe;border:1px solid #e8eef9;text-align:left;padding:16px 18px;margin:26px 0}
-.person small{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:#70849b;font-weight:800;margin-bottom:5px}
-.person strong{font-size:19px;letter-spacing:-.025em;overflow-wrap:anywhere}
-.person span{display:block;font-size:13px;line-height:1.6;color:var(--muted);margin-top:5px}
-.cta{width:100%;border:0;display:block;border-radius:14px;background:var(--blue);padding:17px 18px;color:white;text-decoration:none;font-size:15px;font-weight:800;cursor:pointer;box-shadow:0 8px 20px #1469ed2c}
-.cta:active{transform:scale(.99)}
-.micro{font-size:12px;color:#8b98a9;line-height:1.5;margin:17px 0 0}
-footer{text-align:center;font-size:11px;color:#8b98a9;padding:18px 0 12px}
-[hidden]{display:none!important}
-.worksite{margin:22px auto 18px;padding:8px 0;background:#f8fbff;border-radius:18px}
-.worker{transform-origin:49px 145px;animation:build 1.7s ease-in-out infinite alternate}
-.worker2{transform-origin:312px 145px;animation-delay:.5s}
-.spark{animation:blink 1.1s infinite alternate}
-.spark2{animation-delay:.4s}
-@keyframes build{to{transform:rotate(6deg) translateY(-3px)}}@keyframes blink{to{opacity:.15;transform:translateY(-5px)}}
-.progress{display:flex;gap:7px;margin:24px 0 9px}.progress span{height:8px;border-radius:50px;background:#e6ecf6;flex:1}.progress .done{background:var(--blue)}
-.labels{display:flex;justify-content:space-between;gap:8px;font-size:11px;color:#8796ab}.labels b{color:var(--blue)}
-.codebox{padding:15px 16px;background:#f8fafe;border:1px solid #edf1f8;border-radius:14px;margin:22px 0 15px}
-.codebox small{display:block;color:var(--muted);font-size:11px}
-.codebox strong{display:block;margin-top:6px;font-size:21px;letter-spacing:.03em;overflow-wrap:anywhere}
-.secondary{border:1px solid #dce6f7;border-radius:12px;padding:12px 18px;background:white;color:#275691;font-size:12px;font-weight:800;cursor:pointer}
-@media(max-width:420px){.wrap{padding:15px 16px}.panel{padding:30px 21px}header{padding-bottom:17px}.person{margin:20px 0}}
-@media(prefers-reduced-motion:reduce){.worker,.spark{animation:none}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#0a0b1c">
+  <meta name="robots" content="noindex,follow">
+  <title>Catalina Cortez | LinkTap</title>
+  <meta name="description" content="Catalina Cortez, encargada de Ventas y Desarrollo Comercial en LinkTap. Comunicación efectiva, relaciones con clientes y desarrollo de marca.">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:title" content="Catalina Cortez | LinkTap">
+  <meta property="og:description" content="Encargada de Ventas y Desarrollo Comercial. Comunicación, personas y conexiones con propósito.">
+  <meta property="og:url" content="https://linktap.cl/catalina-cortez/">
+  <meta property="og:image" content="https://linktap.cl/catalina-cortez/catalina.webp">
+  <link rel="canonical" href="https://linktap.cl/catalina-cortez/">
+  <link rel="icon" href="/assets/favicon-32.png">
+  <style>
+    :root{color-scheme:dark;--ink:#f5f5ff;--muted:#bac0d5;--faint:#9298b0;--glass:rgba(216,204,255,.065);--border:rgba(234,223,255,.2);--purple:#ae8bff;--lilac:#dbc8ff;--night:#090b1c}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100svh;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#090a19;overflow-x:hidden}
+    body::before{content:"";position:fixed;z-index:-2;inset:-12%;background:radial-gradient(ellipse at 75% 12%,rgba(132,58,208,.38),transparent 43%),radial-gradient(ellipse at 10% 54%,rgba(36,59,148,.46),transparent 47%),radial-gradient(ellipse at 77% 88%,rgba(116,64,188,.25),transparent 45%),linear-gradient(135deg,#070b1a 3%,#121029 52%,#080b1b);pointer-events:none}
+    body::after{content:"";position:fixed;z-index:-1;inset:0;opacity:.45;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.17) .6px,transparent .7px);background-size:23px 23px;mask-image:linear-gradient(to bottom,transparent,black 30%,transparent 95%)}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+    .shell{width:min(940px,calc(100% - 36px));margin:auto;padding:26px 0 34px}
+    .top{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:24px}
+    .logo{display:inline-flex;align-items:center;gap:10px;font-size:19px;letter-spacing:-.05em;font-weight:850}
+    .logo-mark{display:grid;place-items:center;width:34px;height:34px;border-radius:12px;border:1px solid rgba(225,209,255,.5);background:linear-gradient(145deg,rgba(225,216,255,.31),rgba(138,103,255,.13));box-shadow:inset 0 1px rgba(255,255,255,.45);font-size:12px;letter-spacing:-.09em}
+    .logo strong{color:var(--lilac)}
+    .top-note{font-size:10px;letter-spacing:.17em;font-weight:700;text-transform:uppercase;color:#c9bbeb}
+    .glass{position:relative;isolation:isolate;background:linear-gradient(135deg,rgba(241,237,255,.13),rgba(193,169,255,.055) 38%,rgba(48,44,100,.18) 95%);border:1px solid var(--border);border-radius:29px;box-shadow:inset 0 1px 0 rgba(255,255,255,.24),0 20px 60px rgba(0,0,0,.25);backdrop-filter:blur(25px) saturate(150%);-webkit-backdrop-filter:blur(25px) saturate(150%);overflow:hidden}
+    .glass::before{content:"";position:absolute;inset:0 0 auto;height:46%;pointer-events:none;background:linear-gradient(175deg,rgba(255,255,255,.085),transparent 75%);z-index:-1}
+    .hero{display:grid;grid-template-columns:1.18fr .82fr;min-height:417px;padding:46px 43px 36px;align-items:center;gap:12px}
+    .kicker{color:#cfb9ff;font-size:10px;letter-spacing:.2em;font-weight:800;text-transform:uppercase}
+    h1{margin:19px 0 14px;font-size:clamp(43px,6.5vw,68px);line-height:1.02;letter-spacing:-.066em;font-weight:810}
+    .surname{display:block;color:#d6c4ff}
+    .role{font-size:17px;line-height:1.45;max-width:420px;margin:0;font-weight:650;color:#f2eeff}
+    .company{font-size:13px;line-height:1.6;color:#bec1d9;margin:7px 0 0}
+    .location{display:flex;align-items:center;gap:7px;color:#bfb3dd;font-size:12px;margin-top:23px}
+    .dot{width:6px;height:6px;border-radius:50%;background:#c3a5ff;box-shadow:0 0 15px #bc8cff}
+    .photo-wrap{position:relative;align-self:stretch;display:flex;align-items:flex-end;justify-content:center;min-width:0}
+    .photo-glow{position:absolute;z-index:-1;bottom:10px;width:94%;max-width:320px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at center,rgba(163,109,255,.52),rgba(97,65,194,.22) 48%,transparent 70%);filter:blur(11px)}
+    .photo-ring{position:absolute;bottom:7px;width:83%;height:77%;border:1px solid rgba(219,194,255,.22);border-radius:48% 52% 44% 56%;transform:rotate(-12deg);filter:drop-shadow(0 0 20px #9874e353)}
+    .portrait{position:relative;display:block;width:min(100%,260px);max-height:340px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 15px 24px rgba(4,4,18,.45));-webkit-user-drag:none}
+    .content{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:16px}
+    .pane{padding:27px 29px;min-width:0}
+    .section-label{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#c3a6fa;font-weight:800;margin-bottom:14px}
+    h2{font-size:21px;letter-spacing:-.035em;line-height:1.28;margin:0 0 12px}
+    .bio{font-size:14px;line-height:1.83;color:#d1d3e4;margin:0;max-width:53ch}
+    .focus{color:#eee7ff}
+    .study{font-size:13px;line-height:1.75;color:#cbd0e0;margin:0}
+    .study strong{font-weight:740;color:#f5f3ff}
+    .connect{margin-top:16px;padding:27px 29px}
+    .connect-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:19px}
+    .connect-head h2{margin:0}
+    .links{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .action{min-height:61px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-radius:18px;padding:15px 18px;font-weight:750;font-size:14px;border:1px solid rgba(229,211,255,.21);background:rgba(209,185,255,.07);transition:transform .18s ease,background .18s ease,box-shadow .18s ease;cursor:pointer}
+    .action:hover{transform:translateY(-2px);background:rgba(218,199,255,.15);box-shadow:0 8px 28px #070a2475}
+    .action:focus-visible,.utility:focus-visible{outline:2px solid #d9c1ff;outline-offset:3px}
+    .action-main{background:linear-gradient(120deg,#8c60e2,#a986f0 55%,#9369e8);border-color:rgba(239,223,255,.55);color:#fff;box-shadow:inset 0 1px rgba(255,255,255,.3)}
+    .action-main:hover{background:linear-gradient(120deg,#996df1,#ba94ff)}
+    .action-name{display:flex;align-items:center;gap:11px}
+    .action svg,.utility svg{width:19px;height:19px;flex:none}
+    .action .arrow{opacity:.75;width:16px;height:16px}
+    .sub{display:block;color:#b1b0cd;font-size:11px;margin-top:4px;font-weight:450}
+    .social-handle{font-size:12px;opacity:.78}
+    .tools{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}
+    .utility{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:rgba(220,212,255,.055);border:1px solid rgba(226,218,255,.14);border-radius:13px;padding:12px 16px;color:#cfcae5;font-size:12px;font-weight:650;cursor:pointer}
+    .utility:hover{background:rgba(220,212,255,.11)}
+    footer{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#a3a3bb;font-size:11px;padding:26px 5px 6px}
+    footer a{color:#d3c6f6;font-weight:700}
+    #notice{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(14px);padding:12px 20px;border-radius:14px;border:1px solid rgba(245,239,255,.36);background:rgba(28,25,52,.91);backdrop-filter:blur(17px);color:white;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:5;white-space:nowrap}
+    #notice.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+    @media(max-width:680px){
+      .shell{width:min(500px,calc(100% - 26px));padding-top:18px}
+      .top{padding:0 4px;margin-bottom:16px}
+      .glass{border-radius:25px}
+      .hero{grid-template-columns:1fr;gap:0;padding:0 24px 28px;text-align:center;min-height:0}
+      .photo-wrap{grid-row:1;height:257px;margin:0 -24px 20px;align-items:flex-end;overflow:hidden;background:radial-gradient(ellipse at 50% 90%,rgba(102,63,182,.33),transparent 56%)}
+      .portrait{width:215px;max-height:245px}
+      .photo-glow{width:300px;bottom:4px}
+      .photo-ring{width:200px;height:220px;bottom:-10px}
+      .kicker{font-size:9px}
+      h1{font-size:47px;margin:13px 0}
+      .role{font-size:16px;margin:auto;max-width:280px}
+      .company{font-size:12px}
+      .location{justify-content:center;margin-top:16px}
+      .content{grid-template-columns:1fr;gap:12px;margin-top:12px}
+      .pane,.connect{padding:23px}
+      .connect{margin-top:12px}
+      .links{grid-template-columns:1fr}
+      .connect-head{margin-bottom:17px}
+      footer{flex-direction:column;gap:7px;padding-top:23px}
+    }
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
 </head>
 <body>
-<div class="wrap">
-<header><a class="brand" href="https://linktap.cl/" aria-label="LinkTap inicio">Link<b>Tap</b></a><span class="pill">UN SOLO TAP</span></header>
-<main>
-<section class="panel" id="welcome" aria-labelledby="welcome-title">
- <div class="symbol"><img src="/assets/icon-512.png" alt="LinkTap"></div>
- <div class="eyebrow">Tu presentación empieza aquí</div>
- <h1 id="welcome-title">Vamos a crear tu perfil digital.</h1>
- <p class="intro">Preparamos este espacio para que puedas presentarte, compartir tus contactos y conectar de forma más sencilla.</p>
- <div class="person"><small>Perfil reservado para</small><strong>Catalina Cortez</strong><span>Tu presentación, siempre contigo</span></div>
- <a class="cta" id="start" href="/perfil-digital/">Empezar mi perfil &nbsp;→</a>
- <p class="micro">Completa tus datos en un formulario seguro. Tú eliges qué información compartir.</p>
-</section>
-<section class="panel" id="building" aria-labelledby="building-title" hidden>
- <div class="eyebrow">LinkTap · Solicitud recibida</div>
- <h1 id="building-title">Estamos construyendo tu perfil.</h1>
- <p class="intro">Recibimos tu información, Catalina Cortez. Estamos preparando tu presentación digital. Cuando esté publicada, aparecerá en esta misma dirección.</p>
- <div class="worksite" aria-label="Dos personajes construyen una página web">
- <svg viewBox="0 0 360 190" role="img" aria-label="Dos personajes construyen tu perfil digital" style="display:block;width:100%;max-width:360px;margin:auto">
- <rect x="75" y="28" width="210" height="128" rx="13" fill="#e8f0ff" stroke="#1265ef" stroke-width="3"/>
- <rect x="89" y="43" width="182" height="12" rx="5" fill="#1265ef"/>
- <rect x="91" y="67" width="86" height="67" rx="6" fill="#fff"/>
- <rect x="188" y="68" width="68" height="9" rx="4" fill="#9cbefc"/>
- <rect x="188" y="87" width="55" height="9" rx="4" fill="#c6d8f9"/>
- <rect x="188" y="106" width="65" height="9" rx="4" fill="#c6d8f9"/>
- <g class="worker"><circle cx="49" cy="106" r="15" fill="#ffcc9e"/><path d="M33 103 Q49 73 65 103" fill="#f5b31b"/><rect x="35" y="124" width="30" height="36" rx="10" fill="#1265ef"/><path d="M61 131 L91 109" stroke="#ffcc9e" stroke-width="9" stroke-linecap="round"/><rect x="88" y="99" width="20" height="16" rx="3" fill="#f5b31b"/></g>
- <g class="worker worker2"><circle cx="312" cy="104" r="15" fill="#ffcc9e"/><path d="M296 102 Q312 72 328 102" fill="#f5b31b"/><rect x="297" y="123" width="30" height="37" rx="10" fill="#253e65"/><path d="M301 132 L271 112" stroke="#ffcc9e" stroke-width="9" stroke-linecap="round"/><rect x="255" y="103" width="23" height="18" rx="3" fill="#65a5ff"/></g>
- <circle class="spark" cx="176" cy="35" r="4" fill="#f5b31b"/><circle class="spark spark2" cx="210" cy="23" r="3" fill="#1265ef"/>
- </svg></div>
- <div class="progress"><span class="done"></span><span></span><span></span></div>
- <div class="labels"><b>Recibida</b><span>En preparación</span><span>Publicada</span></div>
- <div class="codebox"><small>Tu código de seguimiento</small><strong id="request-code"></strong></div>
- <button class="secondary" type="button" id="copy-code">Copiar código</button>
- <p class="micro">Guarda el código por si necesitas consultar por tu solicitud.</p>
-</section>
-</main>
-<footer>Creado con <a href="https://linktap.cl/" style="color:inherit;text-decoration:none;font-weight:600" aria-label="LinkTap">LinkTap</a></footer>
-</div>
-<script>
-(function () {
- "use strict";
- const slug = "catalina-cortez";
- const key = "lt-perfil-" + slug;
- const qs = new URLSearchParams(window.location.search);
- const candidate = qs.get("solicitud");
- const valid = value => typeof value === "string" && /^LT-[A-Z0-9-]{6,40}$/.test(value);
- let saved = null;
- try { saved = JSON.parse(localStorage.getItem(key) || "null"); } catch (_) {}
- const code = valid(candidate) ? candidate : valid(saved && saved.codigo) ? saved.codigo : null;
- document.getElementById("start").href = "/perfil-digital/?origen=perfil-personal&perfil=" + encodeURIComponent(slug);
- if (code) {
-   if (valid(candidate)) {
-     try { localStorage.setItem(key, JSON.stringify({codigo:code,fecha:Date.now()})); } catch (_) {}
-   }
-   document.getElementById("welcome").hidden = true;
-   document.getElementById("building").hidden = false;
-   document.getElementById("request-code").textContent = code;
- }
- document.getElementById("copy-code").addEventListener("click", async function () {
-   if (!code) return;
-   try {
-     if (navigator.clipboard && window.isSecureContext) {
-       await navigator.clipboard.writeText(code);
-     } else {
-       const input = document.createElement("textarea");
-       input.value = code;document.body.appendChild(input);input.select();
-       if (!document.execCommand("copy")) throw Error("Copia no disponible");
-       input.remove();
-     }
-     this.textContent="¡Código copiado!";
-   } catch (_) { this.textContent="Selecciona el código para copiarlo"; }
- });
-})();
-</script>
+  <div class="shell">
+    <header class="top">
+      <a href="https://linktap.cl/" class="logo" aria-label="LinkTap, inicio"><span class="logo-mark">LT</span><span>Link<strong>Tap</strong></span></a>
+      <span class="top-note">Perfil digital</span>
+    </header>
+    <main>
+      <section class="hero glass" aria-label="Presentación de Catalina Cortez">
+        <div class="hero-copy">
+          <div class="kicker">LinkTap · Equipo comercial</div>
+          <h1>Catalina <span class="surname">Cortez</span></h1>
+          <p class="role">Encargada de Ventas y Desarrollo Comercial</p>
+          <p class="company">LinkTap · Conexiones que acercan personas y marcas</p>
+          <p class="location"><span class="dot" aria-hidden="true"></span>Santiago, Chile</p>
+        </div>
+        <div class="photo-wrap">
+          <div class="photo-glow" aria-hidden="true"></div><div class="photo-ring" aria-hidden="true"></div>
+          <img class="portrait" src="/catalina-cortez/catalina.webp" width="165" height="185" alt="Fotografía de Catalina Cortez" fetchpriority="high">
+        </div>
+      </section>
+      <div class="content">
+        <section class="glass pane">
+          <span class="section-label">Sobre mí</span>
+          <h2>Comunicación que conecta.</h2>
+          <p class="bio">Me enfoco en la relación con clientes, la comunicación efectiva y el desarrollo comercial de LinkTap. Integro mi formación en Psicología para <span class="focus">comprender necesidades, interpretar comportamientos y fortalecer la conexión entre marcas y personas.</span></p>
+        </section>
+        <section class="glass pane">
+          <span class="section-label">Formación y enfoque</span>
+          <h2>Comprender para comunicar mejor.</h2>
+          <p class="study"><strong>Estudiante de Psicología</strong>, con interés en psicología social, organizacional y comportamiento del consumidor.</p>
+        </section>
+      </div>
+      <section class="glass connect" aria-label="Contacto y redes">
+        <div class="connect-head">
+          <div><span class="section-label">Conectemos</span><h2>Hablemos.</h2></div>
+          <span class="top-note">Contacto directo</span>
+        </div>
+        <div class="links">
+          <a class="action action-main" href="https://wa.me/56981951743?text=Hola%20Catalina%20mi%20nombre%20es%3A" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp a Catalina">
+            <span class="action-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M20 11.7a8 8 0 0 1-11.5 7.2L4 20l1.2-4.3A8 8 0 1 1 20 11.7Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M8.5 8.8c.3 2.2 2.4 4.4 4.7 5.1l1.3-1.1 2.1 1.2-.6 2c-4.4 1-8.9-3.5-9.1-7.7l1.6-.8Z"/></svg><span>WhatsApp</span></span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+          <a class="action" href="https://www.instagram.com/catastroofica/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Catalina, @catastroofica">
+            <span class="action-name"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.6" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg><span>Instagram <span class="social-handle">@catastroofica</span></span></span>
+            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="tools">
+          <button type="button" class="utility" id="save-contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="8.4" cy="8" r="3"/><path stroke-linecap="round" d="M2.7 20c0-3.8 2.2-6 5.7-6 1.4 0 2.8.4 3.6 1.3M17 12v8m-4-4h8"/></svg>Guardar contacto</button>
+          <button type="button" class="utility" id="share-profile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="m8.3 10.9 7.3-4.5m-7.3 6.7 7.3 4.5"/></svg>Compartir perfil</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>Catalina Cortez · Santiago, Chile</span>
+      <span>Perfil creado con <a href="https://linktap.cl/">LinkTap</a></span>
+    </footer>
+  </div>
+  <div id="notice" role="status" aria-live="polite"></div>
+  <script>
+    (() => {
+      'use strict';
+      const profileUrl = 'https://linktap.cl/catalina-cortez/';
+      const toast = document.getElementById('notice');
+      let hideTimer;
+      function notify(message) {
+        toast.textContent = message;
+        toast.classList.add('visible');
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(() => toast.classList.remove('visible'), 2800);
+      }
+      document.getElementById('share-profile').addEventListener('click', async () => {
+        try {
+          if (navigator.share) {
+            await navigator.share({title:'Catalina Cortez | LinkTap',text:'Mi perfil digital',url:profileUrl});
+          } else if (navigator.clipboard && window.isSecureContext) {
+            await navigator.clipboard.writeText(profileUrl);
+            notify('Enlace copiado');
+          } else {
+            const field=document.createElement('textarea');
+            field.value=profileUrl;field.setAttribute('readonly','');field.style.position='fixed';field.style.opacity='0';
+            document.body.append(field);field.select();
+            const ok=document.execCommand('copy');field.remove();
+            if (!ok) throw Error('No se pudo copiar');
+            notify('Enlace copiado');
+          }
+        } catch (error) {
+          if (error && error.name !== 'AbortError') notify('No se pudo compartir. Copia el enlace del navegador.');
+        }
+      });
+      document.getElementById('save-contact').addEventListener('click', () => {
+        const vcard = ['BEGIN:VCARD','VERSION:3.0','N:Cortez;Catalina;;;','FN:Catalina Cortez','ORG:LinkTap','TITLE:Encargada de Ventas y Desarrollo Comercial','TEL;TYPE=CELL:+56981951743','URL:'+profileUrl,'END:VCARD'].join('\r\n');
+        const file=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
+        const url=URL.createObjectURL(file);
+        const a=document.createElement('a');a.href=url;a.download='Catalina-Cortez.vcf';
+        document.body.appendChild(a);a.click();a.remove();
+        setTimeout(()=>URL.revokeObjectURL(url),1000);
+      });
+    })();
+  </script>
 </body>
 </html>
