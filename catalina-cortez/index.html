@@ -12,7 +12,7 @@
   <meta property="og:title" content="Catalina Cortez | LinkTap">
   <meta property="og:description" content="Encargada de Ventas y Desarrollo Comercial. Comunicación, personas y conexiones con propósito.">
   <meta property="og:url" content="https://linktap.cl/catalina-cortez/">
-  <meta property="og:image" content="https://linktap.cl/catalina-cortez/catalina.webp">
+  <meta property="og:image" content="https://linktap.cl/catalina-cortez/catalina-cortez.webp">
   <link rel="canonical" href="https://linktap.cl/catalina-cortez/">
   <link rel="icon" href="/assets/favicon-32.png">
   <style>
@@ -43,7 +43,7 @@
     .photo-wrap{position:relative;align-self:stretch;display:flex;align-items:flex-end;justify-content:center;min-width:0}
     .photo-glow{position:absolute;z-index:-1;bottom:10px;width:94%;max-width:320px;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at center,rgba(163,109,255,.52),rgba(97,65,194,.22) 48%,transparent 70%);filter:blur(11px)}
     .photo-ring{position:absolute;bottom:7px;width:83%;height:77%;border:1px solid rgba(219,194,255,.22);border-radius:48% 52% 44% 56%;transform:rotate(-12deg);filter:drop-shadow(0 0 20px #9874e353)}
-    .portrait{position:relative;display:block;width:min(100%,260px);max-height:340px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 15px 24px rgba(4,4,18,.45));-webkit-user-drag:none}
+    .portrait{position:relative;display:block;width:min(100%,350px);max-height:390px;object-fit:contain;object-position:bottom;filter:drop-shadow(0 15px 24px rgba(4,4,18,.28));-webkit-user-drag:none;mask-image:linear-gradient(to bottom,#000 0%,#000 62%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 62%,transparent 100%)}
     .content{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;margin-top:16px}
     .pane{padding:27px 29px;min-width:0}
     .section-label{display:block;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#c3a6fa;font-weight:800;margin-bottom:14px}
@@ -73,13 +73,34 @@
     footer a{color:#d3c6f6;font-weight:700}
     #notice{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(14px);padding:12px 20px;border-radius:14px;border:1px solid rgba(245,239,255,.36);background:rgba(28,25,52,.91);backdrop-filter:blur(17px);color:white;font-size:13px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:5;white-space:nowrap}
     #notice.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+    .hero{min-height:460px;background:radial-gradient(circle at 83% 58%,rgba(153,91,244,.21),transparent 48%),linear-gradient(135deg,rgba(241,237,255,.13),rgba(86,46,155,.065) 62%,rgba(28,28,71,.2))}
+    .photo-wrap:after{content:"";position:absolute;inset:auto -18px -5px;height:32%;background:linear-gradient(0deg,rgba(21,16,46,.7),transparent);pointer-events:none}
+    .photo-ring{border:1px solid rgba(215,189,255,.3);box-shadow:0 0 42px rgba(171,104,255,.16),inset 0 0 25px rgba(217,192,255,.07)}
+    .hero:after{content:"✧";position:absolute;right:8%;top:10%;color:rgba(236,217,255,.64);font-size:35px;text-shadow:0 0 24px #aa84fe;pointer-events:none}
+    .eyebrow-visual{display:flex;align-items:center;gap:7px;color:#c7b7ec;font-size:11px;margin-top:14px;letter-spacing:.01em}
+    .eyebrow-visual .wave{height:17px;display:flex;gap:3px;align-items:center}
+    .eyebrow-visual .wave i{width:3px;border-radius:3px;background:linear-gradient(#e5d5ff,#9d75ea);height:9px;opacity:.85}
+    .eyebrow-visual .wave i:nth-child(2){height:16px}.eyebrow-visual .wave i:nth-child(3){height:11px}.eyebrow-visual .wave i:nth-child(4){height:14px}.eyebrow-visual .wave i:nth-child(5){height:7px}
+    .graphic-box{margin-top:16px;padding:23px 26px;display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .mini-widget{background:linear-gradient(145deg,rgba(199,172,255,.095),rgba(98,73,153,.045));border:1px solid rgba(221,207,255,.16);border-radius:18px;padding:18px;min-width:0}
+    .mini-label{font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:#bbabe3;font-weight:800}
+    .mini-widget h3{font-size:15px;letter-spacing:-.025em;margin:10px 0 5px;color:#f5eeff}
+    .mini-widget p{font-size:12px;line-height:1.6;color:#c4bfd8;margin:0}
+    .constellation{height:75px;display:block;width:100%;margin-top:5px;overflow:visible}
+    .constellation path{fill:none;stroke:#b895f0;stroke-width:1.3;stroke-dasharray:4 5;opacity:.72}
+    .constellation circle{fill:#e2d0ff;filter:drop-shadow(0 0 5px #b783ff)}
+    .orbits{height:75px;display:flex;justify-content:center;align-items:center;position:relative;margin-top:4px}
+    .orbits:before,.orbits:after{content:"";position:absolute;border:1px solid rgba(197,157,255,.35);border-radius:50%;width:108px;height:54px;transform:rotate(-25deg)}
+    .orbits:after{transform:rotate(45deg);width:102px;height:58px}
+    .orbits span{width:18px;height:18px;background:radial-gradient(circle at 30% 30%,#f5e5ff,#9f6ee0 70%);box-shadow:0 0 25px #c19cf5;border-radius:50%}
+    .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
     @media(max-width:680px){
       .shell{width:min(500px,calc(100% - 26px));padding-top:18px}
       .top{padding:0 4px;margin-bottom:16px}
       .glass{border-radius:25px}
       .hero{grid-template-columns:1fr;gap:0;padding:0 24px 28px;text-align:center;min-height:0}
-      .photo-wrap{grid-row:1;height:257px;margin:0 -24px 20px;align-items:flex-end;overflow:hidden;background:radial-gradient(ellipse at 50% 90%,rgba(102,63,182,.33),transparent 56%)}
-      .portrait{width:215px;max-height:245px}
+      .photo-wrap{grid-row:1;height:282px;margin:0 -24px 20px;align-items:flex-end;overflow:hidden;background:radial-gradient(ellipse at 50% 90%,rgba(102,63,182,.33),transparent 56%)}
+      .portrait{width:270px;max-height:270px}
       .photo-glow{width:300px;bottom:4px}
       .photo-ring{width:200px;height:220px;bottom:-10px}
       .kicker{font-size:9px}
@@ -90,7 +111,7 @@
       .content{grid-template-columns:1fr;gap:12px;margin-top:12px}
       .pane,.connect{padding:23px}
       .connect{margin-top:12px}
-      .links{grid-template-columns:1fr}
+      .links{grid-template-columns:1fr}.graphic-box{grid-template-columns:1fr;gap:12px;padding:17px}.hero{min-height:0}.eyebrow-visual{justify-content:center}
       .connect-head{margin-bottom:17px}
       footer{flex-direction:column;gap:7px;padding-top:23px}
     }
@@ -110,11 +131,11 @@
           <h1>Catalina <span class="surname">Cortez</span></h1>
           <p class="role">Encargada de Ventas y Desarrollo Comercial</p>
           <p class="company">LinkTap · Conexiones que acercan personas y marcas</p>
-          <p class="location"><span class="dot" aria-hidden="true"></span>Santiago, Chile</p>
+          <p class="location"><span class="dot" aria-hidden="true"></span>Santiago, Chile</p><div class="eyebrow-visual"><span class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span> Personas · Comunicación · Conexiones</div>
         </div>
         <div class="photo-wrap">
           <div class="photo-glow" aria-hidden="true"></div><div class="photo-ring" aria-hidden="true"></div>
-          <img class="portrait" src="/catalina-cortez/catalina.webp" width="165" height="185" alt="Fotografía de Catalina Cortez" fetchpriority="high">
+          <img class="portrait" src="/catalina-cortez/catalina-cortez.webp" width="1585" height="2048" alt="Fotografía de Catalina Cortez" fetchpriority="high">
         </div>
       </section>
       <div class="content">
@@ -129,6 +150,18 @@
           <p class="study"><strong>Estudiante de Psicología</strong>, con interés en psicología social, organizacional y comportamiento del consumidor.</p>
         </section>
       </div>
+<section class="glass graphic-box" aria-label="Enfoque de trabajo">
+        <div class="mini-widget">
+          <span class="mini-label">Conexiones humanas</span>
+          <svg class="constellation" viewBox="0 0 230 75" role="img" aria-label="Ilustración de puntos unidos en una red de conexiones"><path d="M12 51 55 19 98 46 145 12 183 49 217 23M55 19 145 12M98 46 183 49"/><circle cx="12" cy="51" r="4"/><circle cx="55" cy="19" r="5"/><circle cx="98" cy="46" r="4"/><circle cx="145" cy="12" r="5"/><circle cx="183" cy="49" r="5"/><circle cx="217" cy="23" r="4"/></svg>
+          <h3>Personas primero.</h3><p>Escucha, cercanía y comunicación clara para generar relaciones de valor.</p>
+        </div>
+        <div class="mini-widget">
+          <span class="mini-label">Mi enfoque en LinkTap</span>
+          <div class="orbits" aria-hidden="true"><span></span></div>
+          <h3>Conectar con intención.</h3><p>Comprender necesidades y acercar soluciones desde una mirada humana.</p>
+        </div>
+      </section>
       <section class="glass connect" aria-label="Contacto y redes">
         <div class="connect-head">
           <div><span class="section-label">Conectemos</span><h2>Hablemos.</h2></div>
