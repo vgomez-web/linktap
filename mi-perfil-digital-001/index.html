@@ -170,6 +170,34 @@
 .pe-unified-nature .number,.pe-unified-nature .photo-deer{display:none!important}
 @media(max-width:760px){.pe-unified-nature::before{background-size:100% 100%}.pe-unified-nature #bosque{min-height:720px!important}.pe-unified-nature #agua{min-height:720px!important}.pe-unified-nature #bosque .wrap{padding-top:85px!important}.pe-unified-nature #agua .wrap{padding-bottom:95px!important}.pe-unified-nature #bosque .photo-vignette{background:linear-gradient(180deg,#08150d8c,transparent 66%)}.pe-unified-nature #agua .photo-vignette{background:linear-gradient(0deg,#061b20d6,transparent 60%)}}
 @media(max-width:390px){.pe-unified-nature #bosque,.pe-unified-nature #agua{min-height:660px!important}}
+</style><style id="pe-mobile-image-fix">
+/* Evita la deformación del fondo continuo al cambiar de tamaño de pantalla. */
+.pe-unified-nature{position:relative;overflow:hidden;isolation:isolate}
+.pe-unified-nature::before{background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important}
+.pe-unified-nature #bosque{min-height:760px!important}
+.pe-unified-nature #agua{min-height:760px!important}
+@media(min-width:761px){
+.pe-unified-nature::before{background-size:cover!important;background-position:center center!important}
+.pe-unified-nature #bosque{min-height:820px!important}
+.pe-unified-nature #agua{min-height:840px!important}
+}
+@media(max-width:760px){
+.pe-unified-nature::before{background-size:cover!important;background-position:52% center!important}
+.pe-unified-nature #bosque{min-height:640px!important}
+.pe-unified-nature #agua{min-height:700px!important}
+.pe-unified-nature #bosque .wrap{padding-top:78px!important;padding-bottom:30px!important}
+.pe-unified-nature #agua .wrap{padding-top:20px!important;padding-bottom:110px!important}
+.pe-unified-nature #bosque h2,.pe-unified-nature #agua h2{font-size:clamp(56px,15vw,84px);line-height:.88}
+.pe-unified-nature #bosque p,.pe-unified-nature #agua p{max-width:330px;font-size:14px;line-height:1.5}
+.pe-unified-nature .chips{gap:8px;flex-wrap:wrap}
+.pe-unified-nature .chips a{font-size:12px;padding:10px 14px}
+}
+@media(max-width:390px){
+.pe-unified-nature::before{background-position:54% center!important}
+.pe-unified-nature #bosque{min-height:610px!important}
+.pe-unified-nature #agua{min-height:670px!important}
+.pe-unified-nature #bosque h2,.pe-unified-nature #agua h2{font-size:clamp(50px,15vw,72px)}
+}
 </style></head><body>
 <div class="preview">VISTA PREVIA DE PRUEBA · NO PUBLICADA PARA CLIENTES</div>
 <header class="hero" id="inicio"><div class="hero-shade"></div><div class="wrap top"><img class="logo" src="./patagonia_explorer_logo.webp" alt="Patagonia Explorer"><span class="place">PUERTO MONTT</span></div><div class="wrap hero-layout"><div><div class="eyebrow">Bosque · Agua · Aventura</div><h1>Vive <span>lo salvaje.</span></h1><p>Tienda especializada en pesca, caza, camping y equipamiento outdoor en Puerto Montt. ¿Necesitas asesoría? Escríbenos.</p><div class="buttons"><a href="https://www.patagoniaexplorer.cl/" target="_blank" rel="noopener" class="button red">Explorar tienda ↗</a><a href="https://wa.me/56971477581" target="_blank" rel="noopener" class="button">Contactar por WhatsApp ↗</a></div></div>
