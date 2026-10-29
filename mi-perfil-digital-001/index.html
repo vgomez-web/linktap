@@ -105,6 +105,41 @@
 .pe-map .pe-pin-two{left:19.5%;top:61.5%}
 @media(max-width:760px){.pe-map .pe-pin{width:50px;height:56px;border-radius:15px}.pe-map .pe-pin .pin-glyph{width:18px;height:18px}.pe-map .pe-pin .pin-num{font-size:18px}.pe-map .pe-pin-one{left:79%;top:29%}.pe-map .pe-pin-two{left:21%;top:61.5%}}
 @media(prefers-reduced-motion:reduce){.pe-map .pe-pin{transition:none}}
+</style><style id="pe-cinematic-scenes-v2">
+/* Bosque -> agua: una sola composición continua y adaptativa */
+#bosque,#agua{isolation:isolate;overflow:hidden;box-sizing:border-box}
+#bosque{z-index:2;min-height:700px;min-height:82svh;padding:100px 0 160px;align-items:center}
+#agua{z-index:1;min-height:820px;min-height:94svh;margin-top:-105px;padding:250px 0 85px;align-items:flex-end}
+#bosque .photo-bg,#agua .photo-bg{inset:0;will-change:auto;transition:transform 1.3s ease;transform:scale(1.035)}
+#bosque .forest-photo{background-size:cover;background-position:center 46%;filter:brightness(1.2) saturate(1.12)}
+#agua .fishing-photo{background-size:cover;background-position:center 55%!important;filter:brightness(1.13) saturate(1.1)}
+#bosque .photo-vignette{background:linear-gradient(90deg,rgba(4,14,9,.64),rgba(4,14,9,.05) 80%),linear-gradient(0deg,rgba(11,31,27,.05),transparent 53%)}
+#agua .photo-vignette{background:linear-gradient(0deg,rgba(3,23,28,.83),rgba(3,23,28,.38) 30%,transparent 73%),linear-gradient(90deg,rgba(3,23,29,.43),transparent 67%)}
+#bosque::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:235px;z-index:3;pointer-events:none;background:radial-gradient(ellipse 100% 50% at 50% 100%,rgba(207,221,214,.4),transparent 75%),linear-gradient(0deg,rgba(23,53,54,.68),rgba(35,61,52,.06) 80%,transparent);filter:blur(15px)}
+#bosque .photo-deer,#bosque .number,#agua .number{display:none!important}
+#bosque .wrap,#agua .wrap{z-index:5}
+#bosque h2,#agua h2{font-size:clamp(78px,9vw,135px);line-height:.84;letter-spacing:.008em;text-shadow:0 5px 30px #06140a85}
+#bosque p,#agua p{max-width:390px;font-size:16px;line-height:1.62}
+#bosque .chips,#agua .chips{gap:12px;margin-top:24px}
+#bosque .chips a,#agua .chips a{border:1.5px solid #f1f0deae;background:#061a169c}
+.photo-transition{display:none!important;height:0!important}
+#agua .scene-copy{margin-bottom:10px}
+@media(max-width:760px){
+#bosque{min-height:720px;min-height:87svh;padding:110px 0 170px;align-items:flex-start}
+#agua{min-height:790px;min-height:102svh;margin-top:-85px;padding:185px 0 75px;align-items:flex-end}
+#bosque .forest-photo{background-position:53% center}
+#agua .fishing-photo{background-position:49% 51%!important}
+#bosque .photo-vignette{background:linear-gradient(180deg,#08140a9e,transparent 55%),linear-gradient(90deg,#06160b9e,transparent 90%)}
+#agua .photo-vignette{background:linear-gradient(0deg,#041c25db 0%,#041c2573 34%,transparent 67%)}
+#bosque::after{height:175px;filter:blur(11px)}
+#bosque .wrap{padding-top:55px;padding-bottom:0}
+#agua .wrap{padding-top:0;padding-bottom:15px}
+#bosque h2,#agua h2{font-size:clamp(69px,15.5vw,100px)}
+#bosque p,#agua p{font-size:14px;max-width:350px}
+#bosque .chips a,#agua .chips a{font-size:12px;padding:10px 12px}
+}
+@media(max-width:390px){#bosque{min-height:725px}#agua{min-height:780px}#bosque h2,#agua h2{font-size:clamp(60px,16vw,77px)}#bosque .chips,#agua .chips{gap:7px}}
+@media(prefers-reduced-motion:reduce){#bosque .photo-bg,#agua .photo-bg{transform:none;transition:none}}
 </style></head><body>
 <div class="preview">VISTA PREVIA DE PRUEBA · NO PUBLICADA PARA CLIENTES</div>
 <header class="hero" id="inicio"><div class="hero-shade"></div><div class="wrap top"><img class="logo" src="./patagonia_explorer_logo.webp" alt="Patagonia Explorer"><span class="place">PUERTO MONTT</span></div><div class="wrap hero-layout"><div><div class="eyebrow">Bosque · Agua · Aventura</div><h1>Vive <span>lo salvaje.</span></h1><p>Tienda especializada en pesca, caza, camping y equipamiento outdoor en Puerto Montt. ¿Necesitas asesoría? Escríbenos.</p><div class="buttons"><a href="https://www.patagoniaexplorer.cl/" target="_blank" rel="noopener" class="button red">Explorar tienda ↗</a><a href="https://wa.me/56971477581" target="_blank" rel="noopener" class="button">Contactar por WhatsApp ↗</a></div></div>
