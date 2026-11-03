@@ -141,6 +141,30 @@ html{overflow-x:hidden}body{overflow-x:hidden;background:#09080c;color:#171217}
 }
 @media(prefers-reduced-motion:reduce){.portrait *{animation:none!important}}
 
+
+/* Ajustes iPhone: navegación y retrato con profundidad, sin sobrecargar */
+@media(max-width:760px){
+.top{display:flex!important;align-items:center!important;gap:14px!important;padding:14px 0!important;min-width:0!important}
+.top .brand{flex:0 0 auto;font-size:19px!important}
+.top nav{flex:1;min-width:0;display:flex!important;justify-content:flex-end!important;gap:13px!important;overflow-x:auto!important;white-space:nowrap!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch}
+.top nav::-webkit-scrollbar{display:none}
+.top nav a{flex-shrink:0;font-size:11px!important}
+.intro-grid{gap:10px!important}
+.portrait{max-width:min(92vw,375px)!important;box-shadow:0 22px 55px #17111826!important}
+.portrait::after{opacity:.55!important;transform:translate(5px,6px)!important}
+.portrait-photo{border:5px solid #151319!important}
+.portrait-info{padding-left:12px!important;padding-right:12px!important}
+.portrait-info small{font-size:9px!important}
+.portrait-info h2{font-size:clamp(25px,7vw,32px)!important}
+.portrait-info p{font-size:13px!important}
+.portrait-actions a{font-size:clamp(10px,2.7vw,12px)!important;line-height:1.25!important}
+}
+@media(max-width:390px){.top nav a[href="#sobre-mi"],.top nav a[href="#marcas"]{display:none!important}}
+.portrait-photo>img{filter:brightness(.91) contrast(1.035) saturate(.97)!important;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 50%,rgba(0,0,0,.95) 62%,rgba(0,0,0,.62) 76%,transparent 91%)!important;mask-image:linear-gradient(to bottom,#000 0%,#000 50%,rgba(0,0,0,.95) 62%,rgba(0,0,0,.62) 76%,transparent 91%)!important}
+.portrait-photo>.gradient{background:linear-gradient(180deg,transparent 0%,rgba(11,9,15,.14) 23%,rgba(11,9,15,.75) 64%,#0d0b12 100%)!important}
+.portrait-info{z-index:4!important}
+.portrait{background:linear-gradient(150deg,#2c2932 0%,#121015 54%,#09080b 100%)!important}
+
 </style></head><body>
 <div class="wrap"><header class="top"><div class="brand">Isidora<span>.</span></div><nav><a href="#entrevistas">Entrevistas</a><a href="#sobre-mi">Sobre mí</a><a href="#servicios">Servicios</a><a href="#marcas">Marcas</a><a href="#destacados">Destacados</a><a href="#contacto">Contacto</a></nav></header></div>
 <main><section class="intro"><div class="wrap intro-grid"><div class="intro-copy"><div class="eyebrow">Creadora de contenido &amp; Community Manager</div><h1 id="inicio-nombre">Isidora <em>Montiel.</em></h1><p><strong>Contenido que conecta. Marcas que destacan.</strong> Creo reels, entrevistas y estrategias digitales que acercan las marcas a las personas.</p><div class="hero-actions"><a class="button hero-primary" href="https://wa.me/56920747599?text=Hola%20Isidora%2C%20me%20gustar%C3%ADa%20cotizar%20una%20colaboraci%C3%B3n" rel="noopener" target="_blank">✦ Trabajemos juntos</a><a class="button hero-secondary" href="#entrevistas">Ver mi trabajo ↗</a></div><div class="hero-contact"><span>Contacto directo: <a href="tel:+56920747599">+56 9 2074 7599</a></span><a class="contact-save" download="Isidora-Montiel.vcf" href="isidora-montiel.vcf">＋ Guardar contacto</a></div></div><div class="portrait"><div class="portrait-photo"><img alt="Isidora Montiel" fetchpriority="high" loading="eager" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='isidora-final.webp'}else{this.style.display='none'}" src="isidora-portada.webp"/><div class="gradient"></div><div class="portrait-info"><small>CONTENT CREATOR · COMMUNITY MANAGER</small><h2>Isidora Montiel</h2><p>@isidora_bsm</p><div class="portrait-actions"><a href="https://www.instagram.com/isidora_bsm/" rel="noopener noreferrer" target="_blank">Seguir en Instagram ↗</a><a href="https://wa.me/56920747599" rel="noopener noreferrer" target="_blank">Cotizar por WhatsApp ↗</a></div><div class="counts"><div><strong>50,7K</strong><span>Seguidores*</span></div><div><strong>18</strong><span>Publicaciones*</span></div></div><div class="portrait-note">Entrevistas a artistas, colaboraciones y contenido creado para conectar con personas reales.</div></div></div></div></div></section>
