@@ -80,20 +80,54 @@
 .webinar-map .wm-end .btn{flex-shrink:0}
 @media(max-width:820px){.webinar-map .wm-intro{grid-template-columns:1fr;gap:30px}.webinar-map .wm-visual img{max-height:500px}.webinar-map .wm-copy h2{font-size:clamp(2.65rem,8vw,4.2rem)}.webinar-map .wm-fit{gap:32px}}
 @media(max-width:600px){.webinar-map{padding:65px 0 76px}.webinar-map .wm-intro{gap:25px}.webinar-map .wm-visual img{border-radius:17px}.webinar-map .wm-visual figcaption{font-size:.69rem}.webinar-map .wm-copy h2{font-size:clamp(2.7rem,11vw,3.9rem);overflow-wrap:break-word}.webinar-map .wm-lead{font-size:1.35rem}.webinar-map .wm-fit{grid-template-columns:1fr;margin-top:55px;padding-top:40px;gap:35px}.webinar-map .wm-fit h3{margin-bottom:15px}.webinar-map .wm-end{align-items:stretch;flex-direction:column;gap:20px}.webinar-map .wm-end .btn{width:100%}}
+
+/* Webinar mapa: composición mobile-first de titular, collage y contenido */
+.webinar-map .wm-intro.wm-v2{display:grid;grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);grid-template-areas:"visual heading" "visual body";gap:0 clamp(34px,4.5vw,70px);align-items:start}
+.webinar-map .wm-v2 .wm-heading{grid-area:heading;min-width:0}
+.webinar-map .wm-v2 .wm-heading h2{font-size:clamp(2.7rem,4.3vw,4.9rem);line-height:1.08;letter-spacing:-.052em;overflow-wrap:normal;margin:13px 0 22px}
+.webinar-map .wm-v2 .wm-heading h2 em{color:#914c42;font-weight:400}
+.webinar-map .wm-v2 .wm-visual{grid-area:visual;min-width:0;align-self:start;margin:0;padding-top:5px}
+.webinar-map .wm-v2 .wm-visual img{width:100%;height:auto;aspect-ratio:1672 / 941;object-fit:cover;border-radius:clamp(16px,2.4vw,28px)}
+.webinar-map .wm-v2 .wm-copy{grid-area:body;min-width:0}
+.webinar-map .wm-v2 .wm-lead{font:400 clamp(1.04rem,1.45vw,1.24rem)/1.62 'DM Sans',sans-serif;color:#665750;margin:0 0 25px}
+.webinar-map .wm-v2 .wm-question{font-size:.99rem}
+.webinar-map .wm-v2 .wm-promise{border-top:1px solid #dac1b4;padding-top:22px;margin-top:25px}
+.webinar-map .wm-v2 .wm-promise-label{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#985148}
+.webinar-map .wm-v2 .wm-promise h3{font-size:clamp(1.75rem,2.65vw,2.8rem);line-height:1.18;margin:9px 0 12px;color:#56322d}
+.webinar-map .wm-v2 .wm-promise p{margin:0;color:#65554d;line-height:1.7;font-size:.98rem}
+@media(max-width:820px){
+.webinar-map .wm-intro.wm-v2{grid-template-columns:minmax(0,1fr);grid-template-areas:"heading" "visual" "body";gap:0}
+.webinar-map .wm-v2 .wm-heading h2{font-size:clamp(2.55rem,8vw,4.2rem);line-height:1.12;margin:12px 0 25px}
+.webinar-map .wm-v2 .wm-visual{padding:0;margin:0 0 28px}
+.webinar-map .wm-v2 .wm-visual img{max-height:none;border-radius:18px}
+.webinar-map .wm-v2 .wm-lead{font-size:1.03rem;line-height:1.7;margin-bottom:24px}
+.webinar-map .wm-v2 .wm-promise h3{font-size:2rem}
+}
+@media(max-width:460px){
+.webinar-map .wm-v2 .wm-heading h2{font-size:clamp(2.3rem,10.4vw,3.1rem);letter-spacing:-.05em;line-height:1.12;overflow-wrap:break-word}
+.webinar-map .wm-v2 .wm-visual{margin-bottom:24px}
+.webinar-map .wm-v2 .wm-visual img{border-radius:15px}
+.webinar-map .wm-v2 .wm-promise h3{font-size:1.9rem}
+.webinar-map .wm-v2 .wm-problems li{font-size:.94rem}
+}
 </style></head><body><header class="wrap top"><a class="brand" href="#inicio">Leslie Langenbach<span style="color:#ab6c60">.</span></a><nav aria-label="Navegación principal"><a href="#webinar">El webinar</a><a href="#mapa">Tu ruta</a><a href="#alma">Método ALMA</a><a href="perfil/">Conoce a Leslie</a><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Inscríbete ↗</a></nav></header><main>
 <section class="hero" id="inicio"><svg class="scribble one" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M14 118C78 141 142 94 112 44S44 28 54 75 129 112 146 15" stroke="#a45f53" stroke-width="2.5" stroke-linecap="round"/></svg><svg class="scribble two" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M80 8Q100 56 148 80Q100 94 80 151Q61 95 10 80Q62 56 80 8Z" stroke="#b87969" stroke-width="2"/></svg><div class="wrap"><div class="hero-copy"><span class="eyebrow">Una invitación a descubrir tu valor</span><h1>Tu marca empieza <em>contigo.</em></h1><p class="lead">No necesitas convertirte en alguien más para destacar. Descubre cómo ordenar tu experiencia y comunicar lo que te hace única.</p><div class="actions"><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Quiero mi lugar gratis ↗</a><a class="btn ghost" href="perfil/">Conoce a Leslie →</a></div><p style="font-size:.81rem;color:#82584e">Webinar gratuito · Marca personal con propósito</p></div><div class="hero-picture"><img src="leslie-sin-fondo.webp" alt="Leslie Langenbach te invita a conocer su historia" fetchpriority="high"></div></div><div class="circle-caption">Tu historia<br>importa ✳</div><span class="scroll-note">Desliza para descubrir ↓</span></section>
 <section class="statement" id="webinar"><div class="wrap"><span class="eyebrow" style="color:#dfb3a3">¿Te has sentido así?</span><blockquote>Mucho talento.<br>Muchas ideas.<br><em>¿Pero hacia dónde?</em></blockquote><p>Sabes que tienes algo valioso para compartir, pero cuesta ordenar tu mensaje, definir tu oferta y mostrarte sin perder tu esencia. Este encuentro es para ti.</p></div></section>
 <section class="flow webinar-map" id="mapa" aria-labelledby="flow-heading">
 <div class="wrap">
-  <div class="wm-intro">
-    <figure class="wm-visual"><img src="collage-mujeres-webinar-leslie.webp" alt="Collage de mujeres profesionales enfrentando el estrés de organizar sus ideas y trabajo" loading="lazy" decoding="async" width="1672" height="941"><figcaption>De las ideas dispersas a una marca con dirección.</figcaption></figure>
-    <div class="wm-copy">
+  <div class="wm-intro wm-v2">
+    <div class="wm-heading">
       <span class="eyebrow">En este webinar</span>
-      <h2 id="flow-heading">Voy a mostrarte <em>el mapa.</em></h2>
-      <p class="wm-lead">Las profesionales necesitan esta guía antes de lanzar su marca personal.</p>
+      <h2 id="flow-heading">Tienes el talento.<br><em>¿Pero cómo convertirlo en una marca personal?</em></h2>
+    </div>
+    <figure class="wm-visual">
+      <img src="collage-mujeres-webinar-leslie.webp" alt="Tres escenas de mujeres profesionales intentando organizar ideas y tareas en sus escritorios" loading="lazy" decoding="async" width="1672" height="941">
+    </figure>
+    <div class="wm-copy">
+      <p class="wm-lead">Tener muchas ideas no siempre significa tener claridad. Y cuando no sabes por dónde comenzar, incluso tu experiencia puede ser difícil de comunicar.</p>
       <p class="wm-question">El problema no es la falta de talento, sino:</p>
       <ul class="wm-problems"><li>Demasiadas ideas sin estructura</li><li>Estrategias que no encajan con tu esencia</li><li>Visibilidad sin dirección</li></ul>
-      <p class="wm-promise">En esta sesión te voy a mostrar <strong>la ruta simple que te permite ordenar todo eso.</strong></p>
+      <div class="wm-promise"><span class="wm-promise-label">Lo que veremos en este webinar</span><h3>Voy a mostrarte el mapa.</h3><p>Una ruta sencilla para comenzar a ordenar tus ideas y construir una marca personal auténtica, con claridad y propósito.</p></div>
     </div>
   </div>
   <div class="wm-fit" aria-label="A quién está dirigido el webinar">
