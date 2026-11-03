@@ -18,10 +18,66 @@
 
 /* ALMA vertical — scroll reveal, sin flor */
 .alma-vertical{background:linear-gradient(155deg,#f4e8dd,#fff8f0 47%,#efdfd1);position:relative;overflow:hidden;padding:90px 0 105px}.alma-vertical:before{content:"";position:absolute;right:-180px;top:-50px;width:520px;height:520px;background:radial-gradient(circle,#dfbba76b,transparent 72%);pointer-events:none}.alma-vertical .wrap{position:relative;max-width:920px}.alma-topline{font-size:.71rem;letter-spacing:.22em;text-transform:uppercase;color:#8b413a;font-weight:700;margin:0 0 16px}.alma-vertical h2{font-size:clamp(2.6rem,6vw,5rem);margin:0 0 17px}.alma-vertical h2 em{color:#8b413a}.alma-subtitle{max-width:540px;margin:0 0 28px}.alma-rows{display:grid;gap:0}.alma-row{display:grid;grid-template-columns:clamp(110px,19vw,175px) minmax(0,1fr);gap:clamp(18px,4vw,60px);align-items:center;min-height:clamp(166px,20vw,225px);padding:14px 0;border-top:1px solid #a9817145}.alma-row:last-child{border-bottom:1px solid #a9817145}.alma-letter{font:400 clamp(7rem,17vw,12rem)/.9 'Playfair Display',Georgia,serif;color:#c5b5ad;opacity:.27;display:block;transform:translateY(11px) scale(.96);transition:opacity .8s ease,color .8s ease,transform .85s cubic-bezier(.22,1,.36,1)}.alma-row.is-active .alma-letter{opacity:1;color:#873e39;transform:translateY(0) scale(1)}.alma-detail{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;transition-delay:0s}.alma-row.is-active .alma-detail{opacity:1;transform:translateY(0);transition-delay:.5s}.alma-detail h3{font-size:clamp(1.55rem,3.6vw,2.65rem);margin:0 0 12px;color:#753b35}.alma-detail p{max-width:460px;margin:0;font-size:clamp(.89rem,1.5vw,1.04rem);line-height:1.65}.alma-tail{margin:37px 0 23px;font:italic clamp(1.3rem,3vw,2rem) 'Playfair Display',Georgia,serif;color:#87453e}.alma-vertical .btn{margin-top:3px}@media(max-width:650px){.alma-vertical{padding:65px 0 76px}.alma-row{grid-template-columns:80px minmax(0,1fr);gap:16px;min-height:165px}.alma-letter{font-size:6.2rem}.alma-detail h3{font-size:1.46rem;margin-bottom:8px}.alma-detail p{font-size:.87rem;line-height:1.55}.alma-subtitle{margin-bottom:20px}}@media(prefers-reduced-motion:reduce){.alma-letter,.alma-detail{transition:none!important;transform:none!important}.alma-letter{opacity:1!important;color:#873e39!important}.alma-detail{opacity:1!important}}
+
+/* Recorrido editorial responsive del webinar; sustituye el antiguo mapa SVG */
+.flow-editorial{background:#fffbf6;padding:clamp(70px,9vw,125px) 0;overflow:hidden}
+.flow-editorial .flow-editorial-intro{display:grid;grid-template-columns:1.12fr .68fr;align-items:end;gap:clamp(22px,6vw,90px);padding-bottom:clamp(36px,6vw,70px)}
+.flow-editorial h2{font-size:clamp(3rem,6.7vw,6.1rem);margin:14px 0 0;letter-spacing:-.055em}
+.flow-editorial h2 em,.flow-editorial h3 em{color:#955247;font-weight:400}
+.flow-editorial .flow-editorial-intro>p{font-size:clamp(.98rem,1.35vw,1.13rem);line-height:1.85;max-width:400px;margin:0 0 7px}
+.flow-journey{border-top:1px solid #c9a99a}
+.flow-moment{display:grid;grid-template-columns:minmax(140px, .75fr) minmax(0,1.25fr);gap:clamp(25px,7vw,110px);align-items:center;min-height:290px;border-bottom:1px solid #d8bfb2;padding:32px clamp(0px,2vw,18px);position:relative}
+.flow-number{font:italic clamp(6rem,15vw,13.5rem)/.85 'Playfair Display',Georgia,serif;letter-spacing:-.095em;color:#e7c8b9;position:relative;justify-self:center;min-width:0}
+.flow-number .flow-star{position:absolute;font:normal clamp(1.8rem,3.8vw,3.3rem)/1 Georgia,serif;color:#a46d5f;right:-.55em;top:-.25em}
+.flow-orbit{position:absolute;width:clamp(65px,10vw,125px);aspect-ratio:1;border:1px solid #b98e7e;border-radius:50%;right:-.38em;top:-.18em;transform:rotate(-20deg) scaleX(.6)}
+.flow-rays{position:absolute;font:normal clamp(1.7rem,3.7vw,3.2rem)/1 Georgia,serif;color:#a66c5b;right:-.6em;top:0}
+.flow-story{max-width:580px}
+.flow-overline{font:700 .7rem/1.5 'DM Sans',sans-serif;text-transform:uppercase;letter-spacing:.18em;color:#94584c}
+.flow-editorial h3{font-size:clamp(2.2rem,4vw,4rem);margin:14px 0 18px;letter-spacing:-.04em}
+.flow-story p{max-width:500px;font-size:clamp(.98rem,1.35vw,1.12rem);line-height:1.76;margin:0}
+.flow-finish{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:32px;flex-wrap:wrap}
+.flow-finish span{font:italic clamp(1.25rem,2vw,1.75rem) 'Playfair Display',serif;color:#82483f}
+.flow-finish a{color:#88463c;font-weight:700;border-bottom:1px solid #88463c;padding-bottom:5px}
+@media(max-width:700px){
+.flow-editorial{padding:65px 0 70px}
+.flow-editorial .flow-editorial-intro{grid-template-columns:1fr;gap:20px;padding-bottom:38px}
+.flow-editorial h2{font-size:clamp(2.85rem,11vw,4.5rem)}
+.flow-editorial .flow-editorial-intro>p{max-width:550px}
+.flow-moment{grid-template-columns:88px minmax(0,1fr);gap:20px;min-height:205px;padding:30px 0}
+.flow-number{font-size:clamp(5.3rem,16vw,7.2rem);letter-spacing:-.1em;align-self:start;margin-top:17px}
+.flow-number .flow-star,.flow-rays{font-size:1.55rem}
+.flow-orbit{width:60px}
+.flow-editorial h3{font-size:clamp(1.85rem,6.7vw,2.65rem);margin:8px 0 12px}
+.flow-story p{font-size:.92rem;line-height:1.65}
+.flow-finish{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:370px){.flow-moment{grid-template-columns:63px minmax(0,1fr);gap:14px}.flow-number{font-size:4.5rem}.flow-editorial h3{font-size:1.77rem}}
 </style></head><body><header class="wrap top"><a class="brand" href="#inicio">Leslie Langenbach<span style="color:#ab6c60">.</span></a><nav aria-label="Navegación principal"><a href="#webinar">El webinar</a><a href="#mapa">Tu ruta</a><a href="#alma">Método ALMA</a><a href="perfil/">Conoce a Leslie</a><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Inscríbete ↗</a></nav></header><main>
 <section class="hero" id="inicio"><svg class="scribble one" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M14 118C78 141 142 94 112 44S44 28 54 75 129 112 146 15" stroke="#a45f53" stroke-width="2.5" stroke-linecap="round"/></svg><svg class="scribble two" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M80 8Q100 56 148 80Q100 94 80 151Q61 95 10 80Q62 56 80 8Z" stroke="#b87969" stroke-width="2"/></svg><div class="wrap"><div class="hero-copy"><span class="eyebrow">Una invitación a descubrir tu valor</span><h1>Tu marca empieza <em>contigo.</em></h1><p class="lead">No necesitas convertirte en alguien más para destacar. Descubre cómo ordenar tu experiencia y comunicar lo que te hace única.</p><div class="actions"><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Quiero mi lugar gratis ↗</a><a class="btn ghost" href="perfil/">Conoce a Leslie →</a></div><p style="font-size:.81rem;color:#82584e">Webinar gratuito · Marca personal con propósito</p></div><div class="hero-picture"><img src="leslie-sin-fondo.webp" alt="Leslie Langenbach te invita a conocer su historia" fetchpriority="high"></div></div><div class="circle-caption">Tu historia<br>importa ✳</div><span class="scroll-note">Desliza para descubrir ↓</span></section>
 <section class="statement" id="webinar"><div class="wrap"><span class="eyebrow" style="color:#dfb3a3">¿Te has sentido así?</span><blockquote>Mucho talento.<br>Muchas ideas.<br><em>¿Pero hacia dónde?</em></blockquote><p>Sabes que tienes algo valioso para compartir, pero cuesta ordenar tu mensaje, definir tu oferta y mostrarte sin perder tu esencia. Este encuentro es para ti.</p></div></section>
-<section class="flow" id="mapa"><div class="wrap"><div class="intro"><span class="eyebrow">En este webinar</span><h2>Voy a mostrarte <em style="color:var(--red)">el mapa.</em></h2><p>No una fórmula más. Una ruta para conectar tu identidad con una marca personal clara, auténtica y visible.</p></div><div class="journey" role="img" aria-label="Mapa ilustrado: identidad, claridad y visibilidad"><svg viewBox="0 0 950 405" aria-hidden="true"><defs><linearGradient id="trail" x1="0" x2="1"><stop stop-color="#cfa18a"/><stop offset="1" stop-color="#8b413a"/></linearGradient></defs><path d="M100 155 C240 340 335 10 480 156 S730 380 865 164" fill="none" stroke="#e6cfbd" stroke-width="29" stroke-linecap="round" opacity=".6"/><path class="path-line" d="M100 155 C240 340 335 10 480 156 S730 380 865 164" fill="none" stroke="url(#trail)" stroke-width="3" stroke-linecap="round"/><g fill="#fff9f1" stroke="#9d6557" stroke-width="3"><circle cx="100" cy="155" r="22"/><circle cx="480" cy="156" r="22"/><circle cx="865" cy="164" r="22"/></g><g fill="#8b413a"><path d="M100 139l4 12 13 4-13 4-4 12-4-12-13-4 13-4z"/><path d="M480 138l5 13 13 5-13 5-5 13-5-13-13-5 13-5z"/><path d="M865 145l6 13 13 6-13 6-6 13-6-13-13-6 13-6z"/></g><g fill="none" stroke="#c49786" stroke-width="2"><path d="M286 70l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><path d="M635 313q16-33 35 0q-16 34-35 0z"/><path d="M766 42q22 20 43-3"/></g></svg><div class="journey-label jl1"><strong>01 · Identidad</strong><span>Reconoce tu historia y tu valor.</span></div><div class="journey-label jl2"><strong>03 · Visibilidad</strong><span>Comunica con dirección y propósito.</span></div><div class="journey-label jl3"><strong>02 · Claridad</strong><span>Transforma tu experiencia en una oferta.</span></div></div><div class="steps"><article><b>01</b><h3>Descubre lo que te hace única</h3><p>Construye desde tu identidad, no desde fórmulas ajenas.</p></article><article><b>02</b><h3>Encuentra tu mensaje</h3><p>Da estructura a tus ideas y forma a tu propuesta de valor.</p></article><article><b>03</b><h3>Da el siguiente paso</h3><p>Comienza a mostrarte con estrategia, intención y confianza.</p></article></div></div></section>
+<section class="flow flow-editorial" id="mapa" aria-labelledby="flow-heading">
+<div class="wrap">
+  <div class="flow-editorial-intro">
+    <div><span class="eyebrow">Lo que descubrirás en el webinar</span><h2 id="flow-heading">De lo que eres<br><em>a lo que proyectas.</em></h2></div>
+    <p>Tu marca no empieza en un logo ni en una publicación. Empieza cuando reconoces tu valor y encuentras cómo compartirlo con claridad.</p>
+  </div>
+  <div class="flow-journey">
+    <article class="flow-moment">
+      <div class="flow-number" aria-hidden="true">01<span class="flow-star">✧</span></div>
+      <div class="flow-story"><span class="flow-overline">Primero · Reconoce</span><h3>Tu historia es<br><em>tu diferencia.</em></h3><p>Identifica las experiencias, fortalezas y valores que hacen que tu marca sea genuinamente tuya.</p></div>
+    </article>
+    <article class="flow-moment">
+      <div class="flow-number" aria-hidden="true">02<span class="flow-orbit"></span></div>
+      <div class="flow-story"><span class="flow-overline">Después · Ordena</span><h3>Convierte tus ideas<br><em>en dirección.</em></h3><p>Encuentra el hilo conductor de tu mensaje y transforma lo que sabes en una propuesta clara.</p></div>
+    </article>
+    <article class="flow-moment">
+      <div class="flow-number" aria-hidden="true">03<span class="flow-rays" aria-hidden="true">✺</span></div>
+      <div class="flow-story"><span class="flow-overline">Finalmente · Proyecta</span><h3>Haz visible<br><em>tu valor.</em></h3><p>Aprende a comunicarte con confianza y empieza a construir una marca personal con propósito.</p></div>
+    </article>
+  </div>
+  <div class="flow-finish"><span>Tu esencia es el punto de partida.</span><a href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Quiero descubrir mi camino ↗</a></div>
+</div>
+</section>
 <section class="reveal" id="leslie"><div class="wrap split"><div class="photo-art"><img src="leslie-laptop-sin-fondo.webp" alt="Leslie trabajando en su computador" loading="lazy"></div><div><span class="eyebrow">La persona detrás del método</span><h2>Hola, soy Leslie.</h2><p>Mentora de marca personal y posicionamiento estratégico. Acompaño a mujeres profesionales a reconocer su valor y crear una marca auténtica y rentable, desde el autoconocimiento y la estrategia.</p><p>Mi propia reinvención me enseñó que una marca poderosa nace desde adentro. De esa visión surge mi método A.L.M.A.</p><p class="signature">Tu historia importa.</p><a class="btn" href="perfil/">Descubre mi historia →</a></div></div></section>
 
 <section class="alma-vertical" id="alma" aria-labelledby="alma-heading">
