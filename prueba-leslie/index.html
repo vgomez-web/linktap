@@ -266,8 +266,35 @@
 }
 @media(max-width:350px){.alma-studio .alma-studio-experience{grid-template-columns:56px minmax(0,1fr)}.alma-studio .alma-studio-letter{font-size:3rem}.alma-studio .alma-studio-content{padding-left:14px}.alma-studio .alma-studio-content h3{font-size:1.53rem}}
 @media(prefers-reduced-motion:reduce){.alma-studio .alma-studio-letter{transition:none}.alma-studio .alma-studio-content.alma-switching h3,.alma-studio .alma-studio-content.alma-switching p{animation:none}}
-</style></head><body><header class="wrap top"><a class="brand" href="#inicio">Leslie Langenbach<span style="color:#ab6c60">.</span></a><nav aria-label="Navegación principal"><a href="#webinar">El webinar</a><a href="#mapa">Tu ruta</a><a href="#alma">Método ALMA</a><a href="perfil/">Conoce a Leslie</a><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Inscríbete ↗</a></nav></header><main>
-<section class="hero" id="inicio"><svg class="scribble one" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M14 118C78 141 142 94 112 44S44 28 54 75 129 112 146 15" stroke="#a45f53" stroke-width="2.5" stroke-linecap="round"/></svg><svg class="scribble two" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M80 8Q100 56 148 80Q100 94 80 151Q61 95 10 80Q62 56 80 8Z" stroke="#b87969" stroke-width="2"/></svg><div class="wrap"><div class="hero-copy"><span class="eyebrow">Una invitación a descubrir tu valor</span><h1>Tu marca empieza <em>contigo.</em></h1><p class="lead">No necesitas convertirte en alguien más para destacar. Descubre cómo ordenar tu experiencia y comunicar lo que te hace única.</p><div class="actions"><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Quiero mi lugar gratis ↗</a><a class="btn ghost" href="perfil/">Conoce a Leslie →</a></div><p style="font-size:.81rem;color:#82584e">Webinar gratuito · Marca personal con propósito</p></div><div class="hero-picture"><img src="leslie-sin-fondo.webp" alt="Leslie Langenbach te invita a conocer su historia" fetchpriority="high"></div></div><div class="circle-caption">Tu historia<br>importa</div><span class="scroll-note">Desliza para descubrir ↓</span></section>
+
+/* Portada Leslie: espaciado correcto y fotografía integrada en pantallas pequeñas */
+@media(max-width:800px){
+  header.top{min-height:68px;padding-top:5px;padding-bottom:5px}
+  .hero{padding:0!important;min-height:0}
+  .hero .wrap{min-height:0;gap:0}
+  .hero .hero-copy{padding:22px 0 0}
+  .hero .hero-copy .eyebrow{display:block;font-size:.68rem;line-height:1.45;letter-spacing:.14em}
+  .hero .hero-copy h1{font-size:clamp(3.05rem,11vw,4.9rem);line-height:1.06;letter-spacing:-.045em;margin:16px 0 15px;max-width:100%}
+  .hero .hero-copy .lead{font-size:clamp(.98rem,3.7vw,1.13rem);line-height:1.55;margin:0}
+  .hero .actions{margin:22px 0 15px;gap:10px}
+  .hero .actions .btn{min-height:52px;padding:12px 18px}
+  .hero .hero-copy p[style]{margin:0;font-size:.77rem!important}
+  .hero .hero-picture{height:clamp(325px,87vw,440px);min-height:0;margin-top:7px;overflow:hidden}
+  .hero .hero-picture img{width:100%;height:100%;right:0;bottom:-2px;object-fit:contain;object-position:center bottom}
+  .hero .circle-caption{width:76px;height:76px;right:5%;bottom:clamp(225px,61vw,330px);font-size:.75rem;transform:rotate(9deg)}
+  .hero .scribble.one{top:50%;right:-28px;width:100px;opacity:.23}
+  .hero .scroll-note{display:none}
+}
+@media(max-width:420px){
+  .top .brand{font-size:1.08rem}
+  .top nav .btn{font-size:.76rem;padding:9px 12px;min-height:42px}
+  .hero .hero-copy{padding-top:18px}
+  .hero .hero-copy h1{font-size:clamp(2.83rem,11.2vw,3.8rem)}
+  .hero .hero-picture{height:clamp(308px,88vw,375px)}
+  .hero .circle-caption{bottom:clamp(215px,62vw,275px)}
+}
+</style></head><body><header class="wrap top"><a class="brand" href="#inicio">Leslie Langenbach<span style="color:#ab6c60">.</span></a><nav aria-label="Navegación principal"><a href="#webinar">El webinar</a><a href="#mapa">Tu ruta</a><a href="#alma">Método ALMA</a><a href="perfil/">Conoce a Leslie</a><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Inscríbete →</a></nav></header><main>
+<section class="hero" id="inicio"><svg class="scribble one" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M14 118C78 141 142 94 112 44S44 28 54 75 129 112 146 15" stroke="#a45f53" stroke-width="2.5" stroke-linecap="round"/></svg><svg class="scribble two" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M80 8Q100 56 148 80Q100 94 80 151Q61 95 10 80Q62 56 80 8Z" stroke="#b87969" stroke-width="2"/></svg><div class="wrap"><div class="hero-copy"><span class="eyebrow">Una invitación a descubrir tu valor</span><h1>Tu marca empieza <em>contigo.</em></h1><p class="lead">No necesitas convertirte en alguien más para destacar. Descubre cómo ordenar tu experiencia y comunicar lo que te hace única.</p><div class="actions"><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Quiero mi lugar gratis →</a><a class="btn ghost" href="perfil/">Conoce a Leslie →</a></div><p style="font-size:.81rem;color:#82584e">Webinar gratuito · Marca personal con propósito</p></div><div class="hero-picture"><img src="leslie-sin-fondo.webp" alt="Leslie Langenbach te invita a conocer su historia" fetchpriority="high"></div></div><div class="circle-caption">Tu historia<br>importa</div><span class="scroll-note">Desliza para descubrir ↓</span></section>
 <section class="statement" id="webinar"><div class="wrap"><span class="eyebrow" style="color:#dfb3a3">¿Te has sentido así?</span><blockquote>Mucho talento.<br>Muchas ideas.<br><em>¿Pero hacia dónde?</em></blockquote><p>Sabes que tienes algo valioso para compartir, pero cuesta ordenar tu mensaje, definir tu oferta y mostrarte sin perder tu esencia. Este encuentro es para ti.</p></div></section>
 <section class="flow webinar-map" id="mapa" aria-labelledby="flow-heading">
 <div class="wrap">
