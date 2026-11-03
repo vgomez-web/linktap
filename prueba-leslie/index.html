@@ -110,6 +110,53 @@
 .webinar-map .wm-v2 .wm-promise h3{font-size:1.9rem}
 .webinar-map .wm-v2 .wm-problems li{font-size:.94rem}
 }
+
+/* Clasificación visual del webinar: compacta, con contraste y acordeón accesible */
+.webinar-map .wm-fit.wm-fit-pro{display:block;margin-top:clamp(40px,6vw,72px);padding-top:clamp(28px,4vw,48px);border-top:1px solid #ddc6ba}
+.webinar-map .wm-fit-heading{display:flex;align-items:end;flex-wrap:wrap;gap:6px 30px;margin-bottom:26px}
+.webinar-map .wm-fit-heading .eyebrow{flex-basis:100%}
+.webinar-map .wm-fit-heading h3{font-size:clamp(2.15rem,4vw,3.6rem);line-height:1.12;margin:4px 0;color:#3f2b29}
+.webinar-map .wm-fit-heading p{max-width:400px;margin:0 0 5px;font-size:.93rem;line-height:1.5}
+.webinar-map .wm-fit-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}
+.webinar-map .wm-fit-panel{min-width:0;border-radius:22px;padding:clamp(22px,3.5vw,40px)}
+.webinar-map .wm-fit-panel.wm-yes{background:#65392f;color:#fff8f0;position:relative;overflow:hidden}
+.webinar-map .wm-yes:after{content:"";position:absolute;right:-95px;top:-100px;width:260px;height:260px;border:1px solid #ffffff22;border-radius:50%;pointer-events:none}
+.webinar-map .wm-panel-top{display:flex;align-items:center;gap:11px;font:700 .7rem/1.35 'DM Sans',sans-serif;letter-spacing:.14em}
+.webinar-map .wm-panel-symbol{width:34px;height:34px;flex:0 0 34px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;font:1.18rem/1 Arial,sans-serif;letter-spacing:0}
+.webinar-map .wm-fit-panel h4{font:400 clamp(1.7rem,3vw,2.85rem)/1.15 'Playfair Display',Georgia,serif;letter-spacing:-.035em;max-width:440px;margin:20px 0 25px}
+.webinar-map .wm-fit-panel h4 em{color:#ecc6b0}
+.webinar-map .wm-fit-panel li{font-size:.91rem;line-height:1.48;padding:11px 0 11px 25px;border-top:1px solid #ffffff30;color:inherit}
+.webinar-map .wm-fit-panel.wm-yes li:before{content:"✓";font-size:.95rem;top:11px;color:#f4d4bd}
+.webinar-map .wm-fit-panel.wm-no{background:#f0e1d7;color:#5e3e38;padding:0}
+.webinar-map .wm-no summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;min-height:100%;padding:clamp(22px,3.5vw,40px)}
+.webinar-map .wm-no summary::-webkit-details-marker{display:none}
+.webinar-map .wm-no .wm-panel-top{color:#935b4f}
+.webinar-map .wm-no-title{display:block;font:400 clamp(1.7rem,3vw,2.65rem)/1.15 'Playfair Display',Georgia,serif;letter-spacing:-.03em;margin:20px 0 22px;max-width:340px;color:#523731}
+.webinar-map .wm-open-label{display:block;margin-top:auto;border-bottom:1px solid #a77b6e;padding-bottom:5px;font-size:.83rem;font-weight:700;color:#804b41}
+.webinar-map .wm-no[open] summary{min-height:auto;padding-bottom:12px}
+.webinar-map .wm-no[open] .wm-open-label{margin-top:3px}
+.webinar-map .wm-no[open] .wm-open-label span{display:none}
+.webinar-map .wm-no ul{padding:0 clamp(22px,3.5vw,40px) 26px}
+.webinar-map .wm-fit-panel.wm-no li{border-top:1px solid #ba988855;color:#65504b;padding:11px 0 11px 23px}
+.webinar-map .wm-no li:before{content:"×";top:7px;font-size:1.25rem;color:#93594d}
+.webinar-map .wm-no summary:focus-visible{outline:3px solid #96564b;outline-offset:-5px}
+.webinar-map .wm-end{margin-top:26px}
+@media(max-width:760px){
+.webinar-map .wm-fit-grid{grid-template-columns:1fr;gap:13px}
+.webinar-map .wm-fit-heading{margin-bottom:21px}
+.webinar-map .wm-fit-heading h3{font-size:clamp(2.1rem,8.5vw,3rem)}
+.webinar-map .wm-fit-heading p{font-size:.9rem}
+.webinar-map .wm-fit-panel{border-radius:19px;padding:24px 21px}
+.webinar-map .wm-fit-panel h4{font-size:clamp(1.85rem,7.3vw,2.45rem);margin:15px 0 17px}
+.webinar-map .wm-fit-panel li{font-size:.87rem;line-height:1.42;padding:9px 0 9px 24px}
+.webinar-map .wm-fit-panel.wm-yes li:before{top:9px}
+.webinar-map .wm-no summary{padding:24px 21px}
+.webinar-map .wm-no-title{font-size:1.65rem;margin:12px 0 14px}
+.webinar-map .wm-no ul{padding:0 21px 17px}
+.webinar-map .wm-no li:before{top:5px}
+.webinar-map .wm-end{margin-top:23px;padding-top:21px}
+.webinar-map .wm-end p{font-size:1.2rem}
+}
 </style></head><body><header class="wrap top"><a class="brand" href="#inicio">Leslie Langenbach<span style="color:#ab6c60">.</span></a><nav aria-label="Navegación principal"><a href="#webinar">El webinar</a><a href="#mapa">Tu ruta</a><a href="#alma">Método ALMA</a><a href="perfil/">Conoce a Leslie</a><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Inscríbete ↗</a></nav></header><main>
 <section class="hero" id="inicio"><svg class="scribble one" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M14 118C78 141 142 94 112 44S44 28 54 75 129 112 146 15" stroke="#a45f53" stroke-width="2.5" stroke-linecap="round"/></svg><svg class="scribble two" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M80 8Q100 56 148 80Q100 94 80 151Q61 95 10 80Q62 56 80 8Z" stroke="#b87969" stroke-width="2"/></svg><div class="wrap"><div class="hero-copy"><span class="eyebrow">Una invitación a descubrir tu valor</span><h1>Tu marca empieza <em>contigo.</em></h1><p class="lead">No necesitas convertirte en alguien más para destacar. Descubre cómo ordenar tu experiencia y comunicar lo que te hace única.</p><div class="actions"><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Quiero mi lugar gratis ↗</a><a class="btn ghost" href="perfil/">Conoce a Leslie →</a></div><p style="font-size:.81rem;color:#82584e">Webinar gratuito · Marca personal con propósito</p></div><div class="hero-picture"><img src="leslie-sin-fondo.webp" alt="Leslie Langenbach te invita a conocer su historia" fetchpriority="high"></div></div><div class="circle-caption">Tu historia<br>importa ✳</div><span class="scroll-note">Desliza para descubrir ↓</span></section>
 <section class="statement" id="webinar"><div class="wrap"><span class="eyebrow" style="color:#dfb3a3">¿Te has sentido así?</span><blockquote>Mucho talento.<br>Muchas ideas.<br><em>¿Pero hacia dónde?</em></blockquote><p>Sabes que tienes algo valioso para compartir, pero cuesta ordenar tu mensaje, definir tu oferta y mostrarte sin perder tu esencia. Este encuentro es para ti.</p></div></section>
@@ -130,9 +177,29 @@
       <div class="wm-promise"><span class="wm-promise-label">Lo que veremos en este webinar</span><h3>Voy a mostrarte el mapa.</h3><p>Una ruta sencilla para comenzar a ordenar tus ideas y construir una marca personal auténtica, con claridad y propósito.</p></div>
     </div>
   </div>
-  <div class="wm-fit" aria-label="A quién está dirigido el webinar">
-    <div class="wm-fit-block wm-yes"><span class="wm-fit-label">Para quién es</span><h3>Es para ti si…</h3><ul><li>Eres una mujer profesional o emprendedora</li><li>Sientes que tienes conocimiento que podría ayudar a otros</li><li>Estás en un proceso de reinvención o expansión</li><li>Te interesa crear una marca personal con propósito</li><li>Quieres empezar a visibilizarte con claridad</li></ul></div>
-    <div class="wm-fit-block wm-no"><span class="wm-fit-label">Para quién no es</span><h3>No es para ti si…</h3><ul><li>Buscas fórmulas rápidas o tácticas de marketing agresivas</li><li>No estás dispuesta a trabajar en tu identidad y mensaje</li><li>No tienes interés en construir una marca personal auténtica</li></ul></div>
+  <div class="wm-fit wm-fit-pro" aria-label="Para quién es este webinar">
+    <div class="wm-fit-heading"><span class="eyebrow">¿Este encuentro es para ti?</span><h3>Encuentra tu lugar.</h3><p>Un espacio para mujeres profesionales que quieren construir una marca personal auténtica.</p></div>
+    <div class="wm-fit-grid">
+      <div class="wm-fit-panel wm-yes">
+        <div class="wm-panel-top"><span class="wm-panel-symbol" aria-hidden="true">✓</span><span>ES PARA TI SI...</span></div>
+        <h4>Es momento de <em>darle forma</em> a lo que sabes.</h4>
+        <ul>
+          <li>Eres una mujer profesional o emprendedora</li>
+          <li>Sientes que tienes conocimiento que podría ayudar a otros</li>
+          <li>Estás en un proceso de reinvención o expansión</li>
+          <li>Te interesa crear una marca personal con propósito</li>
+          <li>Quieres empezar a visibilizarte con claridad</li>
+        </ul>
+      </div>
+      <details class="wm-fit-panel wm-no">
+        <summary><span class="wm-panel-top"><span class="wm-panel-symbol" aria-hidden="true">×</span><span>NO ES PARA TI SI...</span></span><span class="wm-no-title">Buscas otro tipo de camino.</span><span class="wm-open-label">Ver los 3 criterios <span aria-hidden="true">＋</span></span></summary>
+        <ul>
+          <li>Buscas fórmulas rápidas o tácticas de marketing agresivas</li>
+          <li>No estás dispuesta a trabajar en tu identidad y mensaje</li>
+          <li>No tienes interés en construir una marca personal auténtica</li>
+        </ul>
+      </details>
+    </div>
   </div>
   <div class="wm-end"><p>El primer paso es encontrar tu dirección.</p><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Reserva tu lugar gratis ↗</a></div>
 </div></section>
