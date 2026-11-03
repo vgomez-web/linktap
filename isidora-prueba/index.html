@@ -98,9 +98,52 @@ html{overflow-x:hidden}body{overflow-x:hidden;background:#09080c;color:#171217}
 @media(max-width:760px){.intro{padding:25px 0 54px}.intro-grid{grid-template-columns:1fr;gap:24px}.intro-grid .intro-copy{order:2;text-align:left}.portrait{order:1;width:100%;max-width:390px}.portrait-photo{min-height:min(590px,145vw)}.intro h1{font-size:clamp(46px,14vw,75px)}.intro-copy>p{margin-left:0;margin-right:0}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.hero-actions .button{padding:13px 9px;font-size:12px}.portrait-info h2{font-size:31px}.portrait-info .portrait-actions a{font-size:11px}}
 @media(max-width:380px){.hero-actions{grid-template-columns:1fr}.intro h1{font-size:clamp(43px,13.5vw,57px)}.portrait-photo{min-height:520px}}
 @media(prefers-reduced-motion:reduce){.brand-layer{transition:none}}
+
+/* Portada definitiva según la referencia de iPhone de Isidora */
+.top{position:relative;z-index:10;background:#fff}.top nav{color:#1b171a}
+.intro{background:#fff!important;color:#1b171a!important;overflow:visible!important;padding-top:45px}
+.intro::before,.intro::after{display:none!important}
+.intro .eyebrow{color:#c70d39;background:#fff1f4;border-color:#f5d4df}
+.intro h1{color:#17131a}.intro h1 em{color:#ce103e}
+.intro-copy>p{color:#675f65}.intro-copy>p strong{color:#20161c}
+.intro .hero-secondary{background:#f6edf0!important;color:#291920!important;border:1px solid #ebd7df!important}
+.intro .hero-contact{color:#66545d}.intro .hero-contact a{color:#a40a30}
+.intro .contact-save{background:#fff4f7!important;border-color:#eec8d2!important}
+.intro-grid{align-items:center}
+.portrait{overflow:visible!important;position:relative;isolation:isolate;padding:7px!important;border:0!important;border-radius:36px!important;background:#17151a!important;max-width:410px!important;box-shadow:0 18px 55px #28151c35!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;margin-top:56px!important}
+.portrait::after{content:"";position:absolute;pointer-events:none;z-index:-1;inset:8px -7px -8px 8px;border-radius:38px;background:#28252c;transform:translate(7px,8px)}
+.portrait-photo{position:relative!important;overflow:visible!important;isolation:auto!important;display:flex;align-items:flex-end;min-height:580px!important;border:8px solid #0b0a0d;border-radius:30px!important;background:linear-gradient(#353239 0%,#17141b 60%,#110d13 100%)!important}
+.portrait-photo>img{position:absolute!important;z-index:1!important;top:-69px!important;left:0!important;right:0!important;bottom:auto!important;height:calc(100% + 69px)!important;width:100%!important;object-fit:contain!important;object-position:center top!important;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 57%,rgba(0,0,0,.88) 70%,transparent 88%)!important;mask-image:linear-gradient(to bottom,#000 0%,#000 57%,rgba(0,0,0,.88) 70%,transparent 88%)!important;pointer-events:none}
+.portrait-photo>.gradient{z-index:2!important;pointer-events:none;top:42%!important;bottom:0!important;background:linear-gradient(180deg,transparent,#100d13ab 51%,#100d13 87%)!important}
+.portrait-info{position:relative!important;z-index:3!important;padding:305px 13px 20px!important;width:100%;color:#fff!important}
+.portrait-info h2{font-size:28px!important;margin:4px 0}.portrait-info small{font-size:10px;color:#eee;letter-spacing:.12em}
+.portrait-info p{color:#ddd!important}.portrait-info .portrait-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.portrait-actions a{display:flex;justify-content:center;align-items:center;min-height:48px;padding:11px 6px!important;font-size:11px!important;border-radius:30px!important}
+.portrait-actions a+a{background:#ffffff21!important;border:1px solid #ffffff35!important}
+.portrait .counts{margin-top:12px;padding:9px 0 12px;border-color:#ffffff22}.portrait .counts strong{font-size:22px}.portrait .counts span{font-size:11px}
+.portrait-note{display:none!important}
+@media(max-width:760px){
+ .top nav{flex-wrap:nowrap;gap:11px}.top nav a{font-size:11px}
+ .intro{padding:9px 0 35px!important}
+ .intro-grid{display:flex!important;flex-direction:column;align-items:stretch;gap:16px}
+ .portrait{order:0!important;max-width:355px!important;width:calc(100% - 12px)!important;margin:36px auto 0!important}
+ .portrait-photo{min-height:520px!important}
+ .portrait-photo>img{top:-60px!important;height:calc(100% + 60px)!important}
+ .portrait-info{padding-top:282px!important;padding-bottom:15px!important}
+ .intro-grid .intro-copy{order:1!important;text-align:left;margin-top:12px}
+ .hero-actions .button{min-height:48px}
+}
+@media(max-width:380px){
+ .portrait{max-width:325px!important}.portrait-photo{min-height:485px!important}
+ .portrait-info{padding-top:250px!important}
+ .portrait-actions a{font-size:10px!important}
+ .top nav a:nth-child(3){display:none}
+}
+@media(prefers-reduced-motion:reduce){.portrait *{animation:none!important}}
+
 </style></head><body>
 <div class="wrap"><header class="top"><div class="brand">Isidora<span>.</span></div><nav><a href="#entrevistas">Entrevistas</a><a href="#sobre-mi">Sobre mí</a><a href="#servicios">Servicios</a><a href="#marcas">Marcas</a><a href="#destacados">Destacados</a><a href="#contacto">Contacto</a></nav></header></div>
-<main><section class="intro"><div class="wrap intro-grid"><div class="intro-copy"><div class="eyebrow">Creadora de contenido &amp; Community Manager</div><h1 id="inicio-nombre">Isidora <em>Montiel.</em></h1><p><strong>Contenido que conecta. Marcas que destacan.</strong> Creo reels, entrevistas y estrategias digitales que acercan las marcas a las personas.</p><div class="hero-actions"><a class="button hero-primary" href="https://wa.me/56920747599?text=Hola%20Isidora%2C%20me%20gustar%C3%ADa%20cotizar%20una%20colaboraci%C3%B3n" rel="noopener" target="_blank">✦ Trabajemos juntos</a><a class="button hero-secondary" href="#entrevistas">Ver mi trabajo ↗</a></div><div class="hero-contact"><span>Contacto directo: <a href="tel:+56920747599">+56 9 2074 7599</a></span><a class="contact-save" download="Isidora-Montiel.vcf" href="isidora-montiel.vcf">＋ Guardar contacto</a></div></div><div class="portrait"><div class="portrait-photo"><img alt="Isidora Montiel" fetchpriority="high" loading="eager" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='isidora-final.webp'}else{this.style.display='none'}" src="isidora-portada.webp"/><div class="gradient"></div><div class="portrait-info"><small>CONTENT CREATOR · COMMUNITY MANAGER</small><h2>Isidora Montiel</h2><p>@isidora_bsm</p><div class="portrait-actions"><a href="https://www.instagram.com/isidora_bsm/" rel="noopener noreferrer" target="_blank">Seguir en Instagram ↗</a><a href="https://wa.me/56920747599" rel="noopener noreferrer" target="_blank">Cotizar por WhatsApp ↗</a></div><div class="portrait-note">Entrevistas a artistas, colaboraciones y contenido creado para conectar con personas reales.</div></div></div></div></div></section>
+<main><section class="intro"><div class="wrap intro-grid"><div class="intro-copy"><div class="eyebrow">Creadora de contenido &amp; Community Manager</div><h1 id="inicio-nombre">Isidora <em>Montiel.</em></h1><p><strong>Contenido que conecta. Marcas que destacan.</strong> Creo reels, entrevistas y estrategias digitales que acercan las marcas a las personas.</p><div class="hero-actions"><a class="button hero-primary" href="https://wa.me/56920747599?text=Hola%20Isidora%2C%20me%20gustar%C3%ADa%20cotizar%20una%20colaboraci%C3%B3n" rel="noopener" target="_blank">✦ Trabajemos juntos</a><a class="button hero-secondary" href="#entrevistas">Ver mi trabajo ↗</a></div><div class="hero-contact"><span>Contacto directo: <a href="tel:+56920747599">+56 9 2074 7599</a></span><a class="contact-save" download="Isidora-Montiel.vcf" href="isidora-montiel.vcf">＋ Guardar contacto</a></div></div><div class="portrait"><div class="portrait-photo"><img alt="Isidora Montiel" fetchpriority="high" loading="eager" onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='isidora-final.webp'}else{this.style.display='none'}" src="isidora-portada.webp"/><div class="gradient"></div><div class="portrait-info"><small>CONTENT CREATOR · COMMUNITY MANAGER</small><h2>Isidora Montiel</h2><p>@isidora_bsm</p><div class="portrait-actions"><a href="https://www.instagram.com/isidora_bsm/" rel="noopener noreferrer" target="_blank">Seguir en Instagram ↗</a><a href="https://wa.me/56920747599" rel="noopener noreferrer" target="_blank">Cotizar por WhatsApp ↗</a></div><div class="counts"><div><strong>50,7K</strong><span>Seguidores*</span></div><div><strong>18</strong><span>Publicaciones*</span></div></div><div class="portrait-note">Entrevistas a artistas, colaboraciones y contenido creado para conectar con personas reales.</div></div></div></div></div></section>
 <section class="section" id="entrevistas">
 <div class="wrap">
 <div class="eyebrow">Mi trabajo en cámara</div>
@@ -131,4 +174,4 @@ stack.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight
 stack.tabIndex=0;
 if(reduceMotion.addEventListener)reduceMotion.addEventListener('change',autoplay);
 paint();autoplay();
-})();</body></html>
+})();</script></body></html>
