@@ -321,8 +321,40 @@
  .faq-scene-photo .faq-scene-mist{background:radial-gradient(ellipse 38% 55% at 3% 83%,#f8f0e9ea 0%,#f8f0e9aa 50%,transparent 100%),radial-gradient(ellipse 73% 39% at 54% 103%,#f8f0e9 2%,#f8f0e9db 35%,#f8f0e980 73%,transparent 100%),linear-gradient(to top,#f8f0e9 0%,transparent 38%);filter:blur(11px)}
 }
 @media(max-width:390px){.faq-scene-wrap>.eyebrow,.faq-scene-wrap>h2,.faq-scene-wrap>.faq{margin-left:19px;margin-right:19px}.faq-scene-wrap>h2{font-size:2.48rem}}
+
+/* Portada webinar editorial: reunión real, copy y CTA independientes */
+.hero.hero-meeting{padding:0;min-height:0;background:linear-gradient(145deg,#faf2e9 0%,#f6e7d9 100%);overflow:hidden}
+.hero.hero-meeting .hero-meeting-layout{display:grid;grid-template-columns:minmax(0,51%) minmax(0,49%);grid-template-rows:1fr auto;align-items:center;min-height:680px;gap:0}
+.hero.hero-meeting .hero-copy{grid-column:1;grid-row:1;align-self:end;padding:80px 20px 0 0;z-index:2}
+.hero.hero-meeting .hero-copy h1{font-size:clamp(3.35rem,6.5vw,6rem);line-height:1.09;margin:15px 0 20px}
+.hero.hero-meeting .hero-copy .lead{font-size:clamp(1.02rem,1.55vw,1.17rem);line-height:1.65;max-width:480px}
+.hero.hero-meeting .hero-picture{grid-column:2;grid-row:1 / 3;position:relative;height:100%;min-height:560px;align-self:stretch;overflow:visible;margin:0;z-index:1}
+.hero.hero-meeting .hero-picture img{position:absolute;display:block;bottom:0;left:-16%;right:auto;width:132%;height:auto;max-height:100%;object-fit:contain;object-position:center bottom;mask-image:none;filter:drop-shadow(0 16px 28px #70463a18)}
+.hero.hero-meeting .hero-meeting-actions{grid-column:1;grid-row:2;align-self:start;padding:13px 15px 72px 0;position:relative;z-index:3}
+.hero.hero-meeting .hero-meeting-actions .actions{margin:0 0 16px;display:flex;flex-wrap:wrap;gap:10px}
+.hero.hero-meeting .hero-meeting-note{font-size:.82rem;color:#805c53;margin:0}
+@media(max-width:800px){
+ .hero.hero-meeting{padding:0!important}
+ .hero.hero-meeting .hero-meeting-layout{display:grid;grid-template-columns:100%;grid-template-rows:auto auto auto;min-height:0;gap:0;width:calc(100% - 38px);margin:auto}
+ .hero.hero-meeting .hero-copy{grid-column:1;grid-row:1;padding:18px 0 0;align-self:auto;z-index:2}
+ .hero.hero-meeting .hero-copy .eyebrow{font-size:.67rem;letter-spacing:.14em;line-height:1.55}
+ .hero.hero-meeting .hero-copy h1{font-size:clamp(2.8rem,10.6vw,4.5rem);line-height:1.06;letter-spacing:-.05em;margin:16px 0 12px;max-width:100%}
+ .hero.hero-meeting .hero-copy .lead{font-size:clamp(.95rem,3.65vw,1.04rem);line-height:1.55;max-width:600px;margin:0}
+ .hero.hero-meeting .hero-picture{grid-column:1;grid-row:2;width:calc(100% + 38px);margin:13px -19px 0;height:auto;min-height:0;aspect-ratio:1.5;align-self:auto;overflow:hidden}
+ .hero.hero-meeting .hero-picture img{position:absolute;inset:auto 0 0 0;width:100%;height:100%;max-height:none;object-fit:contain;object-position:center bottom;filter:none}
+ .hero.hero-meeting .hero-picture:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to bottom,transparent 76%,#f6e7d950 94%,#f6e7d9 100%);z-index:2}
+ .hero.hero-meeting .hero-meeting-actions{grid-column:1;grid-row:3;padding:12px 0 30px;z-index:3}
+ .hero.hero-meeting .hero-meeting-actions .actions{display:grid;grid-template-columns:1fr;gap:10px;margin:0 0 14px}
+ .hero.hero-meeting .hero-meeting-actions .btn{display:flex;width:100%;min-height:51px;font-size:.91rem;padding:12px 14px}
+ .hero.hero-meeting .hero-meeting-note{text-align:center;font-size:.76rem;margin:0}
+}
+@media(max-width:380px){.hero.hero-meeting .hero-copy h1{font-size:clamp(2.55rem,10.4vw,3.15rem)}.hero.hero-meeting .hero-copy .lead{font-size:.95rem}.hero.hero-meeting .hero-picture{margin-top:9px}.hero.hero-meeting .hero-meeting-actions{padding-top:7px}}
 </style></head><body><header class="wrap top"><a class="brand" href="#inicio">Leslie Langenbach<span style="color:#ab6c60">.</span></a><nav aria-label="Navegación principal"><a href="#webinar">El webinar</a><a href="#mapa">Tu ruta</a><a href="#alma">Método ALMA</a><a href="perfil/">Conoce a Leslie</a><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Inscríbete →</a></nav></header><main>
-<section class="hero" id="inicio"><svg class="scribble one" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M14 118C78 141 142 94 112 44S44 28 54 75 129 112 146 15" stroke="#a45f53" stroke-width="2.5" stroke-linecap="round"/></svg><svg class="scribble two" viewBox="0 0 160 160" fill="none" aria-hidden="true"><path d="M80 8Q100 56 148 80Q100 94 80 151Q61 95 10 80Q62 56 80 8Z" stroke="#b87969" stroke-width="2"/></svg><div class="wrap"><div class="hero-copy"><span class="eyebrow">Una invitación a descubrir tu valor</span><h1>Tu marca empieza <em>contigo.</em></h1><p class="lead">No necesitas convertirte en alguien más para destacar. Descubre cómo ordenar tu experiencia y comunicar lo que te hace única.</p><div class="actions"><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Quiero mi lugar gratis →</a><a class="btn ghost" href="perfil/">Conoce a Leslie →</a></div><p style="font-size:.81rem;color:#82584e">Webinar gratuito · Marca personal con propósito</p></div><div class="hero-picture"><img src="leslie-sin-fondo.webp" alt="Leslie Langenbach te invita a conocer su historia" fetchpriority="high"></div></div><div class="circle-caption">Tu historia<br>importa</div><span class="scroll-note">Desliza para descubrir ↓</span></section>
+<section class="hero hero-meeting" id="inicio"><div class="wrap hero-meeting-layout">
+<div class="hero-copy"><span class="eyebrow">Una invitación a descubrir tu valor</span><h1>Tu marca empieza <em>contigo.</em></h1><p class="lead">No necesitas convertirte en alguien más para destacar. Descubre cómo ordenar tu experiencia y comunicar lo que te hace única.</p></div>
+<div class="hero-picture hero-meeting-picture"><img src="reunion_sin_fondo.webp" alt="Leslie Langenbach compartiendo su experiencia en un encuentro con otras personas" fetchpriority="high" decoding="async"></div>
+<div class="hero-meeting-actions"><div class="actions"><a class="btn" href="https://chat.whatsapp.com/C8am17uqI44EfenC8ZvLlq?mode=gi_t" target="_blank" rel="noopener noreferrer">Quiero mi lugar gratis →</a><a class="btn ghost" href="perfil/">Conoce a Leslie →</a></div><p class="hero-meeting-note">Webinar gratuito · Marca personal con propósito</p></div>
+</div></section>
 <section class="statement" id="webinar"><div class="wrap"><span class="eyebrow" style="color:#dfb3a3">¿Te has sentido así?</span><blockquote>Mucho talento.<br>Muchas ideas.<br><em>¿Pero hacia dónde?</em></blockquote><p>Sabes que tienes algo valioso para compartir, pero cuesta ordenar tu mensaje, definir tu oferta y mostrarte sin perder tu esencia. Este encuentro es para ti.</p></div></section>
 <section class="flow webinar-map" id="mapa" aria-labelledby="flow-heading">
 <div class="wrap">
