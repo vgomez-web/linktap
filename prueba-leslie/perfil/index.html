@@ -22,12 +22,55 @@
 .milestone h3{color:#49322e}
 .milestone .date{font-weight:500}
 @media(max-width:600px){.ink-accent{font-weight:600}.story-body .standout{font-size:clamp(1.72rem,7.4vw,2.15rem);line-height:1.35}}
+
+/* Lectura narrativa con jerarquía visual, especialmente en móviles */
+.story-editorial{display:grid;gap:26px;align-content:center}
+.story-editorial .small-index{margin-bottom:1px}
+.story-moment{position:relative;padding:2px 0 3px}
+.moment-kicker{display:block;color:#925449;font-weight:700;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+.story-editorial .story-moment h3{font:500 clamp(2rem,3.3vw,3rem)/1.15 "Playfair Display",Georgia,serif;letter-spacing:-.04em;color:#382c29;margin:0 0 14px;text-wrap:balance}
+.story-editorial .story-moment h3 em{font-weight:400;color:var(--wine)}
+.story-editorial .story-moment p{font-size:clamp(1.05rem,1.4vw,1.15rem);line-height:1.72;margin:0;max-width:620px}
+.story-insight{padding:22px 24px;border-left:3px solid #9e6055;background:#ead8cc66;border-radius:0 15px 15px 0}
+.story-insight p{margin:0!important;font:400 clamp(1.28rem,2.4vw,1.8rem)/1.4 "Playfair Display",Georgia,serif!important;color:#69413a}
+.story-insight em{color:#853e37}
+.story-conclusion{background:#713c36;border-radius:16px;padding:26px 28px;color:#fff6ed}
+.story-conclusion .moment-kicker{color:#eec2b4}
+.story-conclusion p{font:400 clamp(1.35rem,2.7vw,1.85rem)/1.35 "Playfair Display",Georgia,serif!important;color:#fff5ed;margin:0 0 8px!important}
+.story-conclusion strong{display:block;font:italic 400 clamp(1.5rem,3vw,2.2rem)/1.3 "Playfair Display",Georgia,serif;color:#f1bfaf}
+@media(max-width:850px){
+ .story-editorial{gap:22px}
+ .story-grid{gap:30px}
+ .story-grid .photo-frame{min-height:380px}
+ .story-editorial .story-moment h3{font-size:clamp(2.15rem,8.4vw,3rem)}
+ .story-editorial .story-moment p{font-size:1.07rem;line-height:1.7}
+ .story-insight{padding:21px}
+ .story-conclusion{padding:23px}
+ .milestone p,.today-list p,.pillar p{font-size:clamp(.95rem,2.9vw,1.02rem);line-height:1.65}
+ .milestone h3{font-size:1.42rem}
+ .today-list{gap:25px}
+}
+@media(max-width:600px){
+ .story-grid .photo-frame{min-height:350px}
+ .story-editorial .story-moment h3{font-size:clamp(2.13rem,9vw,2.85rem)}
+ .story-editorial .story-moment p{font-size:1.075rem!important;line-height:1.7}
+ .story-editorial{gap:27px}
+ .story-insight p{font-size:1.48rem!important}
+ .story-conclusion strong{font-size:1.75rem}
+ .milestone{grid-template-columns:78px 1fr;gap:13px}
+}
 </style></head>
 <body>
 <header class="top"><div class="wrap top-inner"><a href="../" class="wordmark">Leslie Langenbach<span>.</span></a><nav class="top-actions" aria-label="Navegación"><a href="#historia">Mi historia</a><a href="#trayectoria">Trayectoria</a><a class="btn" href="#contacto">Hablemos ↗</a></nav></div></header>
 <main>
 <section class="hero" id="inicio"><div class="wrap hero-grid"><div class="hero-copy"><span class="eyebrow">Detrás de la marca · Conoce a Leslie</span><h1>Hola,<br>soy <em>Leslie.</em></h1><p class="hero-lead">Mentora de marca personal. Mi camino comenzó mucho antes de emprender: en la <strong class="ink-accent">educación</strong>, en el trabajo con personas y en una <strong class="ink-accent">decisión que cambió mi rumbo</strong>.</p><div class="hero-actions"><a class="btn" href="https://wa.me/56999526460" target="_blank" rel="noopener noreferrer">Conversemos por WhatsApp ↗</a><a class="btn outline" href="#historia">Descubre mi historia ↓</a></div><div class="quick-social"><a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/leslie_langenbach/">Instagram ↗</a><a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/lplillo">Facebook ↗</a><a href="tel:+56999526460">Llamar ↗</a></div></div><div class="hero-portrait"><img src="../leslie-sin-fondo.webp" alt="Leslie Langenbach, mentora de marca personal" fetchpriority="high"><span class="portrait-label">Tu historia<br>importa.</span></div></div></section>
-<section class="chapter" id="historia"><div class="wrap"><div class="chapter-head reveal"><span class="eyebrow">01 / La persona detrás del proyecto</span><h2>No siempre me dediqué a la <em>marca personal.</em></h2></div><div class="story-grid"><div class="photo-frame reveal"><img src="../leslie-cafe-sin-fondo.webp" alt="Leslie durante una pausa con café" loading="lazy"><span class="photo-tag">Una historia real.</span></div><div class="story-body reveal"><span class="small-index">EDUCACIÓN · EXPERIENCIA · CAMBIO</span><p>Mi camino profesional comenzó en la <strong class="ink-accent">educación</strong>. Me formé como profesora y durante <strong class="ink-accent">11 años</strong> desarrollé mi trayectoria en el <strong class="ink-accent">sector público</strong>, trabajando en gestión, capacitación y experiencias formativas para docentes y estudiantes.</p><p>Aprendí a coordinar proyectos, <strong class="ink-accent">acompañar procesos de aprendizaje</strong> y descubrir cuánto puede crecer una persona cuando encuentra orientación.</p><p class="standout">Hasta que llegó el momento de preguntarme qué quería construir yo.</p><p>Dejé atrás una etapa conocida y <strong class="ink-accent">decidí emprender</strong>. Mi primer negocio no logró las ventas que esperaba, pero esa experiencia me hizo mirar de otra forma todo lo que ya sabía y había vivido.</p><p>Comprendí que <strong class="ink-accent">reinventarse no significa empezar desde cero</strong>: significa reconocer el <strong class="ink-accent">valor de la propia historia</strong>.</p></div></div></div></section>
+<section class="chapter" id="historia"><div class="wrap"><div class="chapter-head reveal"><span class="eyebrow">01 / La persona detrás del proyecto</span><h2>No siempre me dediqué a la <em>marca personal.</em></h2></div><div class="story-grid"><div class="photo-frame reveal"><img src="../leslie-cafe-sin-fondo.webp" alt="Leslie durante una pausa con café" loading="lazy"><span class="photo-tag">Una historia real.</span></div><div class="story-body story-editorial reveal">
+<span class="small-index">EDUCACIÓN · EXPERIENCIA · CAMBIO</span>
+<div class="story-moment"><span class="moment-kicker">El comienzo</span><h3>Mi historia comenzó <em>enseñando.</em></h3><p>Me formé como profesora. Durante <strong class="ink-accent">11 años</strong> trabajé en el sector público, vinculada a la gestión, capacitación y formación de docentes y estudiantes.</p></div>
+<div class="story-insight"><span class="insight-line"></span><p>Aprendí que acompañar a las personas también significa <em>ayudarlas a descubrir su propio potencial.</em></p></div>
+<div class="story-moment"><span class="moment-kicker">El punto de inflexión</span><h3>Un día decidí <em>empezar de nuevo.</em></h3><p>Dejé una etapa conocida para emprender. Mi primer negocio no consiguió las ventas que esperaba, pero me hizo mirar mi experiencia desde otra perspectiva.</p></div>
+<div class="story-conclusion"><span class="moment-kicker">Lo que descubrí</span><p>Reinventarme no era empezar de cero.</p><strong>Era reconocer el valor de mi historia.</strong></div>
+</div></div></div></section>
 <section class="interlude"><div class="wrap reveal"><span class="eyebrow" style="color:#ecc0b0">El punto de inflexión</span><blockquote>Reinventarme no fue borrar el pasado.<br><em>Fue aprender a darle dirección.</em></blockquote><p>La experiencia, incluso cuando cambia el camino, puede convertirse en el punto de partida de una nueva identidad profesional.</p></div></section>
 <section class="chapter timeline-section" id="trayectoria"><div class="wrap"><div class="timeline-top reveal"><div><span class="eyebrow">02 / Trayectoria y formación</span><h2>El camino que me trajo hasta aquí.</h2></div><p><strong class="ink-accent">Educación, gestión pública, aprendizaje y especialización</strong>: distintas etapas que hoy se encuentran en una misma forma de acompañar a otros.</p></div><div class="timeline">
 <div class="milestone reveal"><span class="date">2005–10</span><div><h3>Mi formación en educación</h3><p>Pedagogía en Educación Media, mención Educación Física, en la Universidad de Los Lagos.</p></div></div>
