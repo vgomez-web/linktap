@@ -42,6 +42,13 @@
 }
 @media(max-width:380px){.portrait-shell{width:100%;margin-top:47px}.portrait-screen{min-height:560px}.portrait-person{top:-55px;width:107%}.portrait-content{bottom:13px}.portrait-actions{gap:7px;margin-top:14px}.portrait-actions a{min-height:53px;font-size:10px}.portrait-stats{margin-top:15px}.portrait-stats strong{font-size:25px}.portrait-role{font-size:8px}.hero-links{grid-template-columns:1fr}.reel-card{width:100%}.reel-embed{min-height:475px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
+
+/* La navegación Liquid Glass se revela después de abandonar la portada. */
+@media(max-width:760px){
+ .mobile-dock{opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,calc(100% + 40px));transition:opacity .3s ease,transform .38s cubic-bezier(.2,.8,.2,1),visibility .3s ease}
+ .mobile-dock.is-visible{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+}
+@media(max-width:760px) and (prefers-reduced-motion:reduce){.mobile-dock{transition:none!important}}
 </style>
 </head>
 <body>
@@ -118,6 +125,30 @@ draw();play();
 const dockLinks=[...document.querySelectorAll('.mobile-dock a')];const observed=['inicio','entrevistas','marcas','contacto'];
 if('IntersectionObserver' in window){const navObserver=new IntersectionObserver((entries)=>{const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio)[0];if(!visible)return;for(const a of dockLinks){if(a.hash==='#'+visible.target.id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')}},{rootMargin:'-24% 0px -55% 0px'});observed.forEach(id=>{const el=document.getElementById(id);if(el)navObserver.observe(el)});}
 dockLinks.forEach(a=>a.addEventListener('click',()=>{dockLinks.forEach(l=>l.removeAttribute('aria-current'));a.setAttribute('aria-current','page')}));
+})();
+</script>
+
+<script>
+/* No tapar la foto ni los botones de la portada en iPhone. */
+(()=>{
+ const dock=document.querySelector('.mobile-dock');
+ const hero=document.querySelector('#inicio');
+ if(!dock||!hero)return;
+ let queued=false;
+ function update(){
+  queued=false;
+  const pastHero=hero.getBoundingClientRect().bottom<=window.innerHeight*.55;
+  const visible=window.matchMedia('(max-width:760px)').matches&&pastHero;
+  dock.classList.toggle('is-visible',visible);
+  dock.setAttribute('aria-hidden',visible?'false':'true');
+  if('inert' in dock)dock.inert=!visible;
+  else dock.querySelectorAll('a').forEach(a=>{if(visible)a.removeAttribute('tabindex');else a.setAttribute('tabindex','-1')});
+ }
+ function schedule(){if(!queued){queued=true;requestAnimationFrame(update)}}
+ window.addEventListener('scroll',schedule,{passive:true});
+ window.addEventListener('resize',schedule,{passive:true});
+ window.addEventListener('pageshow',schedule);
+ update();
 })();
 </script>
 </body>
