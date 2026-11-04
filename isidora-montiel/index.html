@@ -65,6 +65,24 @@
   background:radial-gradient(ellipse at 52% 43%,rgba(247,218,224,.14) 0%,rgba(184,96,118,.075) 38%,transparent 74%);
   filter:blur(19px);
 }
+/* Refuerzo suave de luz en brazos y manos; permanece estático. */
+.portrait-screen::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  border-radius:inherit;
+  background:
+    radial-gradient(ellipse 24% 31% at 15% 68%,rgba(255,222,219,.23),transparent 78%),
+    radial-gradient(ellipse 25% 29% at 85% 68%,rgba(255,220,215,.22),transparent 78%),
+    radial-gradient(ellipse 20% 16% at 83% 81%,rgba(255,229,216,.19),transparent 82%),
+    radial-gradient(ellipse 17% 17% at 16% 85%,rgba(255,227,219,.17),transparent 82%);
+  mix-blend-mode:screen;
+  opacity:.86;
+  -webkit-mask-image:linear-gradient(to bottom,transparent 26%,black 51%,black 91%,transparent 100%);
+  mask-image:linear-gradient(to bottom,transparent 26%,black 51%,black 91%,transparent 100%);
+}
 /* Ajuste de espacio móvil, sin efectos visuales adicionales. */
 @media(max-width:760px){
  .mobile-dock{bottom:calc(24px + env(safe-area-inset-bottom,0px))}
