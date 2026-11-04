@@ -50,6 +50,21 @@
 }
 @media(max-width:760px) and (prefers-reduced-motion:reduce){.mobile-dock{transition:none!important}}
 
+/* Luz ambiental sutil detrás de Isidora: fija, sin destellos ni animación. */
+.portrait-screen{isolation:isolate}
+.portrait-screen::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  pointer-events:none;
+  top:2%;
+  left:8%;
+  right:8%;
+  height:62%;
+  border-radius:50%;
+  background:radial-gradient(ellipse at 52% 43%,rgba(247,218,224,.14) 0%,rgba(184,96,118,.075) 38%,transparent 74%);
+  filter:blur(19px);
+}
 /* Ajuste de espacio móvil, sin efectos visuales adicionales. */
 @media(max-width:760px){
  .mobile-dock{bottom:calc(24px + env(safe-area-inset-bottom,0px))}
