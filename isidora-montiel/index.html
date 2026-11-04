@@ -151,6 +151,26 @@
  .highlight{padding:24px}
 }
 @media(prefers-reduced-motion:reduce){.highlight,.bento-card{scroll-behavior:auto}}
+
+/* Acciones compactas y claras bajo la portada: WhatsApp abre chat, no llamada. */
+.hero-actions-refined{align-items:stretch;gap:11px}
+.hero-actions-refined .button{border-radius:20px;min-height:56px;padding:13px 17px;line-height:1.25;text-align:center}
+.hero-actions-refined .button-red{box-shadow:0 10px 25px rgba(181,13,57,.13)}
+.hero-actions-refined .button-pale{border:1px solid #e8dce0;background:#fff}
+.hero-action-icon{width:19px;height:19px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.hero-quicklinks{display:flex;flex-wrap:wrap;align-items:center;gap:9px;margin-top:13px}
+.hero-quicklinks a{display:inline-flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;color:#57434d;font-weight:750;font-size:12px;min-height:43px;padding:10px 14px;border:1px solid #eee1e6;border-radius:999px;background:linear-gradient(135deg,#fff,#fff7f9);transition:background .2s,border-color .2s}
+.hero-quicklinks a:hover{border-color:#dba9b8;background:#fff0f4}
+.hero-quicklinks a span:first-child{font-size:17px;color:#bf1642;font-weight:800;line-height:1}
+@media(max-width:760px){
+ .hero-actions-refined{grid-template-columns:1fr 1fr;gap:9px}
+ .hero-actions-refined .button{font-size:clamp(11px,2.75vw,13px);padding:12px 9px;min-height:57px}
+ .hero-action-icon{width:17px;height:17px}
+ .hero-quicklinks{gap:8px;margin-top:15px}
+ .hero-quicklinks a{flex:1;white-space:nowrap;font-size:11px;padding:10px 8px}
+}
+@media(max-width:355px){.hero-actions-refined{grid-template-columns:1fr}.hero-quicklinks{flex-direction:column;align-items:stretch}}
+@media(prefers-reduced-motion:reduce){.hero-quicklinks a{transition:none}}
 </style>
 </head>
 <body>
@@ -177,7 +197,16 @@
    <div class="portrait-stats"><div><strong>50,7K</strong><span>Seguidores*</span></div><div><strong>18</strong><span>Publicaciones*</span></div></div>
   </div>
  </div></div></div>
- <div class="hero-copy"><div class="eyebrow"><span class="dot"></span>Creadora de contenido & Community Manager</div><h2>Isidora <em>Montiel.</em></h2><p><strong>Contenido que conecta. Marcas que destacan.</strong>Creo reels, entrevistas y estrategias digitales que acercan las marcas a las personas.</p><div class="hero-links"><a class="button button-red" href="https://wa.me/56920747599?text=Hola%20Isidora%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20cotizar%20contenido%20para%20mi%20marca." target="_blank" rel="noopener noreferrer">✦ Trabajemos juntos</a><a class="button button-pale" href="#entrevistas">Ver mi trabajo ↗</a></div><div class="hero-contact"><span>WhatsApp: <a href="tel:+56920747599">+56 9 2074 7599</a></span><a href="isidora-montiel.vcf" download="Isidora-Montiel.vcf">＋ Guardar contacto</a></div></div>
+ <div class="hero-copy"><div class="eyebrow"><span class="dot"></span>Creadora de contenido & Community Manager</div><h2>Isidora <em>Montiel.</em></h2><p><strong>Contenido que conecta. Marcas que destacan.</strong>Creo reels, entrevistas y estrategias digitales que acercan las marcas a las personas.</p><div class="hero-links hero-actions-refined">
+  <a class="button button-red" href="https://wa.me/56920747599?text=Hola%20Isi%2C%20mi%20nombre%20es%20" target="_blank" rel="noopener noreferrer" aria-label="Abrir chat de WhatsApp con Isidora">
+    <svg class="hero-action-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 11.6a8.2 8.2 0 0 1-12 7.2L4 20l1.3-4.1a8.2 8.2 0 1 1 14.9-4.3Z"/><path d="M9 9c.7 2.3 2.1 3.7 4.4 4.5l1.5-1 2 1.1c-.4 2-2.7 2.7-5.7 1.1-2.1-1.1-3.7-2.8-4.5-5.1-.6-1.5-.1-3 1.5-3.4l1.1 2Z"/></svg>
+    <span>Hablemos por WhatsApp</span>
+  </a>
+  <a class="button button-pale" href="#destacados"><span>Ver mis trabajos</span><span aria-hidden="true">↗</span></a>
+</div>
+<div class="hero-contact hero-quicklinks" aria-label="Accesos rápidos">
+  <a href="https://www.instagram.com/isidora_bsm/" target="_blank" rel="noopener noreferrer"><span aria-hidden="true">◎</span> Instagram <span aria-hidden="true">↗</span></a>
+  <a href="isidora-montiel.vcf" download="Isidora-Montiel.vcf"><span aria-hidden="true">＋</span> Guardar contacto</a></div></div>
 </div></section>
 <section class="section section-soft" id="sobre-mi"><div class="container about-panel"><div><div class="section-tag">Creatividad con estrategia</div><h2 class="section-title">Contenido que <em>conecta.</em></h2><p class="section-lead">Soy Ingeniera de Ejecución en Administración, creadora de contenido y Community Manager. Combino mi formación profesional con la creatividad para desarrollar estrategias digitales, conectar marcas con sus audiencias y generar resultados. Creo reels, entrevistas, dinámicas, cobertura de eventos y colaboraciones con marcas.</p><div class="specialty-pills" aria-label="Áreas de trabajo"><span>Reels y entrevistas</span><span>Estrategia digital</span><span>Cobertura de eventos</span><span>Colaboraciones</span></div></div></div></section>
 <section class="section" id="servicios"><div class="container"><div class="section-tag">Lo que hago</div><h2 class="section-title">Mis <em>servicios.</em></h2><p class="section-lead">Contenido pensado para que tu marca se vea, conecte y genere oportunidades.</p><div class="bento">
@@ -203,7 +232,7 @@
  <article class="reel-card"><div class="reel-header"><div><span>REEL DE INSTAGRAM</span><h3>SINAKA</h3></div><a href="https://www.instagram.com/reel/DUhgbB3AI6W/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div><div class="reel-embed"><iframe title="Entrevista a Sinaka en Instagram" loading="lazy" src="https://www.instagram.com/reel/DUhgbB3AI6W/embed/" allowfullscreen allow="encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin"></iframe></div></article>
 </div>
 </div></section>
-<section class="section" id="contacto"><div class="container"><div class="contact-panel"><div class="eyebrow" style="color:#ffc4d1">Hablemos de tu proyecto</div><h2>¿Creamos algo <span style="color:#ff5277">juntos?</span></h2><p>Conversemos sobre tu marca, evento o próxima colaboración. Cuéntame tu idea y te ayudo a convertirla en contenido.</p><div class="contact-actions"><a class="button button-red" href="https://wa.me/56920747599?text=Hola%20Isidora%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20cotizar%20contenido%20para%20mi%20marca." target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp ↗</a><a class="button button-pale" href="mailto:isidora.bsm22@gmail.com?subject=Propuesta%20de%20colaboraci%C3%B3n">Enviar propuesta por correo ↗</a><a class="button button-pale" href="isidora-montiel.vcf" download="Isidora-Montiel.vcf">＋ Guardar contacto</a></div><p class="contact-meta"><a href="tel:+56920747599">+56 9 2074 7599</a> · <a href="https://www.instagram.com/isidora_bsm/" target="_blank" rel="noopener noreferrer">@isidora_bsm</a></p></div></div></section>
+<section class="section" id="contacto"><div class="container"><div class="contact-panel"><div class="eyebrow" style="color:#ffc4d1">Hablemos de tu proyecto</div><h2>¿Creamos algo <span style="color:#ff5277">juntos?</span></h2><p>Conversemos sobre tu marca, evento o próxima colaboración. Cuéntame tu idea y te ayudo a convertirla en contenido.</p><div class="contact-actions"><a class="button button-red" href="https://wa.me/56920747599?text=Hola%20Isidora%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20cotizar%20contenido%20para%20mi%20marca." target="_blank" rel="noopener noreferrer">Cotizar por WhatsApp ↗</a><a class="button button-pale" href="mailto:isidora.bsm22@gmail.com?subject=Propuesta%20de%20colaboraci%C3%B3n">Enviar propuesta por correo ↗</a><a class="button button-pale" href="isidora-montiel.vcf" download="Isidora-Montiel.vcf">＋ Guardar contacto</a></div><p class="contact-meta"><a href="https://wa.me/56920747599?text=Hola%20Isi%2C%20mi%20nombre%20es%20" target="_blank" rel="noopener noreferrer">+56 9 2074 7599</a> · <a href="https://www.instagram.com/isidora_bsm/" target="_blank" rel="noopener noreferrer">@isidora_bsm</a></p></div></div></section>
 </main><footer class="footer">Perfil digital LinkTap · *Seguidores y publicaciones según información proporcionada; no se actualizan automáticamente.</footer>
 <script>
 (()=>{
