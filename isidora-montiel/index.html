@@ -88,6 +88,43 @@
  .mobile-dock{bottom:calc(24px + env(safe-area-inset-bottom,0px))}
  .hero{padding-bottom:calc(106px + env(safe-area-inset-bottom,0px))}
 }
+
+.bento-card{display:flex;flex-direction:column;align-items:flex-start}
+.service-link{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:20px;font-size:13px;font-weight:850;color:#bb123f;text-decoration:none}
+.bento-three .service-link{color:#ffb3c6}
+.service-link span{font-size:17px;transition:transform .2s}
+.service-link:hover span{transform:translate(2px,-2px)}
+/* La selección del dock conserva las rutas que ya funcionan. */
+/* Refinamiento iOS/Android: navegación flotante, servicios y trabajo. */
+@media(max-width:760px){
+ .mobile-dock{width:min(calc(100% - 34px),396px);padding:6px;gap:2px;border-radius:26px;background:rgba(247,242,246,.84);border:1px solid rgba(255,255,255,.8);box-shadow:0 12px 36px rgba(23,12,20,.17),0 1px 0 rgba(255,255,255,.7) inset;backdrop-filter:blur(23px) saturate(1.5);-webkit-backdrop-filter:blur(23px) saturate(1.5)}
+ .mobile-dock a{position:relative;z-index:1;min-height:53px;gap:3px;border-radius:20px;transition:color .22s ease,transform .22s ease}
+ .mobile-dock a svg{transition:transform .22s ease}
+ .mobile-dock a:active svg{transform:scale(.89)}
+ .mobile-dock a[aria-current="page"]{background:rgba(255,255,255,.92);box-shadow:0 3px 14px rgba(77,17,43,.1);color:var(--red)}
+ .mobile-dock a:focus-visible{outline-offset:-3px}
+ .bento{gap:13px}
+ .bento-card{padding:25px 23px;border-radius:25px;box-shadow:0 10px 30px rgba(34,13,25,.045)}
+ .bento-card h3{font-size:clamp(23px,6.3vw,29px);margin:18px 0 8px}
+ .bento-card p{font-size:14px;line-height:1.55}
+ .reel-card{padding:8px;border-radius:23px;box-shadow:0 12px 30px rgba(24,11,20,.11)}
+ .reel-header{padding:13px 12px;gap:10px}
+ .reel-header h3{font-size:24px;margin-top:4px}
+ .reel-header span{font-size:9px;letter-spacing:.11em}
+ .reel-header a{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);padding:9px 11px;border-radius:999px;text-decoration:none}
+ .reel-embed{border-radius:16px}
+ .brand-stack{height:250px}
+ .brand-layer{inset:0 13%}
+ .brand-layer img{height:215px;filter:drop-shadow(0 9px 12px rgba(33,12,25,.095))}
+ .brand-hint{margin-top:10px}
+}
+@media(min-width:761px){
+ .bento-card{transition:transform .24s ease,box-shadow .24s ease}
+ .bento-card:hover{transform:translateY(-3px);box-shadow:0 17px 38px rgba(32,13,25,.09)}
+}
+@media(prefers-reduced-motion:reduce){
+ .mobile-dock a,.mobile-dock a svg,.bento-card{transition:none!important}
+}
 </style>
 </head>
 <body>
@@ -118,9 +155,9 @@
 </div></section>
 <section class="section section-soft" id="sobre-mi"><div class="container about-panel"><div><div class="section-tag">Creatividad con estrategia</div><h2 class="section-title">Contenido que <em>conecta.</em></h2><p class="section-lead">Soy Ingeniera de Ejecución en Administración, creadora de contenido y Community Manager. Combino mi formación profesional con la creatividad para desarrollar estrategias digitales, conectar marcas con sus audiencias y generar resultados. Creo reels, entrevistas, dinámicas, cobertura de eventos y colaboraciones con marcas.</p></div></div></section>
 <section class="section" id="servicios"><div class="container"><div class="section-tag">Lo que hago</div><h2 class="section-title">Mis <em>servicios.</em></h2><p class="section-lead">Contenido pensado para que tu marca se vea, conecte y genere oportunidades.</p><div class="bento">
- <article class="bento-card bento-one"><span class="bento-label">01 / Contenido</span><div class="bento-icon" aria-hidden="true">▶</div><h3>Creación de contenido</h3><p>Reels, entrevistas, dinámicas, cobertura de eventos y colaboraciones con marcas.</p></article>
- <article class="bento-card bento-two"><span class="bento-label">02 / Estrategia</span><div class="bento-icon" aria-hidden="true">↗</div><h3>Community Management</h3><p>Gestión de redes sociales, planificación de contenido y creación de estrategias digitales.</p></article>
- <article class="bento-card bento-three"><span class="bento-label">03 / Marcas</span><div class="bento-icon" aria-hidden="true">✦</div><h3>Publicidad y colaboraciones</h3><p>Promoción de marcas, productos y servicios con contenido creativo y cercano a mi audiencia.</p></article>
+ <article class="bento-card bento-one"><span class="bento-label">01 / Contenido</span><div class="bento-icon" aria-hidden="true">▶</div><h3>Creación de contenido</h3><p>Reels, entrevistas, dinámicas, cobertura de eventos y colaboraciones con marcas.</p><a class="service-link" href="https://wa.me/56920747599?text=Hola%20Isidora%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20cotizar%20creaci%C3%B3n%20de%20contenido" target="_blank" rel="noopener noreferrer">Consultar este servicio <span aria-hidden="true">↗</span></a></article>
+ <article class="bento-card bento-two"><span class="bento-label">02 / Estrategia</span><div class="bento-icon" aria-hidden="true">↗</div><h3>Community Management</h3><p>Gestión de redes sociales, planificación de contenido y creación de estrategias digitales.</p><a class="service-link" href="https://wa.me/56920747599?text=Hola%20Isidora%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20cotizar%20community%20management" target="_blank" rel="noopener noreferrer">Consultar este servicio <span aria-hidden="true">↗</span></a></article>
+ <article class="bento-card bento-three"><span class="bento-label">03 / Marcas</span><div class="bento-icon" aria-hidden="true">✦</div><h3>Publicidad y colaboraciones</h3><p>Promoción de marcas, productos y servicios con contenido creativo y cercano a mi audiencia.</p><a class="service-link" href="https://wa.me/56920747599?text=Hola%20Isidora%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20cotizar%20publicidad%20y%20colaboraciones" target="_blank" rel="noopener noreferrer">Consultar este servicio <span aria-hidden="true">↗</span></a></article>
 </div></div></section>
 <section class="section" id="marcas"><div class="container"><div class="section-tag">Colaboraciones</div><h2 class="section-title">Marcas con las que <em>he trabajado.</em></h2><p class="section-lead">Una selección de marcas con las que he colaborado.</p><div class="brand-area"><div class="brand-stack" tabindex="0" id="brand-stack" role="group" aria-roledescription="carrusel" aria-label="Logos de marcas colaboradoras, desliza para avanzar"><div class="brand-layer" data-index="0" data-depth="hidden" role="group" aria-roledescription="diapositiva" aria-label="1 de 7: Envida Wellness Fitness"><img alt="Logo de Envida Wellness Fitness" src="envida-wellness-fitness.webp" loading="lazy" decoding="async"/><span class="brand-fallback">Envida Wellness Fitness</span></div>
 <div class="brand-layer" data-index="1" data-depth="hidden" role="group" aria-roledescription="diapositiva" aria-label="2 de 7: Esquina del Lago"><img alt="Logo de Esquina del Lago" src="esquina-del-lago.webp" loading="lazy" decoding="async"/><span class="brand-fallback">Esquina del Lago</span></div>
