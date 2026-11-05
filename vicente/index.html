@@ -717,6 +717,29 @@ body {font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-s
 @media(max-width:390px){.hero-title {font-size:9vw!important;}.hero-actions .btn {font-size:10.5px!important;}}
 @media(prefers-reduced-motion:reduce){.mini-nfc,.mini-browser {animation:none!important;}}
 </style>
+<style id="vicente-collaborations-v3">
+#colaboraciones{scroll-margin-top:24px}
+.vc-project-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.vc-project{display:flex;flex-direction:column;min-width:0;overflow:hidden;border:1px solid #e5e9ef;border-radius:22px;background:#fff;transition:transform .2s,border-color .2s,box-shadow .2s}
+.vc-project:hover{transform:translateY(-3px);border-color:#bfd3f4;box-shadow:0 12px 30px #182d5010}
+.vc-project:focus-visible,.vc-project-more summary:focus-visible{outline:3px solid #2879ff;outline-offset:4px}
+.vc-project-logo{height:118px;padding:22px;display:flex;align-items:center;justify-content:center;background:linear-gradient(150deg,#f9fafc,#f0f3f8);text-align:center}
+.vc-project-logo img{display:block;max-width:100%;max-height:74px;width:auto;height:auto;object-fit:contain}
+.vc-project-logo strong{font-family:'Space Grotesk',sans-serif;font-size:22px;letter-spacing:-.04em}
+.vc-project-info{padding:19px;display:flex;flex-direction:column;flex:1}
+.vc-project-info h3{font-size:16px;letter-spacing:-.025em;margin:0;color:#171a20}
+.vc-project-info p{font-size:12px;line-height:1.6;color:#687381;margin:7px 0 16px}
+.vc-project-info>span{display:flex;justify-content:space-between;margin-top:auto;font-size:12px;font-weight:650;color:#2879ff}
+.vc-project-more{margin-top:20px}
+.vc-project-more summary{display:inline-flex;align-items:center;gap:14px;min-height:44px;padding:10px 17px;border:1px solid #dce3ec;border-radius:999px;cursor:pointer;font-size:12px;font-weight:600;list-style:none}
+.vc-project-more summary::-webkit-details-marker{display:none}
+.vc-project-more summary:after{content:'+';color:#2879ff}
+.vc-project-more[open] summary:after{content:'−'}
+.vc-project-more .vc-project-grid{margin-top:16px}
+@media(max-width:850px){.vc-project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.vc-project-grid{gap:10px}.vc-project{border-radius:16px}.vc-project-logo{height:92px;padding:15px}.vc-project-logo img{max-height:60px}.vc-project-info{padding:14px}.vc-project-info h3{font-size:14px}.vc-project-info p{font-size:12px}.vc-project-logo strong{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.vc-project{transition:none}.vc-project:hover{transform:none}}
+</style>
 </head>
 
 <body>
@@ -817,44 +840,15 @@ body {font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-s
 
 
 
-<section class="section collaborators" id="colaboraciones">
-
-<div class="wrap">
-
-  <div class="eyebrow">06 / EXPERIENCIA</div>
-
-  <div class="collab-heading"><h2 class="section-title reveal">Marcas y colaboraciones</h2>
-
-  <p>Una selección de marcas con las que he trabajado.</p></div>
-
-  <div class="brand-marquee" aria-label="Marcas con las que he trabajado">
-
-    <div class="brand-marquee-track">
-
-      <div class="brand-marquee-set">
-
-        <a class="brand-logo brand-logo-link" href="https://linktap.cl/cosmederm" target="_blank" rel="noopener noreferrer" aria-label="Visitar página de Clínica Cosmederm"><img src="cosmedermlogo.png" alt="Clínica Cosmederm" loading="lazy"></a>
-
-        <a class="brand-logo brand-logo-link" href="https://veterinariaaustral.cl/" target="_blank" rel="noopener noreferrer" aria-label="Visitar página de Clínica Veterinaria Austral"><img src="veterinariaaustral.png" alt="Clínica Veterinaria Austral" loading="lazy"></a>
-
-        <a class="brand-logo brand-logo-link" href="https://linktap.cl/monteverde/" target="_blank" rel="noopener noreferrer" aria-label="Visitar página de Clínica Dental Monteverde"><img src="monteverdelogo.png" alt="Clínica Dental Monteverde" loading="lazy"></a>
-
-      </div>
-
-      <div class="brand-marquee-set" aria-hidden="true">
-
-        <a class="brand-logo brand-logo-link" href="https://linktap.cl/cosmederm" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="cosmedermlogo.png" alt="" loading="lazy"></a>
-
-        <a class="brand-logo brand-logo-link" href="https://veterinariaaustral.cl/" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="veterinariaaustral.png" alt="" loading="lazy"></a>
-
-        <a class="brand-logo brand-logo-link" href="https://linktap.cl/monteverde/" target="_blank" rel="noopener noreferrer" tabindex="-1"><img src="monteverdelogo.png" alt="" loading="lazy"></a>
-
-      </div>
-
-    </div>
-
-  </div>
-
+<section class="section collaborators" id="colaboraciones" aria-labelledby="vc-collab-title"><div class="wrap">
+<div class="eyebrow">06 / EXPERIENCIA</div>
+<div class="collab-heading"><h2 class="section-title" id="vc-collab-title">Marcas y colaboraciones</h2><p>Proyectos de diseño web y perfiles digitales. Explora el trabajo detrás de cada marca.</p></div>
+<div class="vc-project-grid"><a class="vc-project" href="/cosmederm/" target="_blank" rel="noopener noreferrer"><div class="vc-project-logo"><img src="cosmedermlogo.png" alt="Clínica Cosmederm" loading="lazy" decoding="async"></div><div class="vc-project-info"><h3>Clínica Cosmederm</h3><p>Presencia digital</p><span>Ver proyecto <span aria-hidden="true">↗</span></span></div></a>
+<a class="vc-project" href="https://veterinariaaustral.cl/" target="_blank" rel="noopener noreferrer"><div class="vc-project-logo"><img src="veterinariaaustral.png" alt="Veterinaria Austral" loading="lazy" decoding="async"></div><div class="vc-project-info"><h3>Veterinaria Austral</h3><p>Diseño web</p><span>Ver proyecto <span aria-hidden="true">↗</span></span></div></a>
+<a class="vc-project" href="/monteverde/" target="_blank" rel="noopener noreferrer"><div class="vc-project-logo"><img src="monteverdelogo.png" alt="Clínica Monteverde" loading="lazy" decoding="async"></div><div class="vc-project-info"><h3>Clínica Monteverde</h3><p>Recepción y perfiles comerciales</p><span>Ver proyecto <span aria-hidden="true">↗</span></span></div></a>
+<a class="vc-project" href="/comexport/" target="_blank" rel="noopener noreferrer"><div class="vc-project-logo"><img src="/comexport/comexport.logo.png" alt="Comexport" loading="lazy" decoding="async"></div><div class="vc-project-info"><h3>Comexport</h3><p>Presentación y contacto profesional</p><span>Ver proyecto <span aria-hidden="true">↗</span></span></div></a>
+<a class="vc-project" href="/patagoniaexplorer/" target="_blank" rel="noopener noreferrer"><div class="vc-project-logo"><img src="/patagoniaexplorer/patagonia_explorer_logo.webp" alt="Patagonia Explorer" loading="lazy" decoding="async"></div><div class="vc-project-info"><h3>Patagonia Explorer</h3><p>Perfil de empresa y sucursales</p><span>Ver proyecto <span aria-hidden="true">↗</span></span></div></a></div>
+<details class="vc-project-more"><summary>Ver más colaboraciones</summary><div class="vc-project-grid"><a class="vc-project" href="/isidora-montiel/" target="_blank" rel="noopener noreferrer"><div class="vc-project-logo"><strong>Isidora Montiel</strong></div><div class="vc-project-info"><h3>Isidora Montiel</h3><p>Portafolio y perfil profesional</p><span>Ver proyecto <span aria-hidden="true">↗</span></span></div></a><a class="vc-project" href="/prueba-leslie/perfil/" target="_blank" rel="noopener noreferrer"><div class="vc-project-logo"><strong>Leslie Langenbach</strong></div><div class="vc-project-info"><h3>Leslie Langenbach</h3><p>Perfil de marca personal · En desarrollo</p><span>Ver proyecto <span aria-hidden="true">↗</span></span></div></a></div></details>
 </div></section>
 
 
