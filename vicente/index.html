@@ -776,6 +776,17 @@ body {font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-s
 .vc-project-isidora:hover{border-color:#b92331}
 .vc-project-leslie:hover{border-color:#bda084}
 .vc-project-more .vc-project-info p{line-height:1.65}
+</style><style id="vicente-product-grid-fix">
+#tarjeta-nfc .card-showcase-grid{width:100%;margin-inline:auto}
+#tarjeta-nfc .card-showcase-grid>div{min-width:0}
+@media(min-width:851px){
+#tarjeta-nfc .card-showcase-grid>div:first-child{grid-column:1;grid-row:1;align-self:center}
+#tarjeta-nfc .card-showcase-grid>div:last-child{grid-column:2;grid-row:1}
+}
+@media(max-width:850px){
+#tarjeta-nfc .card-showcase-grid{grid-template-columns:minmax(0,1fr);gap:25px}
+#tarjeta-nfc .card-showcase-grid>div{grid-column:1;grid-row:auto}
+}
 </style></head>
 
 <body>
@@ -830,35 +841,35 @@ body {font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-s
 
 <section class="section card-showcase" id="tarjeta-nfc" aria-label="Tarjeta NFC LinkTap">
 
- <div class="wrap card-showcase-grid">
+ <div class="wrap card-showcase-grid">
 
-  <div class="reveal">
+  <div class="reveal">
 
-   <div class="eyebrow">04 / PRODUCTO DESTACADO</div>
+   <div class="eyebrow">04 / PRODUCTO DESTACADO</div>
 
-   <h2>LinkTap <span>NFC</span></h2>
+   <h2>LinkTap <span>NFC</span></h2>
 
-   <p>Una forma simple y profesional de compartir tus datos, redes sociales y perfil digital. Acerca tu LinkTap y conecta.</p>
+   <p>Una forma simple y profesional de compartir tus datos, redes sociales y perfil digital. Acerca tu LinkTap y conecta.</p>
 
-   <a class="product-action" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Descubre LinkTap <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+   <a class="product-action" href="https://linktap.cl" target="_blank" rel="noopener noreferrer">Descubre LinkTap <span class="arrow-wrap"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M8 5h11v11" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 
-  </div>
+  </div>
 
-  <div class="reveal">
+  <div class="reveal">
 
-   <div class="card-scene">
+   <div class="card-scene">
 
-    <div class="card-orbit" aria-hidden="true"></div><div class="card-orbit two" aria-hidden="true"></div>
+    <div class="card-orbit" aria-hidden="true"></div><div class="card-orbit two" aria-hidden="true"></div>
 
-    <div class="nfc-card"><img src="linktapfrente.png" alt="Diseño frontal real de tarjeta NFC LinkTap, presentada con bordes redondeados y proporciones de tarjeta bancaria" loading="lazy" width="2048" height="1291"></div>
+    <div class="nfc-card"><img src="linktapfrente.png" alt="Diseño frontal real de tarjeta NFC LinkTap, presentada con bordes redondeados y proporciones de tarjeta bancaria" loading="lazy" width="2048" height="1291"></div>
 
-   </div>
+   </div>
 
-   <div class="card-measure">FORMATO FÍSICO · 85,60 × 53,98 MM · NFC</div>
+   <div class="card-measure">FORMATO FÍSICO · 85,60 × 53,98 MM · NFC</div>
 
-  </div>
+  </div>
 
- </div>
+ </div>
 
 </section>
 
