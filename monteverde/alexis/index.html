@@ -785,5 +785,40 @@
       });
   </script>
 
+
+  <!-- LinkTap Business: piloto de analítica sin cambios visuales -->
+  <script>
+  (() => {
+    const API = 'https://linktap-business-api.v-gomezsitja.workers.dev/api/business/events';
+    const SLUG = 'monteverde-alexis';
+    const EVENT_MAP = { 'guardar-contacto': 'save_contact' };
+    function send(kind) {
+      if (!window.crypto?.randomUUID) return;
+      const data = JSON.stringify({ id: crypto.randomUUID(), slug: SLUG, kind });
+      try {
+        if (navigator.sendBeacon && navigator.sendBeacon(API, new Blob([data], {type:'text/plain'}))) return;
+      } catch (_) {}
+      fetch(API, {method:'POST',mode:'cors',keepalive:true,headers:{'Content-Type':'text/plain'},body:data}).catch(() => {});
+    }
+    // Una apertura como máximo por pestaña cada 30 segundos; no equivale a usuario único.
+    const key = 'lt_last_view_' + SLUG;
+    let last = 0;
+    try { last = Number(sessionStorage.getItem(key) || 0); } catch (_) {}
+    if (Date.now() - last > 30000) {
+      send('view');
+      try {sessionStorage.setItem(key, String(Date.now()));} catch (_) {}
+    }
+    document.addEventListener('click', (event) => {
+      const anchor = event.target.closest('a[href]');
+      if (!anchor) return;
+      if (EVENT_MAP[anchor.id]) return send(EVENT_MAP[anchor.id]);
+      const href = anchor.getAttribute('href') || '';
+      if (/^tel:/i.test(href)) return send('call');
+      if (/^mailto:/i.test(href)) return send('email');
+      if (/^https?:\/\/(?:api\.)?wa\.me\//i.test(href) || /^(?:https?:\/\/)?api\.whatsapp\.com\//i.test(href)) return send('whatsapp');
+    }, {capture:true});
+  })();
+  </script>
+
 </body>
 </html>
