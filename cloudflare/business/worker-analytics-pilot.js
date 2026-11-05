@@ -1,4 +1,4 @@
-// LinkTap Business · Piloto de medición para Alexis Cariman.
+// LinkTap Business · Piloto de medición para cuatro perfiles existentes de Clínica Monteverde.
 // Worker aislado: no requiere login para eventos públicos; no entrega datos privados.
 // No habilita aún activación/desactivación de los HTML en GitHub Pages.
 const ORIGIN = 'https://linktap.cl';
@@ -46,7 +46,7 @@ export default {
    try{body=await request.json()}catch{return respond({error:'invalid_json'},400,trustedOrigin)}
    const {id,slug,kind}=body||{};
    if(typeof id!=='string'||!/^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(id)||
-      slug!=='monteverde-alexis'||!VALID_KINDS.has(kind))
+      !['monteverde-alexis','monteverde-stefano','monteverde-lissette','monteverde-recepcion'].includes(slug)||!VALID_KINDS.has(kind))
      return respond({error:'invalid_event'},400,trustedOrigin);
    try{
     const profile=await env.DB.prepare('SELECT id FROM lb_profiles WHERE slug=? AND active=1').bind(slug).first();
