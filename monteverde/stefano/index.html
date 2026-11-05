@@ -769,5 +769,39 @@
       });
   </script>
 
+
+<!-- LinkTap Business: medición de visitas y clics, sin modificar diseño -->
+<script>
+(() => {
+  const ENDPOINT = 'https://linktap-business-api.v-gomezsitja.workers.dev/api/business/events';
+  const SLUG = 'monteverde-stefano';
+  function record(kind) {
+    if (!crypto.randomUUID) return;
+    const data = JSON.stringify({id:crypto.randomUUID(),slug:SLUG,kind});
+    try {
+      if (navigator.sendBeacon && navigator.sendBeacon(ENDPOINT,new Blob([data],{type:'text/plain'}))) return;
+    } catch (_) {}
+    fetch(ENDPOINT,{method:'POST',mode:'cors',keepalive:true,headers:{'Content-Type':'text/plain'},body:data}).catch(()=>{});
+  }
+  const key = 'lt_last_view_' + SLUG;
+  let last=0;
+  try {last=Number(sessionStorage.getItem(key)||0)} catch (_) {}
+  if(Date.now()-last>30000){
+    record('view');
+    try {sessionStorage.setItem(key,String(Date.now()))} catch (_) {}
+  }
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a[href]');
+    if(!a)return;
+    if(a.id==='guardar-contacto')return record('save_contact');
+    const href=a.getAttribute('href')||'';
+    if(/^tel:/i.test(href))return record('call');
+    if(/^mailto:/i.test(href))return record('email');
+    if(/^https?:\/\/(?:api\.)?wa\.me\//i.test(href)||/^https?:\/\/api\.whatsapp\.com\//i.test(href))return record('whatsapp');
+    if(/^https?:\/\//i.test(href) && !/^https?:\/\/linktap\.cl\//i.test(href))return record('other_link');
+  },{capture:true});
+})();
+</script>
+
 </body>
 </html>
