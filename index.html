@@ -156,6 +156,9 @@
 @media(max-width:390px){.hero-art{height:330px}.device{width:45%;right:0;top:5%}.device-cover{flex-basis:25%;height:25%}.device-socials{margin:7px 0}.device-primary{padding:7px 3px;margin-bottom:5px}.device-link{padding:6px 7px;margin-bottom:4px}.device-content small{font-size:8px}.device-avatar{width:38px;height:38px}}
 @media(prefers-reduced-motion:reduce){.device{animation:none}}
 
+
+/* Proyectos: accesos compactos */
+.lt-projects{padding:36px 0 42px;scroll-margin-top:90px}.lt-projects h2{font-size:clamp(25px,3vw,34px);line-height:1.15;margin:9px 0 20px}.lt-project-links{display:flex;flex-wrap:wrap;gap:8px}.lt-project-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;max-width:100%;padding:10px 16px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font-size:13px;font-weight:650;line-height:1.4;transition:background .2s,border-color .2s}.lt-project-link:hover{background:var(--soft);border-color:#bad3f6}.lt-project-link.lt-project-owner{background:var(--blue);color:#fff;border-color:var(--blue);box-shadow:0 5px 14px #1677ff20}.lt-project-link.lt-project-owner:hover{background:#0965e9}.lt-project-more{border:0;padding:0;margin-top:14px}.lt-project-more summary{display:inline-flex;min-height:44px;justify-content:flex-start;gap:9px;font-size:12px;color:var(--muted);padding:8px 0}.lt-project-more summary:after{content:'↓';font-size:15px}.lt-project-more[open] summary:after{content:'↑'}.lt-project-more .lt-project-links{margin-top:8px}@media(prefers-reduced-motion:reduce){.lt-project-link{transition:none}}
 </style>
 <style>
 /* NFC táctil V8: imagen original, esquinas redondeadas y revelado con halo */
@@ -339,7 +342,7 @@ img,video,svg,canvas{max-width:100%}
 .lt-service-uses{margin:26px auto 0;max-width:950px;text-align:center;color:#596b84;font-size:14px;line-height:1.7}
 @media(max-width:700px){.lt-service-grid{grid-template-columns:1fr;gap:12px}.lt-service-card{padding:22px;border-radius:20px}.lt-services-intro p{font-size:14px}}
 </style></head><body>
-<header class="header"><div class="wrap header-inner"><a href="/" class="logo" aria-label="LinkTap inicio"><img src="/assets/linktap-logo.png" alt="LinkTap" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">Link<span>Tap</span></span></a><nav class="nav" id="nav" aria-label="Navegación principal"><a href="#soluciones">Soluciones</a><a href="#nfc">¿Qué es NFC?</a><a href="#ejemplos">Demostraciones</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a></nav><div class="nav-cta"><a class="btn btn-dark" href="https://linktap.cl/solicitud/">Solicitar tarjeta ↗</a></div><button class="menu-toggle" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button></div></header>
+<header class="header"><div class="wrap header-inner"><a href="/" class="logo" aria-label="LinkTap inicio"><img src="/assets/linktap-logo.png" alt="LinkTap" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">Link<span>Tap</span></span></a><nav class="nav" id="nav" aria-label="Navegación principal"><a href="#soluciones">Soluciones</a><a href="#proyectos">Ver ejemplos</a><a href="#nfc">¿Qué es NFC?</a><a href="#ejemplos">Demostraciones</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a></nav><div class="nav-cta"><a class="btn btn-dark" href="https://linktap.cl/solicitud/">Solicitar tarjeta ↗</a></div><button class="menu-toggle" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button></div></header>
 <main>
 <section class="hero" id="inicio"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">Tarjetas NFC y perfiles digitales</div><h1>Tu próxima <span>conexión</span> empieza aquí.</h1><p>Comparte tus redes, presenta tu negocio y conecta con tus clientes de una forma simple y profesional.</p><div class="hero-actions"><a class="btn btn-primary" href="/tarjeta-nfc/">Explorar tarjetas ↗</a><a class="btn btn-outline" href="https://linktap.cl/perfil-digital/">Perfiles digitales ↗</a></div><div class="hero-note"><span>Sin aplicación LinkTap</span><span>Configuración personalizada</span></div></div><div class="hero-art" aria-label="Tarjeta original LinkTap y vista de perfil digital">
   <div class="hero-halo" aria-hidden="true"></div>
@@ -367,6 +370,19 @@ img,video,svg,canvas{max-width:100%}
   </div>
 </div></div></section>
 <section class="section" id="soluciones"><div class="wrap"><div class="section-heading reveal"><div class="eyebrow">Descubre LinkTap</div><h2>Dos soluciones. Más formas de conectar.</h2><p>Elige cómo quieres compartir tu información. Puedes usar una tarjeta NFC, un perfil digital o combinarlos.</p></div><div class="solution-grid"><article class="solution reveal"><div class="eyebrow">Producto físico</div><h3>Tarjetas NFC</h3><p>Acerca la tarjeta a un celular compatible para compartir un enlace, sin tener que escribirlo.</p><div class="solution-visual"><span class="solution-card-shell"><img src="/assets/linktap-front.png" alt="Tarjeta NFC LinkTap" loading="lazy" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/vgomez-web/linktap/main/assets/linktap-front.png'"></span></div><a class="btn btn-primary" href="https://linktap.cl/solicitud/">Solicitar desde $19.990 ↗</a></article><article class="solution profile reveal"><div class="eyebrow">Presencia digital</div><h3>Perfiles digitales</h3><p>Presenta quién eres, qué haces, tus servicios, redes y formas de contacto en un solo lugar.</p><div class="solution-visual"><div class="profile-mini" aria-hidden="true"><b>LT</b><strong>Mi negocio</strong><span></span><span></span><span></span></div></div><a class="btn btn-dark" href="https://linktap.cl/perfil-digital/">Descubrir perfiles ↗</a></article></div></div></section>
+<section class="lt-projects" id="proyectos" aria-labelledby="lt-project-title"><div class="wrap">
+<div class="eyebrow">Hecho con LinkTap</div><h2 id="lt-project-title">Explora nuestros proyectos.</h2>
+<div class="lt-project-links">
+<a class="lt-project-link lt-project-owner" href="/vicente/">Mi perfil · Vicente Gómez ↗</a>
+<a class="lt-project-link" href="/comexport/">Comexport ↗</a>
+<a class="lt-project-link" href="/monteverde/">Monteverde · Recepción ↗</a>
+<a class="lt-project-link" href="/monteverde/alexis/">Monteverde · Vendedores ↗</a>
+<a class="lt-project-link" href="/patagoniaexplorer/">Patagonia Explorer ↗</a>
+</div>
+<details class="lt-project-more"><summary>Ver más proyectos</summary><div class="lt-project-links">
+<a class="lt-project-link" href="/isidora-montiel/">Isidora Montiel ↗</a>
+<a class="lt-project-link" href="/prueba-leslie/perfil/">Leslie Langenbach ↗</a>
+</div></details></div></section>
 <section class="section explainer" id="nfc"><div class="wrap explainer-grid"><div class="chip-stage reveal" id="chip-stage" aria-label="Animación de tarjeta LinkTap mostrando su interior NFC">
   <div class="nfc-interaction">
 <p class="nfc-instruction">👆 Desliza tu dedo sobre la tarjeta para descubrir el chip NFC que lleva dentro.</p>
