@@ -70,7 +70,15 @@ export default {
    await env.DB.prepare('INSERT OR IGNORE INTO lb_events(id,profile_id,kind) VALUES(?,?,?)').bind(id,profile.id,kind).run();
    return json({ok:true},202,origin);
   }
-  // Every read and status update below requires validated Cloudflare Access identity.
+  // Public profile status endpoint; integrate with existing profile HTML ONLY after testing.
+  if(path==='/api/business/profile-status' && request.method==='GET'){
+   const slug=url.searchParams.get('slug')||'';
+   if(!/^[a-z0-9][a-z0-9-]{0,80}$/.test(slug))return json({error:'invalid_slug'},400,origin);
+   const p=await env.DB.prepare('SELECT active FROM lb_profiles WHERE slug=?').bind(slug).first();
+   if(!p)return json({error:'profile_not_found'},404,origin);
+   return json({active:!!p.active},200,origin);
+  }
+  // Only private management endpoints below require validated Cloudflare Access identity.
   let email;
   try{email=await getAccessIdentity(request,env)}
   catch(e){return json({error:'not_authorized'},401,origin)}
@@ -119,14 +127,6 @@ export default {
     env.DB.prepare('INSERT INTO lb_audit(id,company_id,profile_id,actor_email,previous_active,new_active) VALUES(?,?,?,?,?,?)').bind(crypto.randomUUID(),companyId,match[1],email,profile.active,newValue)
    ]);
    return json({ok:true,active:!!newValue,changed:true},200,origin);
-  }
-  // Public profile status endpoint; integrate with existing profile HTML ONLY after testing.
-  if(path==='/api/business/profile-status' && request.method==='GET'){
-   const slug=url.searchParams.get('slug')||'';
-   if(!/^[a-z0-9][a-z0-9-]{0,80}$/.test(slug))return json({error:'invalid_slug'},400,origin);
-   const p=await env.DB.prepare('SELECT active FROM lb_profiles WHERE slug=?').bind(slug).first();
-   if(!p)return json({error:'profile_not_found'},404,origin);
-   return json({active:!!p.active},200,origin);
   }
   return json({error:'not_found'},404,origin);
  }
