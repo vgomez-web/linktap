@@ -456,10 +456,40 @@ img,video,svg,canvas{max-width:100%}
 @keyframes lt-demo-toast{0%,26%,48%,100%{opacity:0;transform:translateY(4px)}30%,43%{opacity:1;transform:translateY(0)}}
 @keyframes lt-demo-link{0%,52%,59%,100%{background:#f1f5fa;box-shadow:none}54%,57%{background:#dfebff;box-shadow:inset 0 0 0 1px #9ebff2}}
 @media(prefers-reduced-motion:reduce){#soluciones .lt-demo-touch,#soluciones .lt-demo-toast{display:none}#soluciones .lt-profile-save,#soluciones .lt-profile-row{animation:none!important}}
-</style><style id="lt-card-drag-style">#soluciones button.solution-card-shell{touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab;will-change:transform}#soluciones button.solution-card-shell.is-dragging{cursor:grabbing}#soluciones button.solution-card-shell img{pointer-events:none;-webkit-user-drag:none}</style></head><body>
+</style><style id="lt-card-drag-style">#soluciones button.solution-card-shell{touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:grab;will-change:transform}#soluciones button.solution-card-shell.is-dragging{cursor:grabbing}#soluciones button.solution-card-shell img{pointer-events:none;-webkit-user-drag:none}</style><style id="linktap-immersive-hero">
+#inicio{--lt-light-scale:.75;--lt-light-opacity:.24;padding-top:64px;padding-bottom:60px}
+#inicio .hero-copy h1{font-size:clamp(43px,5.3vw,74px);line-height:1.04;letter-spacing:-.065em;margin:18px 0 20px}
+#inicio .hero-copy>p{font-size:16px;line-height:1.65;max-width:390px}
+#inicio .hero-actions{margin-top:25px;gap:10px}
+#inicio .hero-art{perspective:1300px;isolation:isolate}
+#inicio .hero-art:before{display:none}
+#inicio:before{opacity:.3}
+#inicio .hero-halo{position:absolute;inset:0 -9%;z-index:-1;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse at 52% 52%,#1677ff80 0%,#4797ff44 30%,#a0c8ff24 49%,transparent 71%);filter:blur(25px);opacity:var(--lt-light-opacity);transform:scale(var(--lt-light-scale));transform-origin:50% 54%;transition:none;will-change:transform,opacity;animation:none!important}
+#inicio .hero-art .real-card{transform:rotate(-6deg) rotateY(5deg)!important;animation:lt-hero-card-rest 10s ease-in-out infinite!important;z-index:1;box-shadow:0 33px 48px -16px #244a7a4a,0 3px 7px #1c426b16!important}
+#inicio .hero-art .device{transform:rotate(4deg) rotateY(-5deg)!important;animation:lt-hero-phone-rest 11s ease-in-out infinite!important;z-index:2;box-shadow:13px 27px 42px -12px #193c6a47,2px 3px 8px #1a34472b!important}
+@keyframes lt-hero-card-rest{0%,100%{transform:translateY(0) rotate(-6deg) rotateY(5deg)}50%{transform:translateY(-5px) rotate(-5.5deg) rotateY(5deg)}}
+@keyframes lt-hero-phone-rest{0%,100%{transform:translateY(0) rotate(4deg) rotateY(-5deg)}50%{transform:translateY(5px) rotate(3.5deg) rotateY(-5deg)}}
+@media(max-width:700px){
+#inicio{padding-top:31px;padding-bottom:35px}
+#inicio .hero-grid{gap:7px}
+#inicio .hero-copy .eyebrow{font-size:10px;letter-spacing:.11em}
+#inicio .hero-copy h1{font-size:clamp(34px,8.5vw,49px);margin:13px 0 14px;line-height:1.05}
+#inicio .hero-copy>p{font-size:14px;max-width:300px;margin-inline:auto;line-height:1.5}
+#inicio .hero-actions{margin-top:19px;gap:8px}
+#inicio .hero-actions .btn{min-height:44px;font-size:12px;padding:0 17px}
+#inicio .hero-art{margin-top:8px!important;aspect-ratio:1/.99!important}
+#inicio .hero-art .real-card{top:29%!important;left:1%!important;width:74%!important}
+#inicio .hero-art .device{top:5%!important;right:4%!important}
+#inicio .hero-halo{inset:-2% -15%;filter:blur(22px)}
+}
+@media(prefers-reduced-motion:reduce){
+#inicio .hero-art .real-card,#inicio .hero-art .device{animation:none!important}
+#inicio .hero-halo{will-change:auto;transform:scale(1);opacity:.36}
+}
+</style></head><body>
 <header class="header"><div class="wrap header-inner"><a href="/" class="logo" aria-label="LinkTap inicio"><img src="/assets/linktap-logo.png" alt="LinkTap" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">Link<span>Tap</span></span></a><nav class="nav" id="nav" aria-label="Navegación principal"><a href="#soluciones">Soluciones</a><a href="#proyectos">Ver ejemplos</a><a href="#ejemplos">Demostraciones</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a></nav><div class="nav-cta"><a class="btn btn-dark" href="https://linktap.cl/solicitud/">Solicitar tarjeta ↗</a></div><button class="menu-toggle" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button></div></header>
 <main>
-<section class="hero" id="inicio"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">Tarjetas NFC y perfiles digitales</div><h1>Tu próxima <span>conexión</span> empieza aquí.</h1><p>Comparte tus redes, presenta tu negocio y conecta con tus clientes de una forma simple y profesional.</p><div class="hero-actions"><a class="btn btn-primary" href="/tarjeta-nfc/">Explorar tarjetas ↗</a><a class="btn btn-outline" href="https://linktap.cl/perfil-digital/">Perfiles digitales ↗</a></div><div class="hero-note"><span>Sin aplicación LinkTap</span><span>Configuración personalizada</span></div></div><div class="hero-art" aria-label="Tarjeta original LinkTap y vista de perfil digital">
+<section class="hero" id="inicio"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">Tarjetas NFC y perfiles digitales</div><h1>Acerca. Conecta.<br><span>Descubre lo que sigue.</span></h1><p>Tu presentación, tu negocio y nuevas formas de conectar.</p><div class="hero-actions"><a class="btn btn-primary" href="#soluciones">Descubre LinkTap ↗</a><a class="btn btn-outline" href="#proyectos">Ver ejemplos ↗</a></div></div><div class="hero-art" aria-label="Tarjeta original LinkTap y vista de perfil digital">
   <div class="hero-halo" aria-hidden="true"></div>
   <figure class="real-card">
     <img src="/assets/linktap-front.png" alt="Diseño original de la tarjeta NFC LinkTap" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/vgomez-web/linktap/main/assets/linktap-front.png';this.addEventListener('error',()=>this.parentElement.classList.add('asset-missing'),{once:true})">
@@ -539,5 +569,11 @@ card.addEventListener('dragstart',e=>e.preventDefault());
 card.addEventListener('keydown',e=>{if(e.key!=='ArrowLeft'&&e.key!=='ArrowRight')return;e.preventDefault();angle+=e.key==='ArrowLeft'?-30:30;paint();});
 if('IntersectionObserver'in window)new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;if(visible)resume();else{cancelAnimationFrame(frame);frame=0;}},{threshold:.05}).observe(card);else{visible=true;resume();}
 document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;}else resume();});reduced.addEventListener('change',resume);paint();
+})();
+</script><script id="lt-hero-scroll-light">
+(()=>{const hero=document.getElementById('inicio');if(!hero)return;const reduced=matchMedia('(prefers-reduced-motion: reduce)');let frame=0;
+function draw(){frame=0;if(reduced.matches){hero.style.removeProperty('--lt-light-scale');hero.style.removeProperty('--lt-light-opacity');return;}const r=hero.getBoundingClientRect();const progress=Math.max(0,Math.min(1,-r.top/(Math.max(r.height*.72,1))));hero.style.setProperty('--lt-light-scale',(.75+progress*.95).toFixed(3));hero.style.setProperty('--lt-light-opacity',(.24+progress*.56).toFixed(3));}
+function schedule(){if(!frame)frame=requestAnimationFrame(draw);}
+window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});reduced.addEventListener('change',schedule);draw();
 })();
 </script></body></html>
