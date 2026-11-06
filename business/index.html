@@ -90,7 +90,7 @@ const team=[
 {id:3,name:'Felipe Muñoz',role:'Operaciones',active:false,views:[42,174,523],clicks:[12,51,142]},
 {id:4,name:'Ana Reyes',role:'Ventas',active:true,views:[112,461,1354],clicks:[44,162,497]}
 ];
-const companyLabel='Mi empresa';
+const companyLabel='Mi empresa'; // El Worker privado reemplaza este valor con el nombre real de la empresa
 const chartSeries={7:[16,24,19,31,27,37,42],30:[25,31,27,35,43,37,48,44,55,52,64,58],90:[21,26,29,31,37,35,40,46,45,53,56,63]};
 const histories=[{text:'Camila Torres · Perfil activado',when:'Hoy, 10:25 · Administrador'},{text:'Felipe Muñoz · Perfil pausado',when:'Ayer, 16:10 · Administrador'},{text:'Eduardo Martínez · Perfil activado',when:'Hace 3 días · Administrador'}];
 const el=id=>document.getElementById(id),fmt=n=>new Intl.NumberFormat('es-CL').format(n);let period=30,view='overview';
@@ -119,7 +119,7 @@ function renderCompanyProfile(p){
  const ident=document.createElement('div');ident.className='institution-identity';
  const badge=document.createElement('div');badge.className='institution-icon';badge.textContent='▣';
  const info=document.createElement('div');const tag=document.createElement('span');tag.className='profile-kicker';tag.textContent='PRESENTACIÓN INSTITUCIONAL';
- const title=document.createElement('h3');title.textContent=p.id==='mv-recepcion'?'Clínica Dental Monteverde':companyLabel;
+ const title=document.createElement('h3');title.textContent=companyLabel;
  const note=document.createElement('p');note.textContent='Recepción, contacto y canales de la empresa';
  info.append(tag,title,note);ident.append(badge,info);
  const stats=document.createElement('div');stats.className='institution-stats';
@@ -133,8 +133,8 @@ function renderCompanyProfile(p){
 function renderRows(){
  for(const id of ['featuredRows','profileRows'])el(id).replaceChildren();
  el('companyName').textContent=companyLabel;
- const company=team.find(p=>p.id==='mv-recepcion'||/recepci[oó]n/i.test(p.name));
- const displayName=company?.id==='mv-recepcion'?'Clínica Dental Monteverde':companyLabel;
+ const company=team.find(p=>p.institutional===true);
+ const displayName=companyLabel;
  el('companyName').textContent=displayName;
  renderCompanyProfile(company);
  const people=team.filter(p=>p!==company);
