@@ -56,7 +56,7 @@ h1,h2,h3,p{margin:0}h1,h2,h3,.number,.brand{font-family:Manrope,system-ui,sans-s
 <section id="profiles" class="view hide">
 <div class="titleline"><div><div class="eyebrow">CONTROL DE EQUIPO</div><h1>Perfiles <span>digitales.</span></h1><p class="subtitle">Consulta tus perfiles y solicita nuevas incorporaciones a LinkTap.</p></div><button class="primary-cta" data-go="requests">＋ Solicitar nuevo perfil</button></div>
 <div class="card panel"><div class="toolbar"><div><h2 id="companyName">Mi empresa</h2><p class="hint">Perfil institucional y perfiles del equipo. Los diseños y datos solo los modifica LinkTap.</p></div><input id="search" type="search" placeholder="Buscar trabajador..." aria-label="Buscar trabajador"></div><div class="profile-sections">
-<div class="profile-group"><div class="profile-group-heading"><div><span class="profile-kicker">01 · IDENTIDAD CORPORATIVA</span><h3>Perfil de la empresa</h3><p>La presentación institucional, contacto y canales principales de la clínica.</p></div></div>
+<div class="profile-group"><div class="profile-group-heading"><div><span class="profile-kicker">01 · IDENTIDAD CORPORATIVA</span><h3>Perfil de la empresa</h3><p>Presentación institucional, contacto y canales principales de tu empresa.</p></div></div>
 <div id="companyProfile" class="company-profile"></div></div>
 <div class="profile-group"><div class="profile-group-heading"><div><span class="profile-kicker">02 · PERSONAS Y CONTACTOS</span><h3>Perfiles del equipo</h3><p>La presentación digital individual de cada integrante.</p></div><span id="teamProfileCount" class="group-count"></span></div>
 <div class="tablewrap"><table class="table"><thead><tr><th>Integrante</th><th>Visitas</th><th>Interacciones</th><th>Perfil</th><th>Acción</th></tr></thead><tbody id="profileRows"></tbody></table></div></div>
@@ -78,7 +78,7 @@ h1,h2,h3,p{margin:0}h1,h2,h3,.number,.brand{font-family:Manrope,system-ui,sans-s
 </form></div>
 <div class="card panel"><div class="panel-header"><div><h2>Solicitud a LinkTap</h2><div class="hint">Un proceso simple y personalizado.</div></div></div>
 <div class="request-steps"><p><b>01</b> Envía los datos del nuevo trabajador.</p><p><b>02</b> LinkTap confirma alcance, precio y plazo.</p><p><b>03</b> Creamos el perfil y lo incorporamos al equipo tras tu aprobación.</p></div>
-<div class="request-history"><h3>Historial de solicitudes</h3><p>El registro automático estará disponible cuando conectemos el módulo privado de solicitudes. Por ahora las solicitudes se coordinan por correo.</p></div></div></div>
+<div class="request-history"><h3>Atención personalizada</h3><p>Las solicitudes se gestionan directamente por correo con LinkTap. Antes de crear cualquier perfil confirmaremos contigo el contenido, precio y plazo.</p></div></div></div>
 </section>
 <p class="foot">LINKTAP BUSINESS · EXPERIENCIA DEMOSTRATIVA · DISEÑADO PARA CRECER CONTIGO</p>
 </main></div><div class="toast" role="status" id="toast"></div>
@@ -92,12 +92,11 @@ const team=[
 ];
 const companyLabel='Mi empresa'; // El Worker privado reemplaza este valor con el nombre real de la empresa
 const chartSeries={7:[16,24,19,31,27,37,42],30:[25,31,27,35,43,37,48,44,55,52,64,58],90:[21,26,29,31,37,35,40,46,45,53,56,63]};
-const histories=[{text:'Camila Torres · Perfil activado',when:'Hoy, 10:25 · Administrador'},{text:'Felipe Muñoz · Perfil pausado',when:'Ayer, 16:10 · Administrador'},{text:'Eduardo Martínez · Perfil activado',when:'Hace 3 días · Administrador'}];
 const el=id=>document.getElementById(id),fmt=n=>new Intl.NumberFormat('es-CL').format(n);let period=30,view='overview';
 function idx(){return period===7?0:period===30?1:2}
 function total(type){return team.reduce((a,p)=>a+p[type][idx()],0)}
 function toast(s){const t=el('toast');t.textContent=s;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2800)}
-function drawChart(){const values=chartSeries[period],max=Math.ceil(Math.max(...values)/10)*10;const sx=i=>40+i*(530/(values.length-1));const sy=v=>194-v/max*165;let path=values.map((v,i)=>(i?'L':'M')+sx(i).toFixed(1)+','+sy(v).toFixed(1)).join(' ');let content='<defs><linearGradient id="fillGradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#568df9" stop-opacity=".32"/><stop offset="1" stop-color="#568df9" stop-opacity="0"/></linearGradient></defs>';for(let i=0;i<4;i++){let y=194-i*55;content+='<line class="gridline" x1="40" y1="'+y+'" x2="570" y2="'+y+'"/><text class="axis-label" x="3" y="'+(y+4)+'">'+Math.round(i*max/3)+'</text>'}content+='<path class="line-area" d="'+path+' L570,194 L40,194 Z"/><path class="chart-line" d="'+path+'"/>';values.forEach((v,i)=>{if(i%Math.max(1,Math.floor(values.length/5))===0||i===values.length-1)content+='<circle class="line-dot" cx="'+sx(i)+'" cy="'+sy(v)+'" r="4"/>'});for(let i=0;i<5;i++)content+='<text class="axis-label" x="'+(35+i*133)+'" y="225">'+(i*period/4===0?'Hoy - '+period+'d':'')+'</text>';el('lineChart').innerHTML=content}
+function drawChart(){const values=chartSeries[period]||[],max=Math.max(10,Math.ceil(Math.max(...values,0)/10)*10);const sx=i=>40+i*(530/Math.max(1,values.length-1));const sy=v=>194-v/max*165;let path=values.map((v,i)=>(i?'L':'M')+sx(i).toFixed(1)+','+sy(v).toFixed(1)).join(' ');let content='<defs><linearGradient id="fillGradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#568df9" stop-opacity=".32"/><stop offset="1" stop-color="#568df9" stop-opacity="0"/></linearGradient></defs>';for(let i=0;i<4;i++){let y=194-i*55;content+='<line class="gridline" x1="40" y1="'+y+'" x2="570" y2="'+y+'"/><text class="axis-label" x="3" y="'+(y+4)+'">'+Math.round(i*max/3)+'</text>'}content+='<path class="line-area" d="'+path+' L570,194 L40,194 Z"/><path class="chart-line" d="'+path+'"/>';values.forEach((v,i)=>{if(i%Math.max(1,Math.floor(values.length/5))===0||i===values.length-1)content+='<circle class="line-dot" cx="'+sx(i)+'" cy="'+sy(v)+'" r="4"/>'});for(let i=0;i<5;i++)content+='<text class="axis-label" x="'+(35+i*133)+'" y="225">'+(i*period/4===0?'Hoy - '+period+'d':'')+'</text>';el('lineChart').innerHTML=content}
 function drawBars(){const t=total('clicks'),ratios=[.44,.27,.18,.11],labels=['WhatsApp','Guardar contacto','Llamadas','Correo'],colors=['#6d9af8','#8eb5fd','#5f90df','#5080d1'];el('clickBars').replaceChildren();labels.forEach((label,i)=>{const n=i===3?t-ratios.slice(0,3).reduce((a,x)=>a+Math.round(t*x),0):Math.round(t*ratios[i]);const row=document.createElement('div');row.className='baritem';const name=document.createElement('span');name.textContent=label;const track=document.createElement('div');track.className='track';const fill=document.createElement('div');fill.className='fill';fill.style.width=(ratios[i]/.44*100)+'%';fill.style.background='linear-gradient(90deg,#366dda,'+colors[i]+')';track.append(fill);const v=document.createElement('span');v.className='val';v.textContent=fmt(n);row.append(name,track,v);el('clickBars').append(row)})}
 function cell(tr,text){const td=document.createElement('td');td.textContent=text;tr.append(td);return td}
 function profileCell(tr,p){const td=document.createElement('td');const wrap=document.createElement('div');wrap.className='person';const avatar=document.createElement('span');avatar.className='personpic';avatar.textContent=p.name.split(' ').map(x=>x[0]).join('');const info=document.createElement('div'),n=document.createElement('div'),r=document.createElement('div');n.className='name';n.textContent=p.name;r.className='role';r.textContent=p.role;info.append(n,r);wrap.append(avatar,info);td.append(wrap);tr.append(td)}
@@ -119,7 +118,7 @@ function renderCompanyProfile(p){
  const ident=document.createElement('div');ident.className='institution-identity';
  const badge=document.createElement('div');badge.className='institution-icon';badge.textContent='▣';
  const info=document.createElement('div');const tag=document.createElement('span');tag.className='profile-kicker';tag.textContent='PRESENTACIÓN INSTITUCIONAL';
- const title=document.createElement('h3');title.textContent=companyLabel;
+ const title=document.createElement('h3');title.textContent=companyLabel==='Mi empresa'&&p.id==='mv-recepcion'?'Clínica Dental Monteverde':companyLabel;
  const note=document.createElement('p');note.textContent='Recepción, contacto y canales de la empresa';
  info.append(tag,title,note);ident.append(badge,info);
  const stats=document.createElement('div');stats.className='institution-stats';
@@ -133,8 +132,8 @@ function renderCompanyProfile(p){
 function renderRows(){
  for(const id of ['featuredRows','profileRows'])el(id).replaceChildren();
  el('companyName').textContent=companyLabel;
- const company=team.find(p=>p.institutional===true);
- const displayName=companyLabel;
+ const company=team.find(p=>p.institutional===true || p.id==='mv-recepcion');
+ const displayName=companyLabel==='Mi empresa'&&company?.id==='mv-recepcion'?'Clínica Dental Monteverde':companyLabel;
  el('companyName').textContent=displayName;
  renderCompanyProfile(company);
  const people=team.filter(p=>p!==company);
