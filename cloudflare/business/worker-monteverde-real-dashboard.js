@@ -1,13 +1,13 @@
 // LinkTap Business · Panel privado de estadísticas reales.
 // Instalar SOLO en linktap-business-private protegido por Cloudflare Access.
 // Binding DB -> linktap-business-db. Este Worker NO recibe eventos públicos.
-// Variables: ACCESS_TEAM_DOMAIN, ACCESS_AUD (Cloudflare Access app audience).
+// Cloudflare Access team domain y audiencia del Worker privado verificados. Ambos son identificadores públicos, NO contraseñas.
 const PUBLIC_PANEL='https://linktap.cl/business/';
 const json=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json','Cache-Control':'no-store'}});
 function b64url(s){s=s.replace(/-/g,'+').replace(/_/g,'/');return Uint8Array.from(atob(s+'='.repeat((4-s.length%4)%4)),c=>c.charCodeAt(0))}
 function jwtpart(s){return JSON.parse(new TextDecoder().decode(b64url(s)))}
 async function verifiedEmail(req,env){
-  const domain=String(env.ACCESS_TEAM_DOMAIN||'').replace(/^https?:\/\//,'').replace(/\/$/,'');
+  const domain=String(env.ACCESS_TEAM_DOMAIN||'winter-resonance-0b9a.cloudflareaccess.com').replace(/^https?:\/\//,'').replace(/\/$/,'');
   if(!/^[a-z0-9.-]+\.cloudflareaccess\.com$/i.test(domain)||!env.ACCESS_AUD)throw Error('access_not_configured');
   const value=req.headers.get('Cf-Access-Jwt-Assertion')||'';
   const parts=value.split('.');
@@ -22,7 +22,7 @@ async function verifiedEmail(req,env){
   const key=await crypto.subtle.importKey('jwk',jwk,{name:'RSASSA-PKCS1-v1_5',hash:'SHA-256'},false,['verify']);
   const ok=await crypto.subtle.verify('RSASSA-PKCS1-v1_5',key,b64url(parts[2]),new TextEncoder().encode(parts[0]+'.'+parts[1]));
   const now=Math.floor(Date.now()/1000);
-  if(!ok||p.iss!=='https://'+domain||!Array.isArray(p.aud)||!p.aud.includes(env.ACCESS_AUD)||
+  if(!ok||p.iss!=='https://'+domain||!Array.isArray(p.aud)||!p.aud.includes(env.ACCESS_AUD||'af688284473c3fdb3043cd2c7f4936a2d2d5ad3ab90b15ec22c73ca6b6e35e6b')||
      typeof p.email!=='string'||!p.email.includes('@')||!Number.isFinite(p.exp)||p.exp<=now||
      !Number.isFinite(p.iat)||p.iat>now+60||(p.nbf!=null&&p.nbf>now+60)) throw Error('invalid_claims');
   return p.email.toLowerCase().trim();
