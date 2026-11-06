@@ -8,7 +8,7 @@ function b64url(s){s=s.replace(/-/g,'+').replace(/_/g,'/');return Uint8Array.fro
 function jwtpart(s){return JSON.parse(new TextDecoder().decode(b64url(s)))}
 async function verifiedEmail(req,env){
   const domain=String(env.ACCESS_TEAM_DOMAIN||'winter-resonance-0b9a.cloudflareaccess.com').replace(/^https?:\/\//,'').replace(/\/$/,'');
-  if(!/^[a-z0-9.-]+\.cloudflareaccess\.com$/i.test(domain)||!env.ACCESS_AUD)throw Error('access_not_configured');
+  if(!/^[a-z0-9.-]+\.cloudflareaccess\.com$/i.test(domain))throw Error('access_not_configured');
   const value=req.headers.get('Cf-Access-Jwt-Assertion')||'';
   const parts=value.split('.');
   if(parts.length!==3)throw Error('no_access_token');
