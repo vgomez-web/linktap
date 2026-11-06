@@ -62,6 +62,7 @@ h1,h2,h3,p{margin:0}h1,h2,h3,.number,.brand{font-family:Manrope,system-ui,sans-s
 <div class="two-col request-layout"><div class="card panel">
 <div class="panel-header"><div><h2>Datos del nuevo integrante</h2><div class="hint">LinkTap revisará tu solicitud y confirmará el presupuesto y plazo.</div></div><span class="pill">NUEVA SOLICITUD</span></div>
 <form id="profileRequest" class="request-form">
+<label for="requestCompany">Empresa *</label><input id="requestCompany" name="company" maxlength="120" required placeholder="Ej. Clínica Dental Monteverde">
 <label for="requestName">Nombre y apellido *</label><input id="requestName" name="name" maxlength="120" required placeholder="Nombre del trabajador">
 <label for="requestRole">Cargo *</label><input id="requestRole" name="role" maxlength="120" required placeholder="Ej. Ejecutivo comercial">
 <label for="requestEmail">Correo electrónico</label><input id="requestEmail" type="email" name="email" maxlength="160" placeholder="nombre@empresa.cl">
@@ -109,9 +110,9 @@ function render(){el('totalViews').textContent=fmt(total('views'));el('totalClic
 function switchView(v){view=v;document.querySelectorAll('.view').forEach(x=>x.classList.toggle('hide',x.id!==v));document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===v));el('crumb').textContent={overview:'Resumen',profiles:'Perfiles',requests:'Solicitudes'}[v];scrollTo({top:0,behavior:'smooth'})}
 document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>switchView(b.dataset.view));document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>switchView(b.dataset.go));document.querySelectorAll('[data-period]').forEach(b=>b.onclick=()=>{period=Number(b.dataset.period);render()});el('search').addEventListener('input',renderRows);document.getElementById('profileRequest').addEventListener('submit',e=>{
  e.preventDefault();
- const v=new FormData(e.currentTarget),name=String(v.get('name')||'').trim(),role=String(v.get('role')||'').trim();
- if(!name||!role)return;
- const body=['Hola, LinkTap:','','Solicito cotización para un nuevo perfil digital.','','Empresa: (completar nombre de empresa)','Trabajador: '+name,'Cargo: '+role,'Correo: '+String(v.get('email')||''),'Teléfono: '+String(v.get('phone')||''),'Indicaciones: '+String(v.get('notes')||''),'','Quedo atento/a a su confirmación.'].join('\n');
+ const v=new FormData(e.currentTarget),company=String(v.get('company')||'').trim(),name=String(v.get('name')||'').trim(),role=String(v.get('role')||'').trim();
+ if(!company||!name||!role)return;
+ const body=['Hola, LinkTap:','','Solicito cotización para un nuevo perfil digital.','','Empresa: '+company,'Trabajador: '+name,'Cargo: '+role,'Correo: '+String(v.get('email')||''),'Teléfono: '+String(v.get('phone')||''),'Indicaciones: '+String(v.get('notes')||''),'','Quedo atento/a a su confirmación.'].join('\n');
  window.location.href='mailto:linktap.cl@gmail.com?subject='+encodeURIComponent('LinkTap Business · Solicitud de perfil digital')+'&body='+encodeURIComponent(body);
  toast('Revisa tu aplicación de correo y presiona Enviar para completar la solicitud.');
 });render();
