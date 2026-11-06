@@ -2,6 +2,13 @@
 <html lang="es-CL"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#070c1b"><meta name="robots" content="noindex,nofollow">
 <title>LinkTap Business — Vista previa</title>
+<script>
+// Solo el acceso publico redirige. Cloudflare Workers sigue utilizando
+// esta plantilla desde su dominio privado sin redireccionarse a si mismo.
+if (location.hostname === 'linktap.cl' || location.hostname === 'www.linktap.cl') {
+  location.replace('https://business.linktap.cl/');
+}
+</script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 :root{font-family:'DM Sans',system-ui,sans-serif;color:#ecf3ff;background:#070c1b;font-synthesis:none;--muted:#8f9db8;--stroke:rgba(163,186,240,.13);--blue:#6194ff;--mint:#70e9c8}
