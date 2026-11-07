@@ -125,6 +125,34 @@ footer{padding:30px 20px 32px;background:#fff;color:var(--navy)}.footer-brand{he
 @media(max-width:390px){
  .hero{background-size:100% 100%,auto 91%,cover;background-position:center,center 48%,center 48%}
 }
+
+/* Hero Comexport — composición aprobada (zoom out, camión visible) */
+.hero{
+ height:clamp(190px,53vw,275px);
+ background:
+ linear-gradient(180deg,rgba(14,24,43,.06) 0%,rgba(14,24,43,.02) 55%,rgba(14,24,43,.12) 100%),
+ url('../comexport_puerto_zoom_out.webp') center center / cover no-repeat,
+ var(--navy);
+}
+.hero:before,.hero:after{display:none}
+.hero-top{top:13px;left:15px;right:15px;align-items:flex-start}
+.hero-top>a{background:none!important;padding:0!important;box-shadow:none!important;max-width:165px}
+.brand{width:148px;height:49px;filter:none;object-position:left top}
+.share-icon{width:38px;height:38px;background:rgba(237,83,23,.13);border-color:rgba(255,255,255,.35);box-shadow:0 3px 15px #11152b1f}
+.share-icon svg{width:17px;height:17px}
+.hero-mark,.hero-glass-accent,.hero-kicker{display:none!important}
+.profile-card{margin:-28px 16px 0;padding-top:30px}
+.avatar{width:100px;height:100px;margin-top:-76px;margin-bottom:17px}
+@media(min-width:600px){
+ .hero{height:275px;background-position:center center}
+ .profile-card{margin-top:-28px}
+}
+@media(max-width:390px){
+ .hero{height:53vw;background-position:center center}
+ .brand{width:143px;height:46px}
+ .profile-card{margin-top:-26px}
+ .avatar{width:96px;height:96px;margin-top:-74px}
+}
 </style></head><body>
 <main class="page">
 <header class="hero" aria-label="Comexport, soluciones logísticas">
