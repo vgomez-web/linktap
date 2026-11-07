@@ -108,6 +108,23 @@ footer{padding:30px 20px 32px;background:#fff;color:var(--navy)}.footer-brand{he
 }
 @media(prefers-reduced-transparency:reduce){.hero-glass-accent,.share-icon{backdrop-filter:none;-webkit-backdrop-filter:none}}
 
+/* Zoom out del hero: imagen completa y fondo de continuidad */
+.hero{
+ background-image:
+   linear-gradient(180deg,rgba(12,18,37,.12),rgba(12,18,37,.10) 53%,rgba(12,18,37,.46)),
+   url('../comexport_puerto_sin_texto.webp'),
+   url('../comexport_puerto_sin_texto.webp');
+ background-size:100% 100%,auto 91%,cover;
+ background-position:center,center 46%,center 46%;
+ background-repeat:no-repeat;
+ background-color:#11182e;
+}
+@media(min-width:600px){
+ .hero{background-size:100% 100%,auto 92%,cover;background-position:center,center 46%,center 46%}
+}
+@media(max-width:390px){
+ .hero{background-size:100% 100%,auto 91%,cover;background-position:center,center 48%,center 48%}
+}
 </style></head><body>
 <main class="page">
 <header class="hero" aria-label="Comexport, soluciones logísticas">
