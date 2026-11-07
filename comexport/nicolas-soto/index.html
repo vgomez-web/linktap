@@ -51,11 +51,69 @@ h1{font-size:clamp(25px,6.5vw,32px);line-height:1.14;margin:0;letter-spacing:-.9
 footer{padding:30px 20px 32px;background:#fff;color:var(--navy)}.footer-brand{height:105px;width:180px;object-fit:contain;object-position:left;filter:none}footer h3{font-size:16px;line-height:1.35;margin:10px 0 19px}footer small{color:#777f91;font-size:10px}.toast{position:fixed;z-index:10;left:50%;bottom:25px;transform:translate(-50%,20px);opacity:0;pointer-events:none;transition:.25s;background:#171b34;color:#fff;padding:11px 18px;border-radius:30px;font-size:12px;white-space:nowrap}.toast.show{opacity:1;transform:translate(-50%,0)}
 @media(min-width:600px){body{padding:28px 0}.page{border-radius:22px}.hero{height:310px}}@media(max-width:360px){.quick .glyph{width:40px;height:40px}.quick a{font-size:9px}.profile-card{padding-left:12px;padding-right:12px}.service{padding:14px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+/* Comexport hero premium refinements */
+.hero{
+ height:330px;
+ background:
+  linear-gradient(180deg,rgba(12,18,37,.14) 0%,rgba(12,18,37,.22) 58%,rgba(12,18,37,.52) 100%),
+  url('../comexport_puerto_sin_texto.webp') 54% 43% / cover no-repeat,
+  var(--navy);
+}
+.hero:before{
+ content:"";position:absolute;inset:0;z-index:1;
+ background:radial-gradient(circle at 87% 18%,rgba(237,83,23,.10),transparent 34%);
+ pointer-events:none;
+}
+.hero:after{z-index:1;height:135px;background:linear-gradient(transparent,rgba(17,21,43,.50))}
+.hero-top{z-index:3;left:22px;right:22px;top:21px;align-items:center}
+.hero-top>a{
+ display:flex;align-items:center;justify-content:flex-start;
+ background:transparent;padding:0;border:0;border-radius:0;box-shadow:none;
+ max-width:190px;min-width:0;
+}
+.brand{
+ width:175px;height:65px;max-width:100%;
+ object-fit:contain;object-position:left center;filter:none;
+}
+.brand-text{font-size:19px;text-shadow:0 2px 15px #0008}
+.share-icon{
+ width:47px;height:47px;flex:none;
+ border:1px solid rgba(255,255,255,.36);
+ background:linear-gradient(145deg,rgba(245,111,51,.28),rgba(234,85,24,.12));
+ color:#fff;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px);
+ box-shadow:0 8px 23px #11152b25,inset 0 1px #fff5;
+}
+.hero-mark{
+ z-index:2;top:108px;right:14px;bottom:auto;width:108px;
+ opacity:.16;filter:none;pointer-events:none;
+}
+.hero-glass-accent{
+ position:absolute;z-index:1;right:40px;top:122px;width:78px;height:78px;
+ transform:rotate(-10deg);border-radius:23px;
+ border:1px solid rgba(255,207,174,.18);
+ background:linear-gradient(135deg,rgba(239,87,24,.12),rgba(239,87,24,.035));
+ backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);
+ pointer-events:none;
+}
+.hero-kicker{z-index:2;bottom:94px;left:23px;font-size:10px;letter-spacing:2.2px;text-shadow:0 2px 10px #11152b99}
+.profile-card{margin-top:-72px;z-index:4}
+@media(min-width:600px){.hero{height:355px;background-position:center 48%}}
+@media(max-width:390px){
+ .hero{height:315px;background-position:57% 44%}
+ .brand{width:158px;height:60px}
+ .hero-kicker{bottom:88px;font-size:9px;letter-spacing:2px}
+ .hero-mark{width:94px;right:12px}
+ .hero-glass-accent{width:70px;height:70px;right:34px}
+ .profile-card{margin-top:-68px}
+}
+@media(prefers-reduced-transparency:reduce){.hero-glass-accent,.share-icon{backdrop-filter:none;-webkit-backdrop-filter:none}}
+
 </style></head><body>
 <main class="page">
 <header class="hero" aria-label="Comexport, soluciones logísticas">
 <div class="hero-top"><a href="https://comexportchile.cl/" aria-label="Visitar Comexport"><img class="brand" src="../comexport_logo_3.webp" alt="Comexport" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="brand-text" hidden>COMEXPORT</span></a>
 <button type="button" class="share-icon" aria-label="Compartir perfil" onclick="shareProfile()"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="19" r="2"/><path d="m8 11 8-5M8 13l8 5"/></svg></button></div>
+<div class="hero-glass-accent" aria-hidden="true"></div>
 <img class="hero-mark" src="../comexport_logo_1.webp" alt="" aria-hidden="true">
 <div class="hero-kicker">FORWARDER & LOGISTICS</div></header>
 <section class="profile-card" aria-label="Datos del ejecutivo">
