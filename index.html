@@ -348,32 +348,50 @@ img,video,svg,canvas{max-width:100%}
 #proyectos h2{font-size:clamp(22px,2.5vw,29px);margin-bottom:12px}
 #proyectos .eyebrow{color:var(--muted);font-size:11px}
 /* Vitrinas de proyectos en dos columnas, con el logo original a la izquierda. */
-.lt-project-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;list-style:none;padding:0;margin:0}
-.lt-project-list li{min-width:0}
+.lt-project-list{
+  --project-slide:min(65%, 290px);
+  display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;
+  
+  padding:9px calc((100% - var(--project-slide)) / 2) 13px;margin:0;list-style:none;
+  scrollbar-width:none;
+}
+.lt-project-list::-webkit-scrollbar{display:none}
+.lt-project-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin:1px 0 9px}
+.lt-project-controls[hidden]{display:none}
+.lt-project-controls button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.lt-project-controls button:disabled{opacity:.36;cursor:default}
+.lt-project-controls button:focus-visible{outline:2px solid #1677ff;outline-offset:2px}
+.lt-project-position{min-width:37px;text-align:center;font-size:12px;color:var(--muted)}
+.lt-project-list li{position:relative;flex:0 0 100%;min-width:0;scroll-snap-align:center}
+.lt-project-list li.is-current,.lt-project-list li:focus-within{z-index:2}
+.lt-project-list.is-ready li a{transform:scale(.89);opacity:.75;transition:transform .28s ease,opacity .28s ease,border-color .2s}
+.lt-project-list.is-ready li.is-before a{transform:translateX(30px) scale(.89)}
+.lt-project-list.is-ready li.is-after a{transform:translateX(-30px) scale(.89)}
+.lt-project-list.is-ready li.is-current a,.lt-project-list.is-ready li:focus-within a{transform:scale(1);opacity:1}
 .lt-project-list a{display:grid;height:100%;overflow:hidden;border:1px solid var(--line);border-radius:19px;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
 .lt-project-list a:hover{border-color:#aebfd8;box-shadow:0 8px 22px #172a4910}
 .lt-project-list a:focus-visible,.lt-project-personal:focus-visible{outline:2px solid #1677ff;outline-offset:2px}
 .lt-project-art{
   position:relative;isolation:isolate;overflow:hidden;
   display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;justify-items:center;
-  gap:clamp(8px,2vw,22px);min-height:clamp(146px,24vw,205px);padding:12px clamp(11px,3vw,34px);
+  gap:8px;min-height:110px;padding:8px 10px;
   background:radial-gradient(ellipse at 66% 104%,var(--project-glow),transparent 79%),#f6f8fc;
 }
 .lt-project-identity{position:relative;display:grid;place-items:center;width:100%;height:100%;min-width:0}
 .lt-project-brand{position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:clamp(34px,6vw,78px);font-weight:850;letter-spacing:-.09em;color:var(--project-ink);opacity:.12}
-.lt-project-logo{position:relative;display:block;width:100%;max-width:210px;height:clamp(78px,16vw,138px);object-fit:contain;filter:drop-shadow(0 6px 9px #172a4920)}
+.lt-project-logo{position:relative;display:block;width:100%;max-width:210px;height:65px;object-fit:contain;filter:drop-shadow(0 6px 9px #172a4920)}
 .lt-project-logo[hidden]{display:none}
 .lt-project-identity:has(.lt-project-logo[hidden]) .lt-project-brand{position:static;transform:none;opacity:.72}
 .lt-project-sample{
-  position:relative;display:grid;align-content:center;gap:6px;width:min(100%,150px);min-height:88px;padding:10px;
+  position:relative;display:grid;align-content:center;gap:3px;width:min(100%,150px);min-height:54px;padding:6px;
   border:1px solid #fff;border-radius:12px;background:#ffffffed;box-shadow:0 12px 24px #172a492b;
   color:var(--project-ink);transform:rotate(-7deg);transition:transform .22s ease;
 }
 .lt-project-list a:hover .lt-project-sample{transform:translateY(-3px) rotate(-5deg)}
-.lt-project-sample strong{font-size:clamp(9px,1.6vw,14px);line-height:1.15}
-.lt-project-sample small{font-size:clamp(7px,1.2vw,10px);line-height:1.25;color:#485a73}
-.lt-project-sample .lt-project-preview-action{border-radius:5px;padding:5px 4px;background:var(--project-ink);color:white;font-size:clamp(7px,1vw,9px);font-weight:700;text-align:center}
-.lt-project-sample.is-phone{width:min(100%,94px);aspect-ratio:9/17;min-height:116px;padding:15px 6px 8px;border:3px solid #1b283a;border-radius:15px}
+.lt-project-sample strong{font-size:9px;line-height:1.15}
+.lt-project-sample small{font-size:7px;line-height:1.25;color:#485a73}
+.lt-project-sample .lt-project-preview-action{border-radius:5px;padding:3px 2px;background:var(--project-ink);color:white;font-size:7px;font-weight:700;text-align:center}
+.lt-project-sample.is-phone{width:min(100%,59px);aspect-ratio:9/15;min-height:86px;padding:10px 4px 4px;border:3px solid #1b283a;border-radius:15px}
 .lt-project-sample.is-phone::before{content:"";position:absolute;top:4px;left:34%;width:32%;height:4px;border-radius:4px;background:#1b283a}
 .lt-project-stars{font-size:12px;letter-spacing:1px;color:#936100}
 .lt-project-pins{display:flex;justify-content:space-between;padding:6px;border-radius:5px;background:repeating-linear-gradient(135deg,#e9f3ed 0 10px,#dcece4 10px 12px);font-size:10px}
@@ -383,8 +401,8 @@ img,video,svg,canvas{max-width:100%}
 .lt-project-personal:hover{text-decoration:underline;text-underline-offset:3px}
 .lt-project-footer{border-top:1px solid var(--line);margin-top:14px;padding-top:5px}
 .lt-project-footer .lt-project-more{margin-top:0}
-@media(max-width:420px){.lt-project-list{grid-template-columns:1fr}.lt-project-art{min-height:158px}.lt-project-logo{height:102px}}
-@media(prefers-reduced-motion:reduce){.lt-project-sample{transition:none}.lt-project-list a:hover .lt-project-sample{transform:rotate(-8deg)}}
+
+@media(prefers-reduced-motion:reduce){.lt-project-list.is-ready li a{transition:none}.lt-project-sample{transition:none}.lt-project-list a:hover .lt-project-sample{transform:rotate(-8deg)}}
 </style><style id="linktap-uses-brand">
 #usos.lt-use-section{padding:64px 0;background:linear-gradient(135deg,#fff 20%,#f4f8ff);border-top:1px solid #edf2f9;border-bottom:1px solid #edf2f9}
 .lt-use-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:30px}
@@ -692,7 +710,7 @@ img,video,svg,canvas{max-width:100%}
   <div class="wrap">
     <div class="eyebrow">Hecho con LinkTap</div>
     <h2 id="lt-project-title">Proyectos LinkTap</h2>
-    <ul class="lt-project-list">
+    <ul class="lt-project-list" id="lt-project-gallery" aria-label="Galería de proyectos">
       <li><a href="/comexport/" target="_blank" rel="noopener noreferrer" style="--project-ink:#8f3b13;--project-glow:#ffd8bd">
         <span class="lt-project-art" aria-hidden="true">
           <span class="lt-project-identity"><span class="lt-project-brand">CX</span><img class="lt-project-logo" src="https://linktap.cl/vicente/comexport-logo.webp" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
@@ -722,6 +740,11 @@ img,video,svg,canvas{max-width:100%}
         <span class="lt-project-caption">Clínica Cosmederm<span aria-hidden="true">↗</span></span>
       </a></li>
     </ul>
+    <div class="lt-project-controls" hidden>
+      <button type="button" data-project-step="-1" aria-label="Proyecto anterior" aria-controls="lt-project-gallery">←</button>
+      <span class="lt-project-position" aria-live="polite">1 / 4</span>
+      <button type="button" data-project-step="1" aria-label="Proyecto siguiente" aria-controls="lt-project-gallery">→</button>
+    </div>
     <div class="lt-project-footer">
       <a class="lt-project-personal" href="/vicente/">Mi perfil · Vicente Gómez <span aria-hidden="true">↗</span></a>
       <details class="lt-project-more"><summary>Ver más proyectos</summary><div class="lt-project-links"><a class="lt-project-link" href="/monteverde/">Monteverde · Recepción ↗</a><a class="lt-project-link" href="/monteverde/alexis/">Monteverde · Vendedores ↗</a><a class="lt-project-link" href="/isidora-montiel/">Isidora Montiel ↗</a><a class="lt-project-link" href="/prueba-leslie/perfil/">Leslie Langenbach ↗</a></div></details>
@@ -816,5 +839,56 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnim
 function draw(){frame=0;if(reduced.matches){hero.style.removeProperty('--lt-light-scale');hero.style.removeProperty('--lt-light-opacity');return;}const r=hero.getBoundingClientRect();const progress=Math.max(0,Math.min(1,-r.top/(Math.max(r.height*.72,1))));hero.style.setProperty('--lt-light-scale',(.75+progress*.95).toFixed(3));hero.style.setProperty('--lt-light-opacity',(.24+progress*.56).toFixed(3));}
 function schedule(){if(!frame)frame=requestAnimationFrame(draw);}
 window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});reduced.addEventListener('change',schedule);draw();
+})();
+</script><script>
+(() => {
+  const rail = document.getElementById('lt-project-gallery');
+  const slides = Array.from(rail.children);
+  const controls = rail.nextElementSibling;
+  const [previous, next] = controls.querySelectorAll('button');
+  const position = controls.querySelector('.lt-project-position');
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  let current = -1;
+  let frame = 0;
+  function sync() {
+    frame = 0;
+    const box = rail.getBoundingClientRect();
+    const center = box.left + box.width / 2;
+    const distances = slides.map(slide => {
+      const bounds = slide.getBoundingClientRect();
+      return Math.abs(bounds.left + bounds.width / 2 - center);
+    });
+    const index = distances.indexOf(Math.min(...distances));
+    if (index === current) return;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('is-current', i === index);
+      slide.classList.toggle('is-before', i < index);
+      slide.classList.toggle('is-after', i > index);
+    });
+    current = index;
+    previous.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+    position.textContent = (index + 1) + ' / ' + slides.length;
+  }
+  function scheduleSync() {
+    if (!frame) frame = requestAnimationFrame(sync);
+  }
+  controls.addEventListener('click', event => {
+    const button = event.target.closest('[data-project-step]');
+    if (!button) return;
+    const slide = slides[current + Number(button.dataset.projectStep)];
+    if (!slide) return;
+    const box = rail.getBoundingClientRect();
+    const bounds = slide.getBoundingClientRect();
+    rail.scrollBy({
+      left: bounds.left + bounds.width / 2 - box.left - box.width / 2,
+      behavior: reducedMotion.matches ? 'instant' : 'smooth'
+    });
+  });
+  rail.addEventListener('scroll', scheduleSync, { passive: true });
+  window.addEventListener('resize', scheduleSync);
+  controls.hidden = false;
+  sync();
+  rail.classList.add('is-ready');
 })();
 </script></body></html>
