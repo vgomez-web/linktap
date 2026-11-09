@@ -352,7 +352,7 @@ img,video,svg,canvas{max-width:100%}
   --project-slide:65%;
   display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;
   
-  padding:9px calc((100% - var(--project-slide)) / 2) 13px;margin:0;list-style:none;
+  padding:16px calc((100% - var(--project-slide)) / 2) 28px;margin:0;list-style:none;
   scrollbar-width:none;
 }
 .lt-project-viewport{max-width:450px;margin-inline:auto}
@@ -363,38 +363,39 @@ img,video,svg,canvas{max-width:100%}
 .lt-project-controls button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
 .lt-project-controls button:focus-visible{outline:2px solid #1677ff;outline-offset:2px}
 .lt-project-list li{position:relative;flex:0 0 100%;min-width:0;scroll-snap-align:center}
-.lt-project-list li.is-current,.lt-project-list li:focus-within{z-index:2}
-.lt-project-list.is-ready li a{transform:scale(.89);opacity:.75;transition:transform .28s ease,opacity .28s ease,border-color .2s}
-.lt-project-list.is-ready li.is-before a{transform:translateX(30px) scale(.89)}
-.lt-project-list.is-ready li.is-after a{transform:translateX(-30px) scale(.89)}
-.lt-project-list.is-ready li.is-current a,.lt-project-list.is-ready li:focus-within a{transform:scale(1);opacity:1}
+.lt-project-list li:focus-within{z-index:101 !important}
+.lt-project-list.is-ready li a{
+  transform:translate3d(var(--project-shift,0px),var(--project-lift,0px),0) scale(var(--project-scale,1));
+  opacity:var(--project-opacity,1);
+  box-shadow:0 9px 23px rgb(23 42 73 / var(--project-shadow,.12));
+}
 .lt-project-list a{display:grid;height:100%;overflow:hidden;border:1px solid var(--line);border-radius:19px;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
 .lt-project-list a:hover{border-color:#aebfd8;box-shadow:0 8px 22px #172a4910}
 .lt-project-list a:focus-visible,.lt-project-personal:focus-visible{outline:2px solid #1677ff;outline-offset:2px}
 .lt-project-art{
   position:relative;isolation:isolate;overflow:hidden;
   display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;justify-items:center;
-  gap:8px;min-height:110px;padding:8px 10px;
-  background:radial-gradient(ellipse at 66% 104%,var(--project-glow),transparent 79%),#f6f8fc;
+  gap:8px;min-height:124px;padding:10px clamp(6px,3vw,15px);
+  background:radial-gradient(ellipse at 74% 110%,var(--project-glow),transparent 80%),linear-gradient(145deg,#fff 6%,#edf3fb);
+  box-shadow:inset 0 1px 0 #fff;
 }
 .lt-project-identity{position:relative;display:grid;place-items:center;width:100%;height:100%;min-width:0}
-.lt-project-brand{position:absolute;left:0;top:50%;transform:translateY(-50%);font-size:clamp(34px,6vw,78px);font-weight:850;letter-spacing:-.09em;color:var(--project-ink);opacity:.12}
 .lt-project-logo{position:relative;display:block;width:100%;max-width:210px;height:65px;object-fit:contain;filter:drop-shadow(0 6px 9px #172a4920)}
+.lt-project-art:has(img[src*="patagonia_explorer"]) .lt-project-identity{height:auto;padding:6px;border-radius:12px;background:linear-gradient(145deg,#254842,#112d2a)}
 .lt-project-logo[hidden]{display:none}
-.lt-project-identity:has(.lt-project-logo[hidden]) .lt-project-brand{position:static;transform:none;opacity:.72}
 .lt-project-sample{
   position:relative;display:grid;align-content:center;gap:3px;width:min(100%,150px);min-height:54px;padding:6px;
-  border:1px solid #fff;border-radius:12px;background:#ffffffed;box-shadow:0 12px 24px #172a492b;
+  border:1px solid #fff;border-radius:12px;background:linear-gradient(155deg,#fff,#ffffffbc);box-shadow:inset 0 1px 0 #fff,0 8px 18px #172a4926;
   color:var(--project-ink);transform:rotate(-7deg);transition:transform .22s ease;
 }
 .lt-project-list a:hover .lt-project-sample{transform:translateY(-3px) rotate(-5deg)}
-.lt-project-sample strong{font-size:9px;line-height:1.15}
-.lt-project-sample small{font-size:7px;line-height:1.25;color:#485a73}
+.lt-project-sample strong{font-size:8.5px;line-height:1.15;overflow-wrap:anywhere}
+.lt-project-sample small{overflow-wrap:anywhere;font-size:7px;line-height:1.25;color:#485a73}
 .lt-project-sample .lt-project-preview-action{border-radius:5px;padding:3px 2px;background:var(--project-ink);color:white;font-size:7px;font-weight:700;text-align:center}
-.lt-project-sample.is-phone{width:min(100%,59px);aspect-ratio:9/15;min-height:86px;padding:10px 4px 4px;border:3px solid #1b283a;border-radius:15px}
+.lt-project-sample.is-phone{width:min(100%,68px);min-height:99px;padding:13px 4px 5px;grid-template-columns:minmax(0,1fr);overflow:hidden;border:3px solid #26354b;border-radius:13px;background:linear-gradient(160deg,#fff,#eaf1fb)}
 .lt-project-sample.is-phone::before{content:"";position:absolute;top:4px;left:34%;width:32%;height:4px;border-radius:4px;background:#1b283a}
 .lt-project-stars{font-size:12px;letter-spacing:1px;color:#936100}
-.lt-project-pins{display:flex;justify-content:space-between;padding:6px;border-radius:5px;background:repeating-linear-gradient(135deg,#e9f3ed 0 10px,#dcece4 10px 12px);font-size:10px}
+.lt-project-pins{display:flex;justify-content:space-between;padding:4px;border-radius:5px;background:repeating-linear-gradient(135deg,#e9f3ed 0 10px,#dcece4 10px 12px);font-size:10px}
 .lt-project-caption{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 13px;font-size:clamp(13px,1.8vw,16px);font-weight:700;border-top:1px solid #eaf0f7}
 .lt-project-caption span[aria-hidden],.lt-project-personal{color:var(--muted)}
 .lt-project-personal{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:13px}
@@ -402,7 +403,7 @@ img,video,svg,canvas{max-width:100%}
 .lt-project-footer{border-top:1px solid var(--line);margin-top:14px;padding-top:5px}
 .lt-project-footer .lt-project-more{margin-top:0}
 
-@media(prefers-reduced-motion:reduce){.lt-project-list.is-ready li a{transition:none}.lt-project-sample{transition:none}.lt-project-list a:hover .lt-project-sample{transform:rotate(-8deg)}}
+@media(prefers-reduced-motion:reduce){.lt-project-list.is-ready li a{transform:none;transition:none}.lt-project-sample{transition:none}.lt-project-list a:hover .lt-project-sample{transform:rotate(-8deg)}}
 </style><style id="linktap-uses-brand">
 #usos.lt-use-section{padding:64px 0;background:linear-gradient(135deg,#fff 20%,#f4f8ff);border-top:1px solid #edf2f9;border-bottom:1px solid #edf2f9}
 .lt-use-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:30px}
@@ -712,28 +713,28 @@ img,video,svg,canvas{max-width:100%}
     <div class="lt-project-viewport"><ul class="lt-project-list" id="lt-project-gallery" aria-label="Galería de proyectos">
       <li><a href="/comexport/" target="_blank" rel="noopener noreferrer" style="--project-ink:#8f3b13;--project-glow:#ffd8bd">
         <span class="lt-project-art" aria-hidden="true">
-          <span class="lt-project-identity"><span class="lt-project-brand">CX</span><img class="lt-project-logo" src="https://linktap.cl/vicente/comexport-logo.webp" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
+          <span class="lt-project-identity"><img class="lt-project-logo" src="https://linktap.cl/vicente/comexport-logo.webp" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
           <span class="lt-project-sample is-phone"><strong>Perfil ejecutivo</strong><small>Comexport</small><span class="lt-project-preview-action">Guardar contacto</span></span>
         </span>
         <span class="lt-project-caption">Comexport<span aria-hidden="true">↗</span></span>
       </a></li>
       <li><a href="/monteverde/" target="_blank" rel="noopener noreferrer" style="--project-ink:#236043;--project-glow:#d7efdc">
         <span class="lt-project-art" aria-hidden="true">
-          <span class="lt-project-identity"><span class="lt-project-brand">MV</span><img class="lt-project-logo" src="https://linktap.cl/vicente/monteverdelogo.png" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
+          <span class="lt-project-identity"><img class="lt-project-logo" src="https://linktap.cl/vicente/monteverdelogo.png" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
           <span class="lt-project-sample "><strong>Reseñas Google</strong><small>Clínica Dental Monteverde</small><span class="lt-project-stars">★★★★★</span><span class="lt-project-preview-action">Dejar reseña</span></span>
         </span>
         <span class="lt-project-caption">Clínica Dental Monteverde<span aria-hidden="true">↗</span></span>
       </a></li>
       <li><a href="/patagoniaexplorer/" target="_blank" rel="noopener noreferrer" style="--project-ink:#205143;--project-glow:#c8e6dd">
         <span class="lt-project-art" aria-hidden="true">
-          <span class="lt-project-identity"><span class="lt-project-brand">PE</span><img class="lt-project-logo" src="https://linktap.cl/vicente/patagonia_explorer_logo.webp" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
+          <span class="lt-project-identity"><img class="lt-project-logo" src="https://linktap.cl/vicente/patagonia_explorer_logo.webp" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
           <span class="lt-project-sample is-phone"><strong>Sucursales</strong><small>Patagonia Explorer</small><span class="lt-project-pins">● <span>●</span></span><span class="lt-project-preview-action">Ver mapa</span></span>
         </span>
         <span class="lt-project-caption">Patagonia Explorer<span aria-hidden="true">↗</span></span>
       </a></li>
       <li><a href="/cosmederm/" target="_blank" rel="noopener noreferrer" style="--project-ink:#74455b;--project-glow:#f3d9e8">
         <span class="lt-project-art" aria-hidden="true">
-          <span class="lt-project-identity"><span class="lt-project-brand">CD</span><img class="lt-project-logo" src="https://linktap.cl/vicente/cosmedermlogo.png" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
+          <span class="lt-project-identity"><img class="lt-project-logo" src="https://linktap.cl/vicente/cosmedermlogo.png" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
           <span class="lt-project-sample "><strong>Cosmederm</strong></span>
         </span>
         <span class="lt-project-caption">Clínica Cosmederm<span aria-hidden="true">↗</span></span>
@@ -863,24 +864,30 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
     const item = slide.getBoundingClientRect();
     return item.left + item.width / 2 - viewport.left - viewport.width / 2;
   }
-  function mark(index) {
-    current = index;
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('is-current', i === index);
-      slide.classList.toggle('is-before', i < index);
-      slide.classList.toggle('is-after', i > index);
-    });
-  }
   function sync() {
-    frame = 0;
-    const distances = slides.map(slide => Math.abs(delta(slide)));
-    const index = distances.indexOf(Math.min(...distances));
-    if (index !== current) mark(index);
+    const distances = slides.map(delta);
+    const spacing = Math.max(1, distances[1] - distances[0]);
+    let closest = Infinity;
+    slides.forEach((slide, index) => {
+      const distance = distances[index];
+      const prominence = Math.max(0, 1 - Math.abs(distance) / spacing);
+      if (Math.abs(distance) < closest) {
+        closest = Math.abs(distance);
+        current = index;
+      }
+      const direction = Math.max(-1, Math.min(1, distance / spacing));
+      slide.style.zIndex = String(Math.round(prominence * 100));
+      slide.style.setProperty('--project-shift', (-29 * direction) + 'px');
+      slide.style.setProperty('--project-lift', (-5 * prominence) + 'px');
+      slide.style.setProperty('--project-scale', (0.88 + 0.15 * prominence).toFixed(3));
+      slide.style.setProperty('--project-opacity', (0.70 + 0.30 * prominence).toFixed(3));
+      slide.style.setProperty('--project-shadow', (0.06 + 0.11 * prominence).toFixed(3));
+    });
   }
   function jump(index) {
     rail.classList.add('is-jumping');
     rail.scrollLeft += delta(slides[index]);
-    mark(index);
+    sync();
     requestAnimationFrame(() => rail.classList.remove('is-jumping'));
   }
   function realIndex(index) {
@@ -896,7 +903,10 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
     rail.scrollBy({ left: delta(slides[current + 1]), behavior: reducedMotion.matches ? 'instant' : 'smooth' });
   });
   rail.addEventListener('scroll', () => {
-    if (!frame) frame = requestAnimationFrame(sync);
+    if (!frame) frame = requestAnimationFrame(() => {
+      frame = 0;
+      sync();
+    });
     clearTimeout(settleTimer);
     settleTimer = setTimeout(settle, 150);
   }, { passive: true });
