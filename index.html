@@ -349,19 +349,19 @@ img,video,svg,canvas{max-width:100%}
 #proyectos .eyebrow{color:var(--muted);font-size:11px}
 /* Vitrinas de proyectos en dos columnas, con el logo original a la izquierda. */
 .lt-project-list{
-  --project-slide:min(65%, 290px);
+  --project-slide:65%;
   display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;
   
   padding:9px calc((100% - var(--project-slide)) / 2) 13px;margin:0;list-style:none;
   scrollbar-width:none;
 }
+.lt-project-viewport{max-width:450px;margin-inline:auto}
+.lt-project-list.is-ready.is-jumping li a{transition:none}
 .lt-project-list::-webkit-scrollbar{display:none}
 .lt-project-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin:1px 0 9px}
 .lt-project-controls[hidden]{display:none}
 .lt-project-controls button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
-.lt-project-controls button:disabled{opacity:.36;cursor:default}
 .lt-project-controls button:focus-visible{outline:2px solid #1677ff;outline-offset:2px}
-.lt-project-position{min-width:37px;text-align:center;font-size:12px;color:var(--muted)}
 .lt-project-list li{position:relative;flex:0 0 100%;min-width:0;scroll-snap-align:center}
 .lt-project-list li.is-current,.lt-project-list li:focus-within{z-index:2}
 .lt-project-list.is-ready li a{transform:scale(.89);opacity:.75;transition:transform .28s ease,opacity .28s ease,border-color .2s}
@@ -710,7 +710,7 @@ img,video,svg,canvas{max-width:100%}
   <div class="wrap">
     <div class="eyebrow">Hecho con LinkTap</div>
     <h2 id="lt-project-title">Proyectos LinkTap</h2>
-    <ul class="lt-project-list" id="lt-project-gallery" aria-label="Galería de proyectos">
+    <div class="lt-project-viewport"><ul class="lt-project-list" id="lt-project-gallery" aria-label="Galería de proyectos">
       <li><a href="/comexport/" target="_blank" rel="noopener noreferrer" style="--project-ink:#8f3b13;--project-glow:#ffd8bd">
         <span class="lt-project-art" aria-hidden="true">
           <span class="lt-project-identity"><span class="lt-project-brand">CX</span><img class="lt-project-logo" src="https://linktap.cl/vicente/comexport-logo.webp" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
@@ -739,11 +739,9 @@ img,video,svg,canvas{max-width:100%}
         </span>
         <span class="lt-project-caption">Clínica Cosmederm<span aria-hidden="true">↗</span></span>
       </a></li>
-    </ul>
+    </ul></div>
     <div class="lt-project-controls" hidden>
-      <button type="button" data-project-step="-1" aria-label="Proyecto anterior" aria-controls="lt-project-gallery">←</button>
-      <span class="lt-project-position" aria-live="polite">1 / 4</span>
-      <button type="button" data-project-step="1" aria-label="Proyecto siguiente" aria-controls="lt-project-gallery">→</button>
+      <button type="button" aria-label="Deslizar al siguiente proyecto" aria-controls="lt-project-gallery">→</button>
     </div>
     <div class="lt-project-footer">
       <a class="lt-project-personal" href="/vicente/">Mi perfil · Vicente Gómez <span aria-hidden="true">↗</span></a>
@@ -843,52 +841,68 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
 </script><script>
 (() => {
   const rail = document.getElementById('lt-project-gallery');
-  const slides = Array.from(rail.children);
-  const controls = rail.nextElementSibling;
-  const [previous, next] = controls.querySelectorAll('button');
-  const position = controls.querySelector('.lt-project-position');
+  const originals = Array.from(rail.children);
+  const controls = rail.closest('.lt-project-viewport').nextElementSibling;
+  const next = controls.querySelector('button');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  let current = -1;
+  const buffer = 2;
+  function duplicate(slide) {
+    const copy = slide.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    copy.querySelector('a').tabIndex = -1;
+    return copy;
+  }
+  rail.prepend(...originals.slice(-buffer).map(duplicate));
+  rail.append(...originals.slice(0, buffer).map(duplicate));
+  const slides = Array.from(rail.children);
+  let current = buffer;
   let frame = 0;
-  function sync() {
-    frame = 0;
-    const box = rail.getBoundingClientRect();
-    const center = box.left + box.width / 2;
-    const distances = slides.map(slide => {
-      const bounds = slide.getBoundingClientRect();
-      return Math.abs(bounds.left + bounds.width / 2 - center);
-    });
-    const index = distances.indexOf(Math.min(...distances));
-    if (index === current) return;
+  let settleTimer;
+  function delta(slide) {
+    const viewport = rail.getBoundingClientRect();
+    const item = slide.getBoundingClientRect();
+    return item.left + item.width / 2 - viewport.left - viewport.width / 2;
+  }
+  function mark(index) {
+    current = index;
     slides.forEach((slide, i) => {
       slide.classList.toggle('is-current', i === index);
       slide.classList.toggle('is-before', i < index);
       slide.classList.toggle('is-after', i > index);
     });
-    current = index;
-    previous.disabled = index === 0;
-    next.disabled = index === slides.length - 1;
-    position.textContent = (index + 1) + ' / ' + slides.length;
   }
-  function scheduleSync() {
-    if (!frame) frame = requestAnimationFrame(sync);
+  function sync() {
+    frame = 0;
+    const distances = slides.map(slide => Math.abs(delta(slide)));
+    const index = distances.indexOf(Math.min(...distances));
+    if (index !== current) mark(index);
   }
-  controls.addEventListener('click', event => {
-    const button = event.target.closest('[data-project-step]');
-    if (!button) return;
-    const slide = slides[current + Number(button.dataset.projectStep)];
-    if (!slide) return;
-    const box = rail.getBoundingClientRect();
-    const bounds = slide.getBoundingClientRect();
-    rail.scrollBy({
-      left: bounds.left + bounds.width / 2 - box.left - box.width / 2,
-      behavior: reducedMotion.matches ? 'instant' : 'smooth'
-    });
+  function jump(index) {
+    rail.classList.add('is-jumping');
+    rail.scrollLeft += delta(slides[index]);
+    mark(index);
+    requestAnimationFrame(() => rail.classList.remove('is-jumping'));
+  }
+  function realIndex(index) {
+    return buffer + (index - buffer + originals.length) % originals.length;
+  }
+  function settle() {
+    sync();
+    const index = realIndex(current);
+    if (index !== current) jump(index);
+  }
+  next.addEventListener('click', () => {
+    settle();
+    rail.scrollBy({ left: delta(slides[current + 1]), behavior: reducedMotion.matches ? 'instant' : 'smooth' });
   });
-  rail.addEventListener('scroll', scheduleSync, { passive: true });
-  window.addEventListener('resize', scheduleSync);
-  controls.hidden = false;
-  sync();
+  rail.addEventListener('scroll', () => {
+    if (!frame) frame = requestAnimationFrame(sync);
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(settle, 150);
+  }, { passive: true });
+  window.addEventListener('resize', () => jump(realIndex(current)));
+  jump(buffer);
   rail.classList.add('is-ready');
+  controls.hidden = false;
 })();
 </script></body></html>
