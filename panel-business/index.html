@@ -1,1 +1,200 @@
+<!doctype html>
+<html lang="es-CL"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#070c1b"><meta name="robots" content="noindex,follow">
+<title>LinkTap Business — Demo del panel</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{font-family:'DM Sans',system-ui,sans-serif;color:#ecf3ff;background:#070c1b;font-synthesis:none;--muted:#8f9db8;--stroke:rgba(163,186,240,.13);--blue:#6194ff;--mint:#70e9c8}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse 900px 600px at 76% -18%,#1a377a88,transparent 72%),radial-gradient(ellipse 800px 520px at 23% 110%,#05244c88,transparent 72%),#070c1b}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid #91adff;outline-offset:3px}button:disabled{opacity:.55;cursor:not-allowed}
+h1,h2,h3,p{margin:0}h1,h2,h3,.number,.brand{font-family:Manrope,system-ui,sans-serif}a{color:inherit;text-decoration:none}
+.app{min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr)}
+.sidebar{border-right:1px solid var(--stroke);background:#080f20bc;backdrop-filter:blur(24px);padding:30px 17px;display:flex;flex-direction:column;gap:32px}
+.brand{font-size:25px;font-weight:800;letter-spacing:-1.4px;padding:0 13px}.brand span{color:#7ba7ff}.brand small{display:block;font-size:9px;color:#7790bd;letter-spacing:3px;margin-top:0}
+.space-label{padding:0 13px 11px;color:#637797;font-size:10px;letter-spacing:2px;font-weight:800}
+.nav{display:flex;flex-direction:column;gap:5px}.nav button{display:flex;align-items:center;gap:13px;background:transparent;border:0;color:#9eacc7;text-align:left;border-radius:12px;padding:13px 14px;font-size:13px;font-weight:600;transition:.2s}.nav button svg{width:19px;height:19px}.nav button.active{background:linear-gradient(100deg,#244c9b99,#152344aa);box-shadow:inset 0 0 0 1px #6695ef43;color:white}.nav button:hover{background:#1a2946;color:white}
+.sidebar-bottom{margin-top:auto;background:linear-gradient(140deg,#1b3059,#0d1a32);border:1px solid var(--stroke);border-radius:16px;padding:16px}.sidebar-bottom .mini{font-size:11px;color:#9db3db}.sidebar-bottom strong{display:block;font-size:13px;margin-top:6px}.sidebar-bottom p{font-size:11px;color:#869bbd;line-height:1.7;margin-top:7px}
+.main{padding:30px clamp(18px,4vw,64px) 70px;min-width:0;max-width:1600px;width:100%;margin:auto}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:35px}.breadcrumbs{font-size:12px;color:#7084aa}.breadcrumbs b{color:#b9c8e3}.user{display:flex;align-items:center;gap:12px;color:#c4d1ea;font-size:12px}.avatar{height:38px;width:38px;background:linear-gradient(135deg,#417bd6,#1f335f);border:1px solid #6290e6;border-radius:12px;display:grid;place-items:center;font-weight:800}.live{display:inline-flex;align-items:center;gap:7px;border:1px solid #385f56;background:#153b3655;border-radius:999px;padding:7px 10px;font-size:11px;color:#91e9d1}.dot{height:6px;width:6px;border-radius:50%;background:#67eac3;box-shadow:0 0 12px #64f1c1}
+.titleline{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:27px}.eyebrow{font-size:10px;color:#80a6fc;letter-spacing:2.5px;font-weight:800;text-transform:uppercase;margin-bottom:9px}h1{font-size:clamp(28px,3vw,39px);letter-spacing:-1.6px;font-weight:800}h1 span{background:linear-gradient(110deg,#fff,#8cb4ff);background-clip:text;color:transparent}.subtitle{color:#9aaaca;margin-top:11px;font-size:13px;line-height:1.6}.period{display:flex;padding:4px;gap:3px;border:1px solid var(--stroke);border-radius:11px;background:#121e35}.period button{border:0;background:transparent;color:#97a9ca;padding:9px 12px;border-radius:8px;font-size:12px}.period button.active{color:white;background:#305ab2;box-shadow:0 4px 15px #1c4c9c55}
+.stat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:18px}
+.card{position:relative;overflow:hidden;border:1px solid var(--stroke);background:linear-gradient(135deg,rgba(27,43,72,.82),rgba(12,22,43,.87));border-radius:18px;box-shadow:0 15px 45px #00000020}.stat{padding:21px 22px;min-height:155px}.stat:after{content:"";position:absolute;width:135px;height:110px;border-radius:50%;background:radial-gradient(circle,#4779e021,transparent 70%);right:-60px;top:-40px;pointer-events:none}.label{color:#a0b0cf;font-size:12px;display:flex;align-items:center;justify-content:space-between;gap:8px}.iconbox{width:34px;height:34px;display:grid;place-items:center;border:1px solid #4573a855;background:#304a7540;border-radius:11px;font-size:18px;color:#b7d0ff}.number{font-size:33px;font-weight:800;letter-spacing:-1.1px;margin:15px 0 3px}.note{font-size:11px;color:#7289b2}.note strong{color:#81e5c5;font-weight:700}
+.two-col{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,1fr);gap:18px;margin:18px 0}.panel{padding:25px}.panel-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:24px}.panel h2{font-size:17px;letter-spacing:-.5px}.panel .hint{font-size:11px;color:#8295b7;margin-top:6px}.pill{font-size:10px;color:#a8c7ff;padding:6px 9px;border-radius:8px;background:#233b64;border:1px solid #4a70a044}
+.chart{height:242px;width:100%;position:relative}.chart svg{width:100%;height:100%;overflow:visible}.gridline{stroke:#344466;stroke-width:1;stroke-dasharray:3 5;opacity:.62}.axis-label{font-size:11px;fill:#8193b8}.line-area{fill:url(#fillGradient)}.chart-line{fill:none;stroke:#7ba6ff;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px #4c8dff80);stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 1.6s ease forwards}.line-dot{fill:#b8cfff;stroke:#518df8;stroke-width:3}.baritem{display:grid;grid-template-columns:112px 1fr 39px;align-items:center;gap:10px;margin:18px 0;font-size:12px;color:#d8e2f4}.track{height:9px;border-radius:9px;background:#22314b;overflow:hidden}.fill{height:100%;border-radius:9px;background:linear-gradient(90deg,#3e72ea,#7eb7ff);transform-origin:left;animation:grow .9s ease both}.baritem .val{text-align:right;color:#9fbaeb}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:13px;margin-bottom:16px;flex-wrap:wrap}.toolbar input{background:#111e35;color:#fff;border:1px solid #334869;padding:11px 14px;border-radius:10px;min-width:200px;outline:0}.toolbar input:focus{border-color:#75a5fc}.tablewrap{overflow:auto}.table{width:100%;border-collapse:collapse;text-align:left;min-width:640px}.table th{color:#7487a8;font-size:10px;letter-spacing:1px;padding:0 12px 16px;text-transform:uppercase}.table td{padding:15px 12px;border-top:1px solid #34456355;font-size:12px}.person{display:flex;align-items:center;gap:10px}.personpic{display:grid;place-items:center;background:#284476;color:#cde0ff;width:38px;height:38px;border-radius:12px;font-size:11px;font-weight:800}.name{font-weight:700}.role{font-size:11px;color:#8c9bb7;margin-top:4px}.status{display:inline-flex;gap:7px;align-items:center;border-radius:999px;padding:6px 10px;background:#15483855;color:#7be2be;font-size:11px}.status.off{color:#e7bd85;background:#5c3c1b55}.status i{width:6px;height:6px;background:currentColor;border-radius:50%}.action{background:#1e345a;color:#c9dcff;border:1px solid #416299;border-radius:9px;padding:8px 12px;font-size:11px}.action:hover{background:#30558d}.action.offbutton{background:#283548;color:#b6c2d7;border-color:#415167}.smallbtn{background:#273c67;color:#dae9ff;border:1px solid #4668a1;border-radius:9px;padding:10px 13px;font-size:11px}.smallbtn:hover{background:#355484}.demo{font-size:10px;color:#a2bcfa;border-radius:999px;padding:7px 10px;border:1px solid #5675bc63;background:#18315c89}.foot{text-align:center;font-size:11px;color:#647799;margin-top:22px}
+.activity{display:flex;flex-direction:column;gap:15px}.activityrow{display:flex;gap:13px;align-items:flex-start}.activity-icon{height:35px;width:35px;flex:none;display:grid;place-items:center;background:#24395e;border:1px solid #41658c;border-radius:11px;color:#9ac3ff}.activityrow strong{font-size:12px}.activityrow p{font-size:11px;color:#93a4c1;line-height:1.5;margin-top:4px}
+.hide{display:none!important}.toast{position:fixed;right:22px;bottom:20px;z-index:5;background:#1d3564;border:1px solid #5883d3;color:#fff;padding:13px 18px;border-radius:12px;box-shadow:0 15px 50px #0008;font-size:12px;opacity:0;pointer-events:none;transform:translateY(15px);transition:.3s}.toast.show{opacity:1;transform:translateY(0)}.view{animation:appear .4s ease both}.notice{display:flex;gap:10px;align-items:flex-start;border:1px solid #5174ae66;background:#1c365b70;border-radius:12px;padding:14px 16px;margin-bottom:25px;color:#aec7ea;font-size:12px;line-height:1.6}.notice b{color:white}
+@keyframes draw{to{stroke-dashoffset:0}}@keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1150px){.stat-grid{grid-template-columns:repeat(2,1fr)}.two-col{grid-template-columns:1fr}}
+@media(max-width:760px){.app{display:block}.sidebar{position:sticky;top:0;z-index:3;padding:11px 15px;gap:10px;flex-direction:row;align-items:center;justify-content:space-between;border-right:0;border-bottom:1px solid var(--stroke)}.brand{font-size:20px;padding:0}.brand small,.space-label,.sidebar-bottom{display:none}.nav{flex-direction:row;gap:3px}.nav button{padding:9px}.nav button span{display:none}.nav button svg{width:20px}.main{padding:20px 14px 65px}.topbar{margin-bottom:24px}.titleline{align-items:flex-start}.stat{min-height:130px;padding:17px}.number{font-size:27px}.panel{padding:19px}.chart{height:210px}.user .usertext{display:none}.baritem{grid-template-columns:94px 1fr 30px;gap:7px;font-size:11px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition:none!important}}
+.primary-cta{background:linear-gradient(120deg,#3369df,#73a0ff);border:1px solid #739fff;border-radius:12px;color:white;font-weight:800;padding:13px 18px;cursor:pointer;box-shadow:0 10px 30px #2358ca44}.primary-cta:hover{filter:brightness(1.13)}.request-form{display:grid;gap:12px}.request-form label{font-size:12px;font-weight:700;color:#dce8ff;margin-top:5px}.request-form input,.request-form textarea{background:#0f1d35;border:1px solid #334969;padding:12px 14px;border-radius:11px;color:white;width:100%;font:inherit}.request-form input:focus,.request-form textarea:focus{outline:2px solid #749dff;outline-offset:1px}.request-hint{font-size:11px;color:#9eafd0;line-height:1.7}.request-layout{grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr)}.request-steps{display:grid;gap:17px}.request-steps p{font-size:12px;color:#bdcdee;line-height:1.6}.request-steps b{font-size:17px;color:#8baeff;margin-right:12px}.request-history{border-top:1px solid var(--stroke);margin-top:28px;padding-top:22px}.request-history h3{font-size:14px}.request-history p{color:#92a3c3;font-size:12px;line-height:1.7;margin-top:10px}@media(max-width:950px){.request-layout{grid-template-columns:1fr}}.profile-sections{display:grid;gap:32px}.profile-group{display:grid;gap:18px}.profile-group+.profile-group{border-top:1px solid var(--stroke);padding-top:30px}.profile-group-heading{display:flex;align-items:end;justify-content:space-between;gap:18px}.profile-group-heading h3{font-size:19px;margin:7px 0;color:#f5f8ff}.profile-group-heading p{color:#9fb0d0;font-size:12px;line-height:1.7}.profile-kicker{color:#87b0ff;font-size:10px;font-weight:800;letter-spacing:2px}.group-count{color:#93aadb;font-size:12px;white-space:nowrap}.institution-card{border:1px solid #3a568e;background:linear-gradient(123deg,#18325c,#102039 66%);border-radius:18px;padding:26px;display:flex;gap:20px;align-items:center;justify-content:space-between;box-shadow:0 14px 42px #0002}.institution-identity{display:flex;align-items:center;gap:16px;min-width:0}.institution-identity h3{font-size:19px;margin:7px 0}.institution-identity p{font-size:12px;color:#9cafd0}.institution-icon{border:1px solid #617eae;border-radius:15px;width:54px;height:54px;display:grid;place-items:center;font-size:25px;background:#244475;flex-shrink:0}.institution-stats{display:flex;gap:20px}.institution-stats>div{display:flex;flex-direction:column;gap:5px;min-width:55px}.institution-stats strong{font:800 22px Manrope,sans-serif}.institution-stats span{font-size:11px;color:#9eb3d4}.profile-link{display:inline-flex;white-space:nowrap;align-items:center;color:#a7c6ff;font-size:12px;font-weight:700;padding:9px 11px;border:1px solid #4a6390;border-radius:10px}.profile-link:hover{background:#2d4a78;color:white}.profile-link[aria-disabled=true]{opacity:.55}.company-empty,.no-profiles{color:#8ea4c5;font-size:12px;padding:22px;background:#14233d;border-radius:12px}.no-profiles{background:transparent;text-align:center}@media(max-width:980px){.institution-card{flex-wrap:wrap}.institution-identity{width:100%}}@media(max-width:600px){.institution-card{padding:18px}.institution-stats{gap:24px}.profile-group-heading{align-items:start;flex-wrap:wrap}}.request-fields{border:1px solid var(--stroke);border-radius:13px;padding:14px 15px 18px;min-width:0;display:grid;gap:12px;margin:10px 0 4px;background:rgba(20,41,77,.24)}.request-fields[hidden]{display:none!important}.request-fields legend{color:#98b9fc;font-size:11px;font-weight:800;letter-spacing:.07em;padding:0 7px}.request-form select{width:100%;border:1px solid #334969;border-radius:11px;background:#0f1d35;color:#fff;font:inherit;padding:12px 14px;min-height:46px}.request-form select:focus{outline:2px solid #749dff;outline-offset:1px}.demo-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:12px 16px;margin-bottom:18px;border:1px solid var(--stroke);border-radius:12px;background:#111e38;color:#bdcff4;font-size:12px}.demo-bar a{color:#a5c1ff;font-weight:700;text-decoration:underline;text-underline-offset:3px}.demo-bar a:focus-visible{outline:2px solid #91adff;outline-offset:3px}
+</style></head>
+<body><div class="app">
+<aside class="sidebar"><a class="brand" href="/" aria-label="Volver a LinkTap">Link<span>Tap</span><small>BUSINESS</small></a>
+<div><div class="space-label">TU ESPACIO</div><nav class="nav" aria-label="Secciones">
+<button class="active" data-view="overview" aria-label="Resumen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>Resumen</span></button>
+<button data-view="profiles" aria-label="Perfiles"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 3-8 8-8s8 3 8 8"/></svg><span>Perfiles digitales</span></button>
+<button data-view="requests" aria-label="Solicitudes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 3v18h17M7 15l5-5 4 3 5-7"/></svg><span>Solicitudes</span></button></nav></div>
+<div class="sidebar-bottom"><div class="mini">PLATAFORMA</div><strong>Una marca. Todas tus conexiones.</strong><p>Tu equipo, su presencia digital y cada interacción en un solo lugar.</p></div>
+</aside>
+<main class="main">
+<div class="demo-bar"><span><strong>Demo pública</strong> · Datos ficticios</span><a href="/conoce-business/">Conoce LinkTap Business ↗</a></div><div class="topbar"><div class="breadcrumbs">LinkTap Business &nbsp;/&nbsp; <b id="crumb">Resumen</b></div><div class="user"><span class="live"><i class="dot"></i> Modo demostración</span><span class="usertext">Administrador</span><span class="avatar">CE</span></div></div>
+
+<section id="overview" class="view">
+<div class="titleline"><div><div class="eyebrow">BIENVENIDO A TU ESPACIO</div><h1>Tu equipo, <span>en un solo lugar.</span></h1><p class="subtitle">Una mirada clara al alcance digital de tu empresa.</p></div><div class="period" role="group" aria-label="Período"><button data-period="7">7 días</button><button data-period="30" class="active">30 días</button><button data-period="90">90 días</button></div></div>
+<div class="stat-grid">
+<div class="card stat"><div class="label">Visitas totales <span class="iconbox">◉</span></div><div id="totalViews" class="number">—</div><div class="note">Aperturas de perfiles</div></div>
+<div class="card stat"><div class="label">Interacciones <span class="iconbox">↗</span></div><div id="totalClicks" class="number">—</div><div class="note">Clics en botones de contacto</div></div>
+<div class="card stat"><div class="label">Perfiles digitales <span class="iconbox">▤</span></div><div id="activeCount" class="number">—</div><div class="note">Perfiles de la empresa · demostración</div></div>
+<div class="card stat"><div class="label">Tasa de interacción <span class="iconbox">◎</span></div><div id="rate" class="number">—</div><div class="note">Clics / visitas · no personas únicas</div></div>
+</div>
+<div class="two-col">
+<div class="card panel"><div class="panel-header"><div><h2>Movimiento de tus perfiles</h2><div class="hint">Visitas registradas durante el período</div></div><span class="pill">VISITAS</span></div><div class="chart"><svg id="lineChart" viewBox="0 0 600 230" preserveAspectRatio="none" role="img" aria-label="Gráfico de visitas por período"></svg></div></div>
+<div class="card panel"><div class="panel-header"><div><h2>¿Dónde hacen clic?</h2><div class="hint">Interacciones por botón</div></div><span class="pill">CLICS</span></div><div id="clickBars"></div></div>
+</div>
+<div class="card panel"><div class="panel-header"><div><h2>Perfiles destacados</h2><div class="hint">Actividad por integrante del equipo</div></div><button class="smallbtn" data-go="profiles">Ver todos ↗</button></div><div class="tablewrap"><table class="table"><thead><tr><th>Trabajador</th><th>Visitas</th><th>Clics</th><th>Perfil</th></tr></thead><tbody id="featuredRows"></tbody></table></div></div>
+</section>
+<section id="profiles" class="view hide">
+<div class="titleline"><div><div class="eyebrow">CONTROL DE EQUIPO</div><h1>Perfiles <span>digitales.</span></h1><p class="subtitle">Consulta tus perfiles y solicita nuevas incorporaciones a LinkTap.</p></div><button class="primary-cta" data-go="requests">＋ Solicitar nuevo perfil</button></div>
+<div class="card panel"><div class="toolbar"><div><h2 id="companyName">Mi empresa</h2><p class="hint">Perfil institucional y perfiles del equipo. Los diseños y datos solo los modifica LinkTap.</p></div><input id="search" type="search" placeholder="Buscar trabajador..." aria-label="Buscar trabajador"></div><div class="profile-sections">
+<div class="profile-group"><div class="profile-group-heading"><div><span class="profile-kicker">01 · IDENTIDAD CORPORATIVA</span><h3>Perfil de la empresa</h3><p>Presentación institucional, contacto y canales principales de tu empresa.</p></div></div>
+<div id="companyProfile" class="company-profile"></div></div>
+<div class="profile-group"><div class="profile-group-heading"><div><span class="profile-kicker">02 · PERSONAS Y CONTACTOS</span><h3>Perfiles del equipo</h3><p>La presentación digital individual de cada integrante.</p></div><span id="teamProfileCount" class="group-count"></span></div>
+<div class="tablewrap"><table class="table"><thead><tr><th>Integrante</th><th>Visitas</th><th>Interacciones</th><th>Perfil</th><th>Acción</th></tr></thead><tbody id="profileRows"></tbody></table></div></div>
+</div></div>
+</section>
+<section id="requests" class="view hide">
+<div class="titleline"><div><div class="eyebrow">CRECE CON LINKTAP</div><h1>Solicitudes <span>comerciales.</span></h1><p class="subtitle">Solicita nuevos perfiles, incorpora sucursales o cuéntanos qué necesita tu empresa. Coordinamos todo por correo.</p></div></div>
+<div class="two-col request-layout"><div class="card panel">
+<div class="panel-header"><div><h2>Cuéntanos qué necesitas</h2><div class="hint">Prueba el flujo con datos ficticios.</div></div><span class="pill">SIMULACIÓN</span></div>
+<form id="profileRequest" class="request-form">
+<label for="requestCompany">Empresa *</label><input id="requestCompany" name="company" maxlength="120" required placeholder="Nombre de tu empresa">
+<label for="requestKind">Tipo de solicitud *</label>
+<select id="requestKind" name="kind" required>
+<option value="perfil">Nuevo perfil digital</option>
+<option value="sucursal">Nueva sucursal</option>
+<option value="otro">Otra solicitud</option>
+</select>
+<fieldset id="requestPersonFields" class="request-fields"><legend>Datos del nuevo integrante</legend>
+<label for="requestName">Nombre y apellido *</label><input id="requestName" name="name" maxlength="120" required placeholder="Nombre del trabajador">
+<label for="requestRole">Cargo *</label><input id="requestRole" name="role" maxlength="120" required placeholder="Ej. Ejecutivo comercial">
+<label for="requestEmail">Correo de contacto</label><input id="requestEmail" type="email" name="email" maxlength="160" placeholder="nombre@empresa.cl">
+<label for="requestPhone">Teléfono</label><input id="requestPhone" type="tel" name="phone" maxlength="40" placeholder="+56 9 ...">
+<label for="requestLinks">Redes sociales o enlaces</label><textarea id="requestLinks" name="links" maxlength="800" rows="2" placeholder="Instagram, WhatsApp, sitio web..."></textarea>
+</fieldset>
+<fieldset id="requestBranchFields" class="request-fields" hidden disabled><legend>Datos de la sucursal</legend>
+<label for="requestBranch">Nombre de la sucursal *</label><input id="requestBranch" name="branch" maxlength="120" required placeholder="Ej. Sucursal Centro">
+<label for="requestAddress">Dirección y ciudad *</label><input id="requestAddress" name="address" maxlength="200" required placeholder="Dirección de la nueva sucursal">
+<label for="requestBranchContact">Teléfono o WhatsApp de la sucursal</label><input id="requestBranchContact" name="branchContact" maxlength="80" placeholder="+56 9 ...">
+<label for="requestBranchHours">Horario de atención</label><input id="requestBranchHours" name="branchHours" maxlength="180" placeholder="Ej. Lunes a viernes, 9:00–18:00">
+<label for="requestBranchLinks">Redes sociales, mapas u otros enlaces</label><textarea id="requestBranchLinks" name="branchLinks" maxlength="800" rows="2" placeholder="Google Maps, Instagram, sitio web..."></textarea>
+</fieldset>
+<fieldset id="requestOtherFields" class="request-fields" hidden disabled><legend>Detalle de tu solicitud</legend>
+<label for="requestSubject">¿Qué necesitas? *</label><input id="requestSubject" name="subject" maxlength="160" required placeholder="Ej. Actualizar enlaces o agregar servicios">
+</fieldset>
+<label for="requestReplyTo">Correo para recibir nuestra respuesta *</label><input id="requestReplyTo" type="email" name="replyTo" maxlength="160" autocomplete="email" required placeholder="contacto@empresa.cl">
+<label for="requestNotes">Comentarios adicionales</label><textarea id="requestNotes" name="notes" maxlength="1200" rows="4" placeholder="Agrega la información que consideres importante"></textarea>
+<p class="request-hint">Usa datos ficticios. Este formulario solo simula la solicitud.</p>
+<button class="primary-cta" type="submit" disabled>Simular solicitud</button>
+</form></div>
+<div class="card panel"><div class="panel-header"><div><h2>Más soluciones para tu empresa</h2><div class="hint">LinkTap crece contigo.</div></div></div>
+<div class="request-steps"><p><b>01</b> Elige si necesitas un nuevo perfil, una sucursal u otra mejora.</p><p><b>02</b> Completa los campos de ejemplo y prueba el botón de solicitud.</p><p><b>03</b> LinkTap confirma el alcance, precio y plazo antes de realizar cualquier cambio.</p></div>
+<div class="request-history"><h3>Atención personalizada</h3><p>Esta vista permite probar el flujo. Para conversar sobre tu empresa, usa el enlace a LinkTap Business.</p></div></div></div>
+</section>
+<p class="foot">LINKTAP BUSINESS · EXPERIENCIA DEMOSTRATIVA · DISEÑADO PARA CRECER CONTIGO</p>
+</main></div><div class="toast" role="status" id="toast"></div>
+<script>
+'use strict';
+const team=[
+{id:0,name:'Empresa Demo',role:'Perfil institucional',institutional:true,active:true,views:[65,264,742],clicks:[20,84,252],public_url:'https://linktap.cl/monteverde/'},
+{id:1,name:'Eduardo Martínez',role:'Gerencia',active:true,views:[89,352,1023],clicks:[28,113,351]},
+{id:2,name:'Camila Torres',role:'Comercial',active:true,views:[136,618,1701],clicks:[62,244,680],public_url:'https://linktap.cl/vicente/'},
+{id:3,name:'Felipe Muñoz',role:'Operaciones',active:false,views:[42,174,523],clicks:[12,51,142]},
+{id:4,name:'Ana Reyes',role:'Ventas',active:true,views:[112,461,1354],clicks:[44,162,497]}
+];
+const companyLabel='Empresa Demo';
+const chartSeries={7:[16,24,19,31,27,37,42],30:[25,31,27,35,43,37,48,44,55,52,64,58],90:[21,26,29,31,37,35,40,46,45,53,56,63]};
+const el=id=>document.getElementById(id),fmt=n=>new Intl.NumberFormat('es-CL').format(n);let period=30,view='overview';
+function idx(){return period===7?0:period===30?1:2}
+function total(type){return team.reduce((a,p)=>a+p[type][idx()],0)}
+function toast(s){const t=el('toast');t.textContent=s;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2800)}
+function drawChart(){const values=chartSeries[period]||[],max=Math.max(10,Math.ceil(Math.max(...values,0)/10)*10);const sx=i=>40+i*(530/Math.max(1,values.length-1));const sy=v=>194-v/max*165;let path=values.map((v,i)=>(i?'L':'M')+sx(i).toFixed(1)+','+sy(v).toFixed(1)).join(' ');let content='<defs><linearGradient id="fillGradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#568df9" stop-opacity=".32"/><stop offset="1" stop-color="#568df9" stop-opacity="0"/></linearGradient></defs>';for(let i=0;i<4;i++){let y=194-i*55;content+='<line class="gridline" x1="40" y1="'+y+'" x2="570" y2="'+y+'"/><text class="axis-label" x="3" y="'+(y+4)+'">'+Math.round(i*max/3)+'</text>'}content+='<path class="line-area" d="'+path+' L570,194 L40,194 Z"/><path class="chart-line" d="'+path+'"/>';values.forEach((v,i)=>{if(i%Math.max(1,Math.floor(values.length/5))===0||i===values.length-1)content+='<circle class="line-dot" cx="'+sx(i)+'" cy="'+sy(v)+'" r="4"/>'});for(let i=0;i<5;i++)content+='<text class="axis-label" x="'+(35+i*133)+'" y="225">'+(i*period/4===0?'Hoy - '+period+'d':'')+'</text>';el('lineChart').innerHTML=content}
+function drawBars(){const t=total('clicks'),ratios=[.44,.27,.18,.11],labels=['WhatsApp','Guardar contacto','Llamadas','Correo'],colors=['#6d9af8','#8eb5fd','#5f90df','#5080d1'];el('clickBars').replaceChildren();labels.forEach((label,i)=>{const n=i===3?t-ratios.slice(0,3).reduce((a,x)=>a+Math.round(t*x),0):Math.round(t*ratios[i]);const row=document.createElement('div');row.className='baritem';const name=document.createElement('span');name.textContent=label;const track=document.createElement('div');track.className='track';const fill=document.createElement('div');fill.className='fill';fill.style.width=(ratios[i]/.44*100)+'%';fill.style.background='linear-gradient(90deg,#366dda,'+colors[i]+')';track.append(fill);const v=document.createElement('span');v.className='val';v.textContent=fmt(n);row.append(name,track,v);el('clickBars').append(row)})}
+function cell(tr,text){const td=document.createElement('td');td.textContent=text;tr.append(td);return td}
+function profileCell(tr,p){const td=document.createElement('td');const wrap=document.createElement('div');wrap.className='person';const avatar=document.createElement('span');avatar.className='personpic';avatar.textContent=p.name.split(' ').map(x=>x[0]).join('');const info=document.createElement('div'),n=document.createElement('div'),r=document.createElement('div');n.className='name';n.textContent=p.name;r.className='role';r.textContent=p.role;info.append(n,r);wrap.append(avatar,info);td.append(wrap);tr.append(td)}
+function makeLink(url,label){
+ const a=document.createElement('a');a.className='profile-link';a.textContent=label;
+ if(typeof url==='string' && /^https:\/\/linktap\.cl\//.test(url)){
+  a.href=url;a.target='_blank';a.rel='noopener noreferrer';
+ }else{const note=document.createElement('span');note.textContent='Solo en demo';note.className='hint';return note;}
+ return a;
+}
+function renderCompanyProfile(p){
+ const host=el('companyProfile');host.replaceChildren();
+ if(!p){
+  const empty=document.createElement('div');empty.className='company-empty';
+  empty.textContent='El perfil institucional aparecerá aquí al conectar la empresa con LinkTap Business.';
+  host.append(empty);return;
+ }
+ const card=document.createElement('div');card.className='institution-card';
+ const ident=document.createElement('div');ident.className='institution-identity';
+ const badge=document.createElement('div');badge.className='institution-icon';badge.textContent='▣';
+ const info=document.createElement('div');const tag=document.createElement('span');tag.className='profile-kicker';tag.textContent='PRESENTACIÓN INSTITUCIONAL';
+ const title=document.createElement('h3');title.textContent=companyLabel==='Mi empresa'&&p.id==='mv-recepcion'?'Clínica Dental Monteverde':companyLabel;
+ const note=document.createElement('p');note.textContent='Recepción, contacto y canales de la empresa';
+ info.append(tag,title,note);ident.append(badge,info);
+ const stats=document.createElement('div');stats.className='institution-stats';
+ for(const [label,num] of [['Visitas',p.views[idx()]],['Clics',p.clicks[idx()]]]){
+  const e=document.createElement('div');const small=document.createElement('span');small.textContent=label;
+  const big=document.createElement('strong');big.textContent=fmt(num);
+  e.append(big,small);stats.append(e);
+ }
+ card.append(ident,stats,makeLink(p.public_url,'Ver perfil institucional ↗'));host.append(card);
+}
+function renderRows(){
+ for(const id of ['featuredRows','profileRows'])el(id).replaceChildren();
+ el('companyName').textContent=companyLabel;
+ const company=team.find(p=>p.institutional===true || p.id==='mv-recepcion');
+ const displayName=companyLabel==='Mi empresa'&&company?.id==='mv-recepcion'?'Clínica Dental Monteverde':companyLabel;
+ el('companyName').textContent=displayName;
+ renderCompanyProfile(company);
+ const people=team.filter(p=>p!==company);
+ el('teamProfileCount').textContent=people.length+' perfiles';
+ const search=el('search').value.toLocaleLowerCase('es-CL').trim();
+ const sorted=[...people].sort((a,b)=>b.views[idx()]-a.views[idx()]);
+ sorted.forEach(p=>{
+  const featured=document.createElement('tr');profileCell(featured,p);
+  cell(featured,fmt(p.views[idx()]));cell(featured,fmt(p.clicks[idx()]));
+  const td=document.createElement('td');td.append(makeLink(p.public_url,'Ver perfil ↗'));featured.append(td);el('featuredRows').append(featured);
+ });
+ people.forEach(p=>{
+  if(!p.name.toLocaleLowerCase('es-CL').includes(search)&&!p.role.toLocaleLowerCase('es-CL').includes(search))return;
+  const tr=document.createElement('tr');profileCell(tr,p);cell(tr,fmt(p.views[idx()]));cell(tr,fmt(p.clicks[idx()]));
+  const profileTd=document.createElement('td');profileTd.textContent='Individual';tr.append(profileTd);
+  const linkTd=document.createElement('td');linkTd.append(makeLink(p.public_url,'Abrir perfil ↗'));tr.append(linkTd);el('profileRows').append(tr);
+ });
+ if(!el('profileRows').children.length){
+  const tr=document.createElement('tr'),td=document.createElement('td');td.colSpan=5;td.className='no-profiles';
+  td.textContent=search?'No hay perfiles que coincidan con la búsqueda.':'Todavía no hay perfiles individuales.';tr.append(td);el('profileRows').append(tr);
+ }
+}
+function render(){el('totalViews').textContent=fmt(total('views'));el('totalClicks').textContent=fmt(total('clicks'));el('activeCount').textContent=team.length;el('rate').textContent=(total('views')?total('clicks')/total('views')*100:0).toFixed(1).replace('.',',')+'%';document.querySelectorAll('[data-period]').forEach(b=>b.classList.toggle('active',Number(b.dataset.period)===period));drawChart();drawBars();renderRows()}
+function switchView(v){view=v;document.querySelectorAll('.view').forEach(x=>x.classList.toggle('hide',x.id!==v));document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===v));el('crumb').textContent={overview:'Resumen',profiles:'Perfiles',requests:'Solicitudes'}[v];scrollTo({top:0,behavior:'smooth'})}
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>switchView(b.dataset.view));document.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>switchView(b.dataset.go));document.querySelectorAll('[data-period]').forEach(b=>b.onclick=()=>{period=Number(b.dataset.period);render()});el('search').addEventListener('input',renderRows);const requestForm=el('profileRequest'),requestKind=el('requestKind');
+if(companyLabel!=='Mi empresa') {const companyInput=el('requestCompany');companyInput.value=companyLabel;companyInput.readOnly=true;companyInput.title='Empresa asociada a tu cuenta LinkTap Business';}
+function updateRequestFields(){
+ const type=requestKind.value;
+ for(const [key,id] of [['perfil','requestPersonFields'],['sucursal','requestBranchFields'],['otro','requestOtherFields']]){
+  const group=el(id),enabled=key===type;group.hidden=!enabled;group.disabled=!enabled;
+ }
+}
+requestKind.addEventListener('change',updateRequestFields);
+updateRequestFields();
+requestForm.querySelector('[type="submit"]').disabled=false;
+requestForm.addEventListener('submit',e=>{
+ e.preventDefault();
+ toast('Solicitud simulada. No se enviaron datos.');
+});render();
+</script></body></html>
 
