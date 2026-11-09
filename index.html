@@ -377,7 +377,6 @@ img,video,svg,canvas{max-width:100%}
 }
 .lt-project-identity{position:relative;display:grid;place-items:center;width:100%;height:100%;min-width:0}
 .lt-project-logo{position:relative;display:block;width:100%;max-width:210px;height:65px;object-fit:contain;filter:drop-shadow(0 6px 9px #172a4920)}
-.lt-project-art:has(img[src*="patagonia_explorer"]) .lt-project-identity{height:auto;padding:6px;border-radius:12px;background:linear-gradient(145deg,#254842,#112d2a)}
 .lt-project-logo[hidden]{display:none}
 .lt-project-sample{
   position:relative;display:grid;align-content:center;gap:3px;width:min(100%,150px);min-height:54px;padding:6px;
@@ -891,7 +890,7 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
     const index = realIndex(current);
     if (index !== current) jump(index);
   }
-  const autoplayDelay = 3600;
+  const autoplayDelay = 2900;
   let autoplayTimer;
   let visible = false;
   let hovered = false;
