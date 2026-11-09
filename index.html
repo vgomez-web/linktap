@@ -358,10 +358,6 @@ img,video,svg,canvas{max-width:100%}
 .lt-project-viewport{max-width:450px;margin-inline:auto}
 .lt-project-list.is-ready.is-jumping li a{transition:none}
 .lt-project-list::-webkit-scrollbar{display:none}
-.lt-project-controls{display:flex;align-items:center;justify-content:center;gap:14px;margin:1px 0 9px}
-.lt-project-controls[hidden]{display:none}
-.lt-project-controls button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
-.lt-project-controls button:focus-visible{outline:2px solid #1677ff;outline-offset:2px}
 .lt-project-list li{position:relative;flex:0 0 100%;min-width:0;scroll-snap-align:center}
 .lt-project-list li:focus-within{z-index:101 !important}
 .lt-project-list.is-ready li a{
@@ -740,10 +736,7 @@ img,video,svg,canvas{max-width:100%}
         <span class="lt-project-caption">Clínica Cosmederm<span aria-hidden="true">↗</span></span>
       </a></li>
     </ul></div>
-    <div class="lt-project-controls" hidden>
-      <button type="button" aria-label="Deslizar al siguiente proyecto" aria-controls="lt-project-gallery">→</button>
-      <button type="button" data-project-autoplay aria-label="Pausar carrusel" aria-controls="lt-project-gallery" hidden>Ⅱ</button>
-    </div>
+
     <div class="lt-project-footer">
       <a class="lt-project-personal" href="/vicente/">Mi perfil · Vicente Gómez <span aria-hidden="true">↗</span></a>
       <details class="lt-project-more"><summary>Ver más proyectos</summary><div class="lt-project-links"><a class="lt-project-link" href="/monteverde/">Monteverde · Recepción ↗</a><a class="lt-project-link" href="/monteverde/alexis/">Monteverde · Vendedores ↗</a><a class="lt-project-link" href="/isidora-montiel/">Isidora Montiel ↗</a><a class="lt-project-link" href="/prueba-leslie/perfil/">Leslie Langenbach ↗</a></div></details>
@@ -845,9 +838,6 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
   const rail = document.getElementById('lt-project-gallery');
   const originals = Array.from(rail.children);
   const viewport = rail.closest('.lt-project-viewport');
-  const controls = viewport.nextElementSibling;
-  const next = controls.querySelector('button');
-  const autoplay = controls.querySelector('[data-project-autoplay]');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const buffer = 2;
   function duplicate(slide) {
@@ -901,10 +891,9 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
     const index = realIndex(current);
     if (index !== current) jump(index);
   }
-  const autoplayDelay = 5200;
+  const autoplayDelay = 3600;
   let autoplayTimer;
   let visible = false;
-  let paused = false;
   let hovered = false;
   function advance() {
     settle();
@@ -912,27 +901,13 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
   }
   function scheduleAutoplay() {
     clearTimeout(autoplayTimer);
-    if (!visible || document.hidden || paused || hovered || reducedMotion.matches ||
+    if (!visible || document.hidden || hovered || reducedMotion.matches ||
         rail.contains(document.activeElement)) return;
     autoplayTimer = setTimeout(() => {
       advance();
       scheduleAutoplay();
     }, autoplayDelay);
   }
-  function updateAutoplayControl() {
-    autoplay.hidden = reducedMotion.matches;
-    autoplay.textContent = paused ? '▷' : 'Ⅱ';
-    autoplay.setAttribute('aria-label', paused ? 'Reanudar carrusel' : 'Pausar carrusel');
-    scheduleAutoplay();
-  }
-  autoplay.addEventListener('click', () => {
-    paused = !paused;
-    updateAutoplayControl();
-  });
-  next.addEventListener('click', () => {
-    advance();
-    scheduleAutoplay();
-  });
   rail.addEventListener('pointerenter', event => {
     if (event.pointerType !== 'mouse') return;
     hovered = true;
@@ -949,14 +924,13 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
   rail.addEventListener('focusin', scheduleAutoplay);
   rail.addEventListener('focusout', () => requestAnimationFrame(scheduleAutoplay));
   document.addEventListener('visibilitychange', scheduleAutoplay);
-  reducedMotion.addEventListener('change', updateAutoplayControl);
+  reducedMotion.addEventListener('change', scheduleAutoplay);
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(([entry]) => {
       visible = entry.intersectionRatio >= .5;
       scheduleAutoplay();
     }, { threshold: .5 });
     observer.observe(viewport);
-    updateAutoplayControl();
   }
   rail.addEventListener('scroll', () => {
     if (!frame) frame = requestAnimationFrame(() => {
@@ -970,6 +944,5 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
   window.addEventListener('resize', () => jump(realIndex(current)));
   jump(buffer);
   rail.classList.add('is-ready');
-  controls.hidden = false;
 })();
 </script></body></html>
