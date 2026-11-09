@@ -742,6 +742,7 @@ img,video,svg,canvas{max-width:100%}
     </ul></div>
     <div class="lt-project-controls" hidden>
       <button type="button" aria-label="Deslizar al siguiente proyecto" aria-controls="lt-project-gallery">→</button>
+      <button type="button" data-project-autoplay aria-label="Pausar carrusel" aria-controls="lt-project-gallery" hidden>Ⅱ</button>
     </div>
     <div class="lt-project-footer">
       <a class="lt-project-personal" href="/vicente/">Mi perfil · Vicente Gómez <span aria-hidden="true">↗</span></a>
@@ -843,8 +844,10 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
 (() => {
   const rail = document.getElementById('lt-project-gallery');
   const originals = Array.from(rail.children);
-  const controls = rail.closest('.lt-project-viewport').nextElementSibling;
+  const viewport = rail.closest('.lt-project-viewport');
+  const controls = viewport.nextElementSibling;
   const next = controls.querySelector('button');
+  const autoplay = controls.querySelector('[data-project-autoplay]');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const buffer = 2;
   function duplicate(slide) {
@@ -898,10 +901,63 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
     const index = realIndex(current);
     if (index !== current) jump(index);
   }
-  next.addEventListener('click', () => {
+  const autoplayDelay = 5200;
+  let autoplayTimer;
+  let visible = false;
+  let paused = false;
+  let hovered = false;
+  function advance() {
     settle();
     rail.scrollBy({ left: delta(slides[current + 1]), behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  }
+  function scheduleAutoplay() {
+    clearTimeout(autoplayTimer);
+    if (!visible || document.hidden || paused || hovered || reducedMotion.matches ||
+        rail.contains(document.activeElement)) return;
+    autoplayTimer = setTimeout(() => {
+      advance();
+      scheduleAutoplay();
+    }, autoplayDelay);
+  }
+  function updateAutoplayControl() {
+    autoplay.hidden = reducedMotion.matches;
+    autoplay.textContent = paused ? '▷' : 'Ⅱ';
+    autoplay.setAttribute('aria-label', paused ? 'Reanudar carrusel' : 'Pausar carrusel');
+    scheduleAutoplay();
+  }
+  autoplay.addEventListener('click', () => {
+    paused = !paused;
+    updateAutoplayControl();
   });
+  next.addEventListener('click', () => {
+    advance();
+    scheduleAutoplay();
+  });
+  rail.addEventListener('pointerenter', event => {
+    if (event.pointerType !== 'mouse') return;
+    hovered = true;
+    scheduleAutoplay();
+  });
+  rail.addEventListener('pointerleave', event => {
+    if (event.pointerType !== 'mouse') return;
+    hovered = false;
+    scheduleAutoplay();
+  });
+  rail.addEventListener('pointerdown', () => clearTimeout(autoplayTimer));
+  rail.addEventListener('pointerup', scheduleAutoplay);
+  rail.addEventListener('pointercancel', scheduleAutoplay);
+  rail.addEventListener('focusin', scheduleAutoplay);
+  rail.addEventListener('focusout', () => requestAnimationFrame(scheduleAutoplay));
+  document.addEventListener('visibilitychange', scheduleAutoplay);
+  reducedMotion.addEventListener('change', updateAutoplayControl);
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.intersectionRatio >= .5;
+      scheduleAutoplay();
+    }, { threshold: .5 });
+    observer.observe(viewport);
+    updateAutoplayControl();
+  }
   rail.addEventListener('scroll', () => {
     if (!frame) frame = requestAnimationFrame(() => {
       frame = 0;
@@ -909,6 +965,7 @@ window.addEventListener('scroll',schedule,{passive:true});window.addEventListene
     });
     clearTimeout(settleTimer);
     settleTimer = setTimeout(settle, 150);
+    scheduleAutoplay();
   }, { passive: true });
   window.addEventListener('resize', () => jump(realIndex(current)));
   jump(buffer);
