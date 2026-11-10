@@ -664,10 +664,39 @@ img,video,svg,canvas{max-width:100%}
 .hero-phone-save{color:white;background:linear-gradient(115deg,#075ad9,#086bea);font-weight:750}
 .hero-phone-row{background:white;border:1px solid #dde7f5;color:#283b57;font-weight:600}
 .hero-phone-row span:last-child{color:#1263d8}
+
+/* Continuidad visual entre la portada y las dos soluciones. */
+#inicio{
+  background-image:radial-gradient(ellipse at 74% 47%,rgba(22,119,255,.12),transparent 57%);
+}
+#inicio .hero-copy .eyebrow{
+  display:inline-block;
+  padding:.5em .85em;
+  border:1px solid #d3e5ff;
+  border-radius:999px;
+  background:linear-gradient(155deg,#fff,rgba(237,246,255,.72));
+  box-shadow:inset 0 1px 0 #fff,0 4px 12px rgba(22,119,255,.08);
+}
+#inicio .hero-offer{color:#263a56}
+#inicio .hero-actions .btn-outline{
+  border-color:#cfe2fb;
+  background:linear-gradient(155deg,rgba(255,255,255,.9),rgba(235,245,255,.62));
+  box-shadow:inset 0 1px 0 #fff,0 6px 18px rgba(25,88,165,.08);
+  backdrop-filter:blur(8px);
+}
+#soluciones .lt-premium-product{
+  border-color:#cfe2fb;
+  box-shadow:inset 0 1px 0 #fff,0 12px 32px rgba(25,88,165,.07);
+}
+@media(max-width:700px){
+  #inicio{
+    background-image:radial-gradient(ellipse at 50% 70%,rgba(22,119,255,.12),transparent 56%);
+  }
+}
 </style></head><body>
 <header class="header"><div class="wrap header-inner"><a href="/" class="logo" aria-label="LinkTap inicio"><img src="/assets/linktap-logo.png" alt="LinkTap" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"><span class="fallback">Link<span>Tap</span></span></a><nav class="nav" id="nav" aria-label="Navegación principal"><a href="#soluciones">Soluciones</a><a href="#proyectos">Ver ejemplos</a><a href="#ejemplos">Demostraciones</a><a href="#preguntas">Preguntas</a><a href="#contacto">Contacto</a><a href="https://www.instagram.com/linktap.cl/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></nav><div class="nav-cta"><a class="btn btn-dark" href="https://linktap.cl/solicitud/">Solicitar tarjeta ↗</a></div><button class="menu-toggle" id="menu" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">☰</button></div></header>
 <main>
-<section class="hero" id="inicio" aria-labelledby="linktap-hero-title"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">Tarjetas NFC y perfiles digitales</div><h1 id="linktap-hero-title">Tu presentación.<br><span>A un tap.</span></h1><p>Comparte tu contacto, tus servicios y tus redes con tarjetas NFC y perfiles digitales para profesionales, negocios y equipos.</p><div class="hero-actions"><a class="btn btn-primary" href="#servicios-linktap">Ver soluciones ↗</a><a class="btn btn-outline" href="#proyectos">Ver ejemplos ↗</a></div></div><div class="hero-art" aria-label="Tarjeta original LinkTap y vista de perfil digital">
+<section class="hero" id="inicio" aria-labelledby="linktap-hero-title"><div class="wrap hero-grid"><div class="hero-copy"><div class="eyebrow">Tarjetas NFC y perfiles digitales</div><h1 id="linktap-hero-title">Tu presentación.<br><span>A un tap.</span></h1><p>Comparte tu contacto, tus servicios y tus redes con <span class="hero-offer">tarjetas NFC y perfiles digitales</span> para profesionales, negocios y equipos.</p><div class="hero-actions"><a class="btn btn-primary" href="#soluciones">Ver soluciones ↗</a><a class="btn btn-outline" href="#proyectos">Ver ejemplos ↗</a></div></div><div class="hero-art" aria-label="Tarjeta original LinkTap y vista de perfil digital">
   <div class="hero-halo" aria-hidden="true"></div>
   <figure class="real-card">
     <img src="/assets/linktap-front.png" alt="Diseño original de la tarjeta NFC LinkTap" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/vgomez-web/linktap/main/assets/linktap-front.png';this.addEventListener('error',()=>this.parentElement.classList.add('asset-missing'),{once:true})">
