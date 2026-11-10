@@ -104,17 +104,20 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 .leslie-photo{width:min(100%,430px);height:clamp(145px,30vw,255px);margin:0 auto 20px;background:radial-gradient(ellipse at 50% 80%,#dfceaa,transparent 70%)}
 .leslie-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
 .agenda-photo{width:min(100%,280px);height:clamp(125px,24vw,185px);background:radial-gradient(ellipse at 50% 80%,#d6a97240,transparent 70%)}
-.testimonials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:32px auto 0;max-width:990px;text-align:left}
-.testimonial{min-width:0;border:1px solid #d9cbbd;border-radius:20px;background:#fffcf8;overflow:hidden}
-.testimonial-feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);align-items:stretch;background:#26373b;color:#faf5f2}
-.testimonial-portrait{display:block;width:100%;height:100%;min-height:0;aspect-ratio:4/3;object-fit:cover;object-position:center 42%}
-.testimonial-copy{padding:clamp(22px,4vw,42px)}
-.testimonial-copy blockquote{margin:14px 0 20px;font:italic 500 clamp(1.4rem,2.5vw,2rem)/1.22 var(--serif);color:inherit}
-.testimonial-feature h3{font-size:clamp(2rem,4vw,3.5rem)}
-.testimonial-feature .eyebrow{color:var(--gold)}
-.testimonial-byline{margin:0;padding-top:12px;border-top:1px solid #a06c4870}
-.testimonial-byline small{display:block;margin-top:3px;font-size:.8rem;line-height:1.5}
-@media(max-width:700px){.testimonials,.testimonial-feature{grid-template-columns:1fr}.testimonial-portrait{height:auto;max-height:310px}.testimonial-copy{padding:22px}}
+.testimonials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px auto 0;max-width:990px;text-align:left}
+.testimonial{min-width:0;padding:12px 14px;border:1px solid #d9cbbd;border-radius:12px;background:#fffcf8}
+.testimonial-byline{display:flex;align-items:center;gap:9px;margin:0;font-size:.875rem;line-height:1.35}
+.testimonial-byline small{display:block;font-size:.75rem;margin-top:2px}
+.testimonial-portrait{width:36px;height:36px;flex:none;border-radius:50%;object-fit:cover;object-position:50% 42%}
+.testimonial-result{margin:7px 0 0;font-size:.875rem;line-height:1.45}
+.review-strip{max-width:650px;margin:14px auto 0;padding-top:8px;border-top:1px solid #d9cbbd;text-align:left}
+.review-strip h3{font-size:.875rem;line-height:1.4;margin:0 0 4px}
+.review-track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain}
+.review-track figure{scroll-snap-align:start;margin:0;padding:0 4px 4px;font-size:.8125rem;line-height:1.4}
+.review-track blockquote{margin:2px 0}
+.review-stars{color:#865531;letter-spacing:.1em}
+.review-track figcaption{font-size:.75rem}
+@media(max-width:700px){.testimonials{grid-template-columns:1fr;gap:7px}.testimonial{padding:10px 12px}}
 
 /* Recorrido del Método ALMA */
 #metodo{background:radial-gradient(ellipse at 82% 10%,#eedcc344,transparent 42%),var(--paper)}
@@ -178,25 +181,27 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 <section id="experiencias" class="center"><div class="wrap">
 <p class="eyebrow">Experiencias reales</p><h2>Profesionales que <em>decidieron avanzar</em></h2>
 <div class="testimonials">
-  <article class="testimonial testimonial-feature">
-    <img class="testimonial-portrait" src="noemi-sanagua.webp" alt="" width="853" height="1280" loading="lazy" decoding="async">
-    <div class="testimonial-copy">
-      <p class="eyebrow">Historia destacada</p>
-      <h3>Dos líneas de negocio y sus primeros clientes</h3>
-      <blockquote>“Tenía la experiencia profesional, pero necesitaba claridad para convertirla en negocios propios.”</blockquote>
-      <p class="testimonial-byline"><strong>Noemí Sanagua</strong><small>Psicóloga y fundadora de MUSA Consultora</small></p>
-    </div>
+  <article class="testimonial">
+    <p class="testimonial-byline"><img class="testimonial-portrait" src="noemi-sanagua.webp" alt="" width="853" height="1280" loading="lazy" decoding="async"><span><strong>Noemí Sanagua</strong><small>Psicóloga y fundadora de MUSA Consultora</small></span></p>
+    <p class="testimonial-result">Activó dos líneas de negocio y consiguió sus primeros clientes.</p>
   </article>
-  <article class="testimonial testimonial-copy">
-    <p class="eyebrow">De la idea al piloto</p>
-    <blockquote>“Aprendí a ordenar mis ideas, convertirlas en acciones concretas y entender que no necesito hacerlo todo perfecto para avanzar.”</blockquote>
-    <p class="testimonial-byline"><strong>Eliana Bastidas</strong><small>Emprendedora · Ordena tu Negocio</small></p>
+  <article class="testimonial">
+    <p class="testimonial-byline"><span><strong>Eliana Bastidas</strong><small>Emprendedora · Ordena tu Negocio</small></span></p>
+    <p class="testimonial-result">Ordenó su propuesta y desarrolló un piloto para empezar a mostrarla.</p>
   </article>
-  <article class="testimonial testimonial-copy">
-    <p class="eyebrow">Claridad para diferenciar su marca</p>
-    <blockquote>“Leslie logra que te sientas acompañada, con cercanía y un feedback muy personalizado.”</blockquote>
-    <p class="testimonial-byline"><strong>Estefanía Ugarte</strong><small>Academia Dharma</small></p>
+  <article class="testimonial">
+    <p class="testimonial-byline"><span><strong>Estefanía Ugarte</strong><small>Academia Dharma</small></span></p>
+    <p class="testimonial-result">Identificó a su clienta ideal y diferenció su marca personal de su academia.</p>
   </article>
+</div>
+<div class="review-strip">
+  <h3 id="resenas-titulo">Reseñas <small>· Desliza para ver más</small></h3>
+  <div class="review-track" role="region" aria-labelledby="resenas-titulo" tabindex="0">
+    <figure><span class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>«Llegué buscando orden y claridad.»</blockquote><figcaption>Eliana Batista · Fundadora de VicProtein</figcaption></figure>
+    <figure><span class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>«Su enfoque cercano y de confianza fue clave en este gran proceso.»</blockquote><figcaption>Estefanía Ugarte · Academia Dharma</figcaption></figure>
+    <figure><span class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>«Salí con mucha más claridad y foco.»</blockquote></figure>
+    <figure><span class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>«Lo más importante fue el cambio de mentalidad.»</blockquote></figure>
+  </div>
 </div></div></section>
 <section class="dark"><div class="wrap split">
 <div class="portrait" id="retrato"><img src="leslie-sin-fondo.webp" alt="Leslie Langenbach" loading="lazy" decoding="async"></div>
