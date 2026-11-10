@@ -6,15 +6,18 @@
 <meta name="robots" content="noindex">
 <title>CÓDIGO | Mentoría con Leslie Langenbach</title>
 <meta name="description" content="Mentoría individual de 12 semanas para crear y lanzar tu primer servicio online con el Método ALMA® y Leslie Langenbach.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap">
 <style>
-:root{--night:#182019;--dark:#202a22;--paper:#f6f2e9;--ink:#252c24;--gold:#ebc998;--green:#3b503d;--line:#dbd4c5;--muted:#556055;--serif:Georgia,'Times New Roman',serif}
+:root{--night:#26373b;--dark:#304348;--paper:#faf5f2;--ink:#27373b;--gold:#d6a972;--green:#506a70;--line:#dbd4c5;--muted:#556055;--serif:'Cormorant Garamond',Georgia,'Times New Roman',serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:86px}
-body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,sans-serif}
-a{color:inherit} button{font:inherit} :focus-visible{outline:3px solid #a46c35;outline-offset:5px}
-header{position:sticky;top:0;z-index:4;background:#182019f5;color:var(--paper);border-bottom:1px solid #ebc99836;backdrop-filter:blur(14px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 'Montserrat',system-ui,sans-serif}
+a{color:inherit} button{font:inherit} :focus-visible{outline:3px solid #a06c48;outline-offset:5px}
+header{position:sticky;top:0;z-index:4;background:#26373bf5;color:var(--paper);border-bottom:1px solid #d6a97236;backdrop-filter:blur(14px)}
 nav{max-width:1200px;margin:auto;padding:13px 24px;display:flex;justify-content:space-between;align-items:center;gap:20px}
-.brand{font:600 1.4rem var(--serif);letter-spacing:.08em;text-decoration:none}.brand small{font:10px system-ui;letter-spacing:.14em;color:var(--gold);display:block;margin-top:4px}
+.brand{font:600 1.4rem var(--serif);letter-spacing:.08em;text-decoration:none}.brand small{font:10px 'Montserrat',system-ui;letter-spacing:.14em;color:var(--gold);display:block;margin-top:4px}
 .nav-links{display:flex;gap:26px;font-size:.85rem}.nav-links a{text-decoration:none}.nav-links a:hover{text-decoration:underline}
 .cta{display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:12px 22px;background:var(--gold);color:#24241c;border-radius:40px;font-size:.85rem;font-weight:750;text-decoration:none;transition:background .2s,transform .2s;text-align:center}
 .cta:hover{background:#f7d9ae;transform:translateY(-2px)} .cta:active{transform:none}
@@ -22,22 +25,22 @@ nav{max-width:1200px;margin:auto;padding:13px 24px;display:flex;justify-content:
 .dark{color:var(--paper);background:var(--night)}.dark p{color:#deded3}
 .hero{position:relative;isolation:isolate;overflow:hidden;text-align:center;padding-top:58px}
 .hero:before,.hero:after{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none}
-.hero:before{background:radial-gradient(ellipse at 50% 38%,#455b3e 0%,transparent 67%),radial-gradient(ellipse at 90% 62%,#3d2f20,transparent 38%)}
+.hero:before{background:radial-gradient(ellipse at 50% 38%,#506a70 0%,transparent 67%),radial-gradient(ellipse at 90% 62%,#3d2f20,transparent 38%)}
 .hero:after{background:linear-gradient(#eac89717 1px,transparent 1px),linear-gradient(90deg,#eac89717 1px,transparent 1px);background-size:70px 70px;mask-image:radial-gradient(ellipse,black,transparent 77%)}
-.seal{display:grid;place-items:center;width:68px;height:68px;margin:0 auto 24px;border:1px solid #ebc99885;border-radius:50%;box-shadow:0 0 28px #ebc99823;color:var(--gold);font:italic 27px var(--serif)}
+.seal{display:grid;place-items:center;width:68px;height:68px;margin:0 auto 24px;border:1px solid #d6a97285;border-radius:50%;box-shadow:0 0 28px #d6a97223;color:var(--gold);font:italic 27px var(--serif)}
 .eyebrow{font-size:.73rem;font-weight:750;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin:0 0 15px}
 .dark .eyebrow{color:var(--gold)}
 h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.06;margin:0}
 h1{font-size:clamp(2.65rem,6.7vw,6.3rem);letter-spacing:-.055em;max-width:970px;margin-inline:auto}
 h2{font-size:clamp(2.25rem,4.9vw,4.65rem);letter-spacing:-.045em}
 h3{font-size:clamp(1.35rem,2.3vw,1.85rem);letter-spacing:-.025em}
-em{color:#526744;font-weight:500}.dark em{color:var(--gold)}
+em{color:#506a70;font-weight:500}.dark em{color:var(--gold)}
 .lead{font-size:clamp(1.03rem,1.9vw,1.3rem);max-width:710px;margin:20px auto 0}
 .meta{display:flex;justify-content:center;flex-wrap:wrap;gap:7px 18px;margin:24px 0 36px;padding:0;list-style:none;color:var(--gold);font-size:.83rem}
 .step{display:flex;justify-content:center;align-items:center;gap:10px;margin:24px 0 12px;font-size:.8rem;letter-spacing:.03em}
 .step b{background:var(--gold);color:var(--night);border-radius:50%;width:28px;height:28px;display:grid;place-items:center}
-.video{margin:0 auto;max-width:830px;aspect-ratio:16/9;display:grid;place-items:center;border:1px solid #ebc99870;border-radius:22px;overflow:hidden;background:radial-gradient(ellipse at 50% 110%,#7a6140,#293b30 54%,#131a15 90%);box-shadow:0 18px 80px #0b100d9c,inset 0 0 60px #e9c39115;position:relative}
-.video:before,.video:after{content:"";position:absolute;pointer-events:none;border:1px solid #ebc99826;border-radius:50%;width:58%;aspect-ratio:1;top:42%;left:21%}.video:after{width:78%;left:11%;top:31%}
+.video{margin:0 auto;max-width:830px;aspect-ratio:16/9;display:grid;place-items:center;border:1px solid #d6a97270;border-radius:22px;overflow:hidden;background:radial-gradient(ellipse at 50% 110%,#7a6140,#304348 54%,#202e32 90%);box-shadow:0 18px 80px #111c209c,inset 0 0 60px #e9c39115;position:relative}
+.video:before,.video:after{content:"";position:absolute;pointer-events:none;border:1px solid #d6a97226;border-radius:50%;width:58%;aspect-ratio:1;top:42%;left:21%}.video:after{width:78%;left:11%;top:31%}
 .video-copy{position:relative;z-index:1;padding:18px}.video-copy strong{font:italic clamp(2.3rem,7vw,5.5rem) var(--serif);display:block;color:var(--gold)}
 .video-copy small{color:#eee4d1}.video iframe,.video video{width:100%;height:100%;border:0;position:absolute;inset:0;z-index:2}
 .micro{font-size:.88rem;max-width:640px;margin:18px auto 0}
@@ -45,7 +48,7 @@ em{color:#526744;font-weight:500}.dark em{color:var(--gold)}
 .split p{margin-top:16px}
 .questions{list-style:none;margin:0;padding:0}.questions li{padding:15px 0;border-bottom:1px solid var(--line);display:flex;gap:14px}.questions li:before{content:"✦";color:#765735}
 .quote-panel{background:#e9e4d7;border-block:1px solid var(--line)}
-.portrait{aspect-ratio:4/5;min-height:260px;border-radius:180px 180px 20px 20px;border:1px solid #ebc99850;display:grid;place-content:center;text-align:center;background:radial-gradient(ellipse at 50% 75%,#506249,#253229 66%);color:var(--gold);overflow:hidden}
+.portrait{aspect-ratio:4/5;min-height:260px;border-radius:180px 180px 20px 20px;border:1px solid #d6a97250;display:grid;place-content:center;text-align:center;background:radial-gradient(ellipse at 50% 75%,#506a70,#304348 66%);color:var(--gold);overflow:hidden}
 .portrait span{font:italic clamp(4rem,12vw,9rem) var(--serif)}.portrait img{display:block;width:100%;height:100%;object-fit:cover}
 .center{text-align:center}.section-lead{max-width:660px;margin:16px auto 34px}
 .alma{display:grid;gap:10px;margin:36px auto 28px;max-width:950px;text-align:left}
@@ -59,36 +62,36 @@ summary small{display:block;color:var(--muted);font-weight:500}
 .answer{padding:0 22px 17px}.answer p{margin:0 0 9px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:32px;text-align:left}
 .card{padding:24px;border:1px solid var(--line);border-radius:16px;background:#fffcf5}.card p{margin:12px 0 0}
-.dark .card{border-color:#ebc99845;background:#263329}
+.dark .card{border-color:#d6a97245;background:#304348}
 .flow{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;padding:0;list-style:none;margin:32px auto}
 .flow li{border:1px solid var(--line);padding:7px 13px;border-radius:40px}
 blockquote{margin:16px 0;color:var(--muted)}
-.card cite{font-style:normal;font-weight:680}.card .stat{font:italic 3.5rem/1 var(--serif);color:#526744;display:block;margin:12px 0}
+.card cite{font-style:normal;font-weight:680}.card .stat{font:italic 3.5rem/1 var(--serif);color:#506a70;display:block;margin:12px 0}
 .faq{max-width:790px;margin:28px auto 0;display:grid;gap:9px;text-align:left}
-#agenda{background:radial-gradient(ellipse at 50% 95%,#364739,var(--night) 68%)}
-.pending{display:inline-flex;border:1px solid #ebc99870;color:var(--gold);border-radius:40px;padding:9px 17px;font-size:.88rem}
-footer{padding:25px;color:#e3e0d3;text-align:center;background:#111912;font-size:.85rem}
+#agenda{background:radial-gradient(ellipse at 50% 95%,#506a70,var(--night) 68%)}
+.pending{display:inline-flex;border:1px solid #d6a97270;color:var(--gold);border-radius:40px;padding:9px 17px;font-size:.88rem}
+footer{padding:25px;color:#e3e0d3;text-align:center;background:#202e32;font-size:.85rem}
 @media(max-width:760px){.split{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.nav-links{display:none}nav{padding-inline:15px;gap:10px}nav .cta{font-size:.72rem;padding:9px 12px}.portrait{width:min(100%,390px);margin:auto;aspect-ratio:1}.wrap{padding-inline:19px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cta{transition:none}.cta:hover{transform:none}}
 
-:root{--night:#101c17;--paper:#faf5e9;--gold:#f3cf8e}
+:root{--night:#26373b;--paper:#faf5f2;--gold:#d6a972}
 section{padding-block:clamp(48px,7vw,86px)}
 .hero{padding-top:clamp(38px,6vw,66px)}
-.hero:before{background:radial-gradient(ellipse at 50% 51%,#557255 0%,transparent 58%),radial-gradient(ellipse at 90% 62%,#695034,transparent 35%)}
+.hero:before{background:radial-gradient(ellipse at 50% 51%,#506a70 0%,transparent 58%),radial-gradient(ellipse at 90% 62%,#a06c48,transparent 35%)}
 h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 .meta{margin:18px 0 24px}
-.cta{background:linear-gradient(120deg,#ffe5ac,#edbc76);box-shadow:0 5px 24px #e9b9753b}
+.cta{background:linear-gradient(120deg,#ffe5ac,#d6a972);box-shadow:0 5px 24px #e9b9753b}
 .hero-cta{margin-top:24px}
-.video{max-width:740px;background:radial-gradient(ellipse at 50% 92%,#9b7845,#405a43 48%,#192921 79%);box-shadow:0 18px 70px #0007,0 0 40px #efc37c35,inset 0 0 55px #f3ce8855}
+.video{max-width:740px;background:radial-gradient(ellipse at 50% 92%,#a06c48,#506a70 48%,#26373b 79%);box-shadow:0 18px 70px #0007,0 0 40px #efc37c35,inset 0 0 55px #f3ce8855}
 .orb{display:grid;place-items:center;margin:0 auto 3px;width:clamp(33px,7vw,72px);aspect-ratio:1;border-radius:50%;color:#ffebc2;background:#fbd69d20;border:1px solid #ffe6ae8a;box-shadow:0 0 34px #ffe6ae70;font-size:clamp(1.2rem,4vw,2.8rem)}
 #experiencias .grid{grid-template-columns:1.25fr 1fr 1fr;align-items:start}
-#experiencias .card:first-child{background:linear-gradient(145deg,#eef2e5,#fffaf0);border-color:#83967c}
+#experiencias .card:first-child{background:linear-gradient(145deg,#e8eeef,#fffaf0);border-color:#8ca0a4}
 .more{margin-top:14px;background:transparent}
 .more summary{padding:8px 12px;font-size:.88rem}
 .more blockquote{padding:0 12px;margin:4px 0 12px}
 .portrait{aspect-ratio:1.22;min-height:0}
-.alma{position:relative;padding-left:17px;border-left:1px solid #899783}
-.alma details{background:linear-gradient(120deg,#eef2e8,#fffaf2 68%)}
+.alma{position:relative;padding-left:17px;border-left:1px solid #8ca0a4}
+.alma details{background:linear-gradient(120deg,#e8eeef,#faf5f2 68%)}
 .stage-result{display:flex;gap:8px;align-items:center;margin-left:auto;font-size:.9rem;font-weight:600;color:var(--green)}
 .stage-result svg{width:24px;height:24px;flex:none;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .alma summary::after{margin-left:0}
@@ -100,7 +103,7 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 .portrait{display:block}
 .leslie-photo{width:min(100%,430px);height:clamp(145px,30vw,255px);margin:0 auto 20px;background:radial-gradient(ellipse at 50% 80%,#dfceaa,transparent 70%)}
 .leslie-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
-.agenda-photo{width:min(100%,280px);height:clamp(125px,24vw,185px);background:radial-gradient(ellipse at 50% 80%,#ebc99840,transparent 70%)}
+.agenda-photo{width:min(100%,280px);height:clamp(125px,24vw,185px);background:radial-gradient(ellipse at 50% 80%,#d6a97240,transparent 70%)}
 </style>
 </head>
 <body>
