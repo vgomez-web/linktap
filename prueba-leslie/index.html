@@ -185,18 +185,35 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 .hero-sparks{position:absolute;inset:0;z-index:-1;pointer-events:none}
 .hero-sparks span{
   position:absolute;left:var(--x);top:var(--y);width:var(--size);height:var(--size);
-  border-radius:50%;background:#fff;box-shadow:0 0 8px 2px #fff8;
-  filter:blur(1px);opacity:.27;
+  border-radius:50%;background:#fff;box-shadow:0 0 9px 2px #fffc,0 0 24px 5px #fff5;
+  filter:blur(.65px);opacity:.33;
 }
+.hero-sparks .flare::before,.hero-sparks .flare::after{
+  content:"";position:absolute;inset:50% auto auto 50%;width:calc(var(--size) * 3.4);height:2px;
+  background:linear-gradient(90deg,transparent,#fff 50%,transparent);
+  transform:translate(-50%,-50%);
+}
+.hero-sparks .flare::after{transform:translate(-50%,-50%) rotate(90deg)}
 @media(prefers-reduced-motion:no-preference){
-  .hero-sparks span{animation:hero-twinkle 3.8s ease-in-out 2 alternate both;animation-delay:var(--delay)}
+  .hero-sparks span{
+    animation:hero-stardrift var(--drift) ease-in-out infinite alternate,
+              hero-twinkle var(--pulse) ease-in-out infinite;
+    animation-delay:var(--delay);
+  }
+}
+@keyframes hero-stardrift{
+  from{translate:0 22px}
+  to{translate:var(--travel) -45px}
 }
 @keyframes hero-twinkle{
-  from{opacity:.17;transform:scale(.75)}
-  to{opacity:.57;transform:scale(1.18)}
+  0%,100%{opacity:.24;scale:.8}
+  38%{opacity:.94;scale:1.4}
+  58%{opacity:.5;scale:1}
+  76%{opacity:.72;scale:1.12}
 }
 @media(max-width:560px){
-  .hero-sparks span{width:calc(var(--size) * .72);height:calc(var(--size) * .72)}
+  .hero-sparks span{--travel:12px !important;width:calc(var(--size) * .8);height:calc(var(--size) * .8)}
+  .hero-sparks span:nth-child(even){--travel:-12px !important}
 }
 </style>
 </head>
@@ -209,16 +226,16 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 <main id="inicio">
 <section class="hero dark">
 <div class="hero-sparks" aria-hidden="true">
-  <span style="--x:8%;--y:13%;--size:7px;--delay:0s"></span>
-  <span style="--x:17%;--y:29%;--size:4px;--delay:-2s"></span>
-  <span style="--x:5%;--y:42%;--size:5px;--delay:-4s"></span>
-  <span style="--x:12%;--y:65%;--size:6px;--delay:-1s"></span>
-  <span style="--x:21%;--y:77%;--size:4px;--delay:-5s"></span>
-  <span style="--x:91%;--y:16%;--size:6px;--delay:-3s"></span>
-  <span style="--x:84%;--y:30%;--size:4px;--delay:-1s"></span>
-  <span style="--x:96%;--y:43%;--size:7px;--delay:-5s"></span>
-  <span style="--x:89%;--y:61%;--size:4px;--delay:-4s"></span>
-  <span style="--x:94%;--y:78%;--size:6px;--delay:-2s"></span>
+  <span class="flare" style="--x:8%;--y:13%;--size:7px;--delay:0s;--travel:22px;--drift:9s;--pulse:4.2s"></span>
+  <span style="--x:17%;--y:29%;--size:4px;--delay:-2s;--travel:27px;--drift:11s;--pulse:5.1000000000000005s"></span>
+  <span style="--x:5%;--y:42%;--size:5px;--delay:-4s;--travel:32px;--drift:13s;--pulse:6s"></span>
+  <span class="flare" style="--x:12%;--y:65%;--size:6px;--delay:-1s;--travel:37px;--drift:15s;--pulse:6.9s"></span>
+  <span style="--x:21%;--y:77%;--size:4px;--delay:-5s;--travel:42px;--drift:17s;--pulse:4.2s"></span>
+  <span class="flare" style="--x:91%;--y:16%;--size:6px;--delay:-3s;--travel:-28px;--drift:9s;--pulse:5.1000000000000005s"></span>
+  <span style="--x:84%;--y:30%;--size:4px;--delay:-1s;--travel:-32px;--drift:11s;--pulse:6s"></span>
+  <span class="flare" style="--x:96%;--y:43%;--size:7px;--delay:-5s;--travel:-36px;--drift:13s;--pulse:6.9s"></span>
+  <span style="--x:89%;--y:61%;--size:4px;--delay:-4s;--travel:-40px;--drift:15s;--pulse:4.2s"></span>
+  <span class="flare" style="--x:94%;--y:78%;--size:6px;--delay:-2s;--travel:-44px;--drift:17s;--pulse:5.1000000000000005s"></span>
 </div>
 <div class="wrap">
 
