@@ -115,6 +115,39 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 .testimonial-byline{margin:0;padding-top:12px;border-top:1px solid #a06c4870}
 .testimonial-byline small{display:block;margin-top:3px;font-size:.8rem;line-height:1.5}
 @media(max-width:700px){.testimonials,.testimonial-feature{grid-template-columns:1fr}.testimonial-portrait{height:auto;max-height:310px}.testimonial-copy{padding:22px}}
+
+/* Recorrido del Método ALMA */
+#metodo{background:radial-gradient(ellipse at 82% 10%,#eedcc344,transparent 42%),var(--paper)}
+.alma-intro{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center;max-width:950px;margin:0 auto 28px;text-align:left}
+.alma-intro h2{font-size:clamp(2.75rem,6vw,5.7rem);text-wrap:balance}
+.alma-intro-copy>p:last-child{max-width:34ch;margin:14px 0 0;color:var(--muted)}
+.alma-portrait{position:relative;isolation:isolate;overflow:hidden;height:clamp(230px,34vw,400px);margin:0;background:radial-gradient(ellipse at 54% 64%,#d6a97264,transparent 68%);mask-image:linear-gradient(#000 86%,transparent 100%)}
+.alma-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center top;transform:scale(1.32);transform-origin:center top}
+#metodo .alma{--letter-width:clamp(64px,11vw,125px);gap:0;margin:0 auto 28px;padding:0 0 0 18px;border:0}
+#metodo .alma::before,#metodo .alma::after{content:"";position:absolute;inset:0 auto 0 0;width:2px;background:#dfcdbd}
+#metodo .alma::after{background:linear-gradient(#ba855c,#916146);transform:scaleY(var(--alma-progress,1));transform-origin:top}
+#metodo .alma details{border:0;border-top:1px solid #dfd2c7;border-radius:0;background:transparent;overflow:visible}
+#metodo .alma details:last-child{border-bottom:1px solid #dfd2c7}
+#metodo .alma summary{display:grid;grid-template-columns:var(--letter-width) minmax(0,1fr) 28px;gap:4px 15px;padding:17px 0;min-height:110px;font-size:clamp(1rem,2.4vw,1.3rem);line-height:1.3}
+#metodo .alma .letter{grid-column:1;grid-row:1/span 2;width:auto;height:auto;background:none;color:var(--night);font:italic 500 clamp(3.6rem,9vw,7rem)/.85 var(--serif)}
+#metodo .alma summary small{margin-top:4px;font-size:.72rem}
+#metodo .stage-result{grid-column:2;grid-row:2;display:block;margin:0;font-size:clamp(.79rem,2vw,1rem);line-height:1.45}
+#metodo .alma summary::after{grid-column:3;grid-row:1/span 2;display:grid;place-items:center;width:28px;height:28px;border:1px solid #bd9270;border-radius:50%;color:#795137;font-size:1rem}
+#metodo .alma .answer{padding:0 28px 17px calc(var(--letter-width) + 15px);font-size:.9rem}
+.alma-outcome{max-width:950px;margin:0 auto 16px;padding:18px clamp(16px,4vw,34px);border-radius:14px;background:linear-gradient(125deg,var(--night),var(--dark));color:var(--paper);text-align:left}
+.alma-outcome .eyebrow{margin:0 0 4px;color:var(--gold)}
+.alma-outcome p:last-child{margin:0;font:600 clamp(1.45rem,3vw,2.3rem)/1.12 var(--serif)}
+@media(max-width:600px){
+  .alma-intro{grid-template-columns:minmax(0,1fr) minmax(0,.74fr);gap:4px;margin-bottom:16px}
+  .alma-intro .eyebrow{font-size:.64rem;letter-spacing:.09em;margin-bottom:9px}
+  .alma-intro h2{font-size:clamp(2.2rem,9vw,3.5rem);line-height:.97}
+  .alma-intro-copy>p:last-child{font-size:.81rem;line-height:1.45;margin-top:10px}
+  .alma-portrait{height:clamp(180px,53vw,240px)}
+  .alma-portrait img{width:135%;left:-17.5%;transform:scale(1.45)}
+  #metodo .alma{--letter-width:44px;padding-left:10px}
+  #metodo .alma summary{gap:3px 9px;padding:12px 0;min-height:88px}
+  #metodo .alma .answer{padding-left:53px}
+}
 </style>
 </head>
 <body>
@@ -170,13 +203,23 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 <div><p class="eyebrow">Soy Leslie Langenbach</p><h2>Mentora estratégica y creadora del <em>Método ALMA®</em></h2><p>Acompaño a profesionales a reconocer el valor de su experiencia, diferenciarse y convertir sus conocimientos en propuestas que puedan comunicar y ofrecer con claridad y seguridad.</p><p>Tú implementas. Yo te acompaño a priorizar, revisar avances y ajustar.</p></div>
 </div></section>
 <section id="metodo" class="center"><div class="wrap"><span id="alma"></span>
-<p class="eyebrow">Cuatro etapas · 12 semanas</p><h2>El <em>Método ALMA®</em></h2><p class="section-lead">De tu experiencia a una oferta que puedas comercializar.</p>
-<figure class="leslie-photo"><img src="leslie-laptop-sin-fondo.webp" alt="Leslie Langenbach trabajando en su computador" loading="lazy" decoding="async"></figure>
+<div class="alma-intro">
+  <div class="alma-intro-copy">
+    <p class="eyebrow">Cuatro etapas · 12 semanas</p>
+    <h2>El Método <em>ALMA®</em></h2>
+    <p>En 12 semanas, define tu servicio, ponle precio y empieza a ofrecerlo.</p>
+  </div>
+  <figure class="alma-portrait"><img src="leslie-laptop-sin-fondo.webp" alt="Leslie Langenbach trabajando en su computador" loading="lazy" decoding="async"></figure>
+</div>
 <div class="alma">
-<details><summary><span class="letter" aria-hidden="true">A</span><span>Autoconocimiento<small>01 · Semanas 1 y 2</small></span><span class="stage-result"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="m15 9-2 4-4 2 2-4z"/></svg>Elige qué ofrecer</span></summary><div class="answer"><p>Ordenamos tu experiencia, fortalezas y formación para definir qué problema puedes ayudar a resolver y para quién.</p><p><strong>Resultado.</strong> Diagnóstico, mapa de oportunidades y primera hipótesis de servicio y clienta ideal.</p></div></details>
-<details><summary><span class="letter" aria-hidden="true">L</span><span>Liderazgo<small>02 · Semanas 3 a 5</small></span><span class="stage-result"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="16" rx="2"/><path d="M8 9h8m-8 4h8m-8 4h4"/></svg>Define el servicio y su precio</span></summary><div class="answer"><p>Damos estructura a tu oferta, con alcance, diferencial, precio y límites. La contrastamos mediante conversaciones exploratorias.</p><p><strong>Resultado.</strong> Una primera versión de tu servicio, lista para presentar.</p></div></details>
-<details><summary><span class="letter" aria-hidden="true">M</span><span>Mensaje<small>03 · Semanas 6 a 8</small></span><span class="stage-result"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a7 7 0 0 1-7 7H5l2-4a7 7 0 1 1 13-3Z"/><path d="M10 11h6"/></svg>Prepara tu mensaje</span></summary><div class="answer"><p>Trabajamos tu propuesta de valor, tu bio y el contenido inicial de Instagram. Abordamos las inseguridades que surjan al mostrarte.</p><p><strong>Resultado.</strong> Kit de comunicación, calendario inicial y primeras publicaciones.</p></div></details>
-<details><summary><span class="letter" aria-hidden="true">A</span><span>Acción<small>04 · Semanas 9 a 12</small></span><span class="stage-result"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19 19 4l-4 14-3-6-6-3 13-5M3 14l3-1m3 8 1-3"/></svg>Lanza y abre conversaciones</span></summary><div class="answer"><p>Lanzas tu servicio y practicas cómo captar interés, iniciar conversaciones, hacer seguimiento y llevar una llamada de venta consultiva.</p><p><strong>Resultado.</strong> Servicio lanzado y presentado, registro de aprendizajes y plan de acción de 30 días.</p></div></details>
+<details><summary><span class="letter" aria-hidden="true">A</span><span>Autoconocimiento<small>01 · Semanas 1 y 2</small></span><span class="stage-result">Elige qué ofrecer y a quién ayudar.</span></summary><div class="answer"><p>Ordenamos tu experiencia, fortalezas y formación para definir qué problema puedes ayudar a resolver y para quién.</p><p><strong>Resultado.</strong> Diagnóstico, mapa de oportunidades y primera hipótesis de servicio y clienta ideal.</p></div></details>
+<details><summary><span class="letter" aria-hidden="true">L</span><span>Liderazgo<small>02 · Semanas 3 a 5</small></span><span class="stage-result">Dale forma a tu servicio y define su precio.</span></summary><div class="answer"><p>Damos estructura a tu oferta, con alcance, diferencial, precio y límites. La contrastamos mediante conversaciones exploratorias.</p><p><strong>Resultado.</strong> Una primera versión de tu servicio, lista para presentar.</p></div></details>
+<details><summary><span class="letter" aria-hidden="true">M</span><span>Mensaje<small>03 · Semanas 6 a 8</small></span><span class="stage-result">Prepara tu mensaje y tus primeros contenidos.</span></summary><div class="answer"><p>Trabajamos tu propuesta de valor, tu bio y el contenido inicial de Instagram. Abordamos las inseguridades que surjan al mostrarte.</p><p><strong>Resultado.</strong> Kit de comunicación, calendario inicial y primeras publicaciones.</p></div></details>
+<details><summary><span class="letter" aria-hidden="true">A</span><span>Acción<small>04 · Semanas 9 a 12</small></span><span class="stage-result">Lanza tu servicio e inicia conversaciones con potenciales clientas.</span></summary><div class="answer"><p>Lanzas tu servicio y practicas cómo captar interés, iniciar conversaciones, hacer seguimiento y llevar una llamada de venta consultiva.</p><p><strong>Resultado.</strong> Servicio lanzado y presentado, registro de aprendizajes y plan de acción de 30 días.</p></div></details>
+</div>
+<div class="alma-outcome">
+  <p class="eyebrow">Al terminar las 12 semanas</p>
+  <p>Tu servicio lanzado, una forma clara de presentarlo y un plan para los próximos 30 días.</p>
 </div>
 <details class="toolkit"><summary>Ver las herramientas incluidas</summary><div class="grid">
 <article class="card"><h3>Mapa de oportunidades</h3><p>Diagnóstico para elegir qué servicio desarrollar primero.</p></article>
@@ -210,5 +253,25 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 </div><a class="cta closing" href="#agenda">Agendar mi Sesión de Claridad</a></div></section>
 </main>
 <footer>CÓDIGO · Mentoría estratégica individual con Leslie Langenbach</footer>
+<script>
+(() => {
+  const route = document.querySelector('#metodo .alma');
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let frame = 0;
+  function draw() {
+    frame = 0;
+    const {top, height} = route.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1, (innerHeight * .68 - top) / height));
+    route.style.setProperty('--alma-progress', progress);
+  }
+  function schedule() {
+    if (!frame) frame = requestAnimationFrame(draw);
+  }
+  addEventListener('scroll', schedule, {passive:true});
+  addEventListener('resize', schedule);
+  route.addEventListener('toggle', schedule, true);
+  draw();
+})();
+</script>
 </body>
 </html>
