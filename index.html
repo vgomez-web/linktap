@@ -402,6 +402,19 @@ img,video,svg,canvas{max-width:100%}
 .lt-project-sample .lt-project-preview-action{border-radius:5px;padding:3px 2px;background:var(--project-ink);color:white;font-size:7px;font-weight:700;text-align:center}
 .lt-project-sample.is-phone{width:min(100%,68px);min-height:99px;padding:13px 4px 5px;grid-template-columns:minmax(0,1fr);overflow:hidden;border:3px solid #26354b;border-radius:13px;background:linear-gradient(160deg,#fff,#eaf1fb)}
 .lt-project-sample.is-phone::before{content:"";position:absolute;top:4px;left:34%;width:32%;height:4px;border-radius:4px;background:#1b283a}
+.lt-project-sample.is-nfc-card{
+  width:min(100%,98px);min-height:0;aspect-ratio:1.586;
+  border-radius:8px;text-align:center;
+}
+@media(max-width:700px){
+  .lt-project-sample.is-comexport-phone{width:min(100%,78px);min-height:108px;padding-inline:3px}
+  .is-comexport-phone .lt-project-preview-action{padding-inline:0;white-space:nowrap}
+  .is-patagonia-phone strong{font-size:8px;white-space:nowrap}
+  .lt-project-art:has(.is-patagonia-phone) .lt-project-identity{
+    height:auto;border-radius:10px;
+    background:radial-gradient(ellipse at center,#205143 12%,#366b5d 48%,transparent 76%);
+  }
+}
 .lt-project-stars{font-size:12px;letter-spacing:1px;color:#936100}
 .lt-project-pins{display:flex;justify-content:space-between;padding:4px;border-radius:5px;background:repeating-linear-gradient(135deg,#e9f3ed 0 10px,#dcece4 10px 12px);font-size:10px}
 .lt-project-caption{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 13px;font-size:clamp(13px,1.8vw,16px);font-weight:700;border-top:1px solid #eaf0f7}
@@ -755,7 +768,7 @@ img,video,svg,canvas{max-width:100%}
       <li><a href="https://linktap.cl/comexport/nicolas-soto/" target="_blank" rel="noopener noreferrer" style="--project-ink:#8f3b13;--project-glow:#ffd8bd">
         <span class="lt-project-art" aria-hidden="true">
           <span class="lt-project-identity"><img class="lt-project-logo" src="https://linktap.cl/vicente/comexport-logo.webp" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
-          <span class="lt-project-sample is-phone"><strong>Perfil ejecutivo</strong><small>Comexport</small><span class="lt-project-preview-action">Guardar contacto</span></span>
+          <span class="lt-project-sample is-phone is-comexport-phone"><strong>Perfil ejecutivo</strong><small>Comexport</small><span class="lt-project-preview-action">Guardar contacto</span></span>
         </span>
         <span class="lt-project-caption">Comexport<span aria-hidden="true">↗</span></span>
       </a></li>
@@ -776,9 +789,9 @@ img,video,svg,canvas{max-width:100%}
       <li><a href="/cosmederm/" target="_blank" rel="noopener noreferrer" style="--project-ink:#74455b;--project-glow:#f3d9e8">
         <span class="lt-project-art" aria-hidden="true">
           <span class="lt-project-identity"><img class="lt-project-logo" src="https://linktap.cl/vicente/cosmedermlogo.png" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
-          <span class="lt-project-sample "><strong>Cosmederm</strong></span>
+          <span class="lt-project-sample is-nfc-card"><strong>Cosmederm</strong></span>
         </span>
-        <span class="lt-project-caption">Clínica Cosmederm<span aria-hidden="true">↗</span></span>
+        <span class="lt-project-caption">Cosmederm<span aria-hidden="true">↗</span></span>
       </a></li>
     </ul></div>
 
