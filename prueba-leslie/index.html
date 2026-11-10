@@ -215,6 +215,13 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
   .hero-sparks span{--travel:12px !important;width:calc(var(--size) * .8);height:calc(var(--size) * .8)}
   .hero-sparks span:nth-child(even){--travel:-12px !important}
 }
+
+.testimonial-portrait.eliana-portrait{object-position:50% 22%}
+.testimonial-portrait.estefania-portrait{object-position:48% 18%}
+.review-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.review-controls:not([hidden]){display:flex;gap:5px}
+.review-controls button{width:32px;height:32px;display:grid;place-items:center;padding:0;border:1px solid #d9cbbd;border-radius:50%;background:#fffcf8;color:var(--night);font-size:1.2rem;line-height:1;cursor:pointer}
+.review-controls button:disabled{opacity:.42;cursor:default}
 </style>
 </head>
 <body>
@@ -260,24 +267,32 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 
 </div></section>
 <section id="experiencias" class="center"><div class="wrap">
-<p class="eyebrow">Experiencias reales</p><h2>Profesionales que <em>decidieron avanzar</em></h2>
+<p class="eyebrow">Experiencias de clientas de Leslie</p><h2>Profesionales que <em>decidieron avanzar</em></h2>
 <div class="testimonials">
   <article class="testimonial">
     <p class="testimonial-byline"><img class="testimonial-portrait" src="noemi-sanagua.webp" alt="" width="853" height="1280" loading="lazy" decoding="async"><span><strong>Noemí Sanagua</strong><small>Psicóloga y fundadora de MUSA Consultora</small></span></p>
     <p class="testimonial-result">Activó dos líneas de negocio y consiguió sus primeros clientes.</p>
   </article>
   <article class="testimonial">
-    <p class="testimonial-byline"><span><strong>Eliana Bastidas</strong><small>Emprendedora · Ordena tu Negocio</small></span></p>
-    <p class="testimonial-result">Ordenó su propuesta y desarrolló un piloto para empezar a mostrarla.</p>
+    <p class="testimonial-byline"><img class="testimonial-portrait eliana-portrait" src="eliana-batista.webp" alt="" width="455" height="659" loading="lazy" decoding="async"><span><strong>Eliana Batista</strong><small>Fundadora de VicProtein</small></span></p>
+    <p class="testimonial-result">Ordenó sus ideas y ganó confianza para convertirlas en acciones concretas.</p>
   </article>
   <article class="testimonial">
-    <p class="testimonial-byline"><span><strong>Estefanía Ugarte</strong><small>Academia Dharma</small></span></p>
-    <p class="testimonial-result">Identificó a su clienta ideal y diferenció su marca personal de su academia.</p>
+    <p class="testimonial-byline"><img class="testimonial-portrait estefania-portrait" src="estefania-ugarte.webp" alt="" width="429" height="506" loading="lazy" decoding="async"><span><strong>Estefanía Ugarte</strong><small>Academia Dharma</small></span></p>
+    <p class="testimonial-result">Identificó a su «cliente estrella» y diferenció su propuesta para personas y empresas.</p>
   </article>
 </div>
 <div class="review-strip">
-  <h3 id="resenas-titulo">Reseñas <small>· Desliza para ver más</small></h3>
-  <div class="review-track" role="region" aria-labelledby="resenas-titulo" tabindex="0">
+  <div class="review-heading">
+    <h3 id="resenas-titulo">En sus propias palabras</h3>
+    <div class="review-controls" hidden>
+      <button type="button" data-step="-1" aria-controls="resenas-lista" aria-label="Cita anterior">‹</button>
+      <button type="button" data-step="1" aria-controls="resenas-lista" aria-label="Cita siguiente">›</button>
+    </div>
+  </div>
+  <div class="review-track" id="resenas-lista" role="region" aria-labelledby="resenas-titulo" tabindex="0">
+    <figure><blockquote>«Hay más orden en mis negocios y en mi mente, y eso se nota en todo».</blockquote><figcaption>Eliana Batista · Fundadora de VicProtein</figcaption></figure>
+    <figure><blockquote>«Hoy me siento mucho más confiada y con mayor claridad».</blockquote><figcaption>Estefanía Ugarte · Academia Dharma · Desde el Alma</figcaption></figure>
     <figure><span class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>«Llegué buscando orden y claridad.»</blockquote><figcaption>Eliana Batista · Fundadora de VicProtein</figcaption></figure>
     <figure><span class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>«Su enfoque cercano y de confianza fue clave en este gran proceso.»</blockquote><figcaption>Estefanía Ugarte · Academia Dharma</figcaption></figure>
     <figure><span class="review-stars" role="img" aria-label="5 de 5 estrellas">★★★★★</span><blockquote>«Salí con mucha más claridad y foco.»</blockquote></figure>
@@ -357,6 +372,27 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
   addEventListener('resize', schedule);
   route.addEventListener('toggle', schedule, true);
   draw();
+})();
+</script>
+<script>
+(() => {
+  const track = document.getElementById('resenas-lista');
+  const controls = document.querySelector('.review-controls');
+  const [prev, next] = controls.querySelectorAll('button');
+  function syncButtons() {
+    prev.disabled = track.scrollLeft < 1;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 1;
+  }
+  controls.addEventListener('click', event => {
+    const button = event.target.closest('[data-step]');
+    if (!button) return;
+    const index = Math.round(track.scrollLeft / track.clientWidth) + Number(button.dataset.step);
+    track.scrollTo({left:index * track.clientWidth, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+  });
+  track.addEventListener('scroll', syncButtons, {passive:true});
+  addEventListener('resize', syncButtons);
+  controls.hidden = false;
+  syncButtons();
 })();
 </script>
 </body>
