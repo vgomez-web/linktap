@@ -104,12 +104,13 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 .leslie-photo{width:min(100%,430px);height:clamp(145px,30vw,255px);margin:0 auto 20px;background:radial-gradient(ellipse at 50% 80%,#dfceaa,transparent 70%)}
 .leslie-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
 .agenda-photo{width:min(100%,440px);height:clamp(205px,57vw,295px);background:radial-gradient(ellipse at 50% 80%,#d6a97240,transparent 70%)}
-.testimonials{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:20px auto 0;max-width:990px;text-align:left}
-.testimonial{min-width:0;padding:12px 14px;border:1px solid #d9cbbd;border-radius:12px;background:#fffcf8}
-.testimonial-byline{display:flex;align-items:center;gap:9px;margin:0;font-size:.875rem;line-height:1.35}
+.testimonials{display:grid;gap:8px;margin:20px auto 0;max-width:650px;text-align:left}
+.testimonial{display:grid;grid-template-columns:clamp(78px,24%,140px) minmax(0,1fr);min-height:112px;min-width:0;border:1px solid #d9cbbd;border-radius:12px;background:#fffcf8;overflow:hidden}
+.testimonial-copy{align-self:center;min-width:0;padding:12px clamp(10px,3vw,20px);overflow-wrap:anywhere}
+.testimonial-byline{margin:0;font-size:.875rem;line-height:1.35}
 .testimonial-byline small{display:block;font-size:.75rem;margin-top:2px}
-.testimonial-portrait{width:36px;height:36px;flex:none;border-radius:50%;object-fit:cover;object-position:50% 42%}
-.testimonial-result{margin:7px 0 0;font-size:.875rem;line-height:1.45}
+.testimonial-portrait{display:block;width:100%;height:100%;min-height:0;object-fit:cover;object-position:50% 32%}
+.testimonial-result{margin:6px 0 0;font-size:.875rem;line-height:1.4}
 .review-strip{max-width:650px;margin:14px auto 0;padding-top:8px;border-top:1px solid #d9cbbd;text-align:left}
 .review-strip h3{font-size:.875rem;line-height:1.4;margin:0 0 4px}
 .review-track{display:grid;grid-auto-flow:column;grid-auto-columns:100%;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-inline:contain}
@@ -117,7 +118,6 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 .review-track blockquote{margin:2px 0}
 .review-stars{color:#865531;letter-spacing:.1em}
 .review-track figcaption{font-size:.75rem}
-@media(max-width:700px){.testimonials{grid-template-columns:1fr;gap:7px}.testimonial{padding:10px 12px}}
 
 /* Recorrido del Método ALMA */
 #metodo{background:radial-gradient(ellipse at 82% 10%,#eedcc344,transparent 42%),var(--paper)}
@@ -271,16 +271,25 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 <p class="eyebrow">Experiencias de clientas de Leslie</p><h2>Profesionales que <em>decidieron avanzar</em></h2>
 <div class="testimonials">
   <article class="testimonial">
-    <p class="testimonial-byline"><img class="testimonial-portrait" src="noemi-sanagua.webp" alt="" width="853" height="1280" loading="lazy" decoding="async"><span><strong>Noemí Sanagua</strong><small>Psicóloga y fundadora de MUSA Consultora</small></span></p>
-    <p class="testimonial-result">Activó dos líneas de negocio y consiguió sus primeros clientes.</p>
+    <img class="testimonial-portrait" src="noemi-sanagua.webp" alt="" width="853" height="1280" loading="lazy" decoding="async">
+    <div class="testimonial-copy">
+      <p class="testimonial-byline"><span><strong>Noemí Sanagua</strong><small>Psicóloga y fundadora de MUSA Consultora</small></span></p>
+      <p class="testimonial-result">Activó dos líneas de negocio y consiguió sus primeros clientes.</p>
+    </div>
   </article>
   <article class="testimonial">
-    <p class="testimonial-byline"><img class="testimonial-portrait eliana-portrait" src="eliana-batista.webp" alt="" width="455" height="659" loading="lazy" decoding="async"><span><strong>Eliana Batista</strong><small>Fundadora de VicProtein</small></span></p>
-    <p class="testimonial-result">Ordenó sus ideas y ganó confianza para convertirlas en acciones concretas.</p>
+    <img class="testimonial-portrait eliana-portrait" src="eliana-batista.webp" alt="" width="455" height="659" loading="lazy" decoding="async">
+    <div class="testimonial-copy">
+      <p class="testimonial-byline"><span><strong>Eliana Batista</strong><small>Fundadora de VicProtein</small></span></p>
+      <p class="testimonial-result">Ordenó sus ideas y ganó confianza para convertirlas en acciones concretas.</p>
+    </div>
   </article>
   <article class="testimonial">
-    <p class="testimonial-byline"><img class="testimonial-portrait estefania-portrait" src="estefania-ugarte.webp" alt="" width="429" height="506" loading="lazy" decoding="async"><span><strong>Estefanía Ugarte</strong><small>Academia Dharma</small></span></p>
-    <p class="testimonial-result">Identificó a su «cliente estrella» y diferenció su propuesta para personas y empresas.</p>
+    <img class="testimonial-portrait estefania-portrait" src="estefania-ugarte.webp" alt="" width="429" height="506" loading="lazy" decoding="async">
+    <div class="testimonial-copy">
+      <p class="testimonial-byline"><span><strong>Estefanía Ugarte</strong><small>Academia Dharma</small></span></p>
+      <p class="testimonial-result">Identificó a su «cliente estrella» y diferenció su propuesta para personas y empresas.</p>
+    </div>
   </article>
 </div>
 <div class="review-strip">
