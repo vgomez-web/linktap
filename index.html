@@ -356,6 +356,19 @@ img,video,svg,canvas{max-width:100%}
   scrollbar-width:none;
 }
 .lt-project-viewport{max-width:450px;margin-inline:auto}
+@media(min-width:1024px){
+  #proyectos .wrap{width:min(calc(100% - 48px),1040px);margin-inline:auto}
+  #proyectos .lt-project-viewport{max-width:none}
+  #proyectos .lt-project-list{--project-slide:40%;gap:16px}
+}
+@media(max-width:700px){
+  #proyectos .lt-project-sample.is-patagonia-phone{
+    width:min(100%,60px);
+    min-height:112px;
+    padding-inline:3px;
+  }
+  #proyectos .lt-project-art:has(.is-patagonia-phone){min-height:140px}
+}
 .lt-project-list.is-ready.is-jumping li a{transition:none}
 .lt-project-list::-webkit-scrollbar{display:none}
 .lt-project-list li{position:relative;flex:0 0 100%;min-width:0;scroll-snap-align:center}
@@ -756,7 +769,7 @@ img,video,svg,canvas{max-width:100%}
       <li><a href="/patagoniaexplorer/" target="_blank" rel="noopener noreferrer" style="--project-ink:#205143;--project-glow:#c8e6dd">
         <span class="lt-project-art" aria-hidden="true">
           <span class="lt-project-identity"><img class="lt-project-logo" src="https://linktap.cl/vicente/patagonia_explorer_logo.webp" alt="" loading="lazy" decoding="async" onerror="this.hidden=true"></span>
-          <span class="lt-project-sample is-phone"><strong>Sucursales</strong><small>Patagonia Explorer</small><span class="lt-project-pins">● <span>●</span></span><span class="lt-project-preview-action">Ver mapa</span></span>
+          <span class="lt-project-sample is-phone is-patagonia-phone"><strong>Sucursales</strong><small>Patagonia Explorer</small><span class="lt-project-pins">● <span>●</span></span><span class="lt-project-preview-action">Ver mapa</span></span>
         </span>
         <span class="lt-project-caption">Patagonia Explorer<span aria-hidden="true">↗</span></span>
       </a></li>
