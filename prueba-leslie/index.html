@@ -104,12 +104,17 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 .leslie-photo{width:min(100%,430px);height:clamp(145px,30vw,255px);margin:0 auto 20px;background:radial-gradient(ellipse at 50% 80%,#dfceaa,transparent 70%)}
 .leslie-photo img{width:100%;height:100%;object-fit:contain;object-position:center bottom}
 .agenda-photo{width:min(100%,280px);height:clamp(125px,24vw,185px);background:radial-gradient(ellipse at 50% 80%,#d6a97240,transparent 70%)}
-.noemi-cover{display:grid;isolation:isolate;position:relative;align-items:end;min-height:240px;aspect-ratio:4/3;margin:-24px -24px 16px;overflow:hidden;border-radius:15px 15px 0 0;background:#26373b}
-.noemi-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%;z-index:-2}
-.noemi-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,#18282b 2%,#18282be8 15%,#18282b52 52%,transparent 68%);z-index:-1}
-.noemi-caption{padding:42px 24px 20px;color:#faf5f2}
-.noemi-caption h3{font-size:clamp(1.9rem,3vw,2.5rem)}
-.noemi-caption p{margin:5px 0 0;color:inherit;font-size:.84rem}
+.testimonials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:32px auto 0;max-width:990px;text-align:left}
+.testimonial{min-width:0;border:1px solid #d9cbbd;border-radius:20px;background:#fffcf8;overflow:hidden}
+.testimonial-feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);align-items:stretch;background:#26373b;color:#faf5f2}
+.testimonial-portrait{display:block;width:100%;height:100%;min-height:0;aspect-ratio:4/3;object-fit:cover;object-position:center 42%}
+.testimonial-copy{padding:clamp(22px,4vw,42px)}
+.testimonial-copy blockquote{margin:14px 0 20px;font:italic 500 clamp(1.4rem,2.5vw,2rem)/1.22 var(--serif);color:inherit}
+.testimonial-feature h3{font-size:clamp(2rem,4vw,3.5rem)}
+.testimonial-feature .eyebrow{color:var(--gold)}
+.testimonial-byline{margin:0;padding-top:12px;border-top:1px solid #a06c4870}
+.testimonial-byline small{display:block;margin-top:3px;font-size:.8rem;line-height:1.5}
+@media(max-width:700px){.testimonials,.testimonial-feature{grid-template-columns:1fr}.testimonial-portrait{height:auto;max-height:310px}.testimonial-copy{padding:22px}}
 </style>
 </head>
 <body>
@@ -139,17 +144,26 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 </div></section>
 <section id="experiencias" class="center"><div class="wrap">
 <p class="eyebrow">Experiencias reales</p><h2>Profesionales que <em>decidieron avanzar</em></h2>
-<div class="grid">
-<article class="card noemi-card">
-<div class="noemi-cover">
-  <img src="noemi-sanagua.webp" alt="" width="853" height="1280" loading="lazy" decoding="async">
-  <div class="noemi-caption">
-    <h3>Noemí Sanagua</h3>
-    <p>Psicóloga y fundadora de MUSA Consultora</p>
-  </div>
-</div><strong class="stat">2</strong><p>Líneas de negocio activadas, con primeros clientes en ambas a través de recomendaciones y contenido orgánico.</p><details class="more"><summary>Leer testimonio</summary><blockquote>“Tenía la experiencia profesional, pero necesitaba claridad para convertirla en negocios propios.”</blockquote></details></article>
-<article class="card"><h3>Eliana Bastidas</h3><p>Emprendedora · Ordena tu Negocio</p><p>Ordenó su propuesta y desarrolló un piloto para empezar a mostrarla.</p><details class="more"><summary>Leer testimonio</summary><blockquote>“Aprendí a ordenar mis ideas, convertirlas en acciones concretas y entender que no necesito hacerlo todo perfecto para avanzar.”</blockquote></details></article>
-<article class="card"><h3>Estefanía Ugarte</h3><p>Academia Dharma</p><p>Identificó a su clienta ideal y diferenció su marca personal de su academia.</p><details class="more"><summary>Leer testimonio</summary><blockquote>“Leslie logra que te sientas acompañada, con cercanía y un feedback muy personalizado.”</blockquote></details></article>
+<div class="testimonials">
+  <article class="testimonial testimonial-feature">
+    <img class="testimonial-portrait" src="noemi-sanagua.webp" alt="" width="853" height="1280" loading="lazy" decoding="async">
+    <div class="testimonial-copy">
+      <p class="eyebrow">Historia destacada</p>
+      <h3>Dos líneas de negocio y sus primeros clientes</h3>
+      <blockquote>“Tenía la experiencia profesional, pero necesitaba claridad para convertirla en negocios propios.”</blockquote>
+      <p class="testimonial-byline"><strong>Noemí Sanagua</strong><small>Psicóloga y fundadora de MUSA Consultora</small></p>
+    </div>
+  </article>
+  <article class="testimonial testimonial-copy">
+    <p class="eyebrow">De la idea al piloto</p>
+    <blockquote>“Aprendí a ordenar mis ideas, convertirlas en acciones concretas y entender que no necesito hacerlo todo perfecto para avanzar.”</blockquote>
+    <p class="testimonial-byline"><strong>Eliana Bastidas</strong><small>Emprendedora · Ordena tu Negocio</small></p>
+  </article>
+  <article class="testimonial testimonial-copy">
+    <p class="eyebrow">Claridad para diferenciar su marca</p>
+    <blockquote>“Leslie logra que te sientas acompañada, con cercanía y un feedback muy personalizado.”</blockquote>
+    <p class="testimonial-byline"><strong>Estefanía Ugarte</strong><small>Academia Dharma</small></p>
+  </article>
 </div></div></section>
 <section class="dark"><div class="wrap split">
 <div class="portrait" id="retrato"><img src="leslie-sin-fondo.webp" alt="Leslie Langenbach" loading="lazy" decoding="async"></div>
