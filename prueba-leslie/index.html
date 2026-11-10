@@ -151,6 +151,36 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
   #metodo .alma summary{gap:3px 9px;padding:12px 0;min-height:88px}
   #metodo .alma .answer{padding-left:53px}
 }
+.hero::before{
+  background:radial-gradient(ellipse 60% 38% at 60% 67%,#a06c4890,transparent 78%),
+             radial-gradient(ellipse 65% 50% at 44% 62%,#506a70b0,transparent 79%);
+  animation:hero-copper-light 18s ease-in-out infinite alternate;
+}
+.hero::after{opacity:.36}
+@keyframes hero-copper-light{
+  from{transform:translate3d(-7%,1%,0)}
+  to{transform:translate3d(9%,-3%,0)}
+}
+@media(prefers-reduced-motion:reduce){.hero::before{animation:none}}
+.hero h1{text-wrap:balance}
+.hero .eyebrow{max-width:55ch;margin-inline:auto;letter-spacing:.1em;text-wrap:balance}
+.hero .lead{margin-top:14px;color:#ede9e3;text-wrap:balance}
+.hero .lead strong{color:#fff8ec;font-weight:650}
+.hero .meta{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(5px,2vw,12px);
+  width:min(100%,540px);margin:20px auto 22px;
+}
+.hero .meta li{
+  display:grid;align-content:center;gap:3px;padding:8px 3px;
+  border:1px solid #d6a97260;border-radius:12px;background:#26373be6;
+  color:#faf5f2;line-height:1.25;font-size:clamp(.75rem,2.5vw,.95rem);
+}
+.hero .meta strong{font:700 clamp(1.15rem,5vw,1.85rem)/1 var(--serif);color:#f5d5a1}
+@media(max-width:560px){
+  .hero{padding-top:30px}
+  .hero h1{font-size:clamp(2.15rem,9.4vw,3.3rem)}
+  .hero .lead{font-size:1rem}
+}
 </style>
 </head>
 <body>
@@ -164,8 +194,12 @@ h1{font-size:clamp(2.65rem,6vw,5.5rem);max-width:860px}
 
 <p class="eyebrow">Para mujeres profesionales de la salud, el bienestar y el desarrollo personal</p>
 <h1>Convierte tu experiencia en tu <em>primer servicio online</em></h1>
-<p class="lead">Una mentoría para profesionales de la salud, el bienestar y el desarrollo personal. Define tu servicio, ponle precio y empieza a ofrecerlo.</p>
-<ul class="meta"><li>Mentoría individual</li><li>12 semanas</li><li>12 sesiones 1:1</li></ul>
+<p class="lead"><strong>Define tu servicio</strong>, ponle precio y empieza a ofrecerlo.</p>
+<ul class="meta" aria-label="Formato de la mentoría">
+  <li><strong>Mentoría</strong><span>individual</span></li>
+  <li><strong>12</strong><span>semanas</span></li>
+  <li><strong>12</strong><span>sesiones 1:1</span></li>
+</ul>
 
 <div class="video" id="vsl">
   <iframe src="https://www.youtube-nocookie.com/embed/oQFoH2AvlXI?start=1"
