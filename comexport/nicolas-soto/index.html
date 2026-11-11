@@ -113,6 +113,10 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
 .service p{font-size:12px}
 @media(max-width:360px){.hero{height:277px}.portrait{flex-basis:91px;width:91px;height:111px}.intro{gap:11px}.eyebrow{font-size:9px;letter-spacing:1px}.quick .tile{width:41px;height:43px}.quick .tile .icon{width:20px;height:20px}}
 @media(min-width:600px){.hero{height:307px;max-height:none}}
+.portrait{--portrait-size:111px;flex-basis:var(--portrait-size);width:var(--portrait-size);height:var(--portrait-size);border-radius:50%}
+.portrait img{transform:translateY(10%) scale(1.65);transform-origin:57% 33%}
+.portrait-note{display:block;margin-top:5px;color:var(--muted);font-size:11px}
+@media(max-width:360px){.portrait{--portrait-size:96px}}
 </style>
 </head>
 <body>
@@ -126,8 +130,8 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
 </header>
 <section class="profile" aria-label="Perfil de Nicolás Soto Jara">
 <div class="intro">
-<div class="portrait" aria-label="Fotografía de Eduardo, pendiente de incorporar"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 16-5 16 0"/></svg><!-- Fotografía pendiente: colocar <img src="../../nicolas-soto.webp" alt="Nicolás Soto Jara"> en este bloque. --></div>
-<div class="intro-copy"><div class="eyebrow">COMEXPORT</div><h1>Nicolás Soto Jara</h1><p class="role">Gerente General</p><span class="tag">GERENCIA</span></div>
+<div class="portrait"><img src="../retrato.webp" alt="Retrato referencial" width="420" height="439"></div>
+<div class="intro-copy"><div class="eyebrow">COMEXPORT</div><h1>Nicolás Soto Jara</h1><p class="role">Gerente General</p><span class="tag">GERENCIA</span><small class="portrait-note">Imagen referencial</small></div>
 </div>
 <nav class="quick" aria-label="Contacto rápido">
 <a href="tel:+56984423751"><span class="tile"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.7L7.1 10a16 16 0 0 0 6.9 6.9l1.6-1.9a2 2 0 0 1 1.7-.6l3 .5a2 2 0 0 1 1.7 2z"/></svg></span>Llamar</a>
