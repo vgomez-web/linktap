@@ -146,6 +146,13 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
   .hero-caption strong{font-size:15px;line-height:1.16;max-width:230px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.4)}
   .profile{margin:-46px 15px 0;position:relative;z-index:3}
 }
+
+/* Puerto libre de textos en móvil: la proa del barco queda visible */
+@media(max-width:600px){
+  .hero-caption{display:none}
+  .hero-image{object-position:48% 50%;transform:none}
+  .hero::after{background:linear-gradient(180deg,rgba(11,18,38,.25) 0%,rgba(11,18,38,.03) 35%,rgba(11,18,38,0) 56%,rgba(245,246,250,.38) 83%,#f5f6fa 100%)}
+}
 </style>
 </head>
 <body>
