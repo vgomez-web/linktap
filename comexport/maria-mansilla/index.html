@@ -126,7 +126,7 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
 </header>
 <section class="profile" aria-label="Perfil de María Mansilla">
 <div class="intro">
-<div class="portrait" aria-label="Fotografía de Eduardo, pendiente de incorporar"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 16-5 16 0"/></svg><!-- Fotografía pendiente: colocar <img src="../../maria-mansilla.webp" alt="María Mansilla"> en este bloque. --></div>
+<div class="portrait" role="img" aria-label="Ícono de perfil de María Mansilla; fotografía no disponible"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 16-5 16 0"/></svg><!-- Fotografía pendiente: colocar <img src="../../maria-mansilla.webp" alt="María Mansilla"> en este bloque. --></div>
 <div class="intro-copy"><div class="eyebrow">COMEXPORT</div><h1>María Mansilla</h1><p class="role">Ejecutiva Comercial</p><span class="tag">COMERCIAL</span></div>
 </div>
 <nav class="quick" aria-label="Contacto rápido">
@@ -168,6 +168,6 @@ function notice(t){const n=document.getElementById('notice');n.textContent=t;n.c
 async function copyText(t){try{await navigator.clipboard.writeText(t);notice("Copiado")}catch(e){const a=document.createElement('textarea');a.value=t;document.body.append(a);a.select();const ok=document.execCommand('copy');a.remove();notice(ok?"Copiado":"No se pudo copiar")}}
 async function shareProfile(){try{if(navigator.share)await navigator.share({title:"María Mansilla | Comexport",url:productionUrl});else await copyText(productionUrl)}catch(e){if(e.name!=="AbortError")notice("No se pudo compartir")}}
 const escapeV=s=>String(s).replace(/\\/g,"\\\\").replace(/\r?\n/g,"\\n").replace(/,/g,"\\,").replace(/;/g,"\\;");
-function saveContact(){const lines=["BEGIN:VCARD","VERSION:3.0","FN:"+escapeV("María Mansilla"),"ORG:"+escapeV("Comexport Forwarder & Logistics"),"TITLE:"+escapeV("Ejecutiva Comercial"),"TEL;TYPE=CELL:+56923869749","EMAIL;TYPE=WORK:mmansilla@comexportchile.com","URL:https://comexportchile.cl/","END:VCARD"];const blob=new Blob([lines.join("\r\n")],{type:"text/vcard;charset=utf-8"});const u=URL.createObjectURL(blob);const a=document.createElement("a");a.href=u;a.download="Eduardo-Ancacoy-Comexport.vcf";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500);notice("Contacto listo para guardar")}
+function saveContact(){const lines=["BEGIN:VCARD","VERSION:3.0","FN:"+escapeV("María Mansilla"),"ORG:"+escapeV("Comexport Forwarder & Logistics"),"TITLE:"+escapeV("Ejecutiva Comercial"),"TEL;TYPE=CELL:+56923869749","EMAIL;TYPE=WORK:mmansilla@comexportchile.com","URL:https://comexportchile.cl/","END:VCARD"];const blob=new Blob([lines.join("\r\n")],{type:"text/vcard;charset=utf-8"});const u=URL.createObjectURL(blob);const a=document.createElement("a");a.href=u;a.download="Maria-Mansilla-Comexport.vcf";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500);notice("Contacto listo para guardar")}
 </script>
 </body></html>
