@@ -117,16 +117,33 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
 .portrait img{transform:translateY(10%) scale(1.65);transform-origin:57% 33%}
 .portrait-note{display:block;margin-top:5px;color:var(--muted);font-size:11px}
 @media(max-width:360px){.portrait{--portrait-size:96px}}
+
+/* Comexport 2026: portada ejecutiva y jerarquía responsive */
+.hero{height:320px;background:#10152a}
+.hero-image{object-position:center 56%;filter:saturate(.94) contrast(1.055)}
+.hero:after{background:linear-gradient(180deg,rgba(12,17,40,.63),rgba(12,17,40,.12) 47%,rgba(12,17,40,.55))}
+.hero-top{top:18px;left:21px;right:21px;align-items:center}
+.brand{width:179px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.33))}
+.share{background:rgba(24,29,56,.4);border:1px solid rgba(255,255,255,.55)}
+.hero-caption{position:absolute;left:23px;right:23px;bottom:46px;z-index:1;color:#fff;display:flex;flex-direction:column;gap:7px;text-shadow:0 2px 14px rgba(0,0,0,.42)}
+.hero-caption span{font-size:10px;letter-spacing:.22em;font-weight:800;color:#fff2e9}
+.hero-caption strong{font:700 clamp(16px,4.3vw,20px)/1.24 Montserrat,"Segoe UI",sans-serif;max-width:320px}
+.profile{margin-top:-27px;box-shadow:0 18px 45px rgba(16,21,42,.14);border:1px solid rgba(226,231,239,.86)}
+.intro-copy h1{font-size:clamp(23px,5.75vw,30px);line-height:1.12}
+.intro-copy .role{color:#4e586d;font-weight:600;font-size:13px}
+@media(max-width:360px){.hero{height:282px}.hero-caption{bottom:39px;left:19px;right:19px}.profile{margin-top:-23px}.hero-caption strong{font-size:16px}}
+@media(min-width:600px){.hero{height:320px}}
 </style>
 </head>
 <body>
 <main class="page">
-<header class="hero">
+<header class="hero" aria-label="Comexport Forwarder & Logistics">
 <img class="hero-image" src="../comexport_puerto_zoom_out.webp" alt="Barco portacontenedores y camión de carga en un puerto logístico" fetchpriority="high">
 <div class="hero-top">
 <a href="https://comexportchile.cl/" target="_blank" rel="noopener noreferrer" aria-label="Sitio de Comexport"><img class="brand" src="../comexport_logo_3.webp" alt="Comexport Forwarder & Logistics"></a>
 <button class="share" type="button" onclick="shareProfile()" aria-label="Compartir perfil"><svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="19" r="2"/><path d="m8 11 8-5m-8 7 8 5"/></svg></button>
 </div>
+<div class="hero-caption"><span>COMEXPORT · LOGÍSTICA INTERNACIONAL</span><strong>Conectamos tu negocio con nuevas oportunidades.</strong></div>
 </header>
 <section class="profile" aria-label="Perfil de Nicolás Soto Jara">
 <div class="intro">
@@ -173,5 +190,31 @@ async function copyText(t){try{await navigator.clipboard.writeText(t);notice("Co
 async function shareProfile(){try{if(navigator.share)await navigator.share({title:"Nicolás Soto Jara | Comexport",url:productionUrl});else await copyText(productionUrl)}catch(e){if(e.name!=="AbortError")notice("No se pudo compartir")}}
 const escapeV=s=>String(s).replace(/\\/g,"\\\\").replace(/\r?\n/g,"\\n").replace(/,/g,"\\,").replace(/;/g,"\\;");
 function saveContact(){const lines=["BEGIN:VCARD","VERSION:3.0","FN:"+escapeV("Nicolás Soto Jara"),"ORG:"+escapeV("Comexport Forwarder & Logistics"),"TITLE:"+escapeV("Gerente General"),"TEL;TYPE=CELL:+56984423751","EMAIL;TYPE=WORK:rsoto@comexportchile.com","URL:https://comexportchile.cl/","END:VCARD"];const blob=new Blob([lines.join("\r\n")],{type:"text/vcard;charset=utf-8"});const u=URL.createObjectURL(blob);const a=document.createElement("a");a.href=u;a.download="Nicolas-Soto-Jara-Comexport.vcf";document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),1500);notice("Contacto listo para guardar")}
+
+/* LinkTap Business: instrumentación preparada; solo registra cuando el perfil
+   esté habilitado por la API privada y la base de datos empresarial. */
+(()=>{
+ const endpoint='https://linktap-business-api.v-gomezsitja.workers.dev';
+ const slug='comexport-nicolas-soto';
+ let enabled=false;
+ const uuid=()=>typeof crypto.randomUUID==='function'?crypto.randomUUID():'';
+ const send=kind=>{
+  if(!enabled)return;
+  const id=uuid();if(!id)return;
+  fetch(endpoint+'/api/business/events',{method:'POST',mode:'cors',headers:{'Content-Type':'application/json'},body:JSON.stringify({id,slug,kind}),keepalive:true}).catch(()=>{});
+ };
+ fetch(endpoint+'/api/business/profile-status?slug='+encodeURIComponent(slug),{mode:'cors',cache:'no-store'})
+  .then(r=>r.ok?r.json():null).then(x=>{if(x?.active===true){enabled=true;send('view')}}).catch(()=>{});
+ document.addEventListener('click',e=>{
+  const target=e.target.closest('a,button');if(!target)return;
+  if(target.matches('button.main-btn'))return send('save_contact');
+  if(!target.matches('a'))return;
+  const href=target.getAttribute('href')||'';
+  if(href.startsWith('https://wa.me/'))send('whatsapp');
+  else if(href.startsWith('tel:'))send('call');
+  else if(href.startsWith('mailto:'))send('email');
+  else if(href.startsWith('https://')&&!href.includes('api.qrserver.com'))send('other_link');
+ },{capture:true});
+})();
 </script>
 </body></html>
