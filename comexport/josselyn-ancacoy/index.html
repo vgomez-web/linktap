@@ -130,50 +130,25 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
 @media(max-width:360px){.hero{height:282px}.hero-caption{bottom:39px;left:19px;right:19px}.profile{margin-top:-23px}.hero-caption strong{font-size:16px}}
 @media(min-width:600px){.hero{height:320px}}
 
-/* Ajuste móvil Comexport: encuadre del puerto, degradado y texto legible */
-@media(max-width:600px){
-  .hero{height:285px;min-height:0;max-height:none;position:relative;overflow:hidden;background:#10152a}
-  .hero-image{object-position:60% 42%;transform:scale(1.04);filter:saturate(.95) contrast(1.04)}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,38,.12) 0%,rgba(11,18,38,.08) 34%,rgba(11,18,38,.35) 58%,rgba(245,246,250,.70) 82%,rgba(245,246,250,.96) 94%,#f5f6fa 100%);pointer-events:none}
-  .hero-top{top:18px;left:18px;right:18px}
-  .brand{width:150px;max-width:64%}
-  .hero-caption{left:18px;right:18px;bottom:78px;z-index:2;max-width:255px;gap:8px}
-  .hero-caption span{display:inline-block;width:max-content;max-width:100%;font-size:9px;letter-spacing:.18em;line-height:1.2;padding:6px 10px;border-radius:999px;background:rgba(11,20,43,.36);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);color:#fff3ea}
-  .hero-caption strong{font-size:15px;line-height:1.16;max-width:230px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.4)}
-  .profile{margin:-46px 15px 0;position:relative;z-index:3}
+/* Portada móvil restaurada a la versión original: desvanecido discreto al pie */
+@media(max-width:599px){
+  .hero{height:320px;min-height:0;max-height:none;aspect-ratio:auto;overflow:hidden}
+  .hero-image{object-position:center 56%;transform:none;filter:saturate(.94) contrast(1.055)}
+  .hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(12,17,40,.24) 0%,rgba(12,17,40,.04) 40%,rgba(12,17,40,.12) 72%,rgba(245,246,250,.18) 89%,rgba(245,246,250,.72) 100%)}
+  .hero-top{top:18px;left:21px;right:21px;align-items:center}
+  .hero-top > a{display:block;max-width:70%;padding:0;background:none;box-shadow:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .hero-top .brand{display:block;width:150px;max-width:100%;height:auto;filter:drop-shadow(0 1px 5px rgba(245,246,250,.35))}
+  .hero-caption{display:flex;left:23px;right:23px;bottom:49px;max-width:none;gap:7px;text-shadow:0 2px 12px rgba(0,0,0,.45)}
+  .hero-caption span{width:auto;max-width:none;padding:0;background:none;backdrop-filter:none;-webkit-backdrop-filter:none;border-radius:0;font-size:10px;letter-spacing:.20em;line-height:1.3;color:#fff2e9}
+  .hero-caption strong{font-size:clamp(16px,4.3vw,20px);max-width:430px;line-height:1.25}
+  .profile{margin:-27px 15px 0;position:relative;z-index:3}
 }
-
-/* Puerto libre de textos en móvil: la proa del barco queda visible */
-@media(max-width:600px){
-  .hero-caption{display:none}
-  .hero-image{object-position:48% 50%;transform:none}
-  .hero::after{background:linear-gradient(180deg,rgba(11,18,38,.25) 0%,rgba(11,18,38,.03) 35%,rgba(11,18,38,0) 56%,rgba(245,246,250,.38) 83%,#f5f6fa 100%)}
-}
-
-/* Ajuste de portada móvil Comexport: barco protagonista y logo legible */
-@media (max-width:600px) {
-  .hero-image {
-    object-position:42% 48%;
-    transform:scale(1.12);
-    transform-origin:35% 45%;
-  }
-  .hero-top > a {
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    max-width:calc(100% - 68px);
-    padding:10px 12px;
-    border-radius:14px;
-    background:rgba(255,255,255,.88);
-    box-shadow:0 5px 20px rgba(9,18,39,.12);
-    -webkit-backdrop-filter:blur(8px);
-    backdrop-filter:blur(8px);
-  }
-  .hero-top .brand {
-    width:165px;
-    max-width:100%;
-    filter:none;
-  }
+@media(max-width:360px){
+  .hero{height:295px}
+  .hero-caption{left:19px;right:19px;bottom:43px}
+  .hero-caption span{font-size:9px}
+  .hero-caption strong{font-size:16px}
 }
 </style>
 </head>
