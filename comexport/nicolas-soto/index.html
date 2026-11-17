@@ -133,6 +133,19 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
 .intro-copy .role{color:#4e586d;font-weight:600;font-size:13px}
 @media(max-width:360px){.hero{height:282px}.hero-caption{bottom:39px;left:19px;right:19px}.profile{margin-top:-23px}.hero-caption strong{font-size:16px}}
 @media(min-width:600px){.hero{height:320px}}
+
+/* Ajuste móvil Comexport: encuadre del puerto, degradado y texto legible */
+@media(max-width:600px){
+  .hero{height:285px;min-height:0;max-height:none;position:relative;overflow:hidden;background:#10152a}
+  .hero-image{object-position:60% 42%;transform:scale(1.04);filter:saturate(.95) contrast(1.04)}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,18,38,.12) 0%,rgba(11,18,38,.08) 34%,rgba(11,18,38,.35) 58%,rgba(245,246,250,.70) 82%,rgba(245,246,250,.96) 94%,#f5f6fa 100%);pointer-events:none}
+  .hero-top{top:18px;left:18px;right:18px}
+  .brand{width:150px;max-width:64%}
+  .hero-caption{left:18px;right:18px;bottom:78px;z-index:2;max-width:255px;gap:8px}
+  .hero-caption span{display:inline-block;width:max-content;max-width:100%;font-size:9px;letter-spacing:.18em;line-height:1.2;padding:6px 10px;border-radius:999px;background:rgba(11,20,43,.36);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);color:#fff3ea}
+  .hero-caption strong{font-size:15px;line-height:1.16;max-width:230px;color:#fff;text-shadow:0 3px 14px rgba(0,0,0,.4)}
+  .profile{margin:-46px 15px 0;position:relative;z-index:3}
+}
 </style>
 </head>
 <body>
