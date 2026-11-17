@@ -153,6 +153,32 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
   .hero-image{object-position:48% 50%;transform:none}
   .hero::after{background:linear-gradient(180deg,rgba(11,18,38,.25) 0%,rgba(11,18,38,.03) 35%,rgba(11,18,38,0) 56%,rgba(245,246,250,.38) 83%,#f5f6fa 100%)}
 }
+
+/* Ajuste de portada móvil Comexport: barco protagonista y logo legible */
+@media (max-width:600px) {
+  .hero-image {
+    object-position:42% 48%;
+    transform:scale(1.12);
+    transform-origin:35% 45%;
+  }
+  .hero-top > a {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    max-width:calc(100% - 68px);
+    padding:10px 12px;
+    border-radius:14px;
+    background:rgba(255,255,255,.88);
+    box-shadow:0 5px 20px rgba(9,18,39,.12);
+    -webkit-backdrop-filter:blur(8px);
+    backdrop-filter:blur(8px);
+  }
+  .hero-top .brand {
+    width:165px;
+    max-width:100%;
+    filter:none;
+  }
+}
 </style>
 </head>
 <body>
