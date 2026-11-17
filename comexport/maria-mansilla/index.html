@@ -150,6 +150,15 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
   .hero-caption span{font-size:9px}
   .hero-caption strong{font-size:16px}
 }
+/* Comexport final: zoom suave del 8% con proa visible */
+@media(max-width:599px){
+  .hero-image{object-position:37% 56%;transform:scale(1.08);transform-origin:35% 52%}
+  .hero::after{background:linear-gradient(180deg,rgba(12,17,40,.24) 0%,rgba(12,17,40,.04) 36%,rgba(12,17,40,.19) 60%,rgba(12,17,40,.38) 79%,rgba(245,246,250,.16) 91%,rgba(245,246,250,.70) 100%)}
+  .hero-caption{bottom:43px}
+}
+@media(max-width:360px){.hero-caption{bottom:39px}}
+/* Comexport final: logo elevado según referencia móvil */
+@media(max-width:599px){.hero-top{top:-18px}}
 </style>
 </head>
 <body>
