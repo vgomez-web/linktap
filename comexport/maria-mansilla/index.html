@@ -159,6 +159,22 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
 @media(max-width:360px){.hero-caption{bottom:39px}}
 /* Comexport final: logo elevado según referencia móvil */
 @media(max-width:599px){.hero-top{top:-18px}}
+
+/* Retratos transparentes: encuadre uniforme, rostro completo y pie integrado. */
+.intro .portrait{
+  flex:0 0 124px;width:124px;height:148px;
+  border:0;border-radius:0;background:transparent;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 90%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 90%,transparent 100%);
+}
+.intro .portrait img{
+  display:block;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:50% 0%;
+  transform:none;filter:drop-shadow(0 3px 5px rgba(27,32,59,.10));
+}
+@media(max-width:360px){
+  .intro .portrait{flex-basis:100px;width:100px;height:124px}
+}
 </style>
 </head>
 <body>
@@ -173,7 +189,7 @@ h1{font-size:clamp(23px,5.7vw,29px);line-height:1.1;letter-spacing:-.75px}
 </header>
 <section class="profile" aria-label="Perfil de María Mansilla">
 <div class="intro">
-<div class="portrait" role="img" aria-label="Ícono de perfil de María Mansilla; fotografía no disponible"><svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-5 16-5 16 0"/></svg><!-- Fotografía pendiente: colocar <img src="../../maria-mansilla.webp" alt="María Mansilla"> en este bloque. --></div>
+<div class="portrait"><img src="../retrato_1_sin_fondo%20(1).webp" alt="María Mansilla" width="1079" height="1079" decoding="async"></div>
 <div class="intro-copy"><div class="eyebrow">COMEXPORT</div><h1>María Mansilla</h1><p class="role">Ejecutiva Comercial</p><span class="tag">COMERCIAL</span></div>
 </div>
 <nav class="quick" aria-label="Contacto rápido">
